@@ -5,6 +5,7 @@ import Logo from "./svg/Logo";
 import Bar from "./svg/Bar";
 import Profile from "./svg/Profile";
 import World from "./svg/World";
+import { AnimatePresence, motion } from "framer-motion";
 import SliderIndex from "./Slider";
 import { categorydata } from "../../data/category";
 
@@ -40,6 +41,52 @@ const data = [
 ];
 
 export default function Header({ type }) {
+  const dropin = {
+    hidden: {
+      top: "110%",
+      opacity: 0,
+      transition: {
+        delay: 0.5,
+      },
+    },
+    visible: {
+      top: "110%",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        type: "spring",
+        damping: 26,
+        stiffness: 600,
+      },
+    },
+    exit: {
+      top: "0%",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  const [drop, setDrop] = useState(false);
+  // dropdown for
+  const Dropdown = () => {
+    return (
+      <motion.ul
+        variants={dropin}
+        initial="hidden"
+        animate="visible"
+        exit={"exit"}
+        className="dropdown shadow flex column"
+      >
+        <li className="fs-14 family1 text-grey">Sign in</li>
+        <li className="fs-14 family1 text-grey">Sign up</li>
+        <li className="fs-14 family1 text-grey">Logout</li>
+        <li className="fs-14 family1 text-grey">Reservations</li>
+        <li className="fs-14 family1 text-grey">Favourites</li>
+        <li className="fs-14 family1 text-grey">Trips</li>
+      </motion.ul>
+    );
+  };
   const HeaderTop = () => {
     return (
       <div className="w-100 headerTop flex w-100 ">
@@ -65,19 +112,21 @@ export default function Header({ type }) {
             <div className="icon1 flex item-center justify-center back-grey">
               <World />
             </div>
-            <div className="center flex shadow item-center gap-1">
+            <div
+              onClick={() => setDrop(!drop)}
+              className="center flex shadow item-center gap-1"
+            >
               <Bar />
               <div className="" style={{ width: "2rem", height: "2rem" }}>
                 <Profile />
               </div>
-              <ul className="dropdown shadow flex column">
-                <li className="fs-14 family1 text-grey">Sign in</li>
-                <li className="fs-14 family1 text-grey">Sign up</li>
-                <li className="fs-14 family1 text-grey">Logout</li>
-                <li className="fs-14 family1 text-grey">Reservations</li>
-                <li className="fs-14 family1 text-grey">Favourites</li>
-                <li className="fs-14 family1 text-grey">Trips</li>
-              </ul>
+              <AnimatePresence
+                initial="false"
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {drop && <Dropdown />}
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -129,7 +178,6 @@ const HeaderWrapper = styled.div`
   background-color: #fff;
   .dropdown {
     position: absolute;
-    top: 110%;
     left: -20%;
     background-color: #fff;
     min-width: 170px;
