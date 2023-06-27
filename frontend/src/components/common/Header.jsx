@@ -76,8 +76,7 @@ export default function Header({ type }) {
                 <li className="fs-14 family1 text-grey">Logout</li>
                 <li className="fs-14 family1 text-grey">Reservations</li>
                 <li className="fs-14 family1 text-grey">Favourites</li>
-                <li className="fs-14 family1 text-grey">Logout</li>
-                <li className="fs-14 family1 text-grey">Logout</li>
+                <li className="fs-14 family1 text-grey">Trips</li>
               </ul>
             </div>
           </div>
