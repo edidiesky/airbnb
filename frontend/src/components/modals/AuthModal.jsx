@@ -96,20 +96,20 @@ export default function AuthModal({ type, click }) {
         initial="hidden"
         animate="visible"
         exit={"exit"}
-        className={"deleteCard family1"}
+        className={"deleteCard family1 shadow"}
       >
         {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
           <RxCross2 />
         </div> */}
         <div className="w-100">
-          <div className="w-100 authTop fs-14 text-dark text-center">
+          <div className="w-100 authTop fs-12 text-extra-bold text-dark text-center">
             Login or Sign up
           </div>
         </div>
         <div className="w-90 authBottom auto flex column gap-1">
           <h3 className="fs-20 text-dark text-bold">Welcome to Airbnb</h3>
           <div className="flex column gap-1">
-            {/* {inputData.map((input) => {
+            {inputData.map((input) => {
               return (
                 <Input
                   id={input.text}
@@ -125,7 +125,7 @@ export default function AuthModal({ type, click }) {
                   errorMessage={input.errorMessage}
                 />
               );
-            })} */}
+            })}
           </div>
           <div className="btn w-100 fs-14 text-white text-center">Reserve</div>
           <div className="option">or</div>
@@ -171,7 +171,9 @@ const DeleteContainer = styled(motion.div)`
   }
   .authBottom {
     position: relative;
+    padding: 0 1rem;
     padding-bottom: 1.6rem;
+
     .option {
       width: 100%;
       position: relative;
@@ -202,7 +204,7 @@ const DeleteContainer = styled(motion.div)`
     }
   }
   .backdrop {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
 
     position: absolute;
     height: 100%;
@@ -210,6 +212,7 @@ const DeleteContainer = styled(motion.div)`
   }
   .authTop {
     padding: 1rem 0;
+    font-size: 14px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   .deleteCard {

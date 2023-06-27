@@ -8,7 +8,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
   };
   return (
     <LabelContainer className="family1" htmlFor={id}>
-      {id}
+      <div className="labelspan">{id}</div>
       <input
         {...props}
         onBlur={handleTouch}
@@ -20,26 +20,31 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
   );
 }
 
-const LabelContainer = styled.div`
+const LabelContainer = styled.label`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   /* gap: 1rem;  */
-  font-size: 1.3rem !important;
+  font-size: 0.8rem !important;
   color: var(--dark-1);
-  font-weight: 700;
-  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  gap: .3rem;
+  /* font-family: "Roboto Condensed", sans-serif; */
   /* font-family: "Montserrat", sans-serif; */
+  .labelspan {
+    padding: 0 1rem;
+  }
 
   input {
     border-radius: 8px;
     background: #fff;
-    padding: 0 2.4rem;
+    padding: 0.7rem 1rem;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.3);
     outline: none;
-    font-size: 1.3rem;
+    font-size: .8rem;
     font-weight: 500;
     transition: all 0.2s;
     font-family: inherit;
