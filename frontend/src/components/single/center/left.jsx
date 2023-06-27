@@ -50,7 +50,7 @@ const LeftCenter = () => {
     <div className="flex column gap-2">
       <h3 className="fs-20 text-dark bottom">
         Camper/RV hosted by Lanzarote Van Campers
-        <span className="block fs-16 text-grey text-light">
+        <span className="block fs-14 text-grey text-light">
           3 guests1 bedroom1 bed1.5 baths
         </span>
       </h3>
@@ -60,7 +60,7 @@ const LeftCenter = () => {
           <Person />
           <span className="text-dark">
             Lanzarote Van Campers is a Superhost
-            <div className="block text-grey fs-16 text-light">
+            <div className="block text-grey fs-14 text-light">
               Superhosts are experienced, highly rated hosts who are committed
               to providing great stays for guests.
             </div>
@@ -70,7 +70,7 @@ const LeftCenter = () => {
           <Location />
           <span className="text-dark">
             Great location
-            <div className="block text-grey fs-16 text-light">
+            <div className="block text-grey fs-14 text-light">
               100% of recent guests gave the location a 5-star rating.
             </div>
           </span>
@@ -81,7 +81,7 @@ const LeftCenter = () => {
         </li>
       </ul>
       {/* description */}
-      <h4 className="fs-18 bottom text-dark text-light">
+      <h4 className="fs-16 bottom text-dark text-light">
         Fully equipped large-volume camper van converted in 2021.
         <br />
         The vehicle, with capacity for 3 people, has a practical distribution:
@@ -104,9 +104,9 @@ const LeftCenter = () => {
           }}
         >
           <Room />
-          <h4 className="text-dark fs-16">
+          <h4 className="text-dark fs-14  ">
             Bedroom
-            <span className="block fs-16 text-grey text-light">1 king bed</span>
+            <span className="block fs-14 text-grey text-light">1 king bed</span>
           </h4>
         </div>
       </div>
@@ -121,7 +121,7 @@ const LeftCenter = () => {
             return (
               <li
                 key={index}
-                className="fs-18 text-dark text-light flex item-center gap-1"
+                className="fs-16 text-dark text-light flex item-center gap-1"
               >
                 {/* <img src={x.image} style={{width:"2.5rem",height:"2.5rem"}} alt="" /> */}
                 {x.image}

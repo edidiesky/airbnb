@@ -25,19 +25,19 @@ const RightCenter = () => {
           </h5>
         </div>
         <div className="flex w-100 column gap-1">
-          <div className="reserveBtn w-100 fs-18 text-white text-center">
+          <div className="reserveBtn w-100 fs-16 text-white text-center">
             Reserve
           </div>
-          <div className="fs-16 text-grey text-light text-center">
+          <div className="fs-14 text-grey text-light text-center">
             You wont be charged yet
           </div>
         </div>
         <div className="flex bottom w-100 column gap-1">
-          <h4 className="fs-18 text-light text-dark w-100 justify-space flex item-center">
+          <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
             <span style={{ textDecoration: "underline" }}>$97 x 5 nights</span>
             <span className="text-dark">$485</span>
           </h4>{" "}
-          <h4 className="fs-18 text-light text-dark w-100 justify-space flex item-center">
+          <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
             <span style={{ textDecoration: "underline" }}>
               Airbnb service fee
             </span>

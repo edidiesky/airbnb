@@ -31,24 +31,24 @@ const BottomIndex = () => {
       <div className="flex wrapper item-start gap-2 w-100">
         <div className="left flex flex-1 column gap-2">
           <div className="flex item-center gap-1">
-            <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+            <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
               <Star /> 2,884 Reviews
             </h5>{" "}
-            <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+            <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
               <Star /> 2,884 Reviews
             </h5>{" "}
-            <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+            <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
               <Star /> 2,884 Reviews
             </h5>
           </div>
-          <h4 className="fs-18 text-grey text-light">
+          <h4 className="fs-16 text-grey text-light">
             I have been working for over 12 years in hospitality industry and
             now i have decided to open a small Eco friendly lodge in the central
             of Ubud where i can welcoming my guest and tr…
           </h4>
-          <h4 className="flex column fs-18 text-dark gap-1">
+          <h4 className="flex column fs-16 text-dark gap-1">
             Mega is a Superhost
-            <span className="block fs-18 text-grey text-light">
+            <span className="block fs-16 text-grey text-light">
               Superhosts are experienced, highly rated hosts who are committed
               to providing great stays for guests.
             </span>
@@ -56,10 +56,10 @@ const BottomIndex = () => {
         </div>
         <div className="right flex flex-1 column gap-2">
           <div className="flex column gap-1">
-            <h5 className="fs-18 flex item-center gap-1 text-dark text-light">
+            <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
               Response rate: 100%
             </h5>{" "}
-            <h5 className="fs-18 flex item-center gap-1 text-dark text-light">
+            <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
               Response Time: 100%
             </h5>{" "}
           </div>

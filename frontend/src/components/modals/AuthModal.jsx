@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 // import {
 //   clearDeleteGigModalAlert,
 //   DeleteGig,
@@ -47,9 +49,6 @@ export default function AuthModal({ type, click }) {
     password: "",
   });
 
-  //   const navigate = useNavigate();
-
-  const { email, password } = formdata;
   const dropin = {
     hidden: {
       y: "-100vh",
@@ -131,14 +130,14 @@ export default function AuthModal({ type, click }) {
           <div className="option">or</div>
 
           <div className="flex column gap-1">
-            <div className="authBtn flex fs-14 text-grey item-center justify-center">
-              Continue with Google{" "}
+            <div className="authBtn flex fs-14 text-grey item-center justify-space">
+              <FcGoogle fontSize={"20px"} />{" "}
+              <div className="w-100 text-center">Continue with Google</div>{" "}
             </div>
+          
             <div className="authBtn flex fs-14 text-grey item-center justify-center">
-              Continue with Facebook{" "}
-            </div>
-            <div className="authBtn flex fs-14 text-grey item-center justify-center">
-              Continue with Github{" "}
+            <FaGithub fontSize={"20px"} />{" "}
+              <div className="w-100 text-center">Continue with Github</div>{" "}
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { HiSearch } from "react-icons/hi";
 import Logo from "./svg/Logo";
+import {Link} from 'react-router-dom'
 import Bar from "./svg/Bar";
 import Profile from "./svg/Profile";
 import World from "./svg/World";
@@ -104,9 +105,9 @@ export default function Header({ type }) {
     return (
       <div className="w-100 headerTop flex w-100 ">
         <div className="w-90 auto flex item-center justify-space gap-2">
-          <div className="flex-1 left">
+          <Link to={'/'} className="flex-1 left">
             <Logo />
-          </div>
+          </Link>
           {/* search */}
           <div className=" item-center justify-center">
             <div className="center shadow flex item-center gap-2">
