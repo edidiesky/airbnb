@@ -60,13 +60,13 @@ export default function Card({ x, index, type }) {
               })}
             </SliderIndex>
             <div className="flex column">
-              <h4 className="fs-16 text-dark family1">{x.title}</h4>
-              <h4 className="fs-16 text-grey family1 text-light">
+              <h4 className="fs-14 text-dark family1">{x.title}</h4>
+              <h4 className="fs-12 text-grey family1 text-light">
                 {x.distance} kilometers away
               </h4>
-              <h4 className="fs-16 text-grey text-light family1">{x.date}</h4>
+              <h4 className="fs-12 text-grey text-light family1">{x.date}</h4>
             </div>
-            <h4 className="fs-16 text-dark family1">${x.price}</h4>
+            <h4 className="fs-14 text-dark family1">${x.price}</h4>
           </div>
         </CardContent>
       )}

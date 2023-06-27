@@ -5,8 +5,14 @@ import { CartSidebar } from "../components/common";
 import Sidebar from "../components/common/Sidebar";
 import Message from "../components/loaders/Message";
 import Footer from "../components/common/Footer";
+import AuthModal from "../components/modals/AuthModal";
+import { useSelector } from "react-redux";
+import { AnimatePresence } from "framer-motion";
 export default function Layout() {
   const [height, setHeight] = useState(0);
+  const {userAlert } = useSelector(
+    (store) => store.user
+  );
 
   useEffect(() => {
     const container = document.querySelector(".layout");
@@ -17,11 +23,19 @@ export default function Layout() {
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
+     
+      <AnimatePresence
+          initial="false"
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {userAlert &&  <AuthModal />}
+        </AnimatePresence>
       {/* <Message/>
       <Sidebar/>
       <Footer /> */}
-      <CartSidebar/>
-      <Footer/>
+      <CartSidebar />
+      <Footer />
     </LayoutContainer>
   );
 }

@@ -50,9 +50,9 @@ export default function Header({ type }) {
           {/* search */}
           <div className=" item-center justify-center">
             <div className="center shadow flex item-center gap-2">
-              <div className="left1 fs-14 family1 text-dark">Anywhere</div>
-              <div className="left1 fs-14 family1 text-dark">Anyweek</div>
-              <div className="flex item-center gap-1 fs-14 family1 text-grey">
+              <div className="left1 fs-12 family1 text-dark">Anywhere</div>
+              <div className="left1 fs-12 family1 text-dark">Anyweek</div>
+              <div className="flex item-center gap-1 fs-12 family1 text-grey">
                 Add guests
                 <div className="icon flex item-center back-red justify-center">
                   <HiSearch color="#fff" fontSize={"18px"} />
@@ -61,7 +61,7 @@ export default function Header({ type }) {
             </div>
           </div>
           <div className="flex-1 right flex item-center gap-1">
-            <h5 className="fs-14 family1 text text-grey">Airbnb your home</h5>
+            <h5 className="fs-12 family1 text text-grey">Airbnb your home</h5>
             <div className="icon1 flex item-center justify-center back-grey">
               <World />
             </div>
@@ -70,6 +70,15 @@ export default function Header({ type }) {
               <div className="" style={{ width: "2rem", height: "2rem" }}>
                 <Profile />
               </div>
+              <ul className="dropdown shadow flex column">
+                <li className="fs-14 family1 text-grey">Sign in</li>
+                <li className="fs-14 family1 text-grey">Sign up</li>
+                <li className="fs-14 family1 text-grey">Logout</li>
+                <li className="fs-14 family1 text-grey">Reservations</li>
+                <li className="fs-14 family1 text-grey">Favourites</li>
+                <li className="fs-14 family1 text-grey">Logout</li>
+                <li className="fs-14 family1 text-grey">Logout</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -81,11 +90,11 @@ export default function Header({ type }) {
       <div className="w-100 HeaderBottom flex w-100 ">
         <div className="w-90 auto flex item-center justify-space gap-2">
           <SliderIndex options={options2}>
-            {categorydata.map((x,index) => {
+            {categorydata.map((x, index) => {
               return (
                 <div
-                  className="flex column family1 imagewrapper item-center fs-12 text-grey"
-                  style={{ width: "5rem", height: "5rem",gap:".5rem" }}
+                  className="flex column family1 imagewrapper item-center fs-10 text-grey"
+                  style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
                   key={index}
                 >
                   <img
@@ -119,6 +128,19 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #fff;
+  .dropdown {
+    position: absolute;
+    top: 110%;
+    left: -20%;
+    background-color: #fff;
+    min-width: 170px;
+    z-index: 2000;
+    border-radius: 8px;
+    li {
+      padding: 0.5rem 2rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    }
+  }
   .imagewrapper {
     position: relative;
     cursor: pointer;
@@ -141,24 +163,25 @@ const HeaderWrapper = styled.div`
       transform: translateX(-50%);
     }
   }
-  .left,.right {
-    @media (max-width:780px) {
+  .left,
+  .right {
+    @media (max-width: 780px) {
       display: none;
     }
   }
   .center {
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       width: 100%;
     }
   }
   .image {
-    filter: brightnbess(100%);
+    filter: brightness(60%);
   }
   .right {
     justify-content: flex-end;
   }
   .HeaderBottom {
-    padding: .4rem 0;
+    padding: 0.4rem 0;
   }
   .text {
     padding: 0.6rem 1rem;
@@ -174,6 +197,7 @@ const HeaderWrapper = styled.div`
   .center {
     padding: 0.4rem 1.6rem;
     border-radius: 40px;
+    position: relative;
   }
   .headerTop {
     padding: 1.5rem 0;
