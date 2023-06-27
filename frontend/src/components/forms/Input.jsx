@@ -7,7 +7,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
     setTouched(true);
   };
   return (
-    <LabelContainer className="family2" htmlFor={id}>
+    <LabelContainer className="family1" htmlFor={id}>
       {id}
       <input
         {...props}
@@ -20,17 +20,17 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
   );
 }
 
-const LabelContainer = styled.label`
+const LabelContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
-  font-size: 1.3rem;
+  /* gap: 1rem;  */
+  font-size: 1.3rem !important;
   color: var(--dark-1);
   font-weight: 700;
-  /* font-family: "Roboto Condensed", sans-serif; */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
 
   input {
     border-radius: 8px;

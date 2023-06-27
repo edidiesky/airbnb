@@ -108,23 +108,25 @@ export default function AuthModal({ type, click }) {
         </div>
         <div className="w-90 authBottom auto flex column gap-1">
           <h3 className="fs-20 text-dark text-bold">Welcome to Airbnb</h3>
-          {inputData.map((input) => {
-            return (
-              <Input
-                id={input.text}
-                onChange={onChange}
-                placeholder={input.placeholder}
-                type={input.type}
-                name={input.name}
-                value={formdata[input.name]}
-                input={input}
-                key={input.id}
-                required={input.required}
-                pattern={input.pattern}
-                errorMessage={input.errorMessage}
-              />
-            );
-          })}
+          <div className="flex column gap-1">
+            {/* {inputData.map((input) => {
+              return (
+                <Input
+                  id={input.text}
+                  onChange={onChange}
+                  placeholder={input.placeholder}
+                  type={input.type}
+                  name={input.name}
+                  value={formdata[input.name]}
+                  input={input}
+                  key={input.id}
+                  required={input.required}
+                  pattern={input.pattern}
+                  errorMessage={input.errorMessage}
+                />
+              );
+            })} */}
+          </div>
           <div className="btn w-100 fs-14 text-white text-center">Reserve</div>
           <div className="option">or</div>
 
