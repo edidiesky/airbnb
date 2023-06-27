@@ -7,7 +7,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
     setTouched(true);
   };
   return (
-    <LabelContainer className="family1" htmlFor={id}>
+    <LabelContainer className="family2" htmlFor={id}>
       {id}
       <input
         {...props}
@@ -26,15 +26,13 @@ const LabelContainer = styled.label`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--dark-1);
   font-weight: 700;
-  text-transform: capitalize;
   /* font-family: "Roboto Condensed", sans-serif; */
   font-family: "Montserrat", sans-serif;
 
   input {
-    height: 5rem;
     border-radius: 8px;
     background: #fff;
     padding: 0 2.4rem;

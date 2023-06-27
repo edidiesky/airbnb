@@ -8,6 +8,7 @@ import Footer from "../components/common/Footer";
 import AuthModal from "../components/modals/AuthModal";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
+
 export default function Layout() {
   const [height, setHeight] = useState(0);
   const { authmodal } = useSelector((store) => store.user);

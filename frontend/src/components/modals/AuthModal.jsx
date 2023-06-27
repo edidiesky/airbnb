@@ -13,8 +13,43 @@ import {
   clearUserAlertError,
   offAuthModal,
 } from "../../Features/user/userSlice";
+import Input from "../forms/Input";
 
 export default function AuthModal({ type, click }) {
+  const inputData = [
+    {
+      id: 1,
+      name: "email",
+      placeholder: "example@site.com",
+      type: "email",
+      text: "Email",
+      errorMessage: "It should be a valid email",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "password",
+      placeholder: "Minimum 8 Characters",
+      type: "password",
+      text: "password",
+      errorMessage:
+        "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
+      required: true,
+    },
+  ];
+
+  const onChange = (e) => {
+    setFormData({ ...formdata, [e.target.name]: e.target.value });
+  };
+
+  const [formdata, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  //   const navigate = useNavigate();
+
+  const { email, password } = formdata;
   const dropin = {
     hidden: {
       y: "-100vh",
@@ -73,6 +108,23 @@ export default function AuthModal({ type, click }) {
         </div>
         <div className="w-90 authBottom auto flex column gap-1">
           <h3 className="fs-20 text-dark text-bold">Welcome to Airbnb</h3>
+          {inputData.map((input) => {
+            return (
+              <Input
+                id={input.text}
+                onChange={onChange}
+                placeholder={input.placeholder}
+                type={input.type}
+                name={input.name}
+                value={formdata[input.name]}
+                input={input}
+                key={input.id}
+                required={input.required}
+                pattern={input.pattern}
+                errorMessage={input.errorMessage}
+              />
+            );
+          })}
           <div className="btn w-100 fs-14 text-white text-center">Reserve</div>
           <div className="option">or</div>
 
