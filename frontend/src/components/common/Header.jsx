@@ -8,6 +8,8 @@ import World from "./svg/World";
 import { AnimatePresence, motion } from "framer-motion";
 import SliderIndex from "./Slider";
 import { categorydata } from "../../data/category";
+import { useDispatch } from "react-redux";
+import { onAuthModal } from "../../Features/user/userSlice";
 
 const options2 = {
   items: 10,
@@ -68,6 +70,7 @@ export default function Header({ type }) {
     },
   };
   const [drop, setDrop] = useState(false);
+  const dispatch = useDispatch();
   // dropdown for
   const Dropdown = () => {
     return (
@@ -78,8 +81,18 @@ export default function Header({ type }) {
         exit={"exit"}
         className="dropdown shadow flex column"
       >
-        <li className="fs-14 family1 text-grey">Sign in</li>
-        <li className="fs-14 family1 text-grey">Sign up</li>
+        <li
+          onClick={() => dispatch(onAuthModal())}
+          className="fs-14 family1 text-grey"
+        >
+          Sign in
+        </li>
+        <li
+          onClick={() => dispatch(onAuthModal())}
+          className="fs-14 family1 text-grey"
+        >
+          Sign up
+        </li>
         <li className="fs-14 family1 text-grey">Logout</li>
         <li className="fs-14 family1 text-grey">Reservations</li>
         <li className="fs-14 family1 text-grey">Favourites</li>
@@ -112,12 +125,13 @@ export default function Header({ type }) {
             <div className="icon1 flex item-center justify-center back-grey">
               <World />
             </div>
-            <div
-              onClick={() => setDrop(!drop)}
-              className="center flex shadow item-center gap-1"
-            >
+            <div className="center flex shadow item-center gap-1">
               <Bar />
-              <div className="" style={{ width: "2rem", height: "2rem" }}>
+              <div
+                onClick={() => setDrop(!drop)}
+                className=""
+                style={{ width: "2rem", height: "2rem" }}
+              >
                 <Profile />
               </div>
               <AnimatePresence

@@ -9,7 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 //   clearUserAlertError,
 // } from "../../../Features";
 import { RxCross2 } from "react-icons/rx";
-import { clearUserAlertError } from "../../Features/user/userSlice";
+import {
+  clearUserAlertError,
+  offAuthModal,
+} from "../../Features/user/userSlice";
 
 export default function AuthModal({ type, click }) {
   const dropin = {
@@ -52,10 +55,7 @@ export default function AuthModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
-      <div
-        className="backdrop"
-        onClick={() => dispatch(clearUserAlertError())}
-      ></div>
+      <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       <motion.div
         variants={dropin}
         initial="hidden"
@@ -78,13 +78,13 @@ export default function AuthModal({ type, click }) {
 
           <div className="flex column gap-1">
             <div className="authBtn flex fs-14 text-grey item-center justify-center">
-              Continue with Google okm{" "}
+              Continue with Google{" "}
             </div>
             <div className="authBtn flex fs-14 text-grey item-center justify-center">
-              Continue with Google okm{" "}
+              Continue with Facebook{" "}
             </div>
             <div className="authBtn flex fs-14 text-grey item-center justify-center">
-              Continue with Google okm{" "}
+              Continue with Github{" "}
             </div>
           </div>
         </div>
@@ -127,9 +127,9 @@ const DeleteContainer = styled(motion.div)`
       color: var(--grey-1);
       &::after {
         width: 45%;
-        height: 1px;
+        height: 0.4px;
         content: "";
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.5);
         left: 0;
         position: absolute;
         top: 50%;
@@ -137,9 +137,9 @@ const DeleteContainer = styled(motion.div)`
       }
       &::before {
         width: 45%;
-        height: 1px;
+        height: 0.4px;
         content: "";
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.5);
         right: 0;
         position: absolute;
         top: 50%;

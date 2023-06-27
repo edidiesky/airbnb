@@ -10,9 +10,7 @@ import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 export default function Layout() {
   const [height, setHeight] = useState(0);
-  const {userAlert } = useSelector(
-    (store) => store.user
-  );
+  const { authmodal } = useSelector((store) => store.user);
 
   useEffect(() => {
     const container = document.querySelector(".layout");
@@ -23,14 +21,14 @@ export default function Layout() {
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
-     
+
       <AnimatePresence
-          initial="false"
-          exitBeforeEnter={true}
-          onExitComplete={() => null}
-        >
-          {userAlert &&  <AuthModal />}
-        </AnimatePresence>
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {authmodal && <AuthModal />}
+      </AnimatePresence>
       {/* <Message/>
       <Sidebar/>
       <Footer /> */}
