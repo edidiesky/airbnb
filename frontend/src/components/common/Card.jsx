@@ -51,16 +51,14 @@ export default function Card({ x, index, type }) {
       ) : (
         <CardContent>
           <div className="w-100 cards flex gap-1 column" key={x?.id}>
-            <SliderIndex options={options2}>
-              {x?.image?.map((x) => {
-                return (
-                  <div className="w-100 card">
-                    <img src={x} alt="" className="w-100" />
-                    <div className="backdrop"></div>
-                  </div>
-                );
-              })}
-            </SliderIndex>
+            {/* {x?.image?.map((x) => {
+              return (
+                <div className="w-100 card">
+                  <img src={x} alt="" className="w-100" />
+                  <div className="backdrop"></div>
+                </div>
+              );
+            })} */}
             <div className="flex column" style={{ gap: ".2rem" }}>
               <h4 className="fs-18 text-dark">{x.title}</h4>
               <div className="flex column">
@@ -109,12 +107,12 @@ const CardContent = styled.div`
   .card {
     min-height: 18rem;
     position: relative;
-    border-radius: 10px;
+    border-radius: 15px;
     width: 100%;
-    &:hover + .owl-nav {
+    /* &:hover + .owl-nav {
       opacity: 1;
       visibility: visible;
-    }
+    } */
     /* overflow: hidden; */
     .icon {
       position: absolute;
@@ -161,108 +159,15 @@ const CardContent = styled.div`
       transition: all 0.4s;
       width: 100%;
       height: 18rem;
-      border-radius: 10px;
+      border-radius: inherit;
     }
     img {
       position: absolute;
       transition: all 0.4s;
       width: 100%;
       height: 100%;
-      border-radius: 10px;
+      border-radius: inherit;
       object-fit: cover;
-    }
-  }
-  .owl-dots {
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-    z-index: 30010;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.6rem;
-    button.owl-dot {
-      width: 0.3rem;
-      height: 0.3rem;
-      border-radius: 50%;
-      background-color: var(--grey-2) !important;
-      border: none !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      &.active {
-        background: #777;
-      }
-      span {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-  .owl-nav {
-    position: absolute;
-    top: 40%;
-    width: 100%;
-    z-index: 10;
-    background-color: #fff;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    &.disabled {
-      display: none;
-    }
-    button.owl-next {
-      background-color: #fff;
-      border-radius: 50%;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px !important;
-      height: 30px !important;
-      position: absolute;
-      border-radius: 50%;
-      transition: all 0.4s;
-      font-size: 15px !important;
-      color: #777;
-      &.disabled {
-        display: none;
-      }
-      &:hover {
-        background-color: #fff;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-        color: #777;
-      }
-    }
-    button.owl-prev {
-      background-color: #fff;
-      border-radius: 50%;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px !important;
-      height: 30px !important;
-      position: absolute;
-      border-radius: 50%;
-      transition: all 0.4s;
-      color: #777;
-      font-size: 15px !important;
-      &.disabled {
-        display: none;
-      }
-      &:hover {
-        background-color: #fff;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-        color: #777;
-      }
-    }
-    button.owl-prev {
-      left: 5% !important;
-    }
-    button.owl-next {
-      right: 5% !important;
     }
   }
 `;
