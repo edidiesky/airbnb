@@ -104,30 +104,40 @@ export default function Header({ type }) {
   const HeaderTop = () => {
     return (
       <div className="w-100 headerTop flex w-100 ">
-        <div className="w-90 auto flex item-center justify-space gap-2">
+        <div
+          className={
+            type
+              ? "w-85 auto flex item-center justify-space gap-2 "
+              : "w-90 auto flex item-center justify-space gap-2"
+          }
+        >
           <Link to={"/"} className="flex-1 left">
             <Logo />
           </Link>
           {/* search */}
-          <div className="flex flex-1 item-center justify-end">
-            <div className="center shadow flex item-center gap-1">
-              <div className="fs-14 family1 text-grey text-bold">Anywhere</div>
-              <div className="left1 fs-14 family1 text-grey text-bold">
-                Anyweek
-              </div>
-              <div
-                style={{ gap: ".4rem" }}
-                className="flex item-center justify-center fs-14 family1 text-grey text-light"
-              >
-                Add guests
-                <div className="icon flex item-center back-red justify-center">
-                  <HiSearch color="#fff" fontSize={"18px"} />
+          {!type && (
+            <div className="flex flex-1 item-center justify-end">
+              <div className="center shadow flex item-center gap-1">
+                <div className="fs-14 text-grey text-bold">
+                  Anywhere
+                </div>
+                <div className="left1 fs-14 text-grey text-bold">
+                  Anyweek
+                </div>
+                <div
+                  style={{ gap: ".4rem" }}
+                  className="flex item-center justify-center fs-14 text-grey text-light"
+                >
+                  Add guests
+                  <div className="icon flex item-center back-red justify-center">
+                    <HiSearch color="#fff" fontSize={"18px"} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
           <div className="flex-1 right flex item-center gap-1">
-            <h5 className="fs-16 text-light family1 text text-grey">
+            <h5 className="fs-16 text-light text text-grey">
               Airbnb your home
             </h5>
             <div
@@ -162,7 +172,7 @@ export default function Header({ type }) {
             {categorydata.map((x, index) => {
               return (
                 <div
-                  className="flex column family1 imagewrapper item-center fs-10 text-grey"
+                  className="flex column imagewrapper item-center fs-10 text-grey"
                   style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
                   key={index}
                 >
@@ -185,7 +195,7 @@ export default function Header({ type }) {
   return (
     <HeaderWrapper>
       <HeaderTop />
-      <HeaderBottom />
+      {!type && <HeaderBottom />}
     </HeaderWrapper>
   );
 }

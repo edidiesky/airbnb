@@ -22,7 +22,7 @@ export default function Layout() {
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
-
+     
       <AnimatePresence
         initial="false"
         exitBeforeEnter={true}

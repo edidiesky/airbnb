@@ -9,6 +9,7 @@ import {
   // Login,
   // Register,
   ProtectRoute,
+  Wish
 } from "./screens";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <Route path={"/"} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/:id" element={<Single />} />
+          <Route path="/wishlists" element={<Wish />} />
         </Route>
       </Routes>
     </div>
