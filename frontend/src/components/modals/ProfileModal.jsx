@@ -84,7 +84,7 @@ export default function ProfileModal({ type, click }) {
         </div> */}
         <div className="w-100">
           <div className="w-85 auto authTop">
-            <RxCross2 />
+            <RxCross2 onClick={() => dispatch(offProfileModal())} />
           </div>
         </div>
         {/* center */}
