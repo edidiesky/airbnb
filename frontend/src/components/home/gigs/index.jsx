@@ -11,7 +11,7 @@ export default function GigsIndex() {
   // const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
   return (
     <GigsIndexContainer>
-      <div className="w-90 auto flex column gap-2">
+      <div className="w-90 auto flex column">
         <div className="w-100 Heades flex item-start justify-space">
           {/* <Head text={"Recently Viewed & More"} /> */}
         </div>

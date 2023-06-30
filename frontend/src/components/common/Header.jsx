@@ -105,15 +105,20 @@ export default function Header({ type }) {
     return (
       <div className="w-100 headerTop flex w-100 ">
         <div className="w-90 auto flex item-center justify-space gap-2">
-          <Link to={"/"} className=" left">
+          <Link to={"/"} className="flex-1 left">
             <Logo />
           </Link>
           {/* search */}
-          <div className="flex flex-1 item-center justify-center">
-            <div className="center shadow flex item-center gap-2">
-              <div className="left1 fs-12 family1 text-dark">Anywhere</div>
-              <div className="left1 fs-12 family1 text-dark">Anyweek</div>
-              <div className="flex item-center gap-1 fs-12 family1 text-grey">
+          <div className="flex flex-1 item-center justify-end">
+            <div className="center shadow flex item-center gap-1">
+              <div className="fs-14 family1 text-grey text-bold">Anywhere</div>
+              <div className="left1 fs-14 family1 text-grey text-bold">
+                Anyweek
+              </div>
+              <div
+                style={{ gap: ".4rem" }}
+                className="flex item-center justify-center fs-14 family1 text-grey text-light"
+              >
                 Add guests
                 <div className="icon flex item-center back-red justify-center">
                   <HiSearch color="#fff" fontSize={"18px"} />
@@ -121,18 +126,19 @@ export default function Header({ type }) {
               </div>
             </div>
           </div>
-          <div className=" right flex item-center gap-1">
-            <h5 className="fs-12 family1 text text-grey">Airbnb your home</h5>
-            <div className="icon1 flex item-center justify-center back-grey">
+          <div className="flex-1 right flex item-center gap-1">
+            <h5 className="fs-16 text-light family1 text text-grey">
+              Airbnb your home
+            </h5>
+            <div
+              onClick={() => setDrop(!drop)}
+              className="icon1 flex item-center justify-center text-dark"
+            >
               <World />
             </div>
-            <div className="center flex shadow item-center gap-1">
+            <div className="center1 flex shadow item-center gap-1">
               <Bar />
-              <div
-                onClick={() => setDrop(!drop)}
-                className=""
-                style={{ width: "2rem", height: "2rem" }}
-              >
+              <div className="" style={{ width: "2rem", height: "2rem" }}>
                 <Profile />
               </div>
               <AnimatePresence
@@ -255,10 +261,17 @@ const HeaderWrapper = styled.div`
   }
   .left1 {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
-    padding-right: 0.8rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 0.8rem;
+  }
+  .center1 {
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    gap: 0.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
   }
   .center {
-    padding: 0.4rem 1.6rem;
+    padding: 0.6rem 1.4rem;
     border-radius: 40px;
     position: relative;
   }
