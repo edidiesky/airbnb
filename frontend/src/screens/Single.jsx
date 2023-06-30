@@ -17,7 +17,7 @@ export default function Single() {
   return (
     <>
       <Meta />
-      <Header />
+      <Header type={'type'} />
       <SingleContainer>
         <SingleIndex />
       </SingleContainer>
@@ -28,5 +28,5 @@ export default function Single() {
 const SingleContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  padding-top: 12rem;
+  padding-top: 8rem;
 `;

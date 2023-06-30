@@ -9,6 +9,7 @@ import SliderIndex from "./Slider";
 import Heart from "./svg/heart";
 import Star from "./svg/star";
 import { onProfileModal } from "../../Features/user/userSlice";
+import { RxCross2 } from "react-icons/rx";
 
 const options2 = {
   items: 1,
@@ -55,6 +56,37 @@ export default function Card({ x, index, type }) {
       setTabIndex(tabindex >= x?.image?.length - 1 ? 0 : tabindex + 1);
     }
   };
+
+  if (type === "wish") {
+    return (
+      <CardContent>
+        <div className="w-100 cards flex gap-1 column" key={x?.id}>
+          <div className="detailsImageContainer">
+            <div className="detailsImageWrapper">
+              {x?.image?.map((x) => {
+                return (
+                  <div
+                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                    className="w-100 card"
+                  >
+                    <div className="icon delete">
+                      <RxCross2 />
+                    </div>
+                    <img src={x} alt="" className="w-100" />
+                    <div className="backdrop"></div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <h4 className="fs-18 text-dark">
+            Amazing Views, <span className="fs-16 text-grey">2023</span>{" "}
+            <span className="block fs-14 text-grey">1 saved</span>
+          </h4>
+        </div>
+      </CardContent>
+    );
+  }
 
   // const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
 
@@ -269,12 +301,12 @@ const CardContent = styled.div`
     width: 100%;
     transition: all 0.4s;
 
-    /* &:hover + .owl-nav {
+    &:hover .delete {
       opacity: 1;
       visibility: visible;
-    } */
+    }
     /* overflow: hidden; */
-    .icon {
+    .icon, .delete {
       position: absolute;
       top: 3%;
       right: 3%;
@@ -288,6 +320,16 @@ const CardContent = styled.div`
         font-size: 24px;
         color: #333;
       }
+    }
+    .delete {
+      left: 3%;
+      right: 0;
+      background-color: #fff;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      opacity: 0;
     }
     &:hover {
       .icon {
