@@ -49,6 +49,7 @@ export default function AuthModal({ type, click }) {
     password: "",
   });
 
+  // framer motion set variants
   const dropin = {
     hidden: {
       y: "-100vh",
@@ -143,6 +144,7 @@ export default function AuthModal({ type, click }) {
         </div>
       </motion.div>
     </DeleteContainer>
+    // <h2>hello</h2>
   );
 }
 

@@ -101,7 +101,7 @@ const CardContent = styled.div`
     color: var(--yellow);
   }
   .card {
-    min-height: 15rem;
+    min-height: 18rem;
     position: relative;
     border-radius: 10px;
     width: 100%;
@@ -154,14 +154,14 @@ const CardContent = styled.div`
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 15rem;
+      height: 18rem;
       border-radius: 10px;
     }
     img {
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 15rem;
+      height: 100%;
       border-radius: 10px;
       object-fit: cover;
     }

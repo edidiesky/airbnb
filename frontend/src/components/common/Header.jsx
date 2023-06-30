@@ -13,17 +13,16 @@ import { useDispatch } from "react-redux";
 import { onAuthModal } from "../../Features/user/userSlice";
 
 const options2 = {
-  items: 10,
-  stagePadding: 10,
+  items: 12,
   nav: true,
   dots: false,
   loop: true,
-  margin: 20,
+  margin: 0,
   width: "100%",
   slideBy: 10,
   responsive: {
     0: {
-      items: 3,
+      items: 4,
     },
     460: {
       items: 5,
@@ -32,7 +31,7 @@ const options2 = {
       items: 6,
     },
     1024: {
-      items: 10,
+      items: 12,
     },
   },
 };
@@ -106,11 +105,11 @@ export default function Header({ type }) {
     return (
       <div className="w-100 headerTop flex w-100 ">
         <div className="w-90 auto flex item-center justify-space gap-2">
-          <Link to={"/"} className="flex-1 left">
+          <Link to={"/"} className=" left">
             <Logo />
           </Link>
           {/* search */}
-          <div className=" item-center justify-center">
+          <div className="flex flex-1 item-center justify-center">
             <div className="center shadow flex item-center gap-2">
               <div className="left1 fs-12 family1 text-dark">Anywhere</div>
               <div className="left1 fs-12 family1 text-dark">Anyweek</div>
@@ -122,7 +121,7 @@ export default function Header({ type }) {
               </div>
             </div>
           </div>
-          <div className="flex-1 right flex item-center gap-1">
+          <div className=" right flex item-center gap-1">
             <h5 className="fs-12 family1 text text-grey">Airbnb your home</h5>
             <div className="icon1 flex item-center justify-center back-grey">
               <World />

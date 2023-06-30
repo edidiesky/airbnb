@@ -1,8 +1,8 @@
 export const projectdata = [
   {
     image: [
-      "https://a0.muscache.com/im/pictures/miso/Hosting-577553665717773242/original/b46eb03c-032a-4373-a3d5-bee4e038f533.jpeg?im_w=720",
-      "https://a0.muscache.com/im/pictures/miso/Hosting-577553665717773242/original/5f744943-5287-4190-a490-9e445105c128.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-331330/original/629cfe98-225b-46e2-b36c-4fa2c49dc7d7.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-331330/original/e0efdb50-2bc4-4ba8-9b94-eca116b8b552.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-577553665717773242/original/50591ab1-2e70-4873-af32-9afc80150bf9.jpeg?im_w=720",
     ],
     title: "Monaco",
