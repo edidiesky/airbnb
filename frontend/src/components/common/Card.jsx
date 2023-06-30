@@ -65,18 +65,25 @@ export default function Card({ x, index, type }) {
           <div className="w-100 cards flex gap-1 column" key={x?.id}>
             <div className="detailsImageContainer">
               {/* button  */}
-              <div
-                className="btnArrow shadow left"
-                onClick={() => handleImagePosition("left")}
-              >
-                <BiChevronLeft />
-              </div>
-              <div
-                className="btnArrow shadow right"
-                onClick={() => handleImagePosition("right")}
-              >
-                <BiChevronRight />
-              </div>
+              {x?.image?.length >= 2 && (
+                <div className="flex">
+                  {tabindex > 0 && (
+                    <div
+                      className="btnArrow shadow left"
+                      onClick={() => handleImagePosition("left")}
+                    >
+                      <BiChevronLeft />
+                    </div>
+                  )}
+                  <div
+                    className="btnArrow shadow right"
+                    onClick={() => handleImagePosition("right")}
+                  >
+                    <BiChevronRight />
+                  </div>
+                </div>
+              )}
+
               <div className="detailsImageWrapper">
                 {x?.image?.map((x) => {
                   return (
@@ -137,7 +144,7 @@ const CardContent = styled.div`
       transition: all 0.4s;
       cursor: pointer;
       &:hover {
-        transform: scale(1.08);
+        transform: scale(1.1);
       }
       svg {
         font-size: 20px;

@@ -96,18 +96,18 @@ export default function AuthModal({ type, click }) {
         initial="hidden"
         animate="visible"
         exit={"exit"}
-        className={"deleteCard family1 shadow"}
+        className={"deleteCard shadow"}
       >
         {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
           <RxCross2 />
         </div> */}
         <div className="w-100">
-          <div className="w-100 authTop fs-12 text-extra-bold text-dark text-center">
+          <div className="w-100 authTop fs-14 text-extra-bold text-dark text-center">
             Login or Sign up
           </div>
         </div>
         <div className="w-90 authBottom auto flex column gap-1">
-          <h3 className="fs-20 text-dark text-bold">Welcome to Airbnb</h3>
+          <h3 className="fs-20 py-1 text-dark text-bold">Welcome to Airbnb</h3>
           <div className="flex column gap-1">
             {inputData.map((input) => {
               return (
@@ -127,17 +127,17 @@ export default function AuthModal({ type, click }) {
               );
             })}
           </div>
-          <div className="btn w-100 fs-14 text-white text-center">Reserve</div>
+          <div className="btn w-100 fs-16 text-white text-center">Reserve</div>
           <div className="option">or</div>
 
           <div className="flex column gap-1">
-            <div className="authBtn flex fs-14 text-grey item-center justify-space">
+            <div className="authBtn flex fs-16 text-dark item-center justify-space">
               <FcGoogle fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Google</div>{" "}
             </div>
-          
-            <div className="authBtn flex fs-14 text-grey item-center justify-center">
-            <FaGithub fontSize={"20px"} />{" "}
+
+            <div className="authBtn flex fs-16 text-dark item-center justify-center">
+              <FaGithub fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Github</div>{" "}
             </div>
           </div>
@@ -180,7 +180,7 @@ const DeleteContainer = styled(motion.div)`
       position: relative;
       text-align: center;
       padding: 0 1.4rem;
-      font-size: 12px;
+      font-size: 14px;
       color: var(--grey-1);
       &::after {
         width: 45%;
@@ -227,9 +227,11 @@ const DeleteContainer = styled(motion.div)`
     border-radius: 10px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
-    @media (max-width: 380px) {
-      padding: 4rem 3rem;
-      width: 250px;
+    @media (max-width: 980px) {
+      width: 60%;
+    }
+    @media (max-width: 780px) {
+      width: 80%;
     }
     .cross {
       position: absolute;

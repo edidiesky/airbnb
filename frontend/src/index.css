@@ -344,6 +344,8 @@ p {
   width: 100%;
 }
 
+
+
 @media screen and (min-width: 768px) {
   /* .owl-theme {
     height: 400px;
@@ -412,9 +414,7 @@ p {
   margin: 0 auto;
 }
 @media (max-width: 980px) {
-  /* html {
-    font-size: 50%;
-  } */
+
   p {
     width: 100%;
   }

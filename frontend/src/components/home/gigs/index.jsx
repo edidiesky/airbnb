@@ -37,7 +37,6 @@ const GigsIndexContainer = styled.div`
   .wrapper {
     display: grid;
     width: 100%;
-    grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-row-gap: 2rem;
     grid-column-gap: 1.4rem;

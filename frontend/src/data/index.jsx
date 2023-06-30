@@ -65,7 +65,7 @@ export const projectdata = [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
     },
   },
-  // rooms end
+  // rooms
 
   {
     image: [

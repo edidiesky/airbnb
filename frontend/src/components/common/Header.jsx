@@ -84,20 +84,20 @@ export default function Header({ type }) {
       >
         <li
           onClick={() => dispatch(onAuthModal())}
-          className="fs-14 family1 text-grey"
+          className="fs-14 text-light text-grey"
         >
           Sign in
         </li>
         <li
           onClick={() => dispatch(onAuthModal())}
-          className="fs-14 family1 text-grey"
+          className="fs-14 text-light text-grey"
         >
           Sign up
         </li>
-        <li className="fs-14 family1 text-grey">Logout</li>
-        <li className="fs-14 family1 text-grey">Reservations</li>
-        <li className="fs-14 family1 text-grey">Favourites</li>
-        <li className="fs-14 family1 text-grey">Trips</li>
+        <li className="fs-14 text-light text-grey">Logout</li>
+        <li className="fs-14 text-light text-grey">Reservations</li>
+        <li className="fs-14 text-light text-grey">Favourites</li>
+        <li className="fs-14 text-light text-grey">Trips</li>
       </motion.ul>
     );
   };
@@ -199,7 +199,8 @@ const HeaderWrapper = styled.div`
     z-index: 2000;
     border-radius: 8px;
     li {
-      padding: 0.5rem 2rem;
+      padding: 0.6rem 2rem;
+      cursor: pointer;
       border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     }
   }
@@ -243,7 +244,7 @@ const HeaderWrapper = styled.div`
     justify-content: flex-end;
   }
   .HeaderBottom {
-    padding: 0.4rem 0;
+    padding: 0.3rem 0;
   }
   .text {
     padding: 0.6rem 1rem;
@@ -262,7 +263,7 @@ const HeaderWrapper = styled.div`
     position: relative;
   }
   .headerTop {
-    padding: 1.5rem 0;
+    padding: 1.3rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   }
   .owl-nav {

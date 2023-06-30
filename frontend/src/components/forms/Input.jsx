@@ -16,7 +16,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
         focused={touched.toString()}
         onChange={onChange}
         autoComplete="off"
-        className={touched?'true':''}
+        className={touched ? "true" : ""}
       />
     </LabelContainer>
   );
@@ -28,47 +28,43 @@ const LabelContainer = styled.label`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.3rem;
-  font-size: 1.4rem;
+  font-size: .9rem;
   color: var(--dark-1);
   font-weight: 700;
   text-transform: capitalize;
-  font-family: "Roboto Condensed", sans-serif;
-  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  font-family: "Lora", sans-serif;
   position: relative;
-  /* font-family: "Montserrat", sans-serif; */
 
   .labelspan {
     position: absolute;
-    top: -15%;
-    padding: 0 1rem;
+    top: -17%;
+    padding: 0 .6rem;
     left: 2%;
     background-color: #fff;
     font-weight: normal;
   }
   input {
-    height: 5.5rem;
+    height: 3.5rem;
     border-radius: 8px;
     background: transparent;
     padding: 0 1.8rem;
     width: 100%;
     outline: none;
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: 500;
     font-family: inherit;
-    font-family: "Roboto Condensed", sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.4);
-
     color: var(--grey-3);
 
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
     }
     &:focus {
-      border: 2px solid var(--blue-1);
+      border: 2px solid var(--dark-1);
       background: transparent;
     }
     &.true {
-      background: #Fff;
+      background: #fff;
     }
     &.inputError {
       border: 2px solid var(--red);
