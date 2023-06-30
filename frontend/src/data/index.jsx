@@ -1,4 +1,72 @@
 export const projectdata = [
+  // rooms
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/4d713a1e-ab4c-4d70-905f-d24b4042189f.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/7f98dcc6-18f9-4cf6-8f83-798c20f1ba7f.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+    ],
+    title: "Sao Paulo, Brazil",
+    distance: "90456",
+    date: "july 1-8",
+    price: "9113",
+    hostinfo: {
+      username: "Christi-anna",
+      image:
+        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+    },
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-635437605163910390/original/eaf8887f-410f-41e4-be1b-88c2a74fbfcf.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-635437605163910390/original/427b9c9e-27a1-45ce-9f04-0609eb74cb48.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-635437605163910390/original/427b9c9e-27a1-45ce-9f04-0609eb74cb48.jpeg?im_w=720",
+    ],
+    title: "Ottawa, Canada",
+    distance: "90456",
+    date: "july 2-8",
+    price: "9113",
+    hostinfo: {
+      username: "Christi-anna",
+      image:
+        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+    },
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/a1cf4c19-a156-439d-bb5c-8d0e13544ed0.jpeg?im_w=720",
+    ],
+    title: "Milan, Italy",
+    distance: "90456",
+    date: "july 2-8",
+    price: "9113",
+    hostinfo: {
+      username: "Christi-anna",
+      image:
+        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+    },
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-31508919/original/f5cd57a3-b42d-4211-a73c-047c6cc2fc13.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-31508919/original/f5cd57a3-b42d-4211-a73c-047c6cc2fc13.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-31508919/original/f5cd57a3-b42d-4211-a73c-047c6cc2fc13.jpeg?im_w=720",
+    ],
+    title: "Cotia, Brazil",
+    distance: "90456",
+    date: "july 2-8",
+    price: "9113",
+    hostinfo: {
+      username: "Christi-anna",
+      image:
+        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+    },
+  },
+  // rooms end
+
   {
     image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-331330/original/629cfe98-225b-46e2-b36c-4fa2c49dc7d7.jpeg?im_w=720",

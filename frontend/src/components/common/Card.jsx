@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsFillHeartFill } from "react-icons/bs";
 import { BiChevronLeft, BiChevronRight, BiHeart, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import SliderIndex from "./Slider";
@@ -59,14 +61,18 @@ export default function Card({ x, index, type }) {
                 );
               })}
             </SliderIndex>
-            <div className="flex column">
-              <h4 className="fs-14 text-dark family1">{x.title}</h4>
-              <h4 className="fs-12 text-grey family1 text-light">
-                {x.distance} kilometers away
+            <div className="flex column" style={{ gap: ".2rem" }}>
+              <h4 className="fs-18 text-dark">{x.title}</h4>
+              <div className="flex column">
+                <h4 className="fs-16 text-grey text-light">
+                  {x.distance} kilometers away
+                </h4>
+                <h4 className="fs-16 text-grey text-light">{x.date}</h4>
+              </div>
+              <h4 className="fs-16 text-dark">
+                ${x.price} <span className="text-light fs-16">night</span>
               </h4>
-              <h4 className="fs-12 text-grey text-light family1">{x.date}</h4>
             </div>
-            <h4 className="fs-14 text-dark family1">${x.price}</h4>
           </div>
         </CardContent>
       )}
