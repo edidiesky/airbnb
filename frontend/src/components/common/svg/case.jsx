@@ -11,10 +11,9 @@ const Case = () => {
         focusable="false"
         style={{
           display: "block",
-          height: "16px",
-          width: "16px",
-          stroke: "currentcolor",
-          strokeWidth: "1",
+          height: "22px",
+          width: "22px",
+          stroke: "#222",
           overflow: "visible",
         }}
       >

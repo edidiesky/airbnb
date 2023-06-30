@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import SliderIndex from "./Slider";
 import Heart from "./svg/heart";
 import Star from "./svg/star";
+import { onProfileModal } from "../../Features/user/userSlice";
 
 const options2 = {
   items: 1,
@@ -44,6 +45,7 @@ const CardLoading = () => {
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
+  const disaptch = useDispatch();
 
   const handleImagePosition = (position) => {
     if (position === "left") {
@@ -87,7 +89,10 @@ export default function Card({ x, index, type }) {
 
               <div className="detailsImageWrapper">
                 {x.hostinfo?.image && (
-                  <div className="hosticon flex item-center justify-center">
+                  <div
+                    onClick={() => disaptch(onProfileModal())}
+                    className="hosticon flex item-center justify-center"
+                  >
                     <img
                       className="hostavatar"
                       src={x.hostinfo?.image}

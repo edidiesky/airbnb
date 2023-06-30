@@ -13,46 +13,20 @@ import { FaGithub } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import {
   clearUserAlertError,
-  offAuthModal,
+  offProfileModal,
 } from "../../Features/user/userSlice";
 import Input from "../forms/Input";
 import Star from "../common/svg/star";
 import Ballons from "../common/svg/Ballons";
 import Case from "../common/svg/case";
 import Fun from "../common/svg/fun";
+import Food from "../common/svg/food";
+import Stars from "../common/svg/stars";
+import Cap from "../common/svg/cap";
+import Date from "../common/svg/Date";
+import Music from "../common/svg/music";
 
 export default function ProfileModal({ type, click }) {
-  const inputData = [
-    {
-      id: 1,
-      name: "email",
-      placeholder: "example@site.com",
-      type: "email",
-      text: "Email",
-      errorMessage: "It should be a valid email",
-      required: true,
-    },
-    {
-      id: 2,
-      name: "password",
-      placeholder: "Minimum 8 Characters",
-      type: "password",
-      text: "password",
-      errorMessage:
-        "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
-      required: true,
-    },
-  ];
-
-  const onChange = (e) => {
-    setFormData({ ...formdata, [e.target.name]: e.target.value });
-  };
-
-  const [formdata, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
   // framer motion set variants
   const dropin = {
     hidden: {
@@ -94,7 +68,10 @@ export default function ProfileModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
-      <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
+      <div
+        className="backdrop"
+        onClick={() => dispatch(offProfileModal())}
+      ></div>
       <motion.div
         variants={dropin}
         initial="hidden"
@@ -147,32 +124,27 @@ export default function ProfileModal({ type, click }) {
         {/* bottom */}
         <ul
           style={{ paddingBottom: "1rem", gap: ".6rem" }}
-          className="flex column fs-18 text-light text-dark w-90 auto"
+          className="flex column fs-16 text-light text-dark w-90 auto"
         >
           <li className="flex item-center">
             <Ballons /> Born in the 60s
           </li>
           <li className="flex item-center" style={{ gap: ".3rem" }}>
-            <Case /> Borm in the 60s
+            <Case />
+            My work: coach
           </li>
           <li className="flex item-center" style={{ gap: ".3rem" }}>
-            <Fun />
-            Borm in the 60s
+            <Food /> For guests, I always: Help them enjoy Valencia
           </li>
           <li className="flex item-center" style={{ gap: ".3rem" }}>
-            Borm in the 60s
+            <Stars /> What makes my home unique: Good energy and feeling at home
           </li>
           <li className="flex item-center" style={{ gap: ".3rem" }}>
-            Borm in the 60s
+            <Cap /> Where I went to school: Universidad de Psicología en
+            Valencia
           </li>
           <li className="flex item-center" style={{ gap: ".3rem" }}>
-            Borm in the 60s
-          </li>
-          <li className="flex item-center" style={{ gap: ".3rem" }}>
-            Borm in the 60s
-          </li>
-          <li className="flex item-center" style={{ gap: ".3rem" }}>
-            Borm in the 60s
+            <Music /> Borm in the 60s
           </li>
         </ul>
       </motion.div>

@@ -4,6 +4,7 @@ import { Header, Meta } from "../components/common";
 import HomeIndex from "../components/home";
 import styled from "styled-components";
 import ProfileModal from "../components/modals/ProfileModal";
+import { AnimatePresence } from "framer-motion";
 // import Header from '../components/home/header';
 // import { clearGigsAlert, getAllGigs } from '../Features';
 
@@ -14,12 +15,20 @@ export default function Home() {
   //   dispatch(getAllGigs())
   // }, []);
   // actions
+  const { profilemodal } = useSelector((store) => store.user);
+
   const dispatch = useDispatch();
   return (
     <>
       <Meta />
       <Header />
-      <ProfileModal/>
+      <AnimatePresence
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {profilemodal && <ProfileModal />}
+      </AnimatePresence>
       <HomeContainer>
         <HomeIndex />
       </HomeContainer>
