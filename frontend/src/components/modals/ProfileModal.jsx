@@ -30,24 +30,45 @@ export default function ProfileModal({ type, click }) {
   // framer motion set variants
   const dropin = {
     hidden: {
-      y: "-100vh",
+      transform: "scale(0) rotate(720deg)",
       opacity: 0,
       transition: {
-        delay: 0.5,
+        delay: 0.3,
       },
     },
     visible: {
-      y: "0",
+      transform: " scale(1) rotate(0deg)",
       opacity: 1,
       transition: {
-        duration: 0.3,
-        type: "spring",
-        damping: 26,
-        stiffness: 600,
+        duration: 0.5,
       },
     },
     exit: {
-      y: "100vh",
+      transform: "scale(0) rotate(-720deg)",
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const flip = {
+    hidden: {
+      transform: "scale(0) rotateX(-360deg)",
+      opacity: 0,
+      transition: {
+        delay: 0.3,
+      },
+    },
+    visible: {
+      transform: " scale(1) rotateX(0deg)",
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    exit: {
+      transform: "scale(0) rotateX(360deg)",
       opacity: 0,
       transition: {
         duration: 0.5,

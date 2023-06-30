@@ -43,7 +43,7 @@ export const projectdata = [
     price: "9113",
     hostinfo: {
       username: "Christi-anna",
-      image:'/images/face_3.jfif'
+      image: "/images/face_3.jfif",
     },
   },
   {
@@ -58,22 +58,27 @@ export const projectdata = [
     price: "9113",
     hostinfo: {
       username: "Christi-anna",
-      image:'/images/face_4.jfif'
+      image: "/images/face_4.jfif",
     },
   },
   // rooms
-
+  //  user1
   {
     image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-331330/original/629cfe98-225b-46e2-b36c-4fa2c49dc7d7.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-331330/original/e0efdb50-2bc4-4ba8-9b94-eca116b8b552.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-577553665717773242/original/50591ab1-2e70-4873-af32-9afc80150bf9.jpeg?im_w=720",
     ],
-    title: "Monaco",
+    title: "Clciedo,Monaco",
     distance: "90456",
     date: "july 1-8",
     price: "9113",
+    hostinfo: {
+      username: "Christi-anna",
+      image: "/images/face_4.jfif",
+    },
   },
+  // user1
   {
     image: [
       "https://a0.muscache.com/im/pictures/92fbb217-a460-4f5b-b604-3f08c72a23ac.jpg?im_w=720",
@@ -84,16 +89,26 @@ export const projectdata = [
     distance: "44960",
     date: "August 1-8",
     price: "755",
+    hostinfo: {
+      username: "Christi-anna",
+      image: "/images/face_3.jfif",
+    },
   },
+  // user3
   {
     image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52313793/original/6005df3e-de4c-4020-b1c9-c12b46a46991.jpeg?im_w=720",
     ],
-    title: "Portugal",
+    title: "Delima,Portugal",
     distance: "67482",
     date: "july 1-8",
     price: "7182",
+    hostinfo: {
+      username: "Christi-anna",
+      image: "/images/face_1.jfif",
+    },
   },
+  // user4
   {
     image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52313793/original/6005df3e-de4c-4020-b1c9-c12b46a46991.jpeg?im_w=720",
@@ -102,6 +117,10 @@ export const projectdata = [
     distance: "11618",
     date: "july 2-8",
     price: "3714",
+    hostinfo: {
+      username: "Christi-anna",
+      image: "/images/face_2.jfif",
+    },
   },
   {
     image: [

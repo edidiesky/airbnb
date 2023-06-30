@@ -33,7 +33,6 @@ const World = () => {
         focusable="false"
         style={{
           display: "block",
-          fill: "none",
           height: "16px",
           width: "16px",
           stroke: "currentcolor",
