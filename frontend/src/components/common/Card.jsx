@@ -7,6 +7,7 @@ import { BiChevronLeft, BiChevronRight, BiHeart, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import SliderIndex from "./Slider";
 import Heart from "./svg/heart";
+import Star from "./svg/star";
 
 const options2 = {
   items: 1,
@@ -85,6 +86,15 @@ export default function Card({ x, index, type }) {
               )}
 
               <div className="detailsImageWrapper">
+                {x.hostinfo?.image && (
+                  <div className="hosticon flex item-center justify-center">
+                    <img
+                      className="hostavatar"
+                      src={x.hostinfo?.image}
+                      alt=""
+                    />
+                  </div>
+                )}
                 {x?.image?.map((x) => {
                   return (
                     <div
@@ -103,7 +113,16 @@ export default function Card({ x, index, type }) {
             </div>
 
             <div className="flex column" style={{ gap: ".2rem" }}>
-              <h4 className="fs-18 text-dark">{x.title}</h4>
+              <div className="w-100 flex item-center justify-space cardTop">
+                <h4 className="fs-18 text-dark">{x.title}</h4>
+                <div
+                  style={{ gap: ".3rem" }}
+                  className="flex text-light fs-16 item-center"
+                >
+                  <Star />
+                  4.98
+                </div>
+              </div>
               <div className="flex column">
                 <h4 className="fs-16 text-grey text-light">
                   {x.distance} kilometers away
@@ -217,12 +236,34 @@ const CardContent = styled.div`
   .text-secondary {
     color: var(--yellow);
   }
+  .hosticon {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    height: 5rem;
+    width: 4rem;
+    z-index: 200;
+    border-radius: 3px;
+    background-color: #ebe7e7;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    img {
+      width: 3.2rem;
+      object-fit: cover;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      height: 3.2rem;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+    }
+  }
   .card {
     min-height: 18rem;
     position: relative;
     border-radius: 15px;
     width: 100%;
     transition: all 0.4s;
+
     /* &:hover + .owl-nav {
       opacity: 1;
       visibility: visible;

@@ -12,8 +12,7 @@ export const projectdata = [
     price: "9113",
     hostinfo: {
       username: "Christi-anna",
-      image:
-        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+      image: "/images/face_2.jfif",
     },
   },
   {
@@ -28,8 +27,7 @@ export const projectdata = [
     price: "9113",
     hostinfo: {
       username: "Christi-anna",
-      image:
-        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+      image: "/images/face_1.jfif",
     },
   },
   {
@@ -45,8 +43,7 @@ export const projectdata = [
     price: "9113",
     hostinfo: {
       username: "Christi-anna",
-      image:
-        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+      image:'/images/face_3.jfif'
     },
   },
   {
@@ -61,8 +58,7 @@ export const projectdata = [
     price: "9113",
     hostinfo: {
       username: "Christi-anna",
-      image:
-        "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+      image:'/images/face_4.jfif'
     },
   },
   // rooms
