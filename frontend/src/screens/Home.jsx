@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Header, Meta } from "../components/common";
 import HomeIndex from "../components/home";
 import styled from "styled-components";
+import ProfileModal from "../components/modals/ProfileModal";
 // import Header from '../components/home/header';
 // import { clearGigsAlert, getAllGigs } from '../Features';
 
@@ -18,6 +19,7 @@ export default function Home() {
     <>
       <Meta />
       <Header />
+      <ProfileModal/>
       <HomeContainer>
         <HomeIndex />
       </HomeContainer>

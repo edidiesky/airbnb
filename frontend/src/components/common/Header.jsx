@@ -283,6 +283,7 @@ const HeaderWrapper = styled.div`
     position: absolute;
     top: -10%;
     width: 100%;
+   
     /* transform: translateY(40%); */
     z-index: 10;
     background-color: #fff;
@@ -292,7 +293,9 @@ const HeaderWrapper = styled.div`
     button.owl-next {
       background-color: #fff;
       border-radius: 50%;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+       border: 1px solid rgba(0, 0, 0, 0.3);
+      
+      /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25); */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -315,7 +318,8 @@ const HeaderWrapper = styled.div`
     button.owl-prev {
       background-color: #fff;
       border-radius: 50%;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+       border: 1px solid rgba(0, 0, 0, 0.3);
+      /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -339,7 +343,7 @@ const HeaderWrapper = styled.div`
       left: -2%;
     }
     button.owl-next {
-      right: 2%;
+      right: 1%;
     }
   }
 `;
