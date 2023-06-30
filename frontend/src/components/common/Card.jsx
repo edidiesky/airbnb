@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineHeart } from "react-icons/ai";
-import { BsFillHeartFill } from "react-icons/bs";
+import { BsFillHeartFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import { BiChevronLeft, BiChevronRight, BiHeart, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import SliderIndex from "./Slider";
+import Heart from "./svg/heart";
 
 const options2 = {
   items: 1,
@@ -41,6 +42,17 @@ const CardLoading = () => {
 };
 
 export default function Card({ x, index, type }) {
+  const [tabindex, setTabIndex] = useState(0);
+
+  const handleImagePosition = (position) => {
+    if (position === "left") {
+      setTabIndex(tabindex < 0 ? x?.image?.length - 1 : tabindex - 1);
+    }
+    if (position === "right") {
+      setTabIndex(tabindex >= x?.image?.length - 1 ? 0 : tabindex + 1);
+    }
+  };
+
   // const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
 
   const gigsIsLoading = false;
@@ -51,14 +63,38 @@ export default function Card({ x, index, type }) {
       ) : (
         <CardContent>
           <div className="w-100 cards flex gap-1 column" key={x?.id}>
-            {/* {x?.image?.map((x) => {
-              return (
-                <div className="w-100 card">
-                  <img src={x} alt="" className="w-100" />
-                  <div className="backdrop"></div>
-                </div>
-              );
-            })} */}
+            <div className="detailsImageContainer">
+              {/* button  */}
+              <div
+                className="btnArrow shadow left"
+                onClick={() => handleImagePosition("left")}
+              >
+                <BiChevronLeft />
+              </div>
+              <div
+                className="btnArrow shadow right"
+                onClick={() => handleImagePosition("right")}
+              >
+                <BiChevronRight />
+              </div>
+              <div className="detailsImageWrapper">
+                {x?.image?.map((x) => {
+                  return (
+                    <div
+                      style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                      className="w-100 card"
+                    >
+                      <div className="icon">
+                        <Heart />
+                      </div>
+                      <img src={x} alt="" className="w-100" />
+                      <div className="backdrop"></div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="flex column" style={{ gap: ".2rem" }}>
               <h4 className="fs-18 text-dark">{x.title}</h4>
               <div className="flex column">
@@ -81,6 +117,76 @@ export default function Card({ x, index, type }) {
 const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
+  .detailsImageContainer {
+    width: 100%;
+    position: relative;
+    &:hover .btnArrow {
+      opacity: 1;
+    }
+    .btnArrow {
+      z-index: 80;
+      width: 1.8rem;
+      position: absolute;
+      height: 1.8rem;
+      display: flex;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      opacity: 0;
+      transition: all 0.4s;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.08);
+      }
+      svg {
+        font-size: 20px;
+        color: #222;
+      }
+      &.right {
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.left {
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .detailsImageWrapper {
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 100%);
+      overflow: hidden;
+      grid-gap: 0rem;
+      .imagesWrapper {
+        width: 100%;
+        position: relative;
+        transition: all 0.6s ease-in-out;
+        height: 50rem;
+        margin: 0 1rem;
+        @media (max-width: 780px) {
+          min-height: 100%;
+        }
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 100%;
+          position: absolute;
+
+          @media (min-width: 1600px) {
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
   &:hover {
     .desc {
       color: var(--green);
@@ -109,6 +215,7 @@ const CardContent = styled.div`
     position: relative;
     border-radius: 15px;
     width: 100%;
+    transition: all 0.4s;
     /* &:hover + .owl-nav {
       opacity: 1;
       visibility: visible;
@@ -116,24 +223,16 @@ const CardContent = styled.div`
     /* overflow: hidden; */
     .icon {
       position: absolute;
-      width: 2rem;
-      background-color: #fff;
-      height: 2rem;
-      top: 50%;
+      top: 3%;
+      right: 3%;
       border-radius: 50%;
       display: grid;
       place-items: center;
       transition: all 0.4s;
-      &.left {
-        left: -20%;
-      }
-      &.right {
-        right: -20%;
-      }
+      z-index: 2000;
 
       svg {
-        width: 50%;
-        height: 50%;
+        font-size: 24px;
         color: #333;
       }
     }
