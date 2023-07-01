@@ -45,14 +45,40 @@ const data = [
 export default function Header({ type }) {
   const dropin = {
     hidden: {
-      top: "110%",
+      top: "40%",
       opacity: 0,
       transition: {
         delay: 0.5,
       },
     },
     visible: {
-      top: "110%",
+      top: "40%",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        type: "spring",
+        damping: 26,
+        stiffness: 600,
+      },
+    },
+    exit: {
+      top: "0%",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  const dropin2 = {
+    hidden: {
+      top: "80%",
+      opacity: 0,
+      transition: {
+        delay: 0.5,
+      },
+    },
+    visible: {
+      top: "80%",
       opacity: 1,
       transition: {
         duration: 0.3,
@@ -75,7 +101,7 @@ export default function Header({ type }) {
   const Dropdown = () => {
     return (
       <motion.ul
-        variants={dropin}
+        variants={type ? dropin2 : dropin}
         initial="hidden"
         animate="visible"
         exit={"exit"}
@@ -90,17 +116,21 @@ export default function Header({ type }) {
         </li>
         <li
           onClick={() => dispatch(onAuthModal())}
-          className="fs-14 text-light text-grey"
+          className="fs-14 text-bold text-dark"
         >
           Sign up
         </li>
-        <li className="fs-14 text-light text-grey">Logout</li>
-        <li className="fs-14 text-light text-grey">Reservations</li>
+        <li className="fs-14 text-bold text-dark">Logout</li>
+        <li className="fs-14 text-bold text-dark">
+          {" "}
+          <Link to={"/wishlists"}>Wishlists</Link>
+        </li>
         <li className="fs-14 text-light text-grey">Favourites</li>
         <li className="fs-14 text-light text-grey">Trips</li>
       </motion.ul>
     );
   };
+  // headertop
   const HeaderTop = () => {
     return (
       <div className="w-100 headerTop flex w-100 ">
@@ -118,12 +148,8 @@ export default function Header({ type }) {
           {!type && (
             <div className="flex flex-1 item-center justify-end">
               <div className="center shadow flex item-center gap-1">
-                <div className="fs-14 text-grey text-bold">
-                  Anywhere
-                </div>
-                <div className="left1 fs-14 text-grey text-bold">
-                  Anyweek
-                </div>
+                <div className="fs-14 text-grey text-bold">Anywhere</div>
+                <div className="left1 fs-14 text-grey text-bold">Anyweek</div>
                 <div
                   style={{ gap: ".4rem" }}
                   className="flex item-center justify-center fs-14 text-grey text-light"
@@ -140,13 +166,13 @@ export default function Header({ type }) {
             <h5 className="fs-16 text-light text text-grey">
               Airbnb your home
             </h5>
-            <div
-              onClick={() => setDrop(!drop)}
-              className="icon1 flex item-center justify-center text-dark"
-            >
+            <div className="icon1 flex item-center justify-center text-dark">
               <World />
             </div>
-            <div className="center1 flex shadow item-center gap-1">
+            <div
+              onClick={() => setDrop(!drop)}
+              className="center1 flex shadow item-center gap-1"
+            >
               <Bar />
               <div className="" style={{ width: "2rem", height: "2rem" }}>
                 <Profile />
@@ -158,6 +184,7 @@ export default function Header({ type }) {
               >
                 {drop && <Dropdown />}
               </AnimatePresence>
+              {/* <Dropdown /> */}
             </div>
           </div>
         </div>
@@ -209,15 +236,19 @@ const HeaderWrapper = styled.div`
   background-color: #fff;
   .dropdown {
     position: absolute;
-    left: -20%;
+    right: 2%;
     background-color: #fff;
-    min-width: 170px;
-    z-index: 2000;
+    min-width: 230px;
+    z-index: 200000;
     border-radius: 8px;
     li {
-      padding: 0.6rem 2rem;
+      padding: 1rem 2rem;
       cursor: pointer;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: inherit;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.07); */
     }
   }
   .imagewrapper {
