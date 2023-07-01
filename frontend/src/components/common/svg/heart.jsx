@@ -1,6 +1,9 @@
 import React from "react";
 
 const Heart = ({ wishsindex, index }) => {
+  const found = wishsindex.includes(index);
+  // console.log(wishsindex,index);
+  // console.log(found);
   return (
     <div>
       <svg
@@ -11,10 +14,10 @@ const Heart = ({ wishsindex, index }) => {
         focusable="false"
         style={{
           display: "block",
-          fill: wishsindex === index ? "var(--red)" : "rgba(0, 0, 0, 0.5)",
+          fill: found ? "var(--red)" : "rgba(0, 0, 0, 0.5)",
           height: "24px",
           width: "24px",
-          stroke: wishsindex === index ? "var(--red)" : "#FFFFFF",
+          stroke: found ? "var(--red)" : "#FFFFFF",
           strokeWidth: " 2",
           overflow: "visible",
         }}

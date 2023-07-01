@@ -1,58 +1,55 @@
-import React, {useEffect, useState} from 'react'
-import Styled from 'styled-components'
-import {useNavigate} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
-import {offSearchModal, getSearch, clearProductAlert} from '../../Features'
-import {FiSearch} from 'react-icons/fi'
-import {RxCross1} from 'react-icons/rx'
+import React, { useEffect, useState } from "react";
+import Styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { offSearchModal, getSearch, clearProductAlert } from "../../Features";
+import { FiSearch } from "react-icons/fi";
+import { RxCross1 } from "react-icons/rx";
 export default function SearchModal() {
-
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
 
   // dispatch
-    const {SearchModal} = useSelector(store=> store.modal)
+  const { SearchModal } = useSelector((store) => store.modal);
 
-   const navigate = useNavigate()
-  const dispatch = useDispatch()
-  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // navigate to search page
 
-  
-  const handleSearch = (e)=> {
-    e.preventDefault()
-    if (search === '') {
-      navigate('/')
-      dispatch(clearProductAlert())
-      dispatch(offSearchModal())
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (search === "") {
+      navigate("/");
+      dispatch(clearProductAlert());
+      dispatch(offSearchModal());
     } else {
-    dispatch(getSearch(search))
-    dispatch(offSearchModal())
-    setSearch('')
-    return navigate('/search')
+      dispatch(getSearch(search));
+      dispatch(offSearchModal());
+      setSearch("");
+      return navigate("/search");
     }
-  }
-
+  };
 
   return (
-    <SearchModalContainer className={SearchModal? 'active':''}>
-      <div className='searchWrapper'>
-        <form className='searchForm' onSubmit={handleSearch}>
-          <input 
-          type='text'
-          placeholder='Search For Car Title'
-          className='searchInput'
-          name='search'
-          value={search}
-          onChange={(e)=> setSearch(e.target.value)}
-          placeholder='Search for Car product'
+    <SearchModalContainer className={SearchModal ? "active" : ""}>
+      <div className="searchWrapper">
+        <form className="searchForm" onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search For Car Title"
+            className="searchInput"
+            name="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
-          <span className='formSpan'></span>
+          <span className="formSpan"></span>
         </form>
-        <div className='cross' onClick={()=> dispatch(offSearchModal())}><RxCross1/></div>
+        <div className="cross" onClick={() => dispatch(offSearchModal())}>
+          <RxCross1 />
+        </div>
       </div>
     </SearchModalContainer>
-  )
+  );
 }
 
 const SearchModalContainer = Styled.div`
@@ -159,4 +156,4 @@ const SearchModalContainer = Styled.div`
         }
       }
     }
-`
+`;

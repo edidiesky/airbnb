@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // getting values from the localStorage
 const wishItems = JSON.parse(localStorage.getItem("wishItem"));
+const wishids = JSON.parse(localStorage.getItem("wishidarray"));
 
 const initialState = {
   isSuccess: false,
@@ -13,6 +14,7 @@ const initialState = {
   alertType: "",
   wishAlert: false,
   wishtitlemodal: false,
+  wishidArray: wishids ? wishids : [],
 };
 
 const wishSlice = createSlice({
@@ -26,6 +28,10 @@ const wishSlice = createSlice({
       state.showAlert = false;
       state.alertText = "";
       state.alertType = "";
+    },
+    handleWishId: (state, action) => {
+      state.wishidArray = [...state.wishidArray, action.payload];
+      localStorage.setItem("wishidarray", JSON.stringify(state.wishidArray));
     },
     onWishAlert: (state, action) => {
       const wishItemPayload = action.payload;
@@ -85,6 +91,7 @@ export const {
   removewishItem,
   onWishAlert,
   clearWishMessage,
+  handleWishId,
 } = wishSlice.actions;
 
 export default wishSlice.reducer;

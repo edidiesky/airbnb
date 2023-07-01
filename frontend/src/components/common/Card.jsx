@@ -7,7 +7,7 @@ import Heart from "./svg/heart";
 import Star from "./svg/star";
 import { onProfileModal } from "../../Features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
-import { addProductToWish } from "../../Features/wish/wishSlice";
+import { addProductToWish, handleWishId } from "../../Features/wish/wishSlice";
 import { useEffect } from "react";
 const options2 = {
   items: 1,
@@ -44,10 +44,10 @@ const CardLoading = () => {
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
-  const [wishsindex, setWishs] = useState(null);
-  const disaptch = useDispatch();
+  // const [wishsindex, wishidArray] = useState([]);
+  const dispatch = useDispatch();
   const { Gigs } = useSelector((store) => store.gig);
-  const { wish } = useSelector((store) => store.wish);
+  const { wish, wishidArray } = useSelector((store) => store.wish);
 
   const handleImagePosition = (position) => {
     if (position === "left") {
@@ -59,7 +59,7 @@ export default function Card({ x, index, type }) {
   };
 
   const handleAddToWish = () => {
-    disaptch(
+    dispatch(
       addProductToWish({
         image: x.image,
         title: x.title,
@@ -105,21 +105,29 @@ export default function Card({ x, index, type }) {
     //   wish.some((gigs) => gigs?._id === gig?._id);
     // });
 
-    const found = Gigs.some((obj1, index1) =>
+    Gigs.some((obj1, index1) =>
       wish.some((obj2, index2) => {
-        if (index2 === index1) {
-          setWishs(index1);
+        if (obj2?._id === obj1?._id) {
+          // if it includes in the wishidarray stop else proceed in adding it to the array
+          if (wishidArray.includes(obj2?._id)) {
+            return;
+          } else {
+            dispatch(handleWishId(obj1?._id));
+            return;
+          }
           return;
         }
         return;
       })
     );
-    console.log(found);
-  }, [setWishs, wish, Gigs]);
+    // console.log(found);
+  }, [wish, Gigs]);
 
   // const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
+  // console.log(wishsindex);
 
   const gigsIsLoading = false;
+  let cardid = x?._id;
   return (
     <>
       {gigsIsLoading ? (
@@ -151,7 +159,7 @@ export default function Card({ x, index, type }) {
               <div className="detailsImageWrapper">
                 {x.hostinfo?.image && (
                   <div
-                    onClick={() => disaptch(onProfileModal())}
+                    onClick={() => dispatch(onProfileModal())}
                     className="hosticon flex item-center justify-center"
                   >
                     <img
@@ -168,7 +176,7 @@ export default function Card({ x, index, type }) {
                       className="w-100 card"
                     >
                       <div onClick={handleAddToWish} className="icon">
-                        <Heart wishsindex={wishsindex} index={index} />
+                        <Heart wishsindex={wishidArray} index={cardid} />
                       </div>
                       <img src={x} alt="" className="w-100" />
                       <div className="backdrop"></div>
@@ -178,7 +186,11 @@ export default function Card({ x, index, type }) {
               </div>
             </div>
 
-            <div className="flex column" style={{ gap: ".2rem" }}>
+            <Link
+              to={"/63763"}
+              className="flex column"
+              style={{ gap: ".2rem" }}
+            >
               <div className="w-100 flex item-center justify-space cardTop">
                 <h4 className="fs-18 text-dark">{x.title}</h4>
                 <div
@@ -198,7 +210,7 @@ export default function Card({ x, index, type }) {
               <h4 className="fs-16 text-dark">
                 ${x.price} <span className="text-light fs-16">night</span>
               </h4>
-            </div>
+            </Link>
           </div>
         </CardContent>
       )}
@@ -329,7 +341,7 @@ const CardContent = styled.div`
     border-radius: 15px;
     width: 100%;
     transition: all 0.4s;
-overflow: hidden;
+    overflow: hidden;
     &:hover .delete {
       opacity: 1;
       visibility: visible;
