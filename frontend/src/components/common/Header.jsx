@@ -241,6 +241,9 @@ const HeaderWrapper = styled.div`
     min-width: 230px;
     z-index: 200000;
     border-radius: 8px;
+    @media (min-width:1807px) {
+      right: 17%;
+    }
     li {
       padding: 1rem 2rem;
       cursor: pointer;

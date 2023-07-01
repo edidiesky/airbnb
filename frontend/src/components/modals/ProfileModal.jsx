@@ -218,7 +218,7 @@ const DeleteContainer = styled(motion.div)`
     font-size: 20px;
   }
   .deleteCard {
-    width: 30%;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
