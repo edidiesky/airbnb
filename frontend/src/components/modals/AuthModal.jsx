@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-// import {
-//   clearDeleteGigModalAlert,
-//   DeleteGig,
-//   adminDeleteCustomer,
-//   clearUserAlertError,
-// } from "../../../Features";
 import { RxCross2 } from "react-icons/rx";
 import {
   clearUserAlertError,
@@ -39,10 +33,6 @@ export default function AuthModal({ type, click }) {
       required: true,
     },
   ];
-
-  const onChange = (e) => {
-    setFormData({ ...formdata, [e.target.name]: e.target.value });
-  };
 
   const [formdata, setFormData] = useState({
     email: "",
@@ -83,6 +73,10 @@ export default function AuthModal({ type, click }) {
   const { userAlert, userDetails } = useSelector((store) => store.user);
   // open modal if type  === users
 
+  const onChange = (e) => {
+    setFormData({ ...formdata, [e.target.name]: e.target.value });
+  };
+
   return (
     <DeleteContainer
       as={motion.div}
@@ -101,9 +95,13 @@ export default function AuthModal({ type, click }) {
         {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
           <RxCross2 />
         </div> */}
-        <div className="w-100">
-          <div className="w-100 authTop fs-14 text-extra-bold text-dark text-center">
-            Login or Sign up
+        <div className="w-100 authTop fs-16 text-extra-bold text-dark flex item-center justify-space">
+          <div className="w-90 auto flex item-center justify-space text-center">
+            {" "}
+            <div className="icon flex item-center justify-center">
+              <RxCross2 fontSize={"20px"} />
+            </div>{" "}
+            <span className="text-center w-100">Login or Sign up</span>
           </div>
         </div>
         <div className="w-90 authBottom auto flex column gap-1">
@@ -169,6 +167,11 @@ const DeleteContainer = styled(motion.div)`
     border: 1px solid rgba(0, 0, 0, 1);
     padding: 0.5rem 2rem;
     border-radius: 8px;
+  }
+  .icon {
+  }
+  .icon:hover {
+    background-color: #ccc;
   }
   .authBottom {
     position: relative;

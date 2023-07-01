@@ -44,17 +44,17 @@ const LabelContainer = styled.label`
     font-weight: normal;
   }
   input {
-    height: 3.5rem;
+    height: 3.3rem;
     border-radius: 8px;
     background: transparent;
     padding: 0 1.8rem;
     width: 100%;
     outline: none;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 500;
     font-family: inherit;
     border: 1px solid rgba(0, 0, 0, 0.4);
-    color: var(--grey-3);
+    color: var(--grey-1);
 
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
