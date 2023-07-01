@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsFillHeartFill, BsHeart, BsHeartFill } from "react-icons/bs";
-import { BiChevronLeft, BiChevronRight, BiHeart, BiStar } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import SliderIndex from "./Slider";
 import Heart from "./svg/heart";
 import Star from "./svg/star";
 import { onProfileModal } from "../../Features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
-
+import { addProductToWish } from "../../Features/wish/wishSlice";
+import { useEffect } from "react";
 const options2 = {
   items: 1,
   nav: true,
@@ -46,7 +44,10 @@ const CardLoading = () => {
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
+  const [wishsindex, setWishs] = useState(null);
   const disaptch = useDispatch();
+  const { Gigs } = useSelector((store) => store.gig);
+  const { wish } = useSelector((store) => store.wish);
 
   const handleImagePosition = (position) => {
     if (position === "left") {
@@ -57,6 +58,17 @@ export default function Card({ x, index, type }) {
     }
   };
 
+  const handleAddToWish = () => {
+    disaptch(
+      addProductToWish({
+        image: x.image,
+        title: x.title,
+        _id: x?._id,
+      })
+    );
+  };
+
+  // if the type is wish
   if (type === "wish") {
     return (
       <CardContent>
@@ -87,6 +99,23 @@ export default function Card({ x, index, type }) {
       </CardContent>
     );
   }
+
+  useEffect(() => {
+    // const found = Gigs.some((gig) => {
+    //   wish.some((gigs) => gigs?._id === gig?._id);
+    // });
+
+    const found = Gigs.some((obj1, index1) =>
+      wish.some((obj2, index2) => {
+        if (index2 === index1) {
+          setWishs(index1);
+          return;
+        }
+        return;
+      })
+    );
+    console.log(found);
+  }, [setWishs, wish, Gigs]);
 
   // const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
 
@@ -138,8 +167,8 @@ export default function Card({ x, index, type }) {
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
                     >
-                      <div className="icon">
-                        <Heart />
+                      <div onClick={handleAddToWish} className="icon">
+                        <Heart wishsindex={wishsindex} index={index} />
                       </div>
                       <img src={x} alt="" className="w-100" />
                       <div className="backdrop"></div>
@@ -300,13 +329,14 @@ const CardContent = styled.div`
     border-radius: 15px;
     width: 100%;
     transition: all 0.4s;
-
+overflow: hidden;
     &:hover .delete {
       opacity: 1;
       visibility: visible;
     }
     /* overflow: hidden; */
-    .icon, .delete {
+    .icon,
+    .delete {
       position: absolute;
       top: 3%;
       right: 3%;
@@ -345,6 +375,9 @@ const CardContent = styled.div`
       }
       .backdrop {
         background-color: rgba(255, 255, 255, 0.05);
+      }
+      img {
+        transform: scale(1.1);
       }
     }
     .backdrop {

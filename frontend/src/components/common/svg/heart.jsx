@@ -1,6 +1,6 @@
 import React from "react";
 
-const Heart = () => {
+const Heart = ({ wishsindex, index }) => {
   return (
     <div>
       <svg
@@ -11,10 +11,10 @@ const Heart = () => {
         focusable="false"
         style={{
           display: "block",
-          fill: "rgba(0, 0, 0, 0.5)",
+          fill: wishsindex === index ? "var(--red)" : "rgba(0, 0, 0, 0.5)",
           height: "24px",
           width: "24px",
-          stroke: "#FFFFFF",
+          stroke: wishsindex === index ? "var(--red)" : "#FFFFFF",
           strokeWidth: " 2",
           overflow: "visible",
         }}
