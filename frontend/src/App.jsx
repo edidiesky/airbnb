@@ -9,7 +9,9 @@ import {
   // Login,
   // Register,
   ProtectRoute,
-  Wish
+  Wish,
+  Overview,
+  AboutPlace,
 } from "./screens";
 
 export default function App() {
@@ -21,7 +23,11 @@ export default function App() {
         <Route path={"/"} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/:id" element={<Single />} />
-          <Route path="/wishlists" element={<Wish />} />
+          <Route path="wishlists" element={<Wish />} />
+        </Route>
+        <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
+          <Route path="overview" element={<Overview />} />
+          <Route path=":selllerid/about-your-place" element={<AboutPlace />} />
         </Route>
       </Routes>
     </div>
