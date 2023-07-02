@@ -35,7 +35,7 @@ export default function OfferofPlace() {
       </OfferofPlaceContainer>
       <FooterHosting
         prev={"373646/stand-out"}
-        next={"373646/location"}
+        next={"373646/photos"}
       />
     </>
   );

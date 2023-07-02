@@ -16,7 +16,8 @@ import {
   LocationOfplace,
   BasicInfoAboutPlace,
   Exception,
-  BasicOfferOfPlace
+  BasicOfferOfPlace,
+  PhotosAboutPlace
 } from "./screens";
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
           <Route path=":id/floor-plan" element={<BasicInfoAboutPlace />} />
           <Route path=":id/stand-out" element={<Exception />} />
           <Route path=":id/amenities" element={<BasicOfferOfPlace />} />
+          <Route path=":id/photos" element={<PhotosAboutPlace />} />
        
         </Route>
       </Routes>

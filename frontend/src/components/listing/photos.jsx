@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
 import { categorydata } from "../../data/category";
+import Upload from "../common/svg/upload";
 export default function PhotosofPlace() {
   const [tab, setTab] = useState(null);
   return (
@@ -16,11 +17,11 @@ export default function PhotosofPlace() {
             </span>
           </h2>
           <div className="grid w-85 auto">
-            <div className="uploadWrapper flex item-center justify-center flex column gap-2">
-               
+            <div className="uploadWrapper auto flex item-center justify-center flex column gap-1">
+              <Upload />
               <h4 className="fs-24 text-bold">
-                Drag your photos here
-                <span className="text-light fs-16">
+                Upload your photos here
+                <span className="text-light block text-center fs-18">
                   Choose at least 5 photos
                 </span>
               </h4>
@@ -35,16 +36,15 @@ export default function PhotosofPlace() {
 
 const PhotosofPlaceContainer = styled.div`
   width: 100%;
-  overflow: hidden;
   padding-bottom: 6rem;
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
   }
   .uploadWrapper {
-    width: 60%;
-    border: 1px dashed rgba(0, 0, 0, 0.2);
-    padding: 2rem 3rem;
+    width: 70%;
+    border: 1px dashed rgba(0, 0, 0, 1);
+    padding: 4rem 3rem;
     height: 100%;
   }
   .aboutCenter {
