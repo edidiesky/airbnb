@@ -9,6 +9,7 @@ import DescriptionOfplace from "./DescriptionOfPlace";
 import LocationOfplace from "./LocationOfplace";
 import BasicInfoAboutPlace from "./BasicInfoAboutPlace";
 import Exception from "./StandOut";
+import BasicOfferOfPlace from './BasicOfferOfPlace'
 export {
   DescriptionOfplace,
   Layout,
@@ -21,4 +22,5 @@ export {
   LocationOfplace,
   BasicInfoAboutPlace,
   Exception,
+  BasicOfferOfPlace
 };

@@ -26,7 +26,7 @@ export default function StandOut() {
           </div>
         </div>
       </StandOutContainer>
-      <FooterHosting prev={"373646/floor-plan"} next={"373646/stand-out"} />
+      <FooterHosting prev={"373646/floor-plan"} next={"373646/amenities"} />
     </>
   );
 }
