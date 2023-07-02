@@ -9,10 +9,12 @@ import { onProfileModal } from "../../Features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
 import {
   addProductToWish,
+  clearWishMessage,
   handleWishId,
   onWishDeleteModal,
 } from "../../Features/wish/wishSlice";
 import { useEffect } from "react";
+import Message from "../loaders/Message";
 const options2 = {
   items: 1,
   nav: true,
@@ -51,7 +53,9 @@ export default function Card({ x, index, type }) {
   // const [wishsindex, wishidArray] = useState([]);
   const dispatch = useDispatch();
   const { Gigs } = useSelector((store) => store.gig);
-  const { wish, wishidArray } = useSelector((store) => store.wish);
+  const { wish, wishidArray, showAlert, alertText } = useSelector(
+    (store) => store.wish
+  );
 
   const handleImagePosition = (position) => {
     if (position === "left") {
@@ -108,6 +112,9 @@ export default function Card({ x, index, type }) {
       </CardContent>
     );
   }
+  const handleClearMessage = () => {
+    dispatch(clearWishMessage());
+  };
 
   useEffect(() => {
     // const found = Gigs.some((gig) => {
@@ -139,6 +146,7 @@ export default function Card({ x, index, type }) {
   let cardid = x?._id;
   return (
     <>
+     
       {gigsIsLoading ? (
         <CardLoading />
       ) : (

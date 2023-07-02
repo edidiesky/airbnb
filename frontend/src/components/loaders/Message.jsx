@@ -16,7 +16,7 @@ export default function Message({
   useEffect(() => {
     setTimeout(() => {
       handleClearAlert();
-    }, 7000);
+    }, 40000);
   }, []);
 
   return (
@@ -39,7 +39,7 @@ export default function Message({
 const MessageContent = styled.div`
   min-width: 450px;
   padding: 1.2rem 2rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.26);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.26);
   background-color: #fff;
   position: fixed;
   z-index: 10000;

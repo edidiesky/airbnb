@@ -1,7 +1,20 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import GigsIndex from "./gigs";
+import Message from "../loaders/Message";
+import { useDispatch, useSelector } from "react-redux";
+import { clearWishMessage } from "../../Features/wish/wishSlice";
 export default function HomeIndex() {
+  const { showAlert } = useSelector(
+    (store) => store.wish
+  );
+
+  const dispatch = useDispatch()
+
+  const handleClearMessage = () => {
+    dispatch(clearWishMessage());
+  };
+
   // const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -11,10 +24,17 @@ export default function HomeIndex() {
   // }, []);
   return (
     <HomeIndexContainer className="flex column ">
+      <Message
+        showAlert={showAlert}
+        alertText={"Product has been succesfully deleted"}
+        handleClearAlert={handleClearMessage}
+      />
       <div className="w-90 auto flex item-center justify-center py-1">
         <div className="feewrapper flex item-center gap-2">
           <h4 className="fs-16 text-dark text-bold">Display total price</h4>
-          <div className="center fs-16 text-grey text-light">Includes all fees, before taxes</div>
+          <div className="center fs-16 text-grey text-light">
+            Includes all fees, before taxes
+          </div>
           <div className="right fs-16 text-grey text-light">
             <div className="icons"></div>
           </div>
@@ -45,12 +65,12 @@ const HomeIndexContainer = styled.div`
         width: 3.4rem;
         height: 2rem;
         border-radius: 40px;
-        background-color:#bfbdbddb;
+        background-color: #bfbdbddb;
         position: relative;
         &::after {
           width: 60%;
           height: 90%;
-          content: '';
+          content: "";
           position: absolute;
           left: 5%;
           top: 50%;
