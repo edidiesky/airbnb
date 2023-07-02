@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
 import Map from "../forms/map";
+import { BiPlus } from "react-icons/bi";
 export default function BasicInfoAboutPlace() {
   return (
     <>
@@ -13,6 +14,58 @@ export default function BasicInfoAboutPlace() {
               You'll add more details later, like bed types.
             </span>
           </h2>
+          <div className="flex typeContainer auto flex column gap-2">
+            {/* guest */}
+            <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
+              Guests
+              <div className="flex item-center" style={{ gap: "1.2rem" }}>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>{" "}
+                <h4 className="fs-18 text-extra-bold">2</h4>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>
+              </div>
+            </div>{" "}
+            {/* bedrooms */}
+            <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
+              Bedrooms
+              <div className="flex item-center" style={{ gap: "1.2rem" }}>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>{" "}
+                <h4 className="fs-18 text-extra-bold">2</h4>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>
+              </div>
+            </div>{" "}
+            <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
+              Beds
+              <div className="flex item-center" style={{ gap: "1.2rem" }}>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>{" "}
+                <h4 className="fs-18 text-extra-bold">2</h4>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>
+              </div>
+            </div>{" "}
+            <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
+              Bathrooms
+              <div className="flex item-center" style={{ gap: "1.2rem" }}>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>{" "}
+                <h4 className="fs-18 text-extra-bold">2</h4>
+                <div className="icons flex item-center justify-center">
+                  <BiPlus fontSize={"20px"} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </BasicInfoAboutPlaceContainer>
       <FooterHosting prev={"373646/location"} next={"373646/structure"} />
@@ -24,6 +77,9 @@ const BasicInfoAboutPlaceContainer = styled.div`
   width: 100%;
   /* overflow: hidden; */
   /* padding-bottom: 6rem; */
+  .typeContainer {
+    width: 60%;
+  }
   h2 {
     font-size: 35px;
     line-height: 1.2;
@@ -33,42 +89,13 @@ const BasicInfoAboutPlaceContainer = styled.div`
       /* font-size: 40px; */
     }
   }
-  .locationsearch {
-    width: 100%;
-    position: relative;
-
-    .searchwrapper {
-      width: 60%;
-      position: relative;
-      height: 60vh;
-      .icon {
-        position: absolute;
-        left: 5%;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    }
-    .map {
-      /* position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0; */
-      /* z-index: 30000; */
-      height: 60vh;
-    }
-    select {
-      width: 100%;
-      border: none;
-      outline: none;
-      padding: 1.5rem 6rem;
-      margin: 0 auto;
-      border-radius: 40px;
-      border: 2px solid rgba(0, 0, 0, 0.06);
-
-      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
-      &:hover {
-        border: 2px solid rgba(0, 0, 0, 1);
-      }
+  .icons {
+    width: 2.5rem;
+    border-radius: 50%;
+    height: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 1);
     }
   }
 `;

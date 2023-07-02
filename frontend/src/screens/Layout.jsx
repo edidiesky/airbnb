@@ -56,12 +56,13 @@ const LayoutContainer = styled.div`
     padding-top: 1rem;
     z-index: 32838;
     background-color: #fff;
+    padding-bottom: 1rem;
   }
   .hostbtn {
-    padding: 1rem 2rem;
+    padding: .9rem 2rem;
     background-color: var(--dark-1);
     color: #fff;
-    border-radius: 20px;
+    border-radius: 10px;
 
     &:hover {
       background-color: #e3dddd;
