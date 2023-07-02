@@ -14,7 +14,8 @@ import {
   AboutPlace,
   DescriptionOfplace,
   LocationOfplace,
-  BasicInfoAboutPlace
+  BasicInfoAboutPlace,
+  Exception
 } from "./screens";
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route path=":selllerid/structure" element={<DescriptionOfplace />} />
           <Route path=":id/location" element={<LocationOfplace />} />
           <Route path=":id/floor-plan" element={<BasicInfoAboutPlace />} />
+          <Route path=":id/stand-out" element={<Exception />} />
         </Route>
       </Routes>
     </div>

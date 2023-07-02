@@ -68,7 +68,7 @@ export default function BasicInfoAboutPlace() {
           </div>
         </div>
       </BasicInfoAboutPlaceContainer>
-      <FooterHosting prev={"373646/location"} next={"373646/structure"} />
+      <FooterHosting prev={"373646/location"} next={"373646/stand-out"} />
     </>
   );
 }

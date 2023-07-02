@@ -6,8 +6,9 @@ import Overview from "./Overview";
 import AboutPlace from "./AboutPlace";
 import { ProtectRoute } from "./ProtectRoute";
 import DescriptionOfplace from "./DescriptionOfPlace";
-import LocationOfplace from "./LocationOfplace";
-import BasicInfoAboutPlace from './BasicInfoAboutPlace'
+import LocationOfplace from "./StandOut";
+import BasicInfoAboutPlace from "./BasicInfoAboutPlace";
+import Exception from "./StandOut";
 export {
   DescriptionOfplace,
   Layout,
@@ -18,5 +19,6 @@ export {
   Overview,
   AboutPlace,
   LocationOfplace,
-  BasicInfoAboutPlace
+  BasicInfoAboutPlace,
+  Exception,
 };
