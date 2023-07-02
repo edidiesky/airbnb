@@ -12,6 +12,7 @@ import {
   Wish,
   Overview,
   AboutPlace,
+  DescriptionOfplace
 } from "./screens";
 
 export default function App() {
@@ -28,6 +29,8 @@ export default function App() {
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
           <Route path="overview" element={<Overview />} />
           <Route path=":selllerid/about-your-place" element={<AboutPlace />} />
+          <Route path=":selllerid/structure" element={<DescriptionOfplace />} />
+        
         </Route>
       </Routes>
     </div>

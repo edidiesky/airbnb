@@ -70,7 +70,7 @@ export default function Starting() {
           </div>
         </div>
       </StartingContainer>
-      <FooterHosting tab1={'132737/about-your-place'} tab2={''} />
+      <FooterHosting next={'132737/about-your-place'} prev={''} />
     </>
   );
 }

@@ -26,7 +26,7 @@ export default function AboutPlace() {
           </div>
         </div>
       </AboutPlaceContainer>
-      <FooterHosting tab1={"overview"} tab2={"overview"} />
+      <FooterHosting next={"325353/structure"} prev={"overview"} />
     </>
   );
 }

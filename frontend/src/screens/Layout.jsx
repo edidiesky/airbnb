@@ -54,6 +54,8 @@ const LayoutContainer = styled.div`
     width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding-top: 1rem;
+    z-index: 32838;
+    background-color: #fff;
   }
   .hostbtn {
     padding: 1rem 2rem;
