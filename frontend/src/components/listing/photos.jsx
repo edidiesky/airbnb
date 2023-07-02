@@ -29,7 +29,7 @@ export default function PhotosofPlace() {
           </div>
         </div>
       </PhotosofPlaceContainer>
-      <FooterHosting prev={"373646/stand-out"} next={"373646/location"} />
+      <FooterHosting prev={"373646/amenities"} next={"373646/title"} />
     </>
   );
 }

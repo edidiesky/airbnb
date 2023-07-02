@@ -9,8 +9,9 @@ import DescriptionOfplace from "./DescriptionOfPlace";
 import LocationOfplace from "./LocationOfplace";
 import BasicInfoAboutPlace from "./BasicInfoAboutPlace";
 import Exception from "./StandOut";
-import BasicOfferOfPlace from './BasicOfferOfPlace'
-import PhotosAboutPlace from './PhotosAboutPlace'
+import BasicOfferOfPlace from "./BasicOfferOfPlace";
+import PhotosAboutPlace from "./PhotosAboutPlace";
+import TitleOfPlace from "./TitleOfPlace";
 export {
   DescriptionOfplace,
   Layout,
@@ -24,5 +25,6 @@ export {
   BasicInfoAboutPlace,
   Exception,
   BasicOfferOfPlace,
-  PhotosAboutPlace
+  PhotosAboutPlace,
+  TitleOfPlace,
 };
