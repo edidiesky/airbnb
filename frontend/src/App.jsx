@@ -22,6 +22,7 @@ import {
   InformationOfplace,
   PriceOfplace,
   ReviewOfplace,
+  Payment,
 } from "./screens";
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/:id" element={<Single />} />
           <Route path="wishlists" element={<Wish />} />
+          <Route path="payment" element={<Payment />} />
         </Route>
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
           <Route path="overview" element={<Overview />} />
