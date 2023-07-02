@@ -12,24 +12,18 @@ export default function Message({
   // dispatch
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(handleClearAlert());
-    }, 4000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     dispatch(handleClearAlert());
+  //   }, 4000);
+  // }, []);
 
   return (
-    <MessageContent
-      className={
-        showAlert
-          ? "gap-1 flex item-center justify-space active"
-          : alertType === "danger"
-          ? "gap-1 flex item-center danger justify-space"
-          : "gap-1 flex item-center justify-space"
-      }
-    >
-      {alertType === "danger" && <CgDanger className="fs-24" />}
-      <div className="flex flex1">{alertText}</div>
+    <MessageContent className={"gap-1 flex item-center justify-space active"}>
+      {/* {alertType === "danger" && <CgDanger className="fs-24" />} */}
+      <div className="flex flex1 fs-12 text-dark">
+        Your gig has been succesfully deleted
+      </div>
       <div className="icon" onClick={() => dispatch(handleClearAlert())}>
         <RxCross1 />
       </div>
@@ -38,24 +32,21 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 350px;
+  min-width: 450px;
   padding: 1.2rem 2rem;
-  background-color: #f7f7f7;
-  font-size: 17px;
-  font-weight: 500;
-  color: #333;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.26);
+  background-color: #fff;
+  position: fixed;
+  z-index: 10000;
+  left: 10%;
+  border-radius: 5px;
+  /* transform: translateX(-50%); */
+  top: 10%;
+  border-left: 4px solid var(--green);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-1);
   transition: all 0.6s;
-  transform: translate3d(0, -1000px, 0);
-  opacity: 0;
-  visibility: hidden;
-  position: relative;
-  display: none;
-  &.active {
-    transform: translate3d(0, 0px, 0);
-    visibility: visible;
-    opacity: 1;
-    display: flex;
-  }
   &.danger {
     background-color: var(--red);
     color: #fff;

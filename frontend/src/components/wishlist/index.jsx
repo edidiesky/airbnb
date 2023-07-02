@@ -1,18 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 import { Card } from "../common";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Message from "../loaders/Message";
+import { clearWishMessage } from "../../Features/wish/wishSlice";
 
 const WishIndex = () => {
-  const { wish } = useSelector((store) => store.wish);
-
+  const dispatch = useDispatch();
+  const { wish, showAlert, alertText } = useSelector((store) => store.wish);
+  const handleClearMessage = () => {
+    dispatch(clearWishMessage());
+  };
   return (
-    <div className="w-85 auto flex column gap-2" style={{paddingBottom:"3rem"}}>
+    <div
+      className="w-85 auto flex column gap-2"
+      style={{ paddingBottom: "3rem" }}
+    >
+      <Message
+        showAlert={showAlert}
+        alertText={"Product has been succesfully deleted"}
+        handleClearAlert={handleClearMessage}
+      />
       <h2 className="fs-40">Wishlists</h2>
       {wish.length > 0 ? (
         <WishWrapper className=" w-100 gap-2">
           {wish.map((x) => {
-            return <Card x={x} type={'wish'} />;
+            return <Card x={x} type={"wish"} />;
           })}
         </WishWrapper>
       ) : (

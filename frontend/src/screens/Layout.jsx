@@ -35,6 +35,8 @@ export default function Layout({ type }) {
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
+      {/* messgae modal */}
+      
       {/* delete modal */}
       <AnimatePresence
         initial="false"

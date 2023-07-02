@@ -72,13 +72,13 @@ const wishSlice = createSlice({
       const wishItemPayload = action.payload;
       // console.log(wishItemPayload);
       // remove the item from the wish
-      // state.wish = state.wish.filter((x) => x._id !== wishItemPayload._id);
-      // state.showAlert = true;
-      // state.wishAlert = false;
-
-      // state.alertType = "danger";
-      // state.alertText = `${wishItemPayload.title} has been successfully removed from your Wish items`;
-      // localStorage.setItem("wishItem", JSON.stringify(state.wish));
+      state.wish = state.wish.filter((x) => x._id !== wishItemPayload._id);
+      state.showAlert = true;
+      state.deletewishmodal = false;
+      state.wishAlert = false;
+      state.alertType = "danger";
+      state.alertText = `${wishItemPayload.title} has been successfully removed from your Wish items`;
+      localStorage.setItem("wishItem", JSON.stringify(state.wish));
     },
     ClearwishData: (state, action) => {
       localStorage.removeItem("wishItem");
