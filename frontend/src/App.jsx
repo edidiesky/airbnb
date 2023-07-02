@@ -14,6 +14,7 @@ import {
   AboutPlace,
   DescriptionOfplace,
   LocationOfplace,
+  BasicInfoAboutPlace
 } from "./screens";
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
           <Route path=":selllerid/about-your-place" element={<AboutPlace />} />
           <Route path=":selllerid/structure" element={<DescriptionOfplace />} />
           <Route path=":id/location" element={<LocationOfplace />} />
+          <Route path=":id/floor-plan" element={<BasicInfoAboutPlace />} />
         </Route>
       </Routes>
     </div>

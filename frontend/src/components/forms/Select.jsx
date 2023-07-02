@@ -8,7 +8,7 @@ const SelectInput = ({ value, onChange }) => {
     control: (provided, state) => ({
       ...provided,
       padding: "1rem 2rem",
-      border: "2px solid rgba(0,0,0,.07)", // Add desired hover border color
+      border: "2px solid rgba(0,0,0,.07)",
       fontFamily: " Montserrat, sans-serif",
       borderRadius: "40px", // Add desired border-radius value
       //   height: "60px", // Add desired height value
