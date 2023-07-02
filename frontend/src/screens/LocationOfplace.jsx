@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import Location from '../components/listing/location'
+import Location from "../components/listing/location";
 
 export default function LocationOfplace() {
   return (
@@ -14,7 +14,7 @@ export default function LocationOfplace() {
 
 const LocationOfplaceContainer = styled.div`
   width: 100%;
-  overflow: hidden;
-  min-height: 100vh;
-  padding-top: 4rem;
+  /* overflow: hidden; */
+  /* min-height: 70vh; */
+  padding-top: 7rem;
 `;

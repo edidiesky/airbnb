@@ -31,7 +31,7 @@ export default function App() {
           <Route path="overview" element={<Overview />} />
           <Route path=":selllerid/about-your-place" element={<AboutPlace />} />
           <Route path=":selllerid/structure" element={<DescriptionOfplace />} />
-          <Route path=":id/location" element={<DescriptionOfplace />} />
+          <Route path=":id/location" element={<LocationOfplace />} />
         </Route>
       </Routes>
     </div>
