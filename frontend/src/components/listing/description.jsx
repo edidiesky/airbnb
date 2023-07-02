@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FooterHosting from "./footer";
 import { categorydata } from "../../data/category";
 export default function DescriptionofPlace() {
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(null);
   return (
     <>
       <DescriptionofPlaceContainer>

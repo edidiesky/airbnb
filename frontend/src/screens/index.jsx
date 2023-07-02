@@ -6,7 +6,7 @@ import Overview from "./Overview";
 import AboutPlace from "./AboutPlace";
 import { ProtectRoute } from "./ProtectRoute";
 import DescriptionOfplace from "./DescriptionOfPlace";
-import LocationOfplace from "./StandOut";
+import LocationOfplace from "./LocationOfplace";
 import BasicInfoAboutPlace from "./BasicInfoAboutPlace";
 import Exception from "./StandOut";
 export {
