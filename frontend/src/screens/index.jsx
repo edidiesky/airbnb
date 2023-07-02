@@ -13,6 +13,7 @@ import BasicOfferOfPlace from "./BasicOfferOfPlace";
 import PhotosAboutPlace from "./PhotosAboutPlace";
 import TitleOfPlace from "./TitleOfPlace";
 import InformationOfplace from './InformationOfPlace'
+import PriceOfplace from './PriceOfPlace'
 export {
   DescriptionOfplace,
   Layout,
@@ -28,5 +29,6 @@ export {
   BasicOfferOfPlace,
   PhotosAboutPlace,
   TitleOfPlace,
-  InformationOfplace
+  InformationOfplace,
+  PriceOfplace
 };

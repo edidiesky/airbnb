@@ -1,31 +1,36 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
-export default function InformationofPlace() {
+export default function PriceofPlace() {
   return (
     <>
-      <InformationofPlaceContainer>
+      <PriceofPlaceContainer>
         <div className="aboutCenter flex column gap-1 justify-center item-center w-85 auto">
           <h2 className="text-extra-bold w-100 text-start text-dark">
-            Create your description
+            Now, set your price
             <span className="block py-1 fs-20 text-light text-grey">
-              Share what makes your place special.
+              You can change it anytime.
             </span>
           </h2>
           <div className="grid w-85 auto">
-            <textarea
-              placeholder="Feel refreshed when you stay in this rustic gem."
+            <div
+              placeholder="fun boat"
               className="uploadWrapper auto flex item-center justify-center flex column gap-1"
-            />
+            >
+              <input
+                placeholder="$50"
+                className="fs-30 family1 text-dark text-center text-extra-bold"
+              />
+            </div>
           </div>
         </div>
-      </InformationofPlaceContainer>
-      <FooterHosting prev={"373646/title"} next={"373646/price"} />
+      </PriceofPlaceContainer>
+      <FooterHosting prev={"373646/description"} next={"373646/description"} />
     </>
   );
 }
 
-const InformationofPlaceContainer = styled.div`
+const PriceofPlaceContainer = styled.div`
   width: 100%;
   padding-bottom: 6rem;
   .list1 {
@@ -34,10 +39,10 @@ const InformationofPlaceContainer = styled.div`
   }
   .uploadWrapper {
     width: 70%;
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     padding: 2rem 2rem;
     height: 100%;
-    height: 12rem;
+    height: 10rem;
     border-radius: 8px;
     background: transparent;
     outline: none;
@@ -47,22 +52,15 @@ const InformationofPlaceContainer = styled.div`
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     color: var(--grey-1);
-
-    &:hover {
-      border: 1px solid rgba(0, 0, 0, 0.4);
-    }
-    &:focus {
-      border: 2px solid var(--dark-1);
-      background: transparent;
-    }
-    &.true {
-      background: #fff;
-    }
-    &.inputError {
-      border: 2px solid var(--red);
-    }
-    &:invalid[focused="true"] ~ span {
-      display: block;
+    input {
+      border: none;
+      outline: none;
+      font-size: 45px;
+      font-weight: 700;
+      color: #222 !important;
+      &::placeholder {
+        color: #222 !important;
+      }
     }
   }
   .aboutCenter {

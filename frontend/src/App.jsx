@@ -19,7 +19,8 @@ import {
   BasicOfferOfPlace,
   PhotosAboutPlace,
   TitleOfPlace,
-  InformationOfplace
+  InformationOfplace,
+  PriceOfplace
 } from "./screens";
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
           <Route path=":id/photos" element={<PhotosAboutPlace />} />
           <Route path=":id/title" element={<TitleOfPlace />} />
           <Route path=":id/description" element={<InformationOfplace />} />
+          <Route path=":id/price" element={<PriceOfplace />} />
        
         </Route>
       </Routes>
