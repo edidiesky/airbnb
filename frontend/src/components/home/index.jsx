@@ -5,11 +5,9 @@ import Message from "../loaders/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { clearWishMessage } from "../../Features/wish/wishSlice";
 export default function HomeIndex() {
-  const { showAlert } = useSelector(
-    (store) => store.wish
-  );
+  const { showAlert } = useSelector((store) => store.wish);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleClearMessage = () => {
     dispatch(clearWishMessage());
@@ -26,7 +24,7 @@ export default function HomeIndex() {
     <HomeIndexContainer className="flex column ">
       <Message
         showAlert={showAlert}
-        alertText={"Product has been succesfully deleted"}
+        alertText={"Product has been succesfully added to your wishlists"}
         handleClearAlert={handleClearMessage}
       />
       <div className="w-90 auto flex item-center justify-center py-1">
