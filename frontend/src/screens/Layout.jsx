@@ -8,6 +8,7 @@ import Footer from "../components/common/Footer";
 import AuthModal from "../components/modals/AuthModal";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
+import ListingHeader from "../components/listing/ListingHeader";
 
 export default function Layout({ type }) {
   const [height, setHeight] = useState(0);
@@ -20,8 +21,11 @@ export default function Layout({ type }) {
   }, []);
   if (type === "hosting") {
     return (
-      <LayoutContainer className="layout" style={{ height }}>
-        <Outlet />
+      <LayoutContainer className="layout layoutListing" style={{ height }}>
+        <ListingHeader />
+        <div className="outletWrapper">
+          <Outlet />
+        </div>
       </LayoutContainer>
     );
   }
@@ -59,7 +63,7 @@ const LayoutContainer = styled.div`
     padding-bottom: 1rem;
   }
   .hostbtn {
-    padding: .9rem 2rem;
+    padding: 0.9rem 2rem;
     background-color: var(--dark-1);
     color: #fff;
     border-radius: 10px;
@@ -73,5 +77,14 @@ const LayoutContainer = styled.div`
       color: var(--dark-1);
       text-decoration: underline;
     }
+  }
+  .outletWrapper {
+      padding-top: 4rem;
+    }
+  .layoutListing {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+   
   }
 `;

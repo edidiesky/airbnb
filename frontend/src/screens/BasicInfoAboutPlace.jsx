@@ -16,5 +16,5 @@ const BasicInfoAboutPlaceContainer = styled.div`
   width: 100%;
   /* overflow: hidden; */
   /* min-height: 70vh; */
-  padding-top: 7rem;
+  padding-top: 4rem;
 `;

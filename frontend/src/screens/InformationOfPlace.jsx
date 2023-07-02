@@ -16,5 +16,5 @@ const InformationOfplaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
   min-height: 100vh;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
 `;
