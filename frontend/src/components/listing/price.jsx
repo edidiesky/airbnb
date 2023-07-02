@@ -25,7 +25,7 @@ export default function PriceofPlace() {
           </div>
         </div>
       </PriceofPlaceContainer>
-      <FooterHosting prev={"373646/description"} next={"373646/description"} />
+      <FooterHosting prev={"373646/description"} next={"373646/reviews"} />
     </>
   );
 }

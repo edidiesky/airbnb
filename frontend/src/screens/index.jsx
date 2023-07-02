@@ -14,6 +14,7 @@ import PhotosAboutPlace from "./PhotosAboutPlace";
 import TitleOfPlace from "./TitleOfPlace";
 import InformationOfplace from './InformationOfPlace'
 import PriceOfplace from './PriceOfPlace'
+import ReviewOfplace from './ReviewOfPlace'
 export {
   DescriptionOfplace,
   Layout,
@@ -30,5 +31,6 @@ export {
   PhotosAboutPlace,
   TitleOfPlace,
   InformationOfplace,
-  PriceOfplace
+  PriceOfplace,
+  ReviewOfplace
 };

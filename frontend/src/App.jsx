@@ -20,7 +20,8 @@ import {
   PhotosAboutPlace,
   TitleOfPlace,
   InformationOfplace,
-  PriceOfplace
+  PriceOfplace,
+  ReviewOfplace,
 } from "./screens";
 
 export default function App() {
@@ -46,7 +47,7 @@ export default function App() {
           <Route path=":id/title" element={<TitleOfPlace />} />
           <Route path=":id/description" element={<InformationOfplace />} />
           <Route path=":id/price" element={<PriceOfplace />} />
-       
+          <Route path=":id/reviews" element={<ReviewOfplace />} />
         </Route>
       </Routes>
     </div>
