@@ -7,7 +7,7 @@ const WishIndex = () => {
   const { wish } = useSelector((store) => store.wish);
 
   return (
-    <div className="w-85 auto flex column gap-2">
+    <div className="w-85 auto flex column gap-2" style={{paddingBottom:"3rem"}}>
       <h2 className="fs-40">Wishlists</h2>
       {wish.length > 0 ? (
         <WishWrapper className=" w-100 gap-2">
@@ -32,6 +32,7 @@ const WishWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5rem;
+  /* padding: 2rem 0; */
 `;
 
 export default WishIndex;

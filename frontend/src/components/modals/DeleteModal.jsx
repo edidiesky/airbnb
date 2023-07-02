@@ -1,44 +1,94 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCartAlert, removeBagItem } from "../../Features";
-import { AiFillWarning } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
-export default function Delete({ handleRemoveBagItem, offDeleteModal }) {
+import { motion } from "framer-motion";
+import {
+  offWishDeleteModal,
+  removewishItem,
+} from "../../Features/wish/wishSlice";
+export default function Delete() {
   // dispatch
+  const dropin = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+      transition: {
+        delay: 0.5,
+      },
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        type: "spring",
+        damping: 26,
+        stiffness: 600,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  // get the cart alert
+  //   const { GigsDetails } = useSelector((store) => store.gigs);
+  const { userAlert, userDetails } = useSelector((store) => store.user);
+
   const dispatch = useDispatch();
   // get the cart alert
-  const { cartAlert, bagDetails } = useSelector((store) => store.bag);
+  const { wishDetails } = useSelector((store) => store.wish);
+
+  // console.log(wishDetails);
 
   return (
-    <DeleteContainer className={cartAlert ? "active" : ""}>
-      <div className={cartAlert ? "deleteCard active" : "deleteCard"}>
-        <div className="cross" onClick={() => dispatch(clearCartAlert())}>
+    <DeleteContainer
+      as={motion.div}
+      initial={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+      exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+      animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
+    >
+      <div
+        className="backdrop"
+        onClick={() => dispatch(offWishDeleteModal())}
+      ></div>
+      <motion.div
+        variants={dropin}
+        initial="hidden"
+        animate="visible"
+        exit={"exit"}
+        className={"deleteCard shadow"}
+      >
+        <div onClick={() => dispatch(offWishDeleteModal())} className="cross">
           <RxCross2 />
         </div>
-        <div className="deleteCardTop">
-          <h3>Delete Media?</h3>
-          <p className="family1">
-            Are you sure you want to delete "{bagDetails?.title}"?
-            <br /> You can't undo this action.
+        <div className="deleteCardTop ">
+          <h3>Delete this wishlist?</h3>
+          <p className="fs-14 text-light text-center">
+            Are you sure you want to delete"?
+            <br /> {wishDetails?.title} will be deleted permanently?
           </p>
         </div>
         {/*<div className='deleteCardCenter'>
             <AiFillWarning/>
             <h4><span className='deleteSpan'>Warning</span>
-             By deleting this media "{bagDetails?.title}" will also be deleted
+             By deleting this media "{wishDetails?.title}" will also be deleted
             </h4>
           </div>*/}
-        <div className="deleteCardBottom family1">
-          <button onClick={() => dispatch(clearCartAlert())}>Cancel</button>
+        <div className="deleteCardBottom">
+          <button onClick={() => dispatch(offWishDeleteModal())}>Cancel</button>
           <button
             className="deleteBtn"
-            onClick={() => dispatch(removeBagItem(bagDetails))}
+            onClick={() => dispatch(removewishItem(wishDetails))}
           >
-            Delete Media
+            Delete
           </button>
         </div>
-      </div>
+      </motion.div>
     </DeleteContainer>
   );
 }
@@ -52,36 +102,27 @@ const DeleteContainer = styled.div`
   align-items: center;
   justify-content: center;
   top: 0;
-  background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  visibility: hidden;
+
   z-index: 300000;
-  &.active {
-    opacity: 1;
-    visibility: visible;
+  .backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
   }
 
   .deleteCard {
-    min-width: 200px;
+    min-width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: var(--white);
-    padding: 4rem 3rem;
-    gap: 2rem;
+    background: #fff;
+    padding: 2rem 3rem;
+    gap: 1rem;
     border-radius: 6px;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
     position: relative;
-    opacity: 0;
-    transform: scale(0.7);
-    visibility: hidden;
-    transition: all 0.4s;
-    &.active {
-      opacity: 1;
-      transform: scale(1);
-      visibility: visible;
-    }
     .cross {
       position: absolute;
       right: 10px;
@@ -104,24 +145,40 @@ const DeleteContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 2rem;
-      gap: 2rem;
+      /* border-top: 1px solid rgba(0, 0, 0, 0.3); */
+      width: 100%;
+      padding-top: 1rem;
+      gap: 1rem;
       button {
-        padding: 1.2rem 3rem;
-        border: none;
-        font-size: 1.6rem;
-        font-weight: 400;
-        background: var(--grey-2);
+        padding: 0.8rem 2rem;
+        background-color: var(--dark-1);
         color: #fff;
+        border-radius: 10px;
+
+        &:hover {
+          background-color: #e3dddd;
+          color: var(--dark-1);
+        }
+        &.grey {
+          background-color: transparent;
+          color: var(--dark-1);
+          text-decoration: underline;
+        }
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        background: var(--grey-2);
+        color: #222;
         outline: none;
-        border-radius: 40px;
+        border-radius: 4px;
         cursor: pointer;
         &:hover {
           background: var(--grey-3);
-          color: var(--text-color);
+          color: var(--dark-1);
         }
         &.deleteBtn {
-          background: var(--red);
+          background: var(--dark-1);
+          color: #fff;
           &:hover {
             opacity: 0.8;
             color: #fff;
@@ -137,6 +194,8 @@ const DeleteContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 2rem;
+      padding-bottom: 4rem;
+
       svg {
         font-size: 2rem;
         color: var(--red);
@@ -158,17 +217,12 @@ const DeleteContainer = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 1.4rem;
+      gap: 0.4rem;
+      padding-bottom: 4rem;
       h3 {
-        font-size: 2rem;
+        font-size: 1.2rem;
         font-weight: 600;
         color: var(--text-color);
-      }
-      p {
-        font-size: 1.4rem;
-        font-weight: 400;
-        color: var(--grey);
-        text-align: center;
       }
     }
   }

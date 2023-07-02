@@ -14,6 +14,7 @@ const initialState = {
   alertType: "",
   wishAlert: false,
   wishtitlemodal: false,
+  deletewishmodal: false,
   wishidArray: wishids ? wishids : [],
 };
 
@@ -36,6 +37,14 @@ const wishSlice = createSlice({
     onWishAlert: (state, action) => {
       const wishItemPayload = action.payload;
       state.wishAlert = true;
+      state.wishDetails = wishItemPayload;
+    },
+    offWishDeleteModal: (state) => {
+      state.deletewishmodal = false;
+    },
+    onWishDeleteModal: (state, action) => {
+      const wishItemPayload = action.payload;
+      state.deletewishmodal = true;
       state.wishDetails = wishItemPayload;
     },
     addProductToWish: (state, action) => {
@@ -61,13 +70,15 @@ const wishSlice = createSlice({
     },
     removewishItem: (state, action) => {
       const wishItemPayload = action.payload;
+      // console.log(wishItemPayload);
       // remove the item from the wish
-      state.wish = state.wish.filter((x) => x._id !== wishItemPayload._id);
-      state.showAlert = true;
-      state.wishAlert = false;
-      state.alertType = "danger";
-      state.alertText = `${wishItemPayload.title} has been successfully removed from your Wish items`;
-      localStorage.setItem("wishItem", JSON.stringify(state.wish));
+      // state.wish = state.wish.filter((x) => x._id !== wishItemPayload._id);
+      // state.showAlert = true;
+      // state.wishAlert = false;
+
+      // state.alertType = "danger";
+      // state.alertText = `${wishItemPayload.title} has been successfully removed from your Wish items`;
+      // localStorage.setItem("wishItem", JSON.stringify(state.wish));
     },
     ClearwishData: (state, action) => {
       localStorage.removeItem("wishItem");
@@ -92,6 +103,8 @@ export const {
   onWishAlert,
   clearWishMessage,
   handleWishId,
+  onWishDeleteModal,
+  offWishDeleteModal,
 } = wishSlice.actions;
 
 export default wishSlice.reducer;

@@ -9,10 +9,12 @@ import AuthModal from "../components/modals/AuthModal";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 import ListingHeader from "../components/listing/ListingHeader";
+import Delete from "../components/modals/DeleteModal";
 
 export default function Layout({ type }) {
   const [height, setHeight] = useState(0);
   const { authmodal } = useSelector((store) => store.user);
+  const { deletewishmodal } = useSelector((store) => store.wish);
 
   useEffect(() => {
     const container = document.querySelector(".layout");
@@ -33,6 +35,15 @@ export default function Layout({ type }) {
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
+      {/* delete modal */}
+      <AnimatePresence
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {deletewishmodal && <Delete />}
+      </AnimatePresence>
+      {/* authentication modal */}
 
       <AnimatePresence
         initial="false"
@@ -79,12 +90,11 @@ const LayoutContainer = styled.div`
     }
   }
   .outletWrapper {
-      padding-top: 4rem;
-    }
+    padding-top: 4rem;
+  }
   .layoutListing {
     display: flex;
     flex-direction: column;
     gap: 5rem;
-   
   }
 `;

@@ -7,7 +7,11 @@ import Heart from "./svg/heart";
 import Star from "./svg/star";
 import { onProfileModal } from "../../Features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
-import { addProductToWish, handleWishId } from "../../Features/wish/wishSlice";
+import {
+  addProductToWish,
+  handleWishId,
+  onWishDeleteModal,
+} from "../../Features/wish/wishSlice";
 import { useEffect } from "react";
 const options2 = {
   items: 1,
@@ -68,6 +72,8 @@ export default function Card({ x, index, type }) {
     );
   };
 
+  let wishdetails = x;
+
   // if the type is wish
   if (type === "wish") {
     return (
@@ -81,7 +87,10 @@ export default function Card({ x, index, type }) {
                     style={{ transform: `translateX(-${tabindex * 100}%)` }}
                     className="w-100 card"
                   >
-                    <div className="icon delete">
+                    <div
+                      onClick={() => dispatch(onWishDeleteModal(wishdetails))}
+                      className="icon delete"
+                    >
                       <RxCross2 />
                     </div>
                     <img src={x} alt="" className="w-100" />
@@ -351,6 +360,7 @@ const CardContent = styled.div`
     .delete {
       position: absolute;
       top: 3%;
+      cursor: pointer;
       right: 3%;
       border-radius: 50%;
       display: grid;
