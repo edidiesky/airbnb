@@ -18,7 +18,8 @@ import {
   Exception,
   BasicOfferOfPlace,
   PhotosAboutPlace,
-  TitleOfPlace
+  TitleOfPlace,
+  InformationOfplace
 } from "./screens";
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
           <Route path=":id/amenities" element={<BasicOfferOfPlace />} />
           <Route path=":id/photos" element={<PhotosAboutPlace />} />
           <Route path=":id/title" element={<TitleOfPlace />} />
+          <Route path=":id/description" element={<InformationOfplace />} />
        
         </Route>
       </Routes>
