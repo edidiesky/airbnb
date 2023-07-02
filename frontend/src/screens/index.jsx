@@ -6,6 +6,7 @@ import Overview from "./Overview";
 import AboutPlace from "./AboutPlace";
 import { ProtectRoute } from "./ProtectRoute";
 import DescriptionOfplace from "./DescriptionOfPlace";
+import LocationOfplace from "./LocationOfplace";
 export {
   DescriptionOfplace,
   Layout,
@@ -15,4 +16,5 @@ export {
   Wish,
   Overview,
   AboutPlace,
+  LocationOfplace,
 };

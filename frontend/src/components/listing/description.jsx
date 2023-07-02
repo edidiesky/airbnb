@@ -30,7 +30,7 @@ export default function DescriptionofPlace() {
           </div>
         </div>
       </DescriptionofPlaceContainer>
-      <FooterHosting prev={"373646/about-your-place"} next={"373646/structure"} />
+      <FooterHosting prev={"373646/about-your-place"} next={"373646/location"} />
     </>
   );
 }
