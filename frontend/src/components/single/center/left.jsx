@@ -11,6 +11,7 @@ import Fridge from "../../common/svg/fridge";
 import Sound from "../../common/svg/sound";
 import Carbon from "../../common/svg/carbon";
 import Profile from "./profile";
+import DateInput from "../../forms/Date";
 const offerdata = [
   {
     image: <Kitchen />,
@@ -49,7 +50,7 @@ const offerdata = [
 const LeftCenter = () => {
   return (
     <div className="flex column gap-2">
-      <h3 className="fs-20 text-dark bottom">
+      <h3 className=" text-dark bottom" style={{ fontSize: "24px" }}>
         Camper/RV hosted by Lanzarote Van Campers
         <span className="block fs-14 text-grey text-light">
           3 guests1 bedroom1 bed1.5 baths
@@ -144,6 +145,7 @@ const LeftCenter = () => {
       {/* special offers */}
 
       {/* special offers */}
+    
       <div className="flex column gap-2 bottom w-100">
         <h3 className="fs-24 text-dark">What this place offers</h3>
         <ul

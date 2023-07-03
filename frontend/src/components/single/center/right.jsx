@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Star from "../../common/svg/star";
+import DateInput from "../../forms/Date";
 
 const RightCenter = () => {
   return (
     <RightCard>
-      <div className="flex wrapper column gap-2 item-start">
+      <div className="flex w-100 wrapper column gap-2 item-start">
+        <DateInput />
         <div className="top flex justify-space w-100">
           <h4 className="fs-24 text-dark text-bold">
             $97 <span className="text-grey text-light fs-16">night</span>

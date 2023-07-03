@@ -99,7 +99,7 @@ const DeleteContainer = styled.div`
     height: 7rem;
   }
   .cardwrapper {
-    width: 70%;
+    width: 66%;
     margin: 0 auto;
     @media (max-width: 780px) {
       flex-direction: column;
@@ -119,7 +119,7 @@ const DeleteContainer = styled.div`
   }
   .authCenter {
     padding: 2rem 2rem;
-    padding-left: 8rem;
+    padding-left: 6rem;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     margin: 1.4rem 0;

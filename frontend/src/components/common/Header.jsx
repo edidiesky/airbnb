@@ -207,7 +207,7 @@ export default function Header({ type }) {
                     src={x.image}
                     alt=""
                     className="image"
-                    style={{ width: "2rem", height: "2rem" }}
+                    style={{ width: "2rem", height: "2rem",filter:"brightness(50%)" }}
                   />
                   {x.text}
                 </div>
@@ -241,7 +241,7 @@ const HeaderWrapper = styled.div`
     min-width: 230px;
     z-index: 200000;
     border-radius: 8px;
-    @media (min-width:1807px) {
+    @media (min-width: 1807px) {
       right: 17%;
     }
     li {
@@ -288,7 +288,7 @@ const HeaderWrapper = styled.div`
     }
   }
   .image {
-    filter: brightness(60%);
+    filter: brightness(0.1);
   }
   .right {
     justify-content: flex-end;

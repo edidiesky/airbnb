@@ -23,6 +23,13 @@ a {
 .justify-end {
   justify-content: flex-end;
 }
+.rdrMonth {
+  width: 100% !important;
+}
+.rdrCalendarWrapper {
+  width: 100% !important;
+  font-size: 16px !important;
+}
 .avatar-large {
   width: 5rem;
   height: 5rem;
