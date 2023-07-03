@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import SingleLeftIndex from "./left";
 import RightIndex from "./right";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { BiChevronLeft } from "react-icons/bi";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { getSingleGigsDetails } from "../../Features";
 import LoaderIndex from "../loaders";
@@ -14,7 +15,12 @@ export default function PaymentIndex() {
   return (
     <PaymentIndexContent>
       <div className="w-90 auto flex column">
-        <h3 className="fs-40 w-85 auto">Confirm and pay</h3>
+        <h3 className="fs-40 w-90 auto flex item-center gap-1">
+          <Link to={"/"} className="icon flex item-center justify-center">
+            <BiChevronLeft fontSize={"20px"} />
+          </Link>
+          Confirm and pay
+        </h3>
         <div className="w-90 auto py-4 grid grid-auto grid-gap4">
           <SingleLeftIndex id={id} />
           <RightIndex />
@@ -31,6 +37,16 @@ const PaymentIndexContent = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 1.4rem;
     border-radius: 15px;
+  }
+  .icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    transition: all 0.4s;
+    &:hover {
+      background-color: #d1cbcbd2;
+    }
   }
   .btn {
     background-image: linear-gradient(

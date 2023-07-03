@@ -34,6 +34,8 @@ export default function SingleLeftIndex({ id }) {
           </h4>
         </div>
         {/* rules
+     
+        {/* payment button */}
         <h5 className="fs-12 text-light">
           By selecting the button below,{" "}
           <span
@@ -59,7 +61,6 @@ export default function SingleLeftIndex({ id }) {
           and that Airbnb can charge my payment method if I’m responsible for
           damage.
         </h5>
-        {/* payment button */}
         <div className="w-50 flex item-center">
           <div className="btn fs-16 text-white">Confirm and Pay</div>
         </div>
