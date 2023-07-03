@@ -1,17 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SingleLeftIndex from "./left";
 import RightIndex from "./right";
 import styled from "styled-components";
 import { BiChevronLeft } from "react-icons/bi";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-// import { getSingleGigsDetails } from "../../Features";
-import LoaderIndex from "../loaders";
-
+import { useDispatch } from "react-redux";
 export default function PaymentIndex() {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  //
+  
   return (
     <PaymentIndexContent>
       <div className="w-90 auto flex column">

@@ -15,20 +15,7 @@ import {
 } from "../../Features/wish/wishSlice";
 import { useEffect } from "react";
 import Message from "../loaders/Message";
-const options2 = {
-  items: 1,
-  nav: true,
-  dots: true,
-  margin: 10,
-  navText: ["<", ">"],
-  width: "100%",
-  slideBy: 1,
-  responsive: {
-    1024: {
-      items: 1,
-    },
-  },
-};
+
 const CardLoading = () => {
   return (
     <CardLoadingContent className="w-100 flex column gap-1 back-white">
@@ -146,7 +133,6 @@ export default function Card({ x, index, type }) {
   let cardid = x?._id;
   return (
     <>
-     
       {gigsIsLoading ? (
         <CardLoading />
       ) : (
@@ -188,7 +174,8 @@ export default function Card({ x, index, type }) {
                 )}
                 {x?.image?.map((x) => {
                   return (
-                    <div
+                    <Link
+                      to={`/128383`}
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
                     >
@@ -197,7 +184,7 @@ export default function Card({ x, index, type }) {
                       </div>
                       <img src={x} alt="" className="w-100" />
                       <div className="backdrop"></div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
