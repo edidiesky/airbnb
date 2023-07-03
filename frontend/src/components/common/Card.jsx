@@ -18,18 +18,35 @@ import Message from "../loaders/Message";
 
 const CardLoading = () => {
   return (
-    <CardLoadingContent className="w-100 flex column gap-1 back-white">
+    <CardLoadingContent
+      style={{ gap: ".4rem" }}
+      className="w-100 flex column back-white"
+    >
       <div className="top w-100"></div>
-      <div className="center w-90 auto flex gap-1 item-center">
-        <div className="topCenter skeleton"></div>
-        <div className="bottomCenter skeleton"></div>
-      </div>
-      <div
-        className="w-90 auto flex column item-start"
-        style={{ gap: ".5rem" }}
-      >
-        <div className="w-100 h-6 duration1 skeleton"></div>
-        <div className="w-50 h-6 duration2 skeleton"></div>
+      <div style={{ gap: ".2rem" }} className="flex column w-100">
+        <div className="center w-100 auto flex gap-1 item-center justify-space">
+          <div
+            style={{ borderRadius: "6px" }}
+            className="topCenter skeleton"
+          ></div>
+          <div
+            style={{ borderRadius: "6px" }}
+            className="bottomCenter skeleton"
+          ></div>
+        </div>
+        <div
+          className="w-100 auto flex column item-start"
+          style={{ gap: ".4rem" }}
+        >
+          <div
+            style={{ width: "50%", borderRadius: "6px" }}
+            className="h-6 duration1 skeleton"
+          ></div>
+          <div
+            style={{ width: "35%", borderRadius: "6px" }}
+            className="h-6 duration2 skeleton"
+          ></div>
+        </div>
       </div>
     </CardLoadingContent>
   );
@@ -139,6 +156,9 @@ export default function Card({ x, index, type }) {
         <CardContent>
           <div className="w-100 cards flex gap-1 column" key={x?.id}>
             <div className="detailsImageContainer">
+              <div onClick={handleAddToWish} className="icon">
+                <Heart wishsindex={wishidArray} index={cardid} />
+              </div>
               {/* button  */}
               {x?.image?.length >= 2 && (
                 <div className="flex">
@@ -172,6 +192,7 @@ export default function Card({ x, index, type }) {
                     />
                   </div>
                 )}
+
                 {x?.image?.map((x) => {
                   return (
                     <Link
@@ -179,9 +200,6 @@ export default function Card({ x, index, type }) {
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
                     >
-                      <div onClick={handleAddToWish} className="icon">
-                        <Heart wishsindex={wishidArray} index={cardid} />
-                      </div>
                       <img src={x} alt="" className="w-100" />
                       <div className="backdrop"></div>
                     </Link>
@@ -339,6 +357,22 @@ const CardContent = styled.div`
       border-radius: 50%;
     }
   }
+  .icon {
+    position: absolute;
+    top: 7% !important;
+    cursor: pointer;
+    right: 3%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: all 0.4s;
+    z-index: 20;
+
+    svg {
+      font-size: 24px;
+      color: #333;
+    }
+  }
   .card {
     min-height: 18rem;
     position: relative;
@@ -351,7 +385,7 @@ const CardContent = styled.div`
       visibility: visible;
     }
     /* overflow: hidden; */
-    .icon,
+
     .delete {
       position: absolute;
       top: 3%;
@@ -368,6 +402,7 @@ const CardContent = styled.div`
         color: #333;
       }
     }
+
     .delete {
       left: 3%;
       right: 0;
@@ -417,17 +452,17 @@ const CardContent = styled.div`
 `;
 
 const CardLoadingContent = styled.div`
-  min-height: 35rem;
+  /* min-height: 35rem; */
   min-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fff;
   .skeleton {
     opacity: 0.7;
     animation: card-loading 1s infinite alternate;
   }
   .top {
-    height: 20rem;
+    height: 17rem;
     opacity: 0.4;
+    border-radius: 12px;
     animation: card-loading 2s infinite alternate;
   }
   .bottomCenter {
@@ -438,9 +473,8 @@ const CardLoadingContent = styled.div`
     height: 1rem;
   }
   .topCenter {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
+    width: 50%;
+    height: 1rem;
   }
   .period1 {
     animation-duration: 1.5s;
@@ -450,10 +484,10 @@ const CardLoadingContent = styled.div`
   }
   @keyframes card-loading {
     0% {
-      background-color: hsl(200, 20%, 70%);
+      background-color: hsl(200, 20%, 50%);
     }
     100% {
-      background-color: hsl(200, 20%, 96%);
+      background-color: hsl(200, 20%, 86%);
     }
   }
 `;

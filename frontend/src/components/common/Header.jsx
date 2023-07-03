@@ -163,9 +163,9 @@ export default function Header({ type }) {
             </div>
           )}
           <div className="flex-1 right flex item-center gap-1">
-            <h5 className="fs-16 text-light text text-grey">
+            <Link to={'/become-a-host/overview'} className="fs-16 text-light text text-grey">
               Airbnb your home
-            </h5>
+            </Link>
             <div className="icon1 flex item-center justify-center text-dark">
               <World />
             </div>

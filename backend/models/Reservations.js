@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
 
-const CartSchema = new mongoose.Schema(
+const ReservationSchema = new mongoose.Schema(
   {
     buyer: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref: "User",
     },
-    sellerId: {
+    authorId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
@@ -30,4 +29,4 @@ const CartSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Cart", CartSchema);
+export default mongoose.model("Reservation", ReservationSchema);

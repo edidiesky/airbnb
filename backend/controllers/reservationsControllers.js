@@ -1,48 +1,48 @@
 // import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
-import Cart from "../models/Cart.js";
+import Reservations from "../models/Reservations.js";
 import Gig from "../models/Gig.js";
-// GET All Cart
+// GET All Reservations
 //  Public
-const GetAllBuyerCart = asyncHandler(async (req, res) => {
+const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   // instantiate the request queries
   const queryObject = { buyer: req.user.userId };
 
-  let result = Cart.find(queryObject)
+  let result = Reservations.find(queryObject)
     .populate("sellerId", "image username")
     .populate(
       "gigId",
       "image title category shortDescription price type deliveryDays"
     );
 
-  const totalCart = await Cart.countDocuments({});
+  const totalReservations = await Reservations.countDocuments({});
 
-  const cart = await result;
-  res.status(200).json({ cart, totalCart });
+  const Reservations = await result;
+  res.status(200).json({ Reservations, totalReservations });
 });
 
 // GET SINGLE Gig
 // Not Private
-const GetSingleBuyerCart = asyncHandler(async (req, res) => {
+const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   const { id } = req.params;
   // find the Gig
-  const cart = await Cart.findOne({ _id: id })
+  const Reservations = await Reservations.findOne({ _id: id })
     .populate(
       "gigId",
       "image title image shortDescription price category subInfo type deliveryDays"
     )
     .populate("buyer", "username name image country");
 
-  if (!cart) {
+  if (!Reservations) {
     res.status(404);
-    throw new Error("Cart Item not found");
+    throw new Error("Reservations Item not found");
   }
-  res.status(200).json({ cart });
+  res.status(200).json({ Reservations });
 });
 
 //PRIVATE
 // ADMIN
-const UpdateBuyerCart = asyncHandler(async (req, res) => {
+const UpdateBuyerReservations = asyncHandler(async (req, res) => {
   const { userId, role } = req.user;
   const {
     title,
@@ -57,11 +57,11 @@ const UpdateBuyerCart = asyncHandler(async (req, res) => {
     type,
     deliveryDays,
   } = req.body;
-  const gig = await Cart.findById({ _id: req.params.id });
+  const gig = await Reservations.findById({ _id: req.params.id });
 
   if (!gig) {
     res.status(404);
-    throw new Error("Cart not found");
+    throw new Error("Reservations not found");
   }
   // res.send(role)
   // console.log((role === 'admin'));
@@ -83,7 +83,7 @@ const UpdateBuyerCart = asyncHandler(async (req, res) => {
     };
     // check for empty values and repeated values
 
-    const updatedGig = await Cart.findByIdAndUpdate(
+    const updatedGig = await Reservations.findByIdAndUpdate(
       { _id: req.params.id },
       { ...data },
       { new: true }
@@ -95,10 +95,10 @@ const UpdateBuyerCart = asyncHandler(async (req, res) => {
   }
 });
 
-// GET SINGLE Cart
+// GET SINGLE Reservations
 // Private
 // Admin and seller
-const CreateBuyerCart = asyncHandler(async (req, res) => {
+const CreateBuyerReservations = asyncHandler(async (req, res) => {
   // get the request body parameters
   const { qty } = req.body;
 
@@ -111,14 +111,14 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
   }
   const { userId } = req.user;
 
-  // check if the gig is alrady in the cart
-  const alreadyinCart = await Cart.findOne({
+  // check if the gig is alrady in the Reservations
+  const alreadyinReservations = await Reservations.findOne({
     gigId: id,
     buyer: userId,
   });
-  // if in cart update it
-  if (alreadyinCart) {
-    let cart = await Cart.findOneAndUpdate(
+  // if in Reservations update it
+  if (alreadyinReservations) {
+    let Reservations = await Reservations.findOneAndUpdate(
       {
         gigId: id,
         buyer: userId,
@@ -126,7 +126,7 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
       {gigQuantity: qty },
       { new: true }
     );
-    res.status(200).json({ cart });
+    res.status(200).json({ Reservations });
   } else {
     // "countInStock": 10,
     // checking if the required quantity is greater that the gig countInStock
@@ -148,52 +148,52 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
     // console.log('hello');
     // console.log(gig.countInStock - qty);
 
-    const cart = await Cart.create({
+    const Reservations = await Reservations.create({
       gigQuantity: qty,
       buyer: userId,
       gigId: id,
       sellerId: gig.sellerId ? gig.sellerId : gig.user,
     });
 
-    res.status(200).json({ cart });
+    res.status(200).json({ Reservations });
   }
 });
 
 //PRIVATE/
 // ADMIN
-const DeleteBuyerCart = asyncHandler(async (req, res) => {
+const DeleteBuyerReservations = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { userId, role } = req.user;
-  const gig = await Cart.findById({ _id: id });
+  const gig = await Reservations.findById({ _id: id });
 
   if (!gig) {
     res.status(404);
-    throw new Error("Cart not found");
+    throw new Error("Reservations not found");
   }
   // res.send(role)
   // console.log((role === 'admin'));
   console.log(gig.user.toString() !== userId);
   // check if the user is the seller or is admin
   if (gig.user.toString() === userId || role === "admin") {
-    await Cart.findByIdAndDelete({ _id: req.params.id });
-    res.status(200).json({ message: "The Cart has been successfully deleted" });
+    await Reservations.findByIdAndDelete({ _id: req.params.id });
+    res.status(200).json({ message: "The Reservations has been successfully deleted" });
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
   }
 });
 
-const GetTopRatedBuyerCart = asyncHandler(async (req, res) => {
-  // get the Cart but based on the rating and then send 4 Cart
-  const toprated = await Cart.find({}).sort({ rating: -1 }).limit(3);
+const GetTopRatedBuyerReservations = asyncHandler(async (req, res) => {
+  // get the Reservations but based on the rating and then send 4 Reservations
+  const toprated = await Reservations.find({}).sort({ rating: -1 }).limit(3);
   res.status(200).json({ toprated });
 });
 
 export {
-  GetTopRatedBuyerCart,
-  CreateBuyerCart,
-  DeleteBuyerCart,
-  UpdateBuyerCart,
-  GetAllBuyerCart,
-  GetSingleBuyerCart,
+  GetTopRatedBuyerReservations,
+  CreateBuyerReservations,
+  DeleteBuyerReservations,
+  UpdateBuyerReservations,
+  GetAllBuyerReservations,
+  GetSingleBuyerReservations,
 };

@@ -19,7 +19,7 @@ import userRoute from "./routes/userRoute.js";
 import reviewRoute from "./routes/reviewRoutes.js";
 import gigRoute from "./routes/gigRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
-import cartRoute from "./routes/cartRoute.js";
+import cartRoute from "./routes/resrevations.js";
 import orderRoute from "./routes/orderRoutes.js";
 
 import chatRoute from "./routes/chatRoutes.js";
