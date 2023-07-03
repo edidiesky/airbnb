@@ -8,7 +8,7 @@ export default function Payment() {
   return (
     <>
       <Meta title={'Confirm and Pay'} />
-      <Header />
+      <Header type={'type'} />
       <PaymentContainer>
         <PaymentIndex/>
       </PaymentContainer>
@@ -18,7 +18,7 @@ export default function Payment() {
 
 const PaymentContainer = styled.div`
   width: 100%;
-  overflow: hidden;
-  padding-top: 12rem;
-  padding-bottom: 6rem;
+  /* overflow: hidden; */
+  /* padding-top: 12rem; */
+  padding-top: 6rem;
 `;
