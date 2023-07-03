@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// resrevations schema of the buyer the gig created by the author
 const ReservationSchema = new mongoose.Schema(
   {
     buyer: {
@@ -23,6 +24,15 @@ const ReservationSchema = new mongoose.Schema(
       type: Number,
     },
     tax: {
+      type: Number,
+    },
+    adults: {
+      type: Number,
+    },
+    children: {
+      type: Number,
+    },
+    infants: {
       type: Number,
     },
   },

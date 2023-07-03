@@ -99,8 +99,15 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
 // Private
 // Admin and seller
 const CreateBuyerReservations = asyncHandler(async (req, res) => {
+  // idea
+  // get the gig id
+  // take in the required number of occupants
+  // Create a db for that reservations
+  // reduce the author gig in terms of quanitity
+  // Be able to update the reservations if the gig is already in the resrevations
+
   // get the request body parameters
-  const { qty } = req.body;
+  const { qty, adults, children, infants } = req.body;
 
   // console.log(qty);
   const { id } = req.params;
@@ -118,15 +125,15 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
   });
   // if in Reservations update it
   if (alreadyinReservations) {
-    let Reservations = await Reservations.findOneAndUpdate(
+    let reservations = await Reservations.findOneAndUpdate(
       {
         gigId: id,
         buyer: userId,
       },
-      {gigQuantity: qty },
+      { gigQuantity: qty, adults, children, infants },
       { new: true }
     );
-    res.status(200).json({ Reservations });
+    res.status(200).json({ reservations });
   } else {
     // "countInStock": 10,
     // checking if the required quantity is greater that the gig countInStock
@@ -148,14 +155,17 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     // console.log('hello');
     // console.log(gig.countInStock - qty);
 
-    const Reservations = await Reservations.create({
+    const reservations = await Reservations.create({
       gigQuantity: qty,
       buyer: userId,
       gigId: id,
+      adults,
+      children,
+      infants,
       sellerId: gig.sellerId ? gig.sellerId : gig.user,
     });
 
-    res.status(200).json({ Reservations });
+    res.status(200).json({ reservations });
   }
 });
 
@@ -176,7 +186,9 @@ const DeleteBuyerReservations = asyncHandler(async (req, res) => {
   // check if the user is the seller or is admin
   if (gig.user.toString() === userId || role === "admin") {
     await Reservations.findByIdAndDelete({ _id: req.params.id });
-    res.status(200).json({ message: "The Reservations has been successfully deleted" });
+    res
+      .status(200)
+      .json({ message: "The Reservations has been successfully deleted" });
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");

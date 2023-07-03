@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const GigSchema = new mongoose.Schema(
   {
-    sellerId: {
+    authorId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
@@ -34,17 +34,7 @@ const GigSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    subInfo: [],
-    category: [],
-    type: {
-      type: String,
-      enum: ["Basic", "Standard", "Premium"],
-      default: "Basic",
-    },
-    deliveryDays: {
-      type: Number,
-      default: 1,
-    },
+    
     numreview: { type: Number },
   },
   { timestamps: true }
