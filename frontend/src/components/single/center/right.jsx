@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import moment from "moment";
 import Star from "../../common/svg/star";
-import DateInput from "../../forms/Date";
 import { BiChevronDown } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  onCalendarModal,
+  onSelectModal,
+} from "../../../Features/gigs/gigsSlice";
+import LoaderIndex from "../../loaders";
+import { useNavigate } from "react-router-dom";
 
-const RightCenter = () => {
+const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
+  const navigate = useNavigate()
+  const { ReservationsIsLoading, ReservationsIsSuccess } = useSelector(
+    (store) => store.reservations
+  );
+
+  useEffect(()=> {
+    if(ReservationsIsSuccess) {
+      navigate(`/{}`)
+    }
+  },[ReservationsIsSuccess])
+
+  const formatDate = (date) => {
+    return moment(date).format("DD/MM/YYYY");
+  };
+  const dispatch = useDispatch();
   return (
     <div className="w-100 flex column gap-2">
       <RightCard>
@@ -29,6 +51,7 @@ const RightCenter = () => {
           </div>
           <div className="flex column w-100">
             <div
+              onClick={() => dispatch(onCalendarModal())}
               style={{
                 border: "1px solid rgba(0,0,0,.3)",
                 borderBottom: "none",
@@ -43,7 +66,7 @@ const RightCenter = () => {
               >
                 check-in
                 <div className="fs-12 block text-grey text-light">
-                  12/11/2023
+                  {formatDate(dateRange.selection.startDate)}
                 </div>
               </div>{" "}
               <div
@@ -56,11 +79,13 @@ const RightCenter = () => {
               >
                 check-out
                 <div className="fs-12 block text-grey text-light">
-                  12/11/2023
+                  {formatDate(dateRange.selection.endDate)}
                 </div>
               </div>
             </div>{" "}
+            {/* rooms */}
             <div
+              onClick={() => dispatch(onSelectModal())}
               style={{
                 border: "1px solid rgba(0,0,0,.3)",
                 borderBottomRightRadius: "8px",
@@ -73,7 +98,9 @@ const RightCenter = () => {
                 className=" fs-10 flex-1 family1 text-extra-bold text-bold"
               >
                 GUESTS
-                <div className="fs-14 block text-dark text-light">3 guests</div>
+                <div className="fs-14 block text-dark text-light">
+                  {limit} guests
+                </div>
               </div>{" "}
               <div
                 style={{
@@ -89,8 +116,15 @@ const RightCenter = () => {
             </div>
           </div>
           <div className="flex w-100 column gap-1">
-            <div className="reserveBtn w-100 fs-16 text-white text-center">
-              Reserve
+            <div
+              onClick={handleCreateReservation}
+              className="reserveBtn w-100 fs-16 text-white flex justify-center item-center"
+            >
+              {!ReservationsIsLoading ? (
+                <LoaderIndex type={"dots"} color={"#fff"} />
+              ) : (
+                "Reserve"
+              )}
             </div>
             <div className="fs-14 text-grey text-light text-center">
               You wont be charged yet
@@ -143,12 +177,17 @@ const RightCard = styled.div`
       #e31c5f 50%,
       #d70466 100%
     );
-    padding: 1rem 2rem;
+    /* padding: 0.8rem 2rem; */
+    min-height: 3rem;
     border-radius: 10px;
     color: #fff !important;
     color: #fff;
     /* padding: 0.8rem 2rem; */
     border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
   }
 `;
 const Wrapper = styled.div`

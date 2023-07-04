@@ -4,11 +4,22 @@ import { motion } from "framer-motion";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
-import { dropin } from "../../utils/framer";
+import { flip } from "../../utils/framer";
 import { offSelectModal } from "../../Features/gigs/gigsSlice";
 
-export default function Selection() {
+export default function Selection({
+  setChildren,
+  children,
+  adults,
+  setAdults,
+  infants,
+  setInfants,
+}) {
   const dispatch = useDispatch();
+
+  // console.log({ results: adults + children });
+
+  let limit = adults + children;
 
   return (
     <SelectionContainer
@@ -22,7 +33,7 @@ export default function Selection() {
         onClick={() => dispatch(offSelectModal())}
       ></div>
       <motion.div
-        variants={dropin}
+        variants={flip}
         initial="hidden"
         animate="visible"
         exit={"exit"}
@@ -48,20 +59,28 @@ export default function Selection() {
             {/* guest */}
             <div className="w-100 fs-16 flex item-center justify-space">
               <span className="text-bold text-dark">
-                Guests{" "}
+                Adults{" "}
                 <div className="block fs-14 text-light text-grey">Age 13+</div>
               </span>
               <div
                 className="flex item-center justify-end"
                 style={{ gap: "1rem" }}
               >
-                <div className="icons flex item-center justify-center">
+                <button
+                  onClick={() => setAdults(adults - 1)}
+                  disabled={adults === 0}
+                  className="icons flex item-center justify-center"
+                >
                   <BiMinus fontSize={"18px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-grey text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
+                </button>{" "}
+                <h4 className="fs-18 text-grey text-extra-bold">{adults}</h4>
+                <button
+                  disabled={limit >= 6}
+                  onClick={() => setAdults(adults + 1)}
+                  className="icons flex item-center justify-center"
+                >
                   <BiPlus fontSize={"18px"} />
-                </div>
+                </button>
               </div>
             </div>{" "}
             <div className="w-100 fs-16 flex item-center justify-space">
@@ -75,13 +94,21 @@ export default function Selection() {
                 className="flex item-center justify-end"
                 style={{ gap: "1rem" }}
               >
-                <div className="icons flex item-center justify-center">
+                <button
+                  onClick={() => setChildren(children - 1)}
+                  disabled={children === 0}
+                  className="icons flex item-center justify-center"
+                >
                   <BiMinus fontSize={"18px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-grey text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
+                </button>{" "}
+                <h4 className="fs-18 text-grey text-extra-bold">{children}</h4>
+                <button
+                  disabled={limit >= 6}
+                  onClick={() => setChildren(children + 1)}
+                  className="icons flex item-center justify-center"
+                >
                   <BiPlus fontSize={"18px"} />
-                </div>
+                </button>
               </div>
             </div>{" "}
             <div className="w-100 fs-16 flex item-center justify-space">
@@ -93,13 +120,21 @@ export default function Selection() {
                 className="flex item-center justify-end"
                 style={{ gap: "1rem" }}
               >
-                <div className="icons flex item-center justify-center">
+                <button
+                  onClick={() => setInfants(infants - 1)}
+                  disabled={infants === 0}
+                  className="icons flex item-center justify-center"
+                >
                   <BiMinus fontSize={"18px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-grey text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
+                </button>{" "}
+                <h4 className="fs-18 text-grey text-extra-bold">{infants}</h4>
+                <button
+                  disabled={infants === 4}
+                  onClick={() => setInfants(infants + 1)}
+                  className="icons flex item-center justify-center"
+                >
                   <BiPlus fontSize={"18px"} />
-                </div>
+                </button>
               </div>
             </div>
           </div>
@@ -133,11 +168,16 @@ const SelectionContainer = styled(motion.div)`
     border-radius: 50%;
     height: 2.5rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: transparent;
     cursor: pointer;
     &:hover {
       border: 1px solid rgba(0, 0, 0, 1);
     }
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
+
 
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);

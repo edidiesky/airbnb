@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { BiMinus, BiPlus } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
-import { dropin } from "../../utils/framer";
-import { offSelectModal } from "../../Features/gigs/gigsSlice";
+import { flip } from "../../utils/framer";
+import { offCalendarModal } from "../../Features/gigs/gigsSlice";
 import DateInput from "../forms/Date";
 
-export default function CalendarModal() {
+export default function CalendarModal({handleSelect,dateRange}) {
   const dispatch = useDispatch();
 
   return (
@@ -20,10 +19,10 @@ export default function CalendarModal() {
     >
       <div
         className="backdrop"
-        onClick={() => dispatch(offSelectModal())}
+        onClick={() => dispatch(offCalendarModal())}
       ></div>
       <motion.div
-        variants={dropin}
+        variants={flip}
         initial="hidden"
         animate="visible"
         exit={"exit"}
@@ -31,7 +30,7 @@ export default function CalendarModal() {
       >
         <div className="w-100 flex item-start">
           <div className=" avatar  flex item-center justify-center">
-            <RxCross2 onClick={() => dispatch(offSelectModal())} />
+            <RxCross2 onClick={() => dispatch(offCalendarModal())} />
           </div>
         </div>
         <div className="w-90 auto flex column gap-2">
@@ -45,7 +44,7 @@ export default function CalendarModal() {
               aren't allowed
             </span>
           </h3> */}
-          <DateInput/>
+          <DateInput handleSelect={handleSelect} dateRange={dateRange} />
         </div>
         <div className="w-100 btnwrapper">
           <div className="w-90 auto flex item-center justify-space">
@@ -126,7 +125,7 @@ const CalendarModalContainer = styled(motion.div)`
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 
     &:hover {
       background-color: #fafafa;

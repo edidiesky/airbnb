@@ -107,7 +107,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
   // Be able to update the reservations if the gig is already in the resrevations
 
   // get the request body parameters
-  const { qty, adults, children, infants } = req.body;
+  const { qty, adults, children, infants, startDate, endDate } = req.body;
 
   // console.log(qty);
   const { id } = req.params;
@@ -116,21 +116,18 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Gig not found");
   }
-  const { userId } = req.user;
 
   // check if the gig is alrady in the Reservations
   const alreadyinReservations = await Reservations.findOne({
     gigId: id,
-    buyer: userId,
   });
   // if in Reservations update it
   if (alreadyinReservations) {
     let reservations = await Reservations.findOneAndUpdate(
       {
         gigId: id,
-        buyer: userId,
       },
-      { gigQuantity: qty, adults, children, infants },
+      { gigQuantity: qty, adults, children, infants, startDate, endDate },
       { new: true }
     );
     res.status(200).json({ reservations });
@@ -157,7 +154,6 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
 
     const reservations = await Reservations.create({
       gigQuantity: qty,
-      buyer: userId,
       gigId: id,
       adults,
       children,

@@ -1,19 +1,103 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 import LeftCenter from "./left";
 import RightCenter from "./right";
-import DateInput from "../../forms/Date";
 import Selection from "../../modals/SelectionModal";
 import CalendarModal from "../../modals/CalendarModal";
+import { useDispatch, useSelector } from "react-redux";
+import { AnimatePresence } from "framer-motion";
+import { CreateBuyerReservations } from "../../../Features/reservations/reservationsReducer";
 
 const CenterIndex = () => {
+  const { GigsDetails } = useSelector((store) => store.gigs);
+  const { ReservationsIsLoading } = useSelector((store) => store.reservations);
+  const dispatch = useDispatch();
+  const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
+  const [children, setChildren] = useState(1);
+  const [infants, setInfants] = useState(0);
+  const [adults, setAdults] = useState(2);
+  // date
+  const [dateRange, setDateRange] = useState({
+    selection: {
+      startDate: null,
+      endDate: null,
+      key: "selection",
+    },
+  });
+
+  const data = {
+    children,
+    infants,
+    adults,
+    startDate: moment(dateRange.selection.startDate).format('DD/MM/YYYY'),
+    endDate: moment(dateRange.selection.endDate).format('DD/MM/YYYY'),
+    qty: 1,
+  };
+
+  useEffect(() => {
+    const backendStartDate = moment(GigsDetails?.startDate).toDate();
+    const backendEndDate = moment(GigsDetails?.endDate).toDate();
+    setDateRange({
+      selection: {
+        startDate: backendStartDate,
+        endDate: backendEndDate,
+      },
+    });
+  }, [GigsDetails, setDateRange]);
+
+  const handleSelect = (ranges) => {
+    // console.log(ranges);
+    const selectedStartDate = ranges.range1.startDate;
+    const selectedendDate = ranges.range1.endDate;
+
+    setDateRange({
+      ...ranges.range1,
+      selection: {
+        startDate: selectedStartDate,
+        endDate: selectedendDate,
+      },
+    });
+  };
+
+  const handleCreateReservation = () => {
+    dispatch(CreateBuyerReservations(data));
+  };
+
+  let limit = adults + children + infants;
   return (
     <CenterWrapper>
       <LeftCenter />
+      <AnimatePresence
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {calendarmodal && (
+          <CalendarModal handleSelect={handleSelect} dateRange={dateRange} />
+        )}
+      </AnimatePresence>
       {/* <Selection /> */}
-      <CalendarModal/>
+
+      <AnimatePresence
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {selectmodal && (
+          <Selection
+            setChildren={setChildren}
+            children={children}
+            infants={infants}
+            setInfants={setInfants}
+            adults={adults}
+            setAdults={setAdults}
+          />
+        )}
+      </AnimatePresence>
+
       <div className="rightwrapper flex column gap-2">
-        <RightCenter />
+        <RightCenter limit={limit} dateRange={dateRange} handleCreateReservation={handleCreateReservation} />
       </div>
     </CenterWrapper>
   );
