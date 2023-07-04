@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { Slider } from "../../common";
 import Card from "../../common/Card";
 import { useSelector } from "react-redux";
-import { projectdata } from "../../../data";
 
 
 
 export default function GigsIndex() {
-  // const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
+  const { Gigs } = useSelector((store) => store.gigs);
   return (
     <GigsIndexContainer>
       <div className="w-90 auto flex column">
@@ -17,7 +16,7 @@ export default function GigsIndex() {
         </div>
         <div className="w-100 project">
           <div className="w-100 wrapper">
-            {projectdata?.map((x, index) => {
+            {Gigs?.map((x, index) => {
               return <Card x={x} index={index} />;
             })}
           </div>

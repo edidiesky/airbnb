@@ -5,19 +5,20 @@ import HomeIndex from "../components/home";
 import styled from "styled-components";
 import ProfileModal from "../components/modals/ProfileModal";
 import { AnimatePresence } from "framer-motion";
-// import Header from '../components/home/header';
-// import { clearGigsAlert, getAllGigs } from '../Features';
+import { clearGigsAlert } from "../Features/gigs/gigsSlice";
+import { getAllGigs } from "../Features/gigs/gigsReducer";
 
 export default function Home() {
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  //   dispatch(clearGigsAlert())
-  //   dispatch(getAllGigs())
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(clearGigsAlert())
+    dispatch(getAllGigs())
+  }, []);
   // actions
   const { profilemodal } = useSelector((store) => store.user);
 
-  const dispatch = useDispatch();
+  
   return (
     <>
       <Meta />

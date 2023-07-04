@@ -6,7 +6,6 @@ import {
   DeleteGig,
   UpdateGig,
 } from "./gigsReducer";
-import { projectdata } from "../../data";
 
 const Gigs = JSON.parse(localStorage.getItem("Gigs"));
 
@@ -16,7 +15,7 @@ const initialState = {
   gigsIsError: false,
   gigsIsLoading: false,
   totalGigs: 0,
-  Gigs: projectdata,
+  Gigs: [],
   GigsDetails: null,
 
   // alert states

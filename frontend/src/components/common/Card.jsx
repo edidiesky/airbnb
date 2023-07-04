@@ -56,7 +56,7 @@ export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
   // const [wishsindex, wishidArray] = useState([]);
   const dispatch = useDispatch();
-  const { Gigs } = useSelector((store) => store.gig);
+  const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
   const { wish, wishidArray, showAlert, alertText } = useSelector(
     (store) => store.wish
   );
@@ -142,11 +142,6 @@ export default function Card({ x, index, type }) {
     );
     // console.log(found);
   }, [wish, Gigs]);
-
-  // const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
-  // console.log(wishsindex);
-
-  const gigsIsLoading = false;
   let cardid = x?._id;
   return (
     <>
@@ -196,7 +191,7 @@ export default function Card({ x, index, type }) {
                 {x?.image?.map((x) => {
                   return (
                     <Link
-                      to={`/128383`}
+                      to={`/rooms/${cardid}`}
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
                     >
@@ -209,7 +204,7 @@ export default function Card({ x, index, type }) {
             </div>
 
             <Link
-              to={"/63763"}
+              to={`/rooms/${x?._id}`}
               className="flex column"
               style={{ gap: ".2rem" }}
             >
