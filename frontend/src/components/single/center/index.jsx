@@ -20,6 +20,7 @@ const CenterWrapper = styled.div`
   display: grid;
   grid-gap: 6rem;
   grid-template-columns: 1fr 27vw;
+  place-items: start;
   /* place-items: start; */
   @media (max-width: 1080px) {
     display: flex;

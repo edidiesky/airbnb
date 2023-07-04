@@ -14,35 +14,47 @@ const Imagewrapper = () => {
       </div>
       <Wrapper>
         <div className="w-100 imagewrapper images">
-          <img
-            src={GigsDetails?.image[1]}
-            alt=""
-            className="image w-100 h-100"
-          />
+          {GigsDetails?.image[1] && (
+            <img
+              src={GigsDetails?.image[1]}
+              alt=""
+              className="image w-100 h-100"
+            />
+          )}
+
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          <img
-            src={GigsDetails?.image[2]}
-            alt=""
-            className="image w-100 h-100"
-          />
+          {GigsDetails?.image[2] && (
+            <img
+              src={GigsDetails?.image[2]}
+              alt=""
+              className="image w-100 h-100"
+            />
+          )}
+
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          <img
-            src={GigsDetails?.image[3]}
-            alt=""
-            className="image w-100 h-100"
-          />
+          {GigsDetails?.image[3] && (
+            <img
+              src={GigsDetails?.image[3]}
+              alt=""
+              className="image w-100 h-100"
+            />
+          )}
+
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          <img
-            src={GigsDetails?.image[4]}
-            alt=""
-            className="image w-100 h-100"
-          />
+          {GigsDetails?.image[4] && (
+            <img
+              src={GigsDetails?.image[4]}
+              alt=""
+              className="image w-100 h-100"
+            />
+          )}
+
           <div className="gradient"></div>
         </div>
       </Wrapper>

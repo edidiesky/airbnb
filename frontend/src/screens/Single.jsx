@@ -31,6 +31,6 @@ export default function Single() {
 
 const SingleContainer = styled.div`
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-top: 8rem;
 `;

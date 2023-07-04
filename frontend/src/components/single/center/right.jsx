@@ -2,29 +2,91 @@ import React from "react";
 import styled from "styled-components";
 import Star from "../../common/svg/star";
 import DateInput from "../../forms/Date";
+import { BiChevronDown } from "react-icons/bi";
 
 const RightCenter = () => {
   return (
     <div className="w-100 flex column gap-2">
       <RightCard>
-        <div className="flex w-100 wrapper column gap-2 item-start">
+        <div className="flex w-100 wrapper column gap-1 item-start">
           <div className="top flex justify-space w-100">
             <h4 className="fs-24 text-dark text-bold">
               $97 <span className="text-grey text-light fs-16">night</span>
             </h4>
             {/* reviews */}
             <h5
-              className="fs-16 flex item-center text-dark text-bold"
+              className="fs-14 flex item-center text-dark text-bold"
               style={{ gap: ".5rem" }}
             >
-              <Star /> <span className="fs-16">4.92</span>{" "}
+              <Star /> <span className="fs-14">4.92</span>{" "}
               <span
-                className="fs-16 text-grey text-light"
+                className="fs-12 text-grey text-light"
                 style={{ textDecoration: "underline" }}
               >
                 390 reviews
               </span>
             </h5>
+          </div>
+          <div className="flex column w-100">
+            <div
+              style={{
+                border: "1px solid rgba(0,0,0,.3)",
+                borderBottom: "none",
+                borderTopRightRadius: "8px",
+                borderTopLeftRadius: "8px",
+              }}
+              className="dateWrapper flex item-center gap-1 justify-space"
+            >
+              <div
+                style={{ padding: ".7rem" }}
+                className=" fs-10 flex-1 family1 text-extra-bold uppercase text-bold"
+              >
+                check-in
+                <div className="fs-12 block text-grey text-light">
+                  12/11/2023
+                </div>
+              </div>{" "}
+              <div
+                style={{
+                  padding: ".7rem",
+                  borderLeft: "1px solid rgba(0,0,0,.3)",
+                  height: "100%",
+                }}
+                className=" fs-10 text-start flex-1 wrap family1 text-extra-bold uppercase text-bold"
+              >
+                check-out
+                <div className="fs-12 block text-grey text-light">
+                  12/11/2023
+                </div>
+              </div>
+            </div>{" "}
+            <div
+              style={{
+                border: "1px solid rgba(0,0,0,.3)",
+                borderBottomRightRadius: "8px",
+                borderBottomLeftRadius: "8px",
+              }}
+              className="dateWrapper flex item-center gap-1 justify-space"
+            >
+              <div
+                style={{ padding: ".7rem" }}
+                className=" fs-10 flex-1 family1 text-extra-bold text-bold"
+              >
+                GUESTS
+                <div className="fs-14 block text-dark text-light">3 guests</div>
+              </div>{" "}
+              <div
+                style={{
+                  padding: ".7rem",
+                  height: "100%",
+                }}
+                className=" fs-10 flex item-center justify-end"
+              >
+                <div className="icon flex item-center justify-end">
+                  <BiChevronDown fontSize={"24px"} />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="flex w-100 column gap-1">
             <div className="reserveBtn w-100 fs-16 text-white text-center">
@@ -48,13 +110,13 @@ const RightCenter = () => {
               <span className="text-dark">$485</span>
             </h4>
           </div>
-          <h4 className="fs-18 text-bold text-dark w-100 justify-space flex item-center">
+          <h4 className="fs-18 text-bold text-dark family1 w-100 justify-space flex item-center">
             <span>Total before taxes</span>
             <span className="text-dark">$485</span>
           </h4>
         </div>
       </RightCard>
-      <DateInput />
+      {/* <DateInput /> */}
     </div>
   );
 };
@@ -64,6 +126,10 @@ const RightCard = styled.div`
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  svg {
+    cursor: pointer;
+  }
 
   .wrapper {
     position: sticky;

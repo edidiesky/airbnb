@@ -67,7 +67,7 @@ const BottomIndex = () => {
               </h5>{" "}
             </div>
             <div className="flex item-start">
-              <div className="contactBtn py-1 text-bold">Contact Host</div>
+              <div className="contactBtn fs-16 text-bold">Contact Host</div>
             </div>
           </div>
         </div>
