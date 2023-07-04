@@ -34,8 +34,12 @@ const GigSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    
-    numreview: { type: Number },
+    startDate: {
+      type: String,
+    },
+    endDate: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

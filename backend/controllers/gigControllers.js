@@ -12,7 +12,7 @@ const GetAllGig = asyncHandler(async (req, res) => {
   const minprice = req.query.minprice;
   const category = req.query.category;
   const maxprice = req.query.maxprice;
-  const sellerId = req.query.user;
+  const authorId = req.query.user;
   const sort = req.query.sort;
 
   const queryObject = {};
@@ -30,8 +30,8 @@ const GetAllGig = asyncHandler(async (req, res) => {
     queryObject.price = { $gt: maxprice };
   }
   // user
-  if (sellerId) {
-    queryObject.sellerId = user;
+  if (authorId) {
+    queryObject.authorId = user;
   }
   // category
   if (category) {
@@ -45,7 +45,7 @@ const GetAllGig = asyncHandler(async (req, res) => {
   let result = Gig.find(queryObject)
     .skip(skip)
     .limit(limit)
-    .populate("sellerId", "image username level about");
+    .populate("authorId", "image username");
 
   // perform sorting operation
   if (sort === "latest") {
@@ -70,8 +70,8 @@ const GetSingleGig = asyncHandler(async (req, res) => {
   const { id } = req.params;
   // find the Gig
   const gig = await Gig.findById({ _id: id }).populate(
-    "sellerId",
-    "username name image country role level about"
+    "authorId",
+    "username image country role"
   );
   if (!gig) {
     res.status(404);
@@ -115,7 +115,7 @@ const CreateSingleGig = asyncHandler(async (req, res) => {
     tags,
     type,
     deliveryDays,
-    sellerId: userId,
+    authorId: userId,
     category,
     subInfo,
   });
@@ -149,9 +149,9 @@ const UpdateGig = asyncHandler(async (req, res) => {
   // res.send(role)
   // console.log((role === 'admin'));
   // check if the user is the seller or is admin
-  if (gig.sellerId.toString() === userId || role === "admin") {
+  if (gig.authorId.toString() === userId || role === "admin") {
     const data = {
-      sellerId: userId,
+      authorId: userId,
       title,
       tags,
       image,
@@ -191,9 +191,9 @@ const DeleteGig = asyncHandler(async (req, res) => {
   }
   // res.send(role)
   // console.log((role === 'admin'));
-  // console.log(gig.sellerId.toString() !== userId);
+  // console.log(gig.authorId.toString() !== userId);
   // check if the user is the seller or is admin
-  if (gig.sellerId.toString() === userId || role === "admin") {
+  if (gig.authorId.toString() === userId || role === "admin") {
     await Gig.findByIdAndDelete({ _id: req.params.id });
     res.status(200).json({ message: "The Gig has been successfully deleted" });
   } else {
