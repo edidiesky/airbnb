@@ -20,11 +20,12 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   } = useSelector((store) => store.reservations);
 
   // console.log(ReservationsDetails);
+  // navigate if the reservation of the user has been succesfully created
   useEffect(() => {
     if (ReservationsDetails) {
       navigate(`/${ReservationsDetails?._id}/payment`);
     }
-  }, [ReservationsIsSuccess, ReservationsDetails]);
+  }, [ ReservationsDetails, navigate]);
 
   const formatDate = (date) => {
     return moment(date).format("DD/MM/YYYY");

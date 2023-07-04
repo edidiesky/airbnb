@@ -60,7 +60,7 @@ export const CreateBuyerReservations = createAsyncThunk(
         config
       );
 
-      return data.Reservations;
+      return data.reservations;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
