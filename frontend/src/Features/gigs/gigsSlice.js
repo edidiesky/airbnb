@@ -34,6 +34,8 @@ const initialState = {
   minprice: 0,
   page: 1,
   deleteGigModalAlert: false,
+  selectmodal: false,
+  calendarmodal: false,
 };
 
 const GigsSlice = createSlice({
@@ -50,6 +52,18 @@ const GigsSlice = createSlice({
     },
     getPage: (state, action) => {
       state.page = action.payload;
+    },
+    onSelectModal: (state, action) => {
+      state.selectmodal = true;
+    },
+    offSelectModal: (state, action) => {
+      state.selectmodal = false;
+    },
+    onCalendarModal: (state, action) => {
+      state.calendarmodal = true;
+    },
+    offCalendarModal: (state, action) => {
+      state.calendarmodal = false;
     },
     getCategory: (state, action) => {
       state.category = action.payload;
@@ -229,7 +243,11 @@ export const {
   getMinPrice,
   getMaxPrice,
   cleargetCategory,
-  clearDeleteGigModalAlert
+  clearDeleteGigModalAlert,
+  onSelectModal,
+  offSelectModal,
+  onCalendarModal,
+  offCalendarModal,
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

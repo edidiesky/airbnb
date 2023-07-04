@@ -25,56 +25,11 @@ import Stars from "../common/svg/stars";
 import Cap from "../common/svg/cap";
 import Date from "../common/svg/Date";
 import Music from "../common/svg/music";
+import { dropin } from "../../utils/framer";
 
 export default function ProfileModal({ type, click }) {
   // framer motion set variants
-  const dropin = {
-    hidden: {
-      transform: "scale(0) rotate(720deg)",
-      opacity: 0,
-      transition: {
-        delay: 0.3,
-      },
-    },
-    visible: {
-      transform: " scale(1) rotate(0deg)",
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-    exit: {
-      transform: "scale(0) rotate(-720deg)",
-      opacity: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const flip = {
-    hidden: {
-      transform: "scale(0) rotateX(-360deg)",
-      opacity: 0,
-      transition: {
-        delay: 0.3,
-      },
-    },
-    visible: {
-      transform: " scale(1) rotateX(0deg)",
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-    exit: {
-      transform: "scale(0) rotateX(360deg)",
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+ 
   // dispatch
   const dispatch = useDispatch();
   // get the cart alert

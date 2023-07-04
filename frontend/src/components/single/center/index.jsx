@@ -3,13 +3,16 @@ import styled from "styled-components";
 import LeftCenter from "./left";
 import RightCenter from "./right";
 import DateInput from "../../forms/Date";
+import Selection from "../../modals/SelectionModal";
+import CalendarModal from "../../modals/CalendarModal";
 
 const CenterIndex = () => {
   return (
     <CenterWrapper>
       <LeftCenter />
+      {/* <Selection /> */}
+      <CalendarModal/>
       <div className="rightwrapper flex column gap-2">
-        
         <RightCenter />
       </div>
     </CenterWrapper>

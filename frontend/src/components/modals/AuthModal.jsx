@@ -10,6 +10,7 @@ import {
   offAuthModal,
 } from "../../Features/user/userSlice";
 import Input from "../forms/Input";
+import { dropin } from "../../utils/framer";
 
 export default function AuthModal({ type, click }) {
   const inputData = [
@@ -38,34 +39,6 @@ export default function AuthModal({ type, click }) {
     email: "",
     password: "",
   });
-
-  // framer motion set variants
-  const dropin = {
-    hidden: {
-      y: "-100vh",
-      opacity: 0,
-      transition: {
-        delay: 0.5,
-      },
-    },
-    visible: {
-      y: "0",
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        type: "spring",
-        damping: 26,
-        stiffness: 600,
-      },
-    },
-    exit: {
-      y: "100vh",
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
   // dispatch
   const dispatch = useDispatch();
   // get the cart alert
