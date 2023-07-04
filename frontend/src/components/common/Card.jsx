@@ -479,10 +479,10 @@ const CardLoadingContent = styled.div`
   }
   @keyframes card-loading {
     0% {
-      background-color: hsl(200, 20%, 50%);
+      background-color: #ebebeb;
     }
     100% {
-      background-color: hsl(200, 20%, 86%);
+      background-color: #d4dee2a1;
     }
   }
 `;
