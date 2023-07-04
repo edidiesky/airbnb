@@ -40,8 +40,11 @@ const reviewCard = [
 const Reviews = () => {
   return (
     <div>
-      <div className="w-100 flex column gap-3">
-        <h3 className="fs-20 text-dark flex item-center gap-1">
+      <div
+        className="w-100 bottom flex column gap-3"
+        style={{ paddingBottom: "3rem" }}
+      >
+        <h3 className="fs-24 text-dark flex item-center gap-1">
           <Star /> 4.92 · 390 reviews
         </h3>
         <ReviewWrapper>

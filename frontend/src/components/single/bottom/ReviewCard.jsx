@@ -21,7 +21,7 @@ const ReviewsCard = ({ x }) => {
           <span className="block text-light fs-12 text-grey">June 2023</span>
         </h4>
       </div>
-      <h3 className="fs-14 w-85 text-dark text-light">
+      <h3 className="fs-18 w-85 text-dark text-light">
         We had a wonderful stay here. The room was very clean, the staff always
         nice and super helpful and the food was delicious. We will be back for
         sure

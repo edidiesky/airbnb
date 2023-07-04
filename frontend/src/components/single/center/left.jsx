@@ -137,7 +137,7 @@ const LeftCenter = () => {
         </li>
       </ul>
       {/* profile */}
-      <Profile />
+      {/* <Profile /> */}
       {/* description */}
       <h4 className="fs-18 bottom text-dark text-light">
         Fully equipped large-volume camper van converted in 2021.
