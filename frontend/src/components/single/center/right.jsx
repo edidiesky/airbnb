@@ -12,16 +12,19 @@ import LoaderIndex from "../../loaders";
 import { useNavigate } from "react-router-dom";
 
 const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
-  const navigate = useNavigate()
-  const { ReservationsIsLoading, ReservationsIsSuccess } = useSelector(
-    (store) => store.reservations
-  );
+  const navigate = useNavigate();
+  const {
+    ReservationsIsLoading,
+    ReservationsIsSuccess,
+    ReservationsDetails,
+  } = useSelector((store) => store.reservations);
 
-  useEffect(()=> {
-    if(ReservationsIsSuccess) {
-      navigate(`/{}`)
+  // console.log(ReservationsDetails);
+  useEffect(() => {
+    if (ReservationsDetails) {
+      navigate(`/${ReservationsDetails?._id}/payment`);
     }
-  },[ReservationsIsSuccess])
+  }, [ReservationsIsSuccess, ReservationsDetails]);
 
   const formatDate = (date) => {
     return moment(date).format("DD/MM/YYYY");
@@ -120,7 +123,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
               onClick={handleCreateReservation}
               className="reserveBtn w-100 fs-16 text-white flex justify-center item-center"
             >
-              {!ReservationsIsLoading ? (
+              {ReservationsIsLoading ? (
                 <LoaderIndex type={"dots"} color={"#fff"} />
               ) : (
                 "Reserve"

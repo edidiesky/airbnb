@@ -6,7 +6,7 @@ import Gig from "../models/Gig.js";
 //  Public
 const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   // instantiate the request queries
-  const queryObject = { buyer: req.user.userId };
+  const queryObject = { authorId: req.user.userId };
 
   let result = Reservations.find(queryObject)
     .populate("sellerId", "image username")
@@ -31,7 +31,7 @@ const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
       "gigId",
       "image title image shortDescription price category subInfo type deliveryDays"
     )
-    .populate("buyer", "username name image country");
+    .populate("authorId", "username name image country");
 
   if (!Reservations) {
     res.status(404);
@@ -112,6 +112,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
   // console.log(qty);
   const { id } = req.params;
   const gig = await Gig.findById({ _id: id });
+  const { userId } = req.user;
   if (!gig) {
     res.status(404);
     throw new Error("Gig not found");
@@ -126,6 +127,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     let reservations = await Reservations.findOneAndUpdate(
       {
         gigId: id,
+        authorId: userId,
       },
       { gigQuantity: qty, adults, children, infants, startDate, endDate },
       { new: true }
@@ -154,6 +156,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
 
     const reservations = await Reservations.create({
       gigQuantity: qty,
+      authorId: userId,
       gigId: id,
       adults,
       children,

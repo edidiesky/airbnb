@@ -18,7 +18,7 @@ router.route("/buyer/:id").get(authMiddleware, GetSingleBuyerReservations);
 router.route("/").get(authMiddleware, GetAllBuyerReservations);
 router
   .route("/:id")
-  .post(CreateBuyerReservations)
+  .post(authMiddleware, CreateBuyerReservations)
   .put(authMiddleware, UpdateBuyerReservations)
   .delete(authMiddleware, DeleteBuyerReservations);
 

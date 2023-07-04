@@ -8,9 +8,11 @@ import CalendarModal from "../../modals/CalendarModal";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 import { CreateBuyerReservations } from "../../../Features/reservations/reservationsReducer";
+import { onAuthModal } from "../../../Features/user/userSlice";
 
 const CenterIndex = () => {
   const { GigsDetails } = useSelector((store) => store.gigs);
+  const { userInfo } = useSelector((store) => store.user);
   const { ReservationsIsLoading } = useSelector((store) => store.reservations);
   const dispatch = useDispatch();
   const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
@@ -30,8 +32,8 @@ const CenterIndex = () => {
     children,
     infants,
     adults,
-    startDate: moment(dateRange.selection.startDate).format('DD/MM/YYYY'),
-    endDate: moment(dateRange.selection.endDate).format('DD/MM/YYYY'),
+    startDate: moment(dateRange.selection.startDate).format("DD/MM/YYYY"),
+    endDate: moment(dateRange.selection.endDate).format("DD/MM/YYYY"),
     qty: 1,
   };
 
@@ -61,7 +63,11 @@ const CenterIndex = () => {
   };
 
   const handleCreateReservation = () => {
-    dispatch(CreateBuyerReservations(data));
+    if (userInfo) {
+      dispatch(CreateBuyerReservations(data));
+    } else {
+      dispatch(onAuthModal());
+    }
   };
 
   let limit = adults + children + infants;
@@ -97,7 +103,11 @@ const CenterIndex = () => {
       </AnimatePresence>
 
       <div className="rightwrapper flex column gap-2">
-        <RightCenter limit={limit} dateRange={dateRange} handleCreateReservation={handleCreateReservation} />
+        <RightCenter
+          limit={limit}
+          dateRange={dateRange}
+          handleCreateReservation={handleCreateReservation}
+        />
       </div>
     </CenterWrapper>
   );

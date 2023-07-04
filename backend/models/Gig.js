@@ -17,6 +17,9 @@ const GigSchema = new mongoose.Schema(
     location: {
       type: String,
     },
+    distance: {
+      type: String,
+    },
     shortDescription: {
       type: String,
       default: "",

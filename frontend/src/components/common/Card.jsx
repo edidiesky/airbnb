@@ -209,7 +209,7 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-18 text-dark">{x.title}</h4>
+                <h4 className="fs-18 text-dark">{x?.location}</h4>
                 <div
                   style={{ gap: ".3rem" }}
                   className="flex text-light fs-16 item-center"
