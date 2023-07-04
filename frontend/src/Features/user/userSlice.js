@@ -116,10 +116,9 @@ const userSlice = createSlice({
       //
       state.isLoading = false;
       state.isSuccess = true;
-      state.showAlert = true;
+      state.userInfo = action.payload.user;
+      state.token = action.payload.token;
       state.usernamemodal = true;
-      state.alertText = "Registration successfull. ...Redirecting soon!";
-      state.alertType = "success";
     },
     [registerCustomer.rejected]: (state, action) => {
       state.isLoading = false;
@@ -139,6 +138,7 @@ const userSlice = createSlice({
       state.userInfo = action.payload.user;
       state.token = action.payload.token;
       state.showAlert = true;
+      state.usernamemodal = false;
       state.alertText = "Login successfull. ...Redirecting soon!";
       state.alertType = "success";
     },
@@ -263,6 +263,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.showAlert = true;
       state.usernamemodal = false;
+      state.authmodal = false;
       state.userInfo = action.payload.updatedUser;
       state.isSuccess = true;
       state.alertText = `Your profile details has been sucessfully updated`;

@@ -26,25 +26,11 @@ const GetUsersProfile = asyncHandler(async (req, res) => {
 
 //PRIVATE/USER
 const UpdateUser = asyncHandler(async (req, res) => {
-  const { userId, username } = req.user;
   const user = await User.findById({ _id: req.params.id });
   if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
   }
-
-  const { from, language, description, skills, accounts, information } =
-    req.body;
-
-  user.about.push({
-    from,
-    language,
-    description,
-    skills,
-    accounts,
-    information,
-  });
-  await user.save();
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
     req.body,

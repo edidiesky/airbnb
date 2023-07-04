@@ -198,8 +198,9 @@ export default function Header({ type }) {
                     height: "2rem",
                     borderRadius: "50%",
                     background: "var(--dark-1)",
+                    color:"#fff"
                   }}
-                  className="text-white fs-14"
+                  className="text-white fs-14 flex item-center justify-center uppercase"
                 >
                   {userInfo?.username.charAt(0)}
                 </div>

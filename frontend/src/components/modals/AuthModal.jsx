@@ -12,6 +12,7 @@ import {
 import Input from "../forms/Input";
 import { flip } from "../../utils/framer";
 import {
+  UpdateProfile,
   loginCustomer,
   registerCustomer,
 } from "../../Features/user/userReducer";
@@ -185,7 +186,7 @@ export default function AuthModal({ type, click }) {
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
-      {!isLoading && <LoaderIndex />} 
+      {isLoading && <LoaderIndex />} 
       <motion.div
         variants={flip}
         initial="hidden"
