@@ -9,7 +9,7 @@ import World from "./svg/World";
 import { AnimatePresence, motion } from "framer-motion";
 import SliderIndex from "./Slider";
 import { categorydata } from "../../data/category";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { onAuthModal } from "../../Features/user/userSlice";
 
 const options2 = {
@@ -43,6 +43,7 @@ const data = [
 ];
 
 export default function Header({ type }) {
+  const { userInfo } = useSelector((store) => store.user);
   const dropin = {
     hidden: {
       top: "40%",
@@ -163,7 +164,10 @@ export default function Header({ type }) {
             </div>
           )}
           <div className="flex-1 right flex item-center gap-1">
-            <Link to={'/become-a-host/overview'} className="fs-16 text-light text text-grey">
+            <Link
+              to={"/become-a-host/overview"}
+              className="fs-16 text-light text text-grey"
+            >
               Airbnb your home
             </Link>
             <div className="icon1 flex item-center justify-center text-dark">
@@ -174,9 +178,37 @@ export default function Header({ type }) {
               className="center1 flex shadow item-center gap-1"
             >
               <Bar />
-              <div className="" style={{ width: "2rem", height: "2rem" }}>
-                <Profile />
-              </div>
+              {userInfo?.image ? (
+                <div className="text-white fs-14">
+                  <img
+                    style={{
+                      width: "2rem",
+                      height: "2rem",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                    src={userInfo?.image}
+                    alt=""
+                  />
+                </div>
+              ) : userInfo?.username ? (
+                <div
+                  style={{
+                    width: "2rem",
+                    height: "2rem",
+                    borderRadius: "50%",
+                    background: "var(--dark-1)",
+                  }}
+                  className="text-white fs-14"
+                >
+                  {userInfo?.username.charAt(0)}
+                </div>
+              ) : (
+                <div className="" style={{ width: "2rem", height: "2rem" }}>
+                  <Profile />
+                </div>
+              )}
+
               <AnimatePresence
                 initial="false"
                 exitBeforeEnter={true}
@@ -207,7 +239,11 @@ export default function Header({ type }) {
                     src={x.image}
                     alt=""
                     className="image"
-                    style={{ width: "2rem", height: "2rem",filter:"brightness(50%)" }}
+                    style={{
+                      width: "2rem",
+                      height: "2rem",
+                      filter: "brightness(50%)",
+                    }}
                   />
                   {x.text}
                 </div>
@@ -229,7 +265,7 @@ export default function Header({ type }) {
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  z-index: 1000;
+  z-index: 700;
   position: fixed;
   top: 0;
   left: 0;

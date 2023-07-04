@@ -49,10 +49,15 @@ export const CreateBuyerReservations = createAsyncThunk(
     const state = thunkAPI.getState();
     try {
       // console.log(reservationdata)
-     
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
       const { data } = await axios.post(
         `/api/v1/reservations/${state.gigs.GigsDetails._id}`,
-        reservationdata
+        reservationdata,
+        config
       );
 
       return data.Reservations;

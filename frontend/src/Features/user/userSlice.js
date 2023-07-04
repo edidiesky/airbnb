@@ -39,6 +39,7 @@ const initialState = {
   loginSuccess: false,
   authmodal: false,
   profilemodal: false,
+  usernamemodal: false,
 };
 
 const userSlice = createSlice({
@@ -116,6 +117,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = true;
       state.showAlert = true;
+      state.usernamemodal = true;
       state.alertText = "Registration successfull. ...Redirecting soon!";
       state.alertType = "success";
     },
@@ -238,6 +240,7 @@ const userSlice = createSlice({
       //
       state.isLoading = false;
       state.showAlert = true;
+
       state.isSuccess = true;
       state.alertText = "The user has been successfully Updated";
       state.alertType = "success";
@@ -259,9 +262,10 @@ const userSlice = createSlice({
       //
       state.isLoading = false;
       state.showAlert = true;
+      state.usernamemodal = false;
       state.userInfo = action.payload.updatedUser;
       state.isSuccess = true;
-      state.alertText = `"${action.payload.user.firstname}" Your profile details has been sucessfully updated`;
+      state.alertText = `Your profile details has been sucessfully updated`;
       state.alertType = "success";
     },
     [UpdateProfile.rejected]: (state, action) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,9 +10,23 @@ import {
   offAuthModal,
 } from "../../Features/user/userSlice";
 import Input from "../forms/Input";
-import { dropin } from "../../utils/framer";
+import { flip } from "../../utils/framer";
+import {
+  loginCustomer,
+  registerCustomer,
+} from "../../Features/user/userReducer";
+import LoaderIndex from "../loaders";
 
 export default function AuthModal({ type, click }) {
+  const [auth, setAuth] = useState(false);
+
+  const [formdata, setFormData] = useState({
+    email: "",
+    password: "",
+    username: "",
+  });
+  const { username, email, password } = formdata;
+
   const inputData = [
     {
       id: 1,
@@ -35,20 +49,133 @@ export default function AuthModal({ type, click }) {
     },
   ];
 
-  const [formdata, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const inputData2 = [
+    {
+      id: 1,
+      name: "username",
+      placeholder: "Insert your username",
+      type: "text",
+      text: "Choose a username",
+      errorMessage: "username cannot be left empty",
+      required: true,
+    },
+  ];
   // dispatch
   const dispatch = useDispatch();
-  // get the cart alert
-  //   const { GigsDetails } = useSelector((store) => store.gigs);
-  const { userAlert, userDetails } = useSelector((store) => store.user);
+  const { userAlert, userDetails, usernamemodal, isLoading } = useSelector(
+    (store) => store.user
+  );
+
+  useEffect(() => {
+    setFormData({
+      email: "",
+      password: "",
+      username: "",
+    });
+  }, [setFormData]);
   // open modal if type  === users
 
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };
+
+  const HandleUsername = (e) => {
+    e.preventDefault();
+    // console.log('hello')
+    dispatch(UpdateProfile({ username }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (auth) {
+      // dispatch(loginCustomer(formdata));
+      dispatch(loginCustomer({ email, password }));
+      // console.log("login");
+    } else {
+      dispatch(registerCustomer({ email, password }));
+      // console.log("registration");
+    }
+  };
+
+  // update the user profile when process ahs been completed
+  if (usernamemodal) {
+    return (
+      <DeleteContainer
+        as={motion.div}
+        initial={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+        exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+        animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
+      >
+        {isLoading && <LoaderIndex />}
+        <div
+          className="backdrop"
+          onClick={() => dispatch(offAuthModal())}
+        ></div>
+        <motion.div
+          variants={flip}
+          initial="hidden"
+          animate="visible"
+          exit={"exit"}
+          className={"deleteCard shadow"}
+          style={{ paddingBottom: "1rem", gap: "1rem" }}
+        >
+          {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
+              <RxCross2 />
+            </div> */}
+          <div
+            style={{ marginBottom: "1.5rem" }}
+            className="w-100 authTop fs-16 text-extra-bold text-dark flex item-center justify-space"
+          >
+            <div className="w-90 auto flex item-center justify-space text-center">
+              {" "}
+              <div className="icon flex item-center justify-center">
+                <RxCross2 fontSize={"20px"} />
+              </div>{" "}
+              <span className="text-center w-100">Set your username</span>
+            </div>
+          </div>
+          <div className="w-90 authBottom auto flex column gap-1">
+            <div className="flex column gap-2">
+              {inputData2.map((input) => {
+                return (
+                  <Input
+                    id={input.text}
+                    onChange={onChange}
+                    placeholder={input.placeholder}
+                    type={input.type}
+                    name={input.name}
+                    value={formdata[input.name]}
+                    input={input}
+                    key={input.id}
+                    required={input.required}
+                    pattern={input.pattern}
+                    errorMessage={input.errorMessage}
+                  />
+                );
+              })}
+            </div>
+            <div className="w-100 btnWrapper flex column gap-1">
+              <div
+                onClick={HandleUsername}
+                className="btn w-100 fs-16 text-white text-center"
+              >
+                Join
+              </div>
+              <h5 className="fs-12 w-100 text-center text-light text-dark text-center">
+                By joining I agree to fiverr emails from Fiverr{" "}
+                <span className="text-blue">Terms of service</span> <br /> as
+                well as to receive occasional emails from us
+              </h5>
+            </div>
+          </div>
+          <div className="w-100 authCenter fs-14 text-light text-gery text-center">
+            Already a member? Sign In
+          </div>
+        </motion.div>
+      </DeleteContainer>
+      // <h2>hello</h2>
+    );
+  }
 
   return (
     <DeleteContainer
@@ -58,16 +185,14 @@ export default function AuthModal({ type, click }) {
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
+      {!isLoading && <LoaderIndex />} 
       <motion.div
-        variants={dropin}
+        variants={flip}
         initial="hidden"
         animate="visible"
         exit={"exit"}
         className={"deleteCard shadow"}
       >
-        {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
-          <RxCross2 />
-        </div> */}
         <div className="w-100 authTop fs-16 text-extra-bold text-dark flex item-center justify-space">
           <div className="w-90 auto flex item-center justify-space text-center">
             {" "}
@@ -77,6 +202,7 @@ export default function AuthModal({ type, click }) {
             <span className="text-center w-100">Login or Sign up</span>
           </div>
         </div>
+
         <div className="w-90 authBottom auto flex column gap-1">
           <h3 className="fs-20 py-1 text-dark text-bold">Welcome to Airbnb</h3>
           <div className="flex column gap-1">
@@ -98,7 +224,13 @@ export default function AuthModal({ type, click }) {
               );
             })}
           </div>
-          <div className="btn w-100 fs-16 text-white text-center">Reserve</div>
+          <div
+            onClick={handleSubmit}
+            className="btn w-100 fs-16 text-white text-center"
+          >
+            {" "}
+            {auth ? "Sign Up" : "Sign In"}
+          </div>
           <div className="option">or</div>
 
           <div className="flex column gap-1">
@@ -111,6 +243,12 @@ export default function AuthModal({ type, click }) {
               <FaGithub fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Github</div>{" "}
             </div>
+          </div>
+          <div className="w-100 fs-14 text-light text-grey text-center">
+            Already a member?{" "}
+            <span onClick={() => setAuth(!auth)} className="text-red">
+              {auth ? "Sign Up" : "Sign In"}
+            </span>
           </div>
         </div>
       </motion.div>
@@ -126,7 +264,7 @@ const DeleteContainer = styled(motion.div)`
   left: 0;
 
   display: flex;
-  z-index: 4900;
+  z-index: 800;
   align-items: center;
   justify-content: center;
   top: 0;
@@ -135,6 +273,9 @@ const DeleteContainer = styled(motion.div)`
     color: #fff;
     padding: 0.8rem 2rem;
     border-radius: 10px;
+    &:hover {
+      opacity: 0.8;
+    }
   }
   .authBtn {
     border: 1px solid rgba(0, 0, 0, 1);
