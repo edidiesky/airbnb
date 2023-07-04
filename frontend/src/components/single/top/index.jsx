@@ -3,8 +3,11 @@ import styled from "styled-components";
 import Imagewrapper from "./Imagewrapper";
 import Star from "../../common/svg/star";
 import Person from "../../common/svg/person";
+import { useSelector } from "react-redux";
 
 const TopIndex = () => {
+  const { GigsDetails } = useSelector((store) => store.gigs);
+
   return (
     <div className="w-100 flex column gap-2">
       <h2 className="fs-25">

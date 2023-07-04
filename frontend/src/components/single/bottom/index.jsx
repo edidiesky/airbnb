@@ -3,8 +3,11 @@ import styled from "styled-components";
 import Star from "../../common/svg/star";
 import Footer from "./Footer";
 import Reviews from "./reviews";
+import { useSelector } from "react-redux";
 
 const BottomIndex = () => {
+  const { GigsDetails } = useSelector((store) => store.gigs);
+
   return (
     // reviews
     <BottomWrapper className="w-100 flex column gap-3 py-2">
@@ -12,15 +15,13 @@ const BottomIndex = () => {
       <div className="flex w-100 item-center gap-2">
         <div className="flex item-center gap-1">
           <img
-            src={
-              "https://a0.muscache.com/im/pictures/user/0f0d2320-f6a7-4b4d-8828-234f31d988d8.jpg?im_w=240"
-            }
+            src={GigsDetails?.authorId?.image}
             alt=""
             style={{ width: "5rem", height: "5rem", borderRadius: "50%" }}
           />
           <div className="flex column item-start gap-2">
             <h3 className="fs-24 text-dark text-bold">
-              Hosted by Mega
+              Hosted by {GigsDetails?.authorId?.username}
               <span className="block fs-14 text-grey text-light">
                 Joined in August 2015
               </span>
@@ -47,7 +48,7 @@ const BottomIndex = () => {
             of Ubud where i can welcoming my guest and tr…
           </h4>
           <h4 className="flex column fs-16 text-dark gap-1">
-            Mega is a Superhost
+          {GigsDetails?.authorId?.username} is a Superhost
             <span className="block fs-16 text-grey text-light">
               Superhosts are experienced, highly rated hosts who are committed
               to providing great stays for guests.

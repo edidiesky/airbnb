@@ -3,17 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { Header, Meta } from "../components/common";
 import styled from "styled-components";
 import SingleIndex from "../components/single";
-// import Header from '../components/Single/header';
-// import { clearGigsAlert, getAllGigs } from '../Features';
+import { getSingleGigsDetails } from "../Features/gigs/gigsReducer";
+import { useParams } from "react-router-dom";
+import { clearGigsAlert } from "../Features/gigs/gigsSlice";
 
 export default function Single() {
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  //   dispatch(clearGigsAlert())
-  //   dispatch(getAllGigs())
-  // }, []);
+ 
   // actions
   const dispatch = useDispatch();
+  const {id} = useParams()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(clearGigsAlert())
+    dispatch(getSingleGigsDetails(id))
+  }, [id]);
   return (
     <>
       <Meta />

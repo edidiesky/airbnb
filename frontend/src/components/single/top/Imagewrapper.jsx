@@ -1,36 +1,48 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-
-const images = [
-  "https://a0.muscache.com/im/pictures/6943ce46-c64f-43b4-824b-5551735befcc.jpg?im_w=960",
-  "https://a0.muscache.com/im/pictures/671f85e1-7de5-4541-80c4-07ead676d397.jpg?im_w=720",
-  "https://a0.muscache.com/im/pictures/cb947a31-cadf-4665-82e1-c59587c978df.jpg?im_w=720",
-  "https://a0.muscache.com/im/pictures/cb947a31-cadf-4665-82e1-c59587c978df.jpg?im_w=720",
-  "https://a0.muscache.com/im/pictures/e96790b9-e7c8-444a-94f9-1f7a2daeeddc.jpg?im_w=720",
-];
-
 const Imagewrapper = () => {
+  const { GigsDetails } = useSelector((store) => store.gigs);
+
+  // console.log(GigsDetails?.image)
+
   return (
     <Wrapper>
       <div className="w-100 imagewrapper">
-        <img src={images[0]} alt="" className="image w-100 h-100" />
+        <img src={GigsDetails?.image[0]} alt="" className="image w-100 h-100" />
         <div className="gradient"></div>
       </div>
       <Wrapper>
         <div className="w-100 imagewrapper images">
-          <img src={images[1]} alt="" className="image w-100 h-100" />
+          <img
+            src={GigsDetails?.image[1]}
+            alt=""
+            className="image w-100 h-100"
+          />
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          <img src={images[2]} alt="" className="image w-100 h-100" />
+          <img
+            src={GigsDetails?.image[2]}
+            alt=""
+            className="image w-100 h-100"
+          />
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          <img src={images[3]} alt="" className="image w-100 h-100" />
+          <img
+            src={GigsDetails?.image[3]}
+            alt=""
+            className="image w-100 h-100"
+          />
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          <img src={images[4]} alt="" className="image w-100 h-100" />
+          <img
+            src={GigsDetails?.image[4]}
+            alt=""
+            className="image w-100 h-100"
+          />
           <div className="gradient"></div>
         </div>
       </Wrapper>
@@ -42,7 +54,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-  min-height: 25rem;
+  min-height: 20rem;
 
   .images {
     @media (max-width: 780px) {

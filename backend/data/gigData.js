@@ -1,5 +1,7 @@
+import moment from "moment";
+
 const gigData = [
-  // rooms
+  // roomssad
   // user1
   {
     image: [
@@ -8,10 +10,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
     ],
 
-    title: "Sao Paulo, Brazil",
+    location: "Sao Paulo, Brazil",
     distance: "90456",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('DD-MM-YYYY'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -26,10 +29,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-635437605163910390/original/427b9c9e-27a1-45ce-9f04-0609eb74cb48.jpeg?im_w=720",
     ],
 
-    title: "Ottawa, Canada",
+    location: "Ottawa, Canada",
     distance: "90456",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "16/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -45,10 +49,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/a1cf4c19-a156-439d-bb5c-8d0e13544ed0.jpeg?im_w=720",
     ],
 
-    title: "Milan, Italy",
+    location: "Milan, Italy",
     distance: "90456",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "16/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -62,10 +67,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-31508919/original/f5cd57a3-b42d-4211-a73c-047c6cc2fc13.jpeg?im_w=720",
     ],
 
-    title: "Cotia, Brazil",
+    location: "Cotia, Brazil",
     distance: "90456",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "16/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -81,10 +87,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-577553665717773242/original/50591ab1-2e70-4873-af32-9afc80150bf9.jpeg?im_w=720",
     ],
 
-    title: "Clciedo,Monaco",
+    location: "Clciedo,Monaco",
     distance: "90456",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -99,10 +106,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/92fbb217-a460-4f5b-b604-3f08c72a23ac.jpg?im_w=720",
     ],
 
-    title: "Dova, Sweden",
+    location: "Dova, Sweden",
     distance: "44960",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "16/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -115,10 +123,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52313793/original/6005df3e-de4c-4020-b1c9-c12b46a46991.jpeg?im_w=720",
     ],
 
-    title: "Delima,Portugal",
+    location: "Delima,Portugal",
     distance: "67482",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -131,10 +140,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52313793/original/6005df3e-de4c-4020-b1c9-c12b46a46991.jpeg?im_w=720",
     ],
 
-    title: "Lesotho",
+    location: "Lesotho",
     distance: "11618",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "16/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -149,10 +159,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/025cf9ec-2242-49a2-a0b0-24877e3f0cac.jpg?im_w=720",
     ],
 
-    title: "Uzbekistan",
+    location: "Uzbekistan",
     distance: "54770",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -165,10 +176,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/025cf9ec-2242-49a2-a0b0-24877e3f0cac.jpg?im_w=720",
     ],
 
-    title: "Paraguay",
+    location: "Paraguay",
     distance: "85679",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -181,10 +193,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-49041850/original/9b7f2209-bfc8-40cb-aff7-d41c9d50788b.jpeg?im_w=720",
     ],
 
-    title: "Harpford,Brunei",
+    location: "Harpford,Brunei",
     distance: "27477",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -197,10 +210,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/2d692049-35d5-4598-9d85-f64874a611bf.jpg?im_w=720",
     ],
 
-    title: "La Passe, France",
+    location: "La Passe, France",
     distance: "76024",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     authorId: "64a3579a022fd3e25b27e4c7",
     description:
@@ -213,10 +227,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-21441731-unapproved/original/7dacf883-68c1-44a5-9dea-7c45cc7e7c8d.JPEG?im_w=720",
     ],
 
-    title: "French Guiana",
+    location: "French Guiana",
     distance: "91607",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     authorId: "64a3579a022fd3e25b27e4c9",
     description:
@@ -229,10 +244,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-715865637234539328/original/a85f325e-b1c0-41d6-b0e0-5b6d2ae81359.jpeg?im_w=720",
     ],
 
-    title: "Lesotho",
+    location: "Lesotho",
     distance: "66987",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     authorId: "64a3579a022fd3e25b27e4c8",
     description:
@@ -245,10 +261,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/44206f8b-3025-45d2-a8a4-31906521b6d6.jpg?im_w=720",
     ],
 
-    title: "Trinidad & Tobago",
+    location: "Trinidad & Tobago",
     distance: "40416",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "21/22/2023",
     authorId: "64a3579a022fd3e25b27e4c7",
     description:
@@ -262,10 +279,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/86021002/22f844ab_original.jpg?im_w=720",
     ],
 
-    title: "Monaco",
+    location: "Monaco",
     distance: "40766",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "21/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -279,10 +297,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-648890493199310619/original/4bc0917d-d85e-4340-b5a3-8b18ae178812.jpeg?im_w=720",
     ],
 
-    title: "Nepal",
+    location: "Nepal",
     distance: "28737",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "21/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -296,10 +315,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/6c2745b4-2155-44d6-abca-24e80e248d26.jpg?im_w=720",
     ],
 
-    title: "Denet, Norfolk Island",
+    location: "Denet, Norfolk Island",
     distance: "94213",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     authorId: "64a3579a022fd3e25b27e4ca",
     description:
@@ -313,9 +333,10 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52689018/original/ea32a64a-761d-4f06-83a3-49d05590567e.jpeg?im_w=720",
     ],
 
-    title: "Bole, Germany",
+    location: "Bole, Germany",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     distance: "52106",
     authorId: "64a3579a022fd3e25b27e4ca",
@@ -330,10 +351,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/e2805a52-34f1-4fb2-9337-49515ee5d5ad.jpg?im_w=720",
     ],
 
-    title: "Oman",
+    location: "Oman",
     distance: "67969",
     countInStock: 4,
-    startDate: Date.now(),
+    startDate: moment().format('YYYY-MM-DD'),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     authorId: "64a3579a022fd3e25b27e4c9",
     description:
@@ -345,10 +367,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/16b9f6fe-2381-4196-88ea-0d7329c37ca2.jpg?im_w=720",
     ],
 
-    title: "Paraguay",
+    location: "Paraguay",
     distance: "27249",
     countInStock: 4,
     startDate: Date.now(),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "19/22/2023",
     authorId: "64a3579a022fd3e25b27e4ca",
     description:
@@ -363,10 +386,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-49094732/original/c0468e2f-5133-4fe6-85d8-5cff54a43608.jpeg?im_w=720",
     ],
 
-    title: "Mayotte",
+    location: "Mayotte",
     distance: "92733",
     countInStock: 4,
     startDate: Date.now(),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "19/22/2023",
     authorId: "64a3579a022fd3e25b27e4c9",
     description:
@@ -379,10 +403,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-49094732/original/c0468e2f-5133-4fe6-85d8-5cff54a43608.jpeg?im_w=720",
     ],
 
-    title: "Ecuador",
+    location: "Ecuador",
     distance: "37066",
     countInStock: 4,
     startDate: Date.now(),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -395,10 +420,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-50677929/original/54cc3308-ffba-4f7a-bad0-1774793d7f78.jpeg?im_w=720",
     ],
 
-    title: "Iceland",
+    location: "Iceland",
     distance: "97720",
     countInStock: 4,
     startDate: Date.now(),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
@@ -410,10 +436,11 @@ const gigData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-50677929/original/54cc3308-ffba-4f7a-bad0-1774793d7f78.jpeg?im_w=720",
     ],
 
-    title: "U.S. Virgin Islands",
+    location: "U.S. Virgin Islands",
     distance: "34405",
     countInStock: 4,
     startDate: Date.now(),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
     description:
       "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",

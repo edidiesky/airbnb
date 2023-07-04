@@ -288,7 +288,7 @@ const CardContent = styled.div`
         position: relative;
         transition: all 0.6s ease-in-out;
         height: 50rem;
-        margin: 0 1rem;
+        margin: 0 1.5rem;
         @media (max-width: 780px) {
           min-height: 100%;
         }
@@ -465,11 +465,11 @@ const CardLoadingContent = styled.div`
     flex: 0.3;
   }
   .h-6 {
-    height: 1rem;
+    height: 1.5rem;
   }
   .topCenter {
     width: 50%;
-    height: 1rem;
+    height: 1.5rem;
   }
   .period1 {
     animation-duration: 1.5s;

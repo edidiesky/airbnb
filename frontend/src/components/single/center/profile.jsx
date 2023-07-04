@@ -8,8 +8,11 @@ import Stars from "../../common/svg/stars";
 import Cap from "../../common/svg/cap";
 import Date from "../../common/svg/Date";
 import Music from "../../common/svg/music";
+import { useSelector } from "react-redux";
 
 export default function Profile({ type, click }) {
+  const { GigsDetails } = useSelector((store) => store.gigs);
+
   return (
     <DeleteContainer>
       <div className={"deleteCard"}>
@@ -18,12 +21,12 @@ export default function Profile({ type, click }) {
           <div className="authCenter flex item-start gap-3 justify-center w-90 auto shadow">
             <div className="authC_right flex column flex-1">
               <img
-                src="https://a0.muscache.com/im/pictures/user/b9c551db-9203-4f2c-9572-216ebe07e25c.jpg?im_w=240"
+                src={GigsDetails?.authorId?.image}
                 alt=""
                 className="avatar"
               />
               <h3 className="fs-30 text-extra-bold text-dark">
-                Sagario_1037
+                {GigsDetails?.authorId?.username}
                 <span className="block fs-16 text-light text-start family2">
                   Superhost
                 </span>
