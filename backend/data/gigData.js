@@ -12,7 +12,7 @@ const gigData = [
 
     location: "Sao Paulo, Brazil",
     distance: "90456",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/6/2023",
@@ -31,8 +31,8 @@ const gigData = [
 
     location: "Ottawa, Canada",
     distance: "90456",
-    countInStock: 4,
-    startDate: "09/7/2023",
+    countInStock: 1,
+    startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "12/06/2023",
     description:
@@ -51,7 +51,7 @@ const gigData = [
 
     location: "Milan, Italy",
     distance: "90456",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "52/06/2023",
@@ -69,7 +69,7 @@ const gigData = [
 
     location: "Cotia, Brazil",
     distance: "90456",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "12/06/2023",
@@ -89,7 +89,7 @@ const gigData = [
 
     location: "Clciedo,Monaco",
     distance: "90456",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -108,7 +108,7 @@ const gigData = [
 
     location: "Dova, Sweden",
     distance: "44960",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "12/06/2023",
@@ -125,7 +125,7 @@ const gigData = [
 
     location: "Delima,Portugal",
     distance: "67482",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -142,7 +142,7 @@ const gigData = [
 
     location: "Lesotho",
     distance: "11618",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "12/06/2023",
@@ -161,7 +161,7 @@ const gigData = [
 
     location: "Uzbekistan",
     distance: "54770",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -178,7 +178,7 @@ const gigData = [
 
     location: "Paraguay",
     distance: "85679",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -195,7 +195,7 @@ const gigData = [
 
     location: "Harpford,Brunei",
     distance: "27477",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -212,7 +212,7 @@ const gigData = [
 
     location: "La Passe, France",
     distance: "76024",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -229,7 +229,7 @@ const gigData = [
 
     location: "French Guiana",
     distance: "91607",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -246,7 +246,7 @@ const gigData = [
 
     location: "Lesotho",
     distance: "66987",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -263,7 +263,7 @@ const gigData = [
 
     location: "Trinidad & Tobago",
     distance: "40416",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "1/8/2023",
@@ -281,7 +281,7 @@ const gigData = [
 
     location: "Monaco",
     distance: "40766",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "1/8/2023",
@@ -299,7 +299,7 @@ const gigData = [
 
     location: "Nepal",
     distance: "28737",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "1/8/2023",
@@ -317,7 +317,7 @@ const gigData = [
 
     location: "Denet, Norfolk Island",
     distance: "94213",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/7/2023",
@@ -334,7 +334,7 @@ const gigData = [
     ],
 
     location: "Bole, Germany",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -353,7 +353,7 @@ const gigData = [
 
     location: "Oman",
     distance: "67969",
-    countInStock: 4,
+    countInStock: 1,
     startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/22/2023",
@@ -369,8 +369,8 @@ const gigData = [
 
     location: "Paraguay",
     distance: "27249",
-    countInStock: 4,
-    startDate: Date.now(),
+    countInStock: 1,
+    startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "19/22/2023",
     authorId: "64a3579a022fd3e25b27e4ca",
@@ -388,8 +388,8 @@ const gigData = [
 
     location: "Mayotte",
     distance: "92733",
-    countInStock: 4,
-    startDate: Date.now(),
+    countInStock: 1,
+    startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "19/9/2023",
     authorId: "64a3579a022fd3e25b27e4c9",
@@ -405,8 +405,8 @@ const gigData = [
 
     location: "Ecuador",
     distance: "37066",
-    countInStock: 4,
-    startDate: Date.now(),
+    countInStock: 1,
+    startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/9/2023",
     description:
@@ -422,8 +422,8 @@ const gigData = [
 
     location: "Iceland",
     distance: "97720",
-    countInStock: 4,
-    startDate: Date.now(),
+    countInStock: 1,
+    startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/9/2023",
     description:
@@ -438,8 +438,8 @@ const gigData = [
 
     location: "U.S. Virgin Islands",
     distance: "34405",
-    countInStock: 4,
-    startDate: Date.now(),
+    countInStock: 1,
+    startDate: moment().format("DD/MM/YYYY"),
     title: "Cheerful 1-bedroom in a townhouse with parking",
     endDate: "11/9/2023",
     description:

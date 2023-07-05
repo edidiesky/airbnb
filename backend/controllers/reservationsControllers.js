@@ -24,12 +24,11 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 // GET SINGLE Gig
 // Not Private
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
-  const { id } = req.params;
   // find the Gig
-  const reservations = await Reservations.findOne({ _id: id })
+  const reservations = await Reservations.findOne({ authorId: req.user.userId })
     .populate(
       "gigId",
-      "image title price startDate endDate adults children infants"
+      "image price startDate location endDate adults children infants"
     )
     .populate("authorId", "username name image country");
 
@@ -128,18 +127,12 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
   } else {
     // "countInStock": 10,
     // checking if the required quantity is greater that the gig countInStock
-    if (qty > gig.countInStock) {
-      res.status(404);
-      throw new Error(
-        "The gig / service is not available for that quantity count"
-      );
-    }
     // console.log(qty);
     // console.log(gig.countInStock);
     // trying to update the sellers's Gig count in stock
     await Gig.findByIdAndUpdate(
       { _id: id },
-      { countInStock: parseInt(gig.countInStock - qty) },
+      { countInStock: 0 },
       { new: true }
     );
 
@@ -158,6 +151,8 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
 
     res.status(200).json({ reservations });
   }
+  // res.status(200).json({ alreadyinReservations });
+
 });
 
 //PRIVATE/

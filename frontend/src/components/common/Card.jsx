@@ -57,6 +57,9 @@ export default function Card({ x, index, type }) {
   // const [wishsindex, wishidArray] = useState([]);
   const dispatch = useDispatch();
   const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
+  const { Reservations, ReservationsIsLoading } = useSelector(
+    (store) => store.reservations
+  );
   const { wish, wishidArray, showAlert, alertText } = useSelector(
     (store) => store.wish
   );
@@ -143,6 +146,71 @@ export default function Card({ x, index, type }) {
     // console.log(found);
   }, [wish, Gigs]);
   let cardid = x?._id;
+
+  if (type === "reservations") {
+    return (
+      <>
+        {ReservationsIsLoading ? (
+          <CardLoading />
+        ) : (
+          <CardContent>
+            <div className="w-100 cards flex gap-1 column" key={x?.id}>
+              <div className="detailsImageContainer">
+                <div onClick={handleAddToWish} className="icon">
+                  <Heart wishsindex={wishidArray} index={cardid} />
+                </div>
+                <div className="detailsImageWrapper">
+                  {x?.gigId?.image?.map((x) => {
+                    return (
+                      <Link
+                        to={`/rooms/${cardid}`}
+                        style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                        className="w-100 card"
+                      >
+                        <img src={x} alt="" className="w-100" />
+                        <div className="backdrop"></div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <Link
+                to={`/rooms/${x?._id}`}
+                className="flex column"
+                style={{ gap: ".2rem" }}
+              >
+                <div className="w-100 flex item-center justify-space cardTop">
+                  <h4 className="fs-18 text-dark">{x?.gigId?.location}</h4>
+                  <div
+                    style={{ gap: ".3rem" }}
+                    className="flex text-light fs-16 item-center"
+                  >
+                    <Star />
+                    4.98
+                  </div>
+                </div>
+                <div className="flex column">
+                  <h4 className="fs-16 text-grey text-light">
+                    {x?.gigId?.distance} kilometers away
+                  </h4>
+                  <h4 className="fs-16 text-grey text-light">
+                    {x?.gigId?.startDate}
+                  </h4>
+                </div>
+                <h4 className="fs-16 text-dark">
+                  ${x?.gigId?.price}{" "}
+                  <span className="text-light fs-16">night</span>
+                </h4>
+              </Link>
+              <div className="reserveBtn fs-16 flex item-center justify-center">Cancel Reservations</div>
+            </div>
+          </CardContent>
+        )}
+      </>
+    );
+  }
+
   return (
     <>
       {gigsIsLoading ? (
@@ -238,6 +306,25 @@ export default function Card({ x, index, type }) {
 const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
+  .reserveBtn {
+    background-image: linear-gradient(
+      to right,
+      #e61e4d 0%,
+      #e31c5f 50%,
+      #d70466 100%
+    );
+    /* padding: 0.8rem 2rem; */
+    min-height: 3rem;
+    border-radius: 10px;
+    color: #fff !important;
+    color: #fff;
+    /* padding: 0.8rem 2rem; */
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
   .detailsImageContainer {
     width: 100%;
     position: relative;

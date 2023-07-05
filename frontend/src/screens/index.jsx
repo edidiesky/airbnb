@@ -15,6 +15,7 @@ import TitleOfPlace from "./TitleOfPlace";
 import InformationOfplace from './InformationOfPlace'
 import PriceOfplace from './PriceOfPlace'
 import Payment from './Payment'
+import Reservations from './Reservations'
 import ReviewOfplace from './ReviewOfPlace'
 export {
   DescriptionOfplace,
@@ -34,5 +35,6 @@ export {
   InformationOfplace,
   PriceOfplace,
   ReviewOfplace,
-  Payment
+  Payment,
+  Reservations
 };

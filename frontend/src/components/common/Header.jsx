@@ -109,25 +109,53 @@ export default function Header({ type }) {
         className="dropdown shadow flex column"
         onClick={() => setDrop(!drop)}
       >
-        <li
-          onClick={() => dispatch(onAuthModal())}
-          className="fs-14 text-light text-grey"
-        >
-          Sign in
-        </li>
-        <li
-          onClick={() => dispatch(onAuthModal())}
-          className="fs-14 text-bold text-dark"
-        >
-          Sign up
-        </li>
-        <li className="fs-14 text-bold text-dark">Logout</li>
+        {userInfo ? (
+          <div className="">
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              className="fs-14 text-bold text-dark"
+            >
+              <Link className="w-100" to={"/reservations"}>
+                Reservations
+              </Link>
+            </li>
+          </div>
+        ) : (
+          <div className="">
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              className="fs-14 text-bold"
+            >
+              Sign in
+            </li>
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              className="fs-14 text-bold text-dark"
+            >
+              Sign up
+            </li>
+          </div>
+        )}
+
         <li className="fs-14 text-bold text-dark">
           {" "}
-          <Link to={"/wishlists"}>Wishlists</Link>
+          <Link className="w-100" to={"/wishlists"}>
+            Wishlists
+          </Link>
         </li>
-        <li className="fs-14 text-light text-grey">Favourites</li>
-        <li className="fs-14 text-light text-grey">Trips</li>
+        <li className="fs-14 text-bold text-dark">
+          {" "}
+          <Link className="w-100" to={"/favorites"}>
+            Favorites
+          </Link>
+        </li>
+        <li className="fs-14 text-bold text-dark">
+          {" "}
+          <Link className="w-100" to={"/trips"}>
+            Trips
+          </Link>
+        </li>
+        <li className="fs-14 text-bold text-dark">Logout</li>
       </motion.ul>
     );
   };
@@ -198,7 +226,7 @@ export default function Header({ type }) {
                     height: "2rem",
                     borderRadius: "50%",
                     background: "var(--dark-1)",
-                    color:"#fff"
+                    color: "#fff",
                   }}
                   className="text-white fs-14 flex item-center justify-center uppercase"
                 >

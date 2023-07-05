@@ -4,7 +4,7 @@ import {
   CreateBuyerReservations,
   DeleteBuyerReservations,
   UpdateBuyerReservations,
-  GetSingleBuyerReservations
+  GetSingleBuyerReservations,
 } from "./reservationsReducer";
 const initialState = {
   // states
@@ -12,10 +12,10 @@ const initialState = {
   ReservationsIsError: false,
   ReservationsIsLoading: false,
   totalReservations: 0,
-  Reservations: null,
-  ReservationsDetails:null,
-  ReservationsUpdateIsSuccess:false,
-  ReservationsUpdateIsLoading:false,
+  Reservations: [],
+  ReservationsDetails: null,
+  ReservationsUpdateIsSuccess: false,
+  ReservationsUpdateIsLoading: false,
 
   // alert states
   showAlert: false,
@@ -34,7 +34,7 @@ const ReservationsSlice = createSlice({
       state.ReservationsIsSuccess = false;
       state.ReservationsIsError = false;
       state.ReservationsAlert = false;
-      state.ReservationsUpdateIsSuccess = false
+      state.ReservationsUpdateIsSuccess = false;
     },
     clearReservations: (state, action) => {
       state.Reservations = null;
@@ -66,7 +66,8 @@ const ReservationsSlice = createSlice({
     },
     [GetSingleBuyerReservations.fulfilled]: (state, action) => {
       state.ReservationsIsLoading = false;
-      state.ReservationsDetails = action.payload;
+      state.Reservations = [...state.Reservations, action.payload];
+      state.alertText = "Your reservations has been successfully fetched";
       state.showAlert = true;
     },
     // Reservations
@@ -122,9 +123,11 @@ const ReservationsSlice = createSlice({
     },
     [DeleteBuyerReservations.fulfilled]: (state, action) => {
       state.ReservationsIsLoading = false;
-      state.Reservations = state.Reservations.filter((x) => x._id !== action.payload);
+      state.Reservations = state.Reservations.filter(
+        (x) => x._id !== action.payload
+      );
       state.showAlert = true;
-      state.alertText = `${state.ReservationsDetails.title} has been successfully deleted`;
+      state.alertText = `Successfully deleted`;
     },
     [DeleteBuyerReservations.rejected]: (state, action) => {
       state.ReservationsIsLoading = false;
@@ -137,6 +140,9 @@ const ReservationsSlice = createSlice({
   },
 });
 
-export const { clearReservations, clearReservationsAlert } = ReservationsSlice.actions;
+export const {
+  clearReservations,
+  clearReservationsAlert,
+} = ReservationsSlice.actions;
 
 export default ReservationsSlice.reducer;
