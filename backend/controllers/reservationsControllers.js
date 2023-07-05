@@ -9,7 +9,7 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   const queryObject = { authorId: req.user.userId };
 
   let result = Reservations.find(queryObject)
-    .populate("sellerId", "image username")
+    .populate("authorId", "image username")
     .populate(
       "gigId",
       "image price startDate title location endDate adults children infants"
@@ -17,8 +17,8 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 
   const totalReservations = await Reservations.countDocuments({});
 
-  const Reservations = await result;
-  res.status(200).json({ Reservations, totalReservations });
+  const reservations = await result;
+  res.status(200).json({ reservations, totalReservations });
 });
 
 // GET SINGLE Gig
@@ -166,19 +166,8 @@ const DeleteBuyerReservations = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Reservations not found");
   }
-  // res.send(role)
-  // console.log((role === 'admin'));
-  console.log(gig.user.toString() !== userId);
-  // check if the user is the seller or is admin
-  if (gig.user.toString() === userId || role === "admin") {
-    await Reservations.findByIdAndDelete({ _id: req.params.id });
-    res
-      .status(200)
-      .json({ message: "The Reservations has been successfully deleted" });
-  } else {
-    res.status(404);
-    throw new Error("You are not authorized to perform this action");
-  }
+  await Reservations.findOneAndDelete({ authorId: userId, _id: id });
+  res.status(200).json({message:"This reservation has been succesfully deleted"})
 });
 
 const GetTopRatedBuyerReservations = asyncHandler(async (req, res) => {

@@ -6,8 +6,14 @@ export const GetAllBuyerReservations = createAsyncThunk(
   "reservations/allBuyerReservations",
   async (id, thunkAPI) => {
     try {
-      let ReservationsUrl = `/api/v1/reservations/${id}`;
-      const { data } = await axios.get(ReservationsUrl);
+      const state = thunkAPI.getState();
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      let ReservationsUrl = `/api/v1/reservations`;
+      const { data } = await axios.get(ReservationsUrl, config);
       return data.reservations;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -124,7 +130,6 @@ export const DeleteBuyerReservations = createAsyncThunk(
     }
   }
 );
-
 
 // Get al toprated reservations
 export const GetTopRatedBuyerReservations = createAsyncThunk(

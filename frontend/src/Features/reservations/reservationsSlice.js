@@ -48,8 +48,7 @@ const ReservationsSlice = createSlice({
     },
     [GetAllBuyerReservations.fulfilled]: (state, action) => {
       state.ReservationsIsLoading = false;
-      state.Reservations = action.payload.gig;
-      state.totalReservations = action.payload.totalGig;
+      state.Reservations = action.payload;
       state.showAlert = true;
       state.alertText = "All Reservations has been successfully fetched";
     },

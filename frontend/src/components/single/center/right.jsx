@@ -23,16 +23,10 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   // console.log(ReservationsDetails);
   // navigate if the reservation of the user has been succesfully created
   useEffect(() => {
-    if (ReservationsDetails) {
+    if (ReservationsIsSuccess) {
       navigate(`/${ReservationsDetails?._id}/payment`);
     }
-  }, [ReservationsDetails, navigate]);
-  
-  // useEffect(() => {
-  //   if (ReservationsIsSuccess || ReservationsDetails) {
-  //     dispatch(clearReservationsAlert());
-  //   }
-  // }, [ReservationsIsSuccess, ReservationsDetails]);
+  }, [ReservationsDetails,ReservationsIsSuccess, navigate]);
 
   const formatDate = (date) => {
     return moment(date).format("DD/MM/YYYY");
