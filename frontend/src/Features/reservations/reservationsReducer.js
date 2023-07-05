@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// fetching all Reservations for the seller and admin
+// fetching all reservations for the seller and admin
 export const GetAllBuyerReservations = createAsyncThunk(
-  "/Reservations/allBuyerReservations",
+  "reservations/allBuyerReservations",
   async (id, thunkAPI) => {
     try {
       let ReservationsUrl = `/api/v1/reservations/${id}`;
       const { data } = await axios.get(ReservationsUrl);
-      return data.Reservations;
+      return data.reservations;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
@@ -19,9 +19,9 @@ export const GetAllBuyerReservations = createAsyncThunk(
   }
 );
 
-// fetching all Reservations for the buyer
+// fetching all reservations for the buyer
 export const GetSingleBuyerReservations = createAsyncThunk(
-  "/Reservations/singleBuyerReservations",
+  "reservations/singleBuyerReservations",
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     const config = {
@@ -42,7 +42,7 @@ export const GetSingleBuyerReservations = createAsyncThunk(
     }
   }
 );
-// fetching single Reservations based on its id
+// fetching single reservations based on its id
 export const CreateBuyerReservations = createAsyncThunk(
   "Reservations/createBuyerReservations",
   async (reservationdata, thunkAPI) => {
@@ -73,7 +73,7 @@ export const CreateBuyerReservations = createAsyncThunk(
 
 // Update a single Reservations
 export const UpdateBuyerReservations = createAsyncThunk(
-  "/Reservations/updateBuyerReservations",
+  "reservations/updateBuyerReservations",
   async (GigsData, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
@@ -82,13 +82,12 @@ export const UpdateBuyerReservations = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { _id } = state.reservation.ReservationsDetails;
+      const { _id } = state.reservations.ReservationsDetails;
       const { data } = await axios.put(
-        `/api/v1/gig/admin/${_id}`,
+        `/api/v1/reservations/${_id}`,
         GigsData,
         config
       );
-      localStorage.setItem("Gigss", JSON.stringify(data.updatedGigs));
       return data.updatedGigs;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -100,9 +99,9 @@ export const UpdateBuyerReservations = createAsyncThunk(
   }
 );
 
-// Delete a single Reservations
+// Delete a single reservations
 export const DeleteBuyerReservations = createAsyncThunk(
-  "/Reservations/deleteGig",
+  "reservations/deleteGig",
   async (Reservationsid, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
@@ -112,7 +111,7 @@ export const DeleteBuyerReservations = createAsyncThunk(
         },
       };
       const { data } = await axios.delete(
-        `/api/v1/gig/admin/${Reservationsid}`,
+        `/api/v1/reservations/${Reservationsid}`,
         config
       );
       return Reservationsid;
@@ -126,30 +125,8 @@ export const DeleteBuyerReservations = createAsyncThunk(
   }
 );
 
-// Get al toprated Reservations
-export const getTopRatedGigs = createAsyncThunk(
-  "/get/topRatedGigs",
-  async (name, thunkAPI) => {
-    const state = thunkAPI.getState();
-    try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get(`/api/v1/gig/rated`, config);
-      return data.toprated;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
-  }
-);
 
-// Get al toprated Reservations
+// Get al toprated reservations
 export const GetTopRatedBuyerReservations = createAsyncThunk(
   "/get/getGigsStats",
   async (name, thunkAPI) => {

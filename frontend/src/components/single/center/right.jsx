@@ -27,11 +27,12 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
       navigate(`/${ReservationsDetails?._id}/payment`);
     }
   }, [ReservationsDetails, navigate]);
-  useEffect(() => {
-    if (ReservationsIsSuccess || ReservationsDetails) {
-      dispatch(clearReservationsAlert());
-    }
-  }, [ReservationsIsSuccess, ReservationsDetails]);
+  
+  // useEffect(() => {
+  //   if (ReservationsIsSuccess || ReservationsDetails) {
+  //     dispatch(clearReservationsAlert());
+  //   }
+  // }, [ReservationsIsSuccess, ReservationsDetails]);
 
   const formatDate = (date) => {
     return moment(date).format("DD/MM/YYYY");
