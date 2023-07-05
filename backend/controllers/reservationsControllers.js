@@ -12,7 +12,7 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
     .populate("sellerId", "image username")
     .populate(
       "gigId",
-      "image title category shortDescription price type deliveryDays"
+      "image price startDate title location endDate adults children infants"
     );
 
   const totalReservations = await Reservations.countDocuments({});
@@ -28,7 +28,7 @@ const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   const reservations = await Reservations.findOne({ authorId: req.user.userId })
     .populate(
       "gigId",
-      "image price startDate location endDate adults children infants"
+      "image price startDate title location endDate adults children infants"
     )
     .populate("authorId", "username name image country");
 
@@ -109,9 +109,10 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     throw new Error("Gig not found");
   }
 
-  // check if the gig is alrady in the Reservations
+  // find the buyer reservations based on its userid and the gig id
   const alreadyinReservations = await Reservations.findOne({
     gigId: id,
+    authorId: userId,
   });
   // if in Reservations update it
   if (alreadyinReservations) {
@@ -152,7 +153,6 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     res.status(200).json({ reservations });
   }
   // res.status(200).json({ alreadyinReservations });
-
 });
 
 //PRIVATE/

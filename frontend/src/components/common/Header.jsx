@@ -112,7 +112,6 @@ export default function Header({ type }) {
         {userInfo ? (
           <div className="">
             <li
-              onClick={() => dispatch(onAuthModal())}
               className="fs-14 text-bold text-dark"
             >
               <Link className="w-100" to={"/reservations"}>

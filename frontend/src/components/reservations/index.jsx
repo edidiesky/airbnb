@@ -30,21 +30,7 @@ const ReservationsIndex = () => {
         handleClearAlert={handleClearMessage}
       />
       <h2 className="fs-40">Reservations lists</h2>
-      {/* {Reservations?.length > 0 ? (
-        <ReservationsWrapper className=" w-100 gap-2">
-          {Reservations?.map((x) => {
-            return <Card x={x} type={'reservations'} />;
-          })}
-        </ReservationsWrapper>
-      ) : (
-        <h3 className="fs-24">
-          Create your first reservation
-          <span className="py-1 block fs-16 w-90 text-light text-grey">
-            As you search, click the heart icon to save your favorite places and
-            Experiences to a wishlist.
-          </span>
-        </h3>
-      )} */}
+
       <ReservationsWrapper className=" w-100 gap-2">
         {Reservations
           ? Reservations?.map((x) => {

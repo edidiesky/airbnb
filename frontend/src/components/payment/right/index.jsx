@@ -17,20 +17,12 @@ export default function RightIndex() {
       <div className="Right flex gap-1 column">
         <div className="w-100 border flex column gap-1">
           <div className="w-100 flex bottom item-start gap-1">
-            {ReservationsDetails ? (
-              <div className="image">
-                {" "}
-                <img
-                  src={ReservationsDetails?.gigId?.image[0]}
-                  alt=""
-                  className="w-100 h-100"
-                  style={{ borderRadius: "10px" }}
-                />
+            <div className="flex item-start gap-1">
+              <div className="detailsImageWrapper">
+                {ReservationsDetails?.gigId?.image?.map((x, index) => {
+                  return <img key={index} src={x} alt="" className="w-100" />;
+                })}
               </div>
-            ) : (
-              ""
-            )}
-            <div className="column gap-1">
               <h4 className="fs-14 text-grey">
                 <span className="block fs-12 text-grey text-bold">
                   Room in bed and breakfast
@@ -74,9 +66,11 @@ export default function RightIndex() {
             <span style={{ textDecoration: "underline" }}>Total (USD)</span>
             <span className="text-dark">
               $
-              {(ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
+              {(
+                ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
                 ReservationsDetails?.gigId?.price * differenceInDays +
-                50).toFixed()}
+                50
+              ).toFixed()}
             </span>
           </h4>{" "}
         </div>
@@ -100,6 +94,23 @@ const RightIndexContent = styled.div`
   }
   .p1 {
     padding: 1rem;
+  }
+
+  .detailsImageWrapper {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    overflow: hidden;
+    grid-gap: 0rem;
+    height: 8rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 8rem;
+      position: absolute;
+    }
   }
 
   .border {

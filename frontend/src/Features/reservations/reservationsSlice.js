@@ -66,7 +66,7 @@ const ReservationsSlice = createSlice({
     },
     [GetSingleBuyerReservations.fulfilled]: (state, action) => {
       state.ReservationsIsLoading = false;
-      state.Reservations = [...state.Reservations, action.payload];
+      state.ReservationsDetails = action.payload;
       state.alertText = "Your reservations has been successfully fetched";
       state.showAlert = true;
     },
