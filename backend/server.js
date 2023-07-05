@@ -39,11 +39,7 @@ app.get("/api/v1/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
-app.get("/stripekey", (req, res) => {
-  res.send(process.env.STRIPE_KEY);
-});
-
-// app.post('/stripe', Stripepayment)
+app.post('/stripe', stripeCheckout)
 // app.get('/payment_intents', getAllStripePaymentIntent)
 const __dirname = path.resolve();
 

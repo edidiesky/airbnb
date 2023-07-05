@@ -83,13 +83,26 @@ export default function SingleLeftIndex({ id }) {
   const differenceInDays = (differenceInTime / (1000 * 3600 * 24)).toFixed(); // Convert milliseconds to days
 
   // console.log(ReservationsDetails?.gigId?.children);
+
+  const order = [
+    {
+      price: (
+        ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
+        ReservationsDetails?.gigId?.price * differenceInDays +
+        50
+      ).toFixed(),
+      image: [ReservationsDetails?.gigId?.image],
+      title: ReservationsDetails?.gigId?.title,
+      quantity: 1,
+    },
+  ];
   return (
     <div>
       <Message
-          showAlert={ReservationsUpdateIsSuccess}
-          alertText={"Your reservation has been successfully updated"}
-          handleClearAlert={dispatch(clearReservationsAlert())}
-        />
+        showAlert={ReservationsUpdateIsSuccess}
+        alertText={"Your reservation has been successfully updated"}
+        handleClearAlert={dispatch(clearReservationsAlert())}
+      />
       <AnimatePresence
         initial="false"
         exitBeforeEnter={true}

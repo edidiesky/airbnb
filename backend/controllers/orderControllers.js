@@ -57,31 +57,16 @@ const GetOrderById = async (req, res) => {
 const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
-  const {
-    paymentMethod,
-    estimatedTax,
-    shippingPrice,
-    TotalShoppingPrice,
-    cartId,
-  } = req.body;
+  const { image, title, price } = req.body;
 
   const order = await Order.create({
-    createdBy: userId,
-    cartId,
-    paymentMethod,
-    estimatedTax,
-    shippingPrice,
-    TotalShoppingPrice: parseInt(TotalShoppingPrice),
+    buyerId: userId,
+    image,
+    title,
+    price: parseInt(price),
   });
 
   res.status(200).json({ order });
-  // console.log({
-  //   paymentMethod,
-  //   estimatedTax,
-  //   shippingPrice,
-  //   TotalShoppingPrice:parseInt(TotalShoppingPrice),
-  //   cartId,
-  // });
 };
 
 // Update Order to paid for the user

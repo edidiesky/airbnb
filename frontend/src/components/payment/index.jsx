@@ -62,7 +62,11 @@ const PaymentIndexContent = styled.div`
     );
     padding: 1rem 2rem;
     border-radius: 10px;
+    cursor: pointer;
     color: #fff !important;
+    &:hover {
+      opacity: 0.7;
+    }
   }
   .grid-auto {
     display: grid;
