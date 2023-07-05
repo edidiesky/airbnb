@@ -24,6 +24,12 @@ const orderSchema = mongoose.Schema(
     paidAt: {
       type: Date,
     },
+    startDate: {
+      type: String,
+    },
+    endDate: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ["Pending", "Delivered", "Not Delivered"],

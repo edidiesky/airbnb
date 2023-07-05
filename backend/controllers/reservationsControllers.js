@@ -25,12 +25,9 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 // Not Private
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   // find the Gig
-  const reservations = await Reservations.findOne({ authorId: req.user.userId })
-    .populate(
-      "gigId",
-      "image price startDate title location endDate adults children infants"
-    )
-    .populate("authorId", "username name image country");
+  const reservations = await Reservations.findOne({
+    authorId: req.user.userId,
+  }).populate("gigId", "image price title location adults children infants");
 
   if (!reservations) {
     res.status(404);
@@ -97,7 +94,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
   // reduce the author gig in terms of quanitity
   // Be able to update the reservations if the gig is already in the resrevations
 
-  // get the request body parameters
+  // // get the request body parameters
   const { qty, adults, children, infants, startDate, endDate } = req.body;
 
   // console.log(qty);
@@ -137,9 +134,6 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
       { new: true }
     );
 
-    // console.log('hello');
-    // console.log(gig.countInStock - qty);
-
     const reservations = await Reservations.create({
       gigQuantity: qty,
       authorId: userId,
@@ -147,11 +141,14 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
       adults,
       children,
       infants,
-      sellerId: gig.sellerId ? gig.sellerId : gig.user,
+      startDate,
+      endDate,
     });
 
     res.status(200).json({ reservations });
   }
+
+  // console.log(req.body);
   // res.status(200).json({ alreadyinReservations });
 });
 
@@ -167,7 +164,9 @@ const DeleteBuyerReservations = asyncHandler(async (req, res) => {
     throw new Error("Reservations not found");
   }
   await Reservations.findOneAndDelete({ authorId: userId, _id: id });
-  res.status(200).json({message:"This reservation has been succesfully deleted"})
+  res
+    .status(200)
+    .json({ message: "This reservation has been succesfully deleted" });
 });
 
 const GetTopRatedBuyerReservations = asyncHandler(async (req, res) => {

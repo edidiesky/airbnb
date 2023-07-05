@@ -13,6 +13,10 @@ import Selection from "../../modals/SelectionModal";
 import { UpdateBuyerReservations } from "../../../Features/reservations/reservationsReducer";
 import Message from "../../loaders/Message";
 import { clearReservationsAlert } from "../../../Features/reservations/reservationsSlice";
+import {
+  createCustomersOrder,
+  createStripeIntent,
+} from "../../../Features/order/orderReducer";
 
 export default function SingleLeftIndex({ id }) {
   const { ReservationsDetails, ReservationsUpdateIsSuccess } = useSelector(
@@ -86,16 +90,30 @@ export default function SingleLeftIndex({ id }) {
 
   const order = [
     {
-      price: (
+      price:
         ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
         ReservationsDetails?.gigId?.price * differenceInDays +
-        50
-      ).toFixed(),
-      image: [ReservationsDetails?.gigId?.image],
+        50,
+      image: ReservationsDetails?.gigId?.image,
       title: ReservationsDetails?.gigId?.title,
       quantity: 1,
     },
   ];
+
+  // console.log(order);
+  const handleOrderCreation = () => {
+    dispatch(createStripeIntent(order));
+    dispatch(
+      createCustomersOrder({
+        price: ReservationsDetails?.gigId?.price * differenceInDays,
+        image: ReservationsDetails?.gigId?.image,
+        title: ReservationsDetails?.gigId?.title,
+        quantity: 1,
+        startDate,
+        endDate,
+      })
+    );
+  };
   return (
     <div>
       <Message
@@ -231,7 +249,9 @@ export default function SingleLeftIndex({ id }) {
           damage.
         </h5>
         <div className="w-50 flex item-center">
-          <div className="btn fs-16 text-white">Confirm and Pay</div>
+          <div onClick={handleOrderCreation} className="btn fs-16 text-white">
+            Confirm and Pay
+          </div>
         </div>
       </div>
     </div>

@@ -57,13 +57,15 @@ const GetOrderById = async (req, res) => {
 const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
-  const { image, title, price } = req.body;
+  const { image, title, price, startDate, endDate } = req.body;
 
   const order = await Order.create({
     buyerId: userId,
     image,
     title,
     price: parseInt(price),
+    startDate,
+    endDate,
   });
 
   res.status(200).json({ order });

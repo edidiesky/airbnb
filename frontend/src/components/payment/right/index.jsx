@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function RightIndex() {
   const { ReservationsDetails } = useSelector((store) => store.reservations);
-  let date1 = new Date(ReservationsDetails?.gigId?.startDate);
-  let date2 = new Date(ReservationsDetails?.gigId?.endDate);
+  let date1 = new Date(ReservationsDetails?.startDate);
+  let date2 = new Date(ReservationsDetails?.endDate);
 
   const differenceInTime = date2?.getTime() - date1?.getTime(); // Difference in milliseconds
   const differenceInDays = (differenceInTime / (1000 * 3600 * 24)).toFixed(); // Convert milliseconds to days
