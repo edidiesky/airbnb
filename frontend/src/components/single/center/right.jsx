@@ -10,6 +10,7 @@ import {
 } from "../../../Features/gigs/gigsSlice";
 import LoaderIndex from "../../loaders";
 import { useNavigate } from "react-router-dom";
+import { clearReservationsAlert } from "../../../Features/reservations/reservationsSlice";
 
 const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   const navigate = useNavigate();
@@ -25,7 +26,12 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
     if (ReservationsDetails) {
       navigate(`/${ReservationsDetails?._id}/payment`);
     }
-  }, [ ReservationsDetails, navigate]);
+  }, [ReservationsDetails, navigate]);
+  useEffect(() => {
+    if (ReservationsIsSuccess || ReservationsDetails) {
+      dispatch(clearReservationsAlert());
+    }
+  }, [ReservationsIsSuccess, ReservationsDetails]);
 
   const formatDate = (date) => {
     return moment(date).format("DD/MM/YYYY");
@@ -154,7 +160,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
           </h4>
         </div>
       </RightCard>
-      {/* <DateInput /> */}
+      {/* <DateReservationsIsSuccess /> */}
     </div>
   );
 };

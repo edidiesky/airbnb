@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
 import { flip } from "../../utils/framer";
 import { offSelectModal } from "../../Features/gigs/gigsSlice";
+import LoaderIndex from "../loaders";
+import { UpdateBuyerReservations } from "../../Features/reservations/reservationsReducer";
 
 export default function Selection({
   setChildren,
@@ -14,8 +16,16 @@ export default function Selection({
   setAdults,
   infants,
   setInfants,
+  data,
 }) {
   const dispatch = useDispatch();
+  const { ReservationsUpdateIsLoading } = useSelector(
+    (store) => store.reservations
+  );
+ const handleUpdateResrevations = ()=> {
+  dispatch(UpdateBuyerReservations(data))
+  dispatch(offSelectModal())
+ }
 
   // console.log({ results: adults + children });
 
@@ -142,8 +152,16 @@ export default function Selection({
         <div className="w-100 btnwrapper">
           <div className="w-90 auto flex item-center justify-space">
             <div className="hostbtn grey fs-16 text-white">Cancel</div>
-
-            <div className="hostbtn fs-16 text-white">Save</div>
+            {data ? (
+              <div
+                onClick={handleUpdateResrevations}
+                className="hostbtn fs-16 text-white"
+              >
+                {ReservationsUpdateIsLoading ? <LoaderIndex /> : "Save"}
+              </div>
+            ) : (
+              <div className="hostbtn fs-16 text-white">Save</div>
+            )}
           </div>
         </div>
       </motion.div>
@@ -177,7 +195,6 @@ const SelectionContainer = styled(motion.div)`
       cursor: not-allowed;
     }
   }
-
 
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);

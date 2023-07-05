@@ -30,6 +30,12 @@ const ReservationSchema = new mongoose.Schema(
     infants: {
       type: Number,
     },
+    startDate: {
+      type: String,
+    },
+    endDate: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

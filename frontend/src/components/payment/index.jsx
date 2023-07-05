@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SingleLeftIndex from "./left";
 import RightIndex from "./right";
 import styled from "styled-components";
 import { BiChevronLeft } from "react-icons/bi";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { GetSingleBuyerReservations } from "../../Features/reservations/reservationsReducer";
 export default function PaymentIndex() {
   const { id } = useParams();
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(GetSingleBuyerReservations(id));
+  }, [id]);
+
   return (
     <PaymentIndexContent>
       <div className="w-90 auto flex column">
-        <h3 className="fs-40 w-90 auto flex item-center gap-1">
+        <h3 className="fs-30 w-90 auto flex item-center gap-1">
           <Link to={"/"} className="icon flex item-center justify-center">
             <BiChevronLeft fontSize={"20px"} />
           </Link>
@@ -29,6 +35,9 @@ export default function PaymentIndex() {
 const PaymentIndexContent = styled.div`
   width: 100%;
   padding-top: 2rem;
+  .edit {
+    cursor: pointer;
+  }
   .border {
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 1.4rem;

@@ -26,18 +26,18 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   const { id } = req.params;
   // find the Gig
-  const Reservations = await Reservations.findOne({ _id: id })
+  const reservations = await Reservations.findOne({ _id: id })
     .populate(
       "gigId",
-      "image title image shortDescription price category subInfo type deliveryDays"
+      "image title price startDate endDate adults children infants"
     )
     .populate("authorId", "username name image country");
 
-  if (!Reservations) {
+  if (!reservations) {
     res.status(404);
     throw new Error("Reservations Item not found");
   }
-  res.status(200).json({ Reservations });
+  res.status(200).json({ reservations });
 });
 
 //PRIVATE
@@ -57,42 +57,34 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
     type,
     deliveryDays,
   } = req.body;
-  const gig = await Reservations.findById({ _id: req.params.id });
+  const reservation = await Reservations.findById({ _id: req.params.id });
 
-  if (!gig) {
+  if (!reservation) {
     res.status(404);
     throw new Error("Reservations not found");
   }
-  // res.send(role)
-  // console.log((role === 'admin'));
-  // check if the user is the seller or is admin
-  if (gig.user.toString() === userId || role === "admin") {
-    const data = {
-      user: userId,
-      title,
-      tags,
-      image,
-      type,
-      description,
-      price,
-      countInStock,
-      shortDescription,
-      deliveryDays,
-      category,
-      subInfo,
-    };
-    // check for empty values and repeated values
+  const data = {
+    user: userId,
+    title,
+    tags,
+    image,
+    type,
+    description,
+    price,
+    countInStock,
+    shortDescription,
+    deliveryDays,
+    category,
+    subInfo,
+  };
+  // check for empty values and repeated values
 
-    const updatedGig = await Reservations.findByIdAndUpdate(
-      { _id: req.params.id },
-      { ...data },
-      { new: true }
-    );
-    res.status(200).json({ updatedGig });
-  } else {
-    res.status(404);
-    throw new Error("You are not authorized to perform this action");
-  }
+  const updatedGig = await Reservations.findByIdAndUpdate(
+    { _id: req.params.id },
+    { ...data },
+    { new: true }
+  );
+  res.status(200).json({ updatedGig });
 });
 
 // GET SINGLE Reservations

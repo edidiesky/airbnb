@@ -16,7 +16,7 @@ export default function Message({
   useEffect(() => {
     setTimeout(() => {
       handleClearAlert();
-    }, 40000);
+    }, 6000);
   }, []);
 
   return (
@@ -70,8 +70,8 @@ const MessageContent = styled.div`
     flex: 1;
   }
   .icon {
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     display: grid;
     place-items: center;
     border-radius: 50%;

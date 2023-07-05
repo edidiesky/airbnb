@@ -6,9 +6,22 @@ import { RxCross2 } from "react-icons/rx";
 import { flip } from "../../utils/framer";
 import { offCalendarModal } from "../../Features/gigs/gigsSlice";
 import DateInput from "../forms/Date";
+import LoaderIndex from "../loaders";
+import { UpdateBuyerReservations } from "../../Features/reservations/reservationsReducer";
 
-export default function CalendarModal({handleSelect,dateRange}) {
+export default function CalendarModal({
+  handleSelect,
+  dateRange,
+  data,
+}) {
   const dispatch = useDispatch();
+  const { ReservationsUpdateIsLoading } = useSelector(
+    (store) => store.reservations
+  );
+  const handleUpdateResrevations = ()=> {
+    dispatch(UpdateBuyerReservations(data))
+    dispatch(offCalendarModal())
+   }
 
   return (
     <CalendarModalContainer
@@ -50,7 +63,16 @@ export default function CalendarModal({handleSelect,dateRange}) {
           <div className="w-90 auto flex item-center justify-space">
             <div className="hostbtn grey fs-14 text-white">Cancel</div>
 
-            <div className="hostbtn fs-14 text-white">Save</div>
+            {data ? (
+              <div
+                onClick={handleUpdateResrevations}
+                className="hostbtn fs-16 text-white"
+              >
+                {ReservationsUpdateIsLoading ? <LoaderIndex /> : "Save"}
+              </div>
+            ) : (
+              <div className="hostbtn fs-16 text-white">Save</div>
+            )}
           </div>
         </div>
       </motion.div>

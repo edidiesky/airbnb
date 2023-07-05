@@ -32,7 +32,7 @@ export const GetSingleBuyerReservations = createAsyncThunk(
     try {
       let ReservationsUrl = `/api/v1/reservations/buyer/${name}`;
       const { data } = await axios.get(ReservationsUrl, config);
-      return data.Reservations;
+      return data.reservations;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
@@ -82,7 +82,7 @@ export const UpdateBuyerReservations = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { _id } = state.Gigs.GigsDetails;
+      const { _id } = state.reservation.ReservationsDetails;
       const { data } = await axios.put(
         `/api/v1/gig/admin/${_id}`,
         GigsData,

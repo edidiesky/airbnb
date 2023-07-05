@@ -14,6 +14,8 @@ const initialState = {
   totalReservations: 0,
   Reservations: null,
   ReservationsDetails:null,
+  ReservationsUpdateIsSuccess:false,
+  ReservationsUpdateIsLoading:false,
 
   // alert states
   showAlert: false,
@@ -32,6 +34,7 @@ const ReservationsSlice = createSlice({
       state.ReservationsIsSuccess = false;
       state.ReservationsIsError = false;
       state.ReservationsAlert = false;
+      state.ReservationsUpdateIsSuccess = false
     },
     clearReservations: (state, action) => {
       state.Reservations = null;
@@ -96,16 +99,16 @@ const ReservationsSlice = createSlice({
 
     // update the gig
     [UpdateBuyerReservations.pending]: (state) => {
-      state.ReservationsIsLoading = true;
+      state.ReservationsUpdateIsLoading = true;
     },
     [UpdateBuyerReservations.fulfilled]: (state, action) => {
-      state.ReservationsIsLoading = false;
-      state.ReservationsIsSuccess = true;
+      state.ReservationsUpdateIsLoading = false;
+      state.ReservationsUpdateIsSuccess = true;
       state.showAlert = true;
       state.alertText = "Your Reservations has been successfully updated";
     },
     [UpdateBuyerReservations.rejected]: (state, action) => {
-      state.ReservationsIsLoading = false;
+      state.ReservationsUpdateIsLoading = false;
       state.showAlert = true;
       state.ReservationsIsError = true;
       state.alertText = action.payload;
