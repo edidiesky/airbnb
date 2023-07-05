@@ -15,6 +15,7 @@ import {
 } from "../../Features/wish/wishSlice";
 import { useEffect } from "react";
 import Message from "../loaders/Message";
+import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
 
 const CardLoading = () => {
   return (
@@ -163,7 +164,7 @@ export default function Card({ x, index, type }) {
                   {x?.gigId?.image?.map((x) => {
                     return (
                       <Link
-                        to={`/rooms/${cardid}`}
+                        to={`/${cardid}/payment`}
                         style={{ transform: `translateX(-${tabindex * 100}%)` }}
                         className="w-100 card"
                       >
@@ -176,7 +177,7 @@ export default function Card({ x, index, type }) {
               </div>
 
               <Link
-                to={`/rooms/${x?._id}`}
+                to={`/${x?._id}/payment`}
                 className="flex column"
                 style={{ gap: ".2rem" }}
               >
@@ -194,8 +195,8 @@ export default function Card({ x, index, type }) {
                   <h4 className="fs-16 text-grey text-light">
                     {x?.gigId?.distance} kilometers away
                   </h4>
-                  <h4 className="fs-16 text-grey text-light">
-                    {x?.gigId?.startDate}
+                  <h4 className="fs-14 flex item-center gap-1 text-grey text-light">
+                    {x?.gigId?.startDate} <span>to</span> <span> {x?.gigId?.startDate}</span>
                   </h4>
                 </div>
                 <h4 className="fs-16 text-dark">
@@ -203,7 +204,12 @@ export default function Card({ x, index, type }) {
                   <span className="text-light fs-16">night</span>
                 </h4>
               </Link>
-              <div className="reserveBtn fs-16 flex item-center justify-center">Cancel Reservations</div>
+              <div
+                onClick={() => dispatch(DeleteBuyerReservations(cardid))}
+                className="reserveBtn fs-16 flex item-center justify-center"
+              >
+                Cancel Reservations
+              </div>
             </div>
           </CardContent>
         )}
