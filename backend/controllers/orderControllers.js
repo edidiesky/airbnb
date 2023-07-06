@@ -1,4 +1,8 @@
 // import Product from "../models/Product.js";
+import dotenv from "dotenv";
+dotenv.config();
+import stripe from "stripe";
+const stripeClient = stripe(process.env.STRIPE_KEY);
 import Cart from "../models/Reservations.js";
 import Order from "../models/Order.js";
 import moment from "moment";
@@ -57,7 +61,7 @@ const GetOrderById = async (req, res) => {
 const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
-  const { image, title, price, startDate, endDate } = req.body;
+  const { image, title, price, startDate, endDate, orders } = req.body;
 
   const order = await Order.create({
     buyerId: userId,
@@ -68,7 +72,29 @@ const CreateOrder = async (req, res) => {
     endDate,
   });
 
-  res.status(200).json({ order });
+  const session = await stripeClient.checkout.sessions.create({
+    line_items: orders.map((items) => {
+      return {
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: items.title,
+            images: items.image,
+          },
+          unit_amount: items.price,
+        },
+        quantity: items.quantity,
+      };
+    }),
+    mode: "payment",
+    payment_method_types: ["card"],
+    success_url: `http://localhost:5173/profile`,
+    cancel_url: `http://localhost:5173/order`,
+  });
+
+  res.status(200).json({ order, url: session.url });
+
+  // console.log(req.body);
 };
 
 // Update Order to paid for the user

@@ -15,7 +15,7 @@ export default function Message({
 
   useEffect(() => {
     setTimeout(() => {
-      handleClearAlert();
+      dispatch(handleClearAlert())
     }, 6000);
   }, []);
 

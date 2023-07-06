@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const createCustomersOrder = createAsyncThunk(
   "/create/order",
-  async ({ orderData }, thunkAPI) => {
+  async (orderData, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -13,7 +13,7 @@ export const createCustomersOrder = createAsyncThunk(
       };
       const { data } = await axios.post("/api/v1/order", orderData, config);
 
-      return data.order;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message

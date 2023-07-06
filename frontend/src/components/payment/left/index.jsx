@@ -17,6 +17,7 @@ import {
   createCustomersOrder,
   createStripeIntent,
 } from "../../../Features/order/orderReducer";
+import LoaderIndex from "../../loaders";
 
 export default function SingleLeftIndex({ id }) {
   const { ReservationsDetails, ReservationsUpdateIsSuccess } = useSelector(
@@ -24,6 +25,7 @@ export default function SingleLeftIndex({ id }) {
   );
 
   const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
+  const { isloadingStripe, url } = useSelector((store) => store.order);
   const [children, setChildren] = useState(
     ReservationsDetails?.gigId?.children
   );
@@ -88,32 +90,45 @@ export default function SingleLeftIndex({ id }) {
 
   // console.log(ReservationsDetails?.gigId?.children);
 
-  const order = [
+  const orders = [
     {
-      price:
-        ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
-        ReservationsDetails?.gigId?.price * differenceInDays +
-        50,
+      price: (
+        (ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
+          ReservationsDetails?.gigId?.price * differenceInDays +
+          50) *
+        100
+      ).toFixed(),
       image: ReservationsDetails?.gigId?.image,
       title: ReservationsDetails?.gigId?.title,
       quantity: 1,
     },
   ];
 
-  // console.log(order);
-  const handleOrderCreation = () => {
-    dispatch(createStripeIntent(order));
-    dispatch(
-      createCustomersOrder({
-        price: ReservationsDetails?.gigId?.price * differenceInDays,
-        image: ReservationsDetails?.gigId?.image,
-        title: ReservationsDetails?.gigId?.title,
-        quantity: 1,
-        startDate,
-        endDate,
-      })
-    );
+  const sessionorder = {
+    orders,
+    price: (
+      (ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
+        ReservationsDetails?.gigId?.price * differenceInDays +
+        50) *
+      100
+    ).toFixed(),
+    title: ReservationsDetails?.gigId?.title,
+    quantity: 1,
+    startDate: ReservationsDetails?.startDate,
+    endDate: ReservationsDetails?.endDate,
   };
+
+  // console.log();
+  console.log(ReservationsDetails?.startDate, ReservationsDetails?.endDate);
+  const handleOrderCreation = () => {
+    dispatch(createCustomersOrder(sessionorder));
+  };
+
+  useEffect(() => {
+    if (url) {
+      window.location.href = url;
+    }
+  }, [url]);
   return (
     <div>
       <Message
@@ -250,7 +265,11 @@ export default function SingleLeftIndex({ id }) {
         </h5>
         <div className="w-50 flex item-center">
           <div onClick={handleOrderCreation} className="btn fs-16 text-white">
-            Confirm and Pay
+            {isloadingStripe ? (
+              <LoaderIndex type={"dots"} />
+            ) : (
+              "Confirm and Pay"
+            )}
           </div>
         </div>
       </div>

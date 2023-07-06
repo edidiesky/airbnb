@@ -22,6 +22,7 @@ const stripeCheckout = async (req, res) => {
       };
     }),
     mode: "payment",
+    payment_method_types: ["card"],
     success_url: `http://localhost:5173/profile`,
     cancel_url: `http://localhost:5173/order`,
   });

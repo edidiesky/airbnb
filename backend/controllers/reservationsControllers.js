@@ -18,6 +18,9 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   const totalReservations = await Reservations.countDocuments({});
 
   const reservations = await result;
+  if (!reservations) {
+    res.status(200).json({ message: "you have no resrevations" });
+  }
   res.status(200).json({ reservations, totalReservations });
 });
 
