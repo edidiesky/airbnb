@@ -32,6 +32,9 @@ const GigSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+    },
     price: {
       type: Number,
       required: true,

@@ -36,6 +36,20 @@ const initialState = {
   deleteGigModalAlert: false,
   selectmodal: false,
   calendarmodal: false,
+  authorGig: {
+    structure: "",
+    location: "",
+    floor_plan: {
+      guests: 0,
+      bedrooms: 0,
+      beds: 0,
+    },
+    offer: [],
+    images: [],
+    title: [],
+    description: "",
+    price: "",
+  },
 };
 
 const GigsSlice = createSlice({
@@ -46,6 +60,16 @@ const GigsSlice = createSlice({
       state.showAlert = false;
       state.alertText = "";
       state.alertType = "";
+    },
+    setStructure: (state, action) => {
+      state.authorGig = {
+        structure:action.payload
+      };
+    },
+    setLocation: (state, action) => {
+      state.authorGig = {
+        location:action.payload
+      };
     },
     getQuantity: (state, action) => {
       state.quantity = action.payload;

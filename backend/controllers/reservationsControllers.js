@@ -19,9 +19,11 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 
   const reservations = await result;
   if (!reservations) {
-    res.status(200).json({ message: "you have no resrevations" });
+    res.status(404);
+    throw new Error("You have no reservations");
+  } else {
+    res.status(200).json({ reservations, totalReservations });
   }
-  res.status(200).json({ reservations, totalReservations });
 });
 
 // GET SINGLE Gig
