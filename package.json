@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "build": "cd frontend && npm install --legacy-peer-deps && vite build",
+    "build": "cd frontend && npm install --legacy-peer-deps && npm run build",
     "start": "cd backend && npm install && npm run server"
   },
   "engines": {
