@@ -449,4 +449,154 @@ const gigData = [
   },
 ];
 
+const data2 = [
+  // design gig start
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/90b74311-6f55-41ea-8649-e0556b5c3e3e.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-39787429/original/19b38ca5-c584-480e-a4cf-5622b7707a91.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-39787429/original/ec9fa840-c880-457a-97b9-b21504761662.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-39787429/original/4248fa32-aa24-4c26-a1b1-a120419a6045.jpeg?im_w=720",
+    ],
+
+    location: "Villa, Brazil",
+    distance: "305689",
+    countInStock: 1,
+    type: "design",
+    startDate: moment().format("DD/MM/YYYY"),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
+    endDate: "11/7/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "213",
+    authorId: "64a3579a022fd3e25b27e4c8",
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/014df369-194e-47b1-9d5e-197a22ea9f40.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/de6ad764-8ab1-4318-a808-d667b5c9a423.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/1ab2058b-de9b-492a-8a99-0b42b7db5b3c.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-741349420004012294/original/6ca1eca6-3526-4a98-bc82-3129dfec9c76.jpeg?im_w=720",
+    ],
+
+    location: "Calpe, Spain",
+    distance: "305689",
+    countInStock: 1,
+    type: "design",
+    startDate: moment().format("DD/MM/YYYY"),
+    title: "Cheerful 1-bedroom in a townhouse with parking",
+    endDate: "11/7/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "230",
+    authorId: "64a3579a022fd3e25b27e4c8",
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-741349420004012294/original/f5d15873-eb8d-421d-9d1f-153378176f85.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-741349420004012294/original/6ca1eca6-3526-4a98-bc82-3129dfec9c76.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-741349420004012294/original/07ce4419-f207-4aeb-9a9a-695b74bcb4bc.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-741349420004012294/original/458bafd5-7a33-4104-b1ac-a6973cd3cce0.jpeg?im_w=720",
+    ],
+
+    location: "Marbella, Spain",
+    distance: "305689",
+    countInStock: 1,
+    type: "design",
+    startDate: "15/7/2023",
+    title: "Cheerful 1-bedroom in a townhouse with parking",
+    endDate: "18/7/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "3230",
+    authorId: "64a3579a022fd3e25b27e4c7",
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/d987ff62-d4be-49e8-a762-428ae79b24af.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/35a1166d-3cc5-48ec-9f97-e25a6d8dcaea.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/380f8f3f-0ee7-4c2e-baec-ff971c6b6914.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/2710f2ea-edb6-484a-bf46-6ac0a8be7a9c.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/2710f2ea-edb6-484a-bf46-6ac0a8be7a9c.jpg?im_w=720",
+    ],
+
+    location: "Bella, Portugal",
+    distance: "305689",
+    countInStock: 1,
+    type: "design",
+    startDate: "15/7/2023",
+    title: "Cheerful 1-bedroom in a townhouse with parking",
+    endDate: "19/7/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "3230",
+    authorId: "64a3579a022fd3e25b27e4c7",
+  },
+  // design gig stop
+  // earth home start
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/5cc39a52-1784-44ff-8aff-e346ec25ae6f.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/71700549-e397-4707-92d4-4bc476e3dcf8.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/18d10bb9-865b-4f9c-9728-566708d8d99b.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/f5d74edd-f5f8-49e4-97c7-0a49de245b13.jpg?im_w=720",
+    ],
+
+    location: "Bella, Portugal",
+    distance: "305689",
+    countInStock: 1,
+    type: "earth home",
+    startDate: "15/7/2023",
+    title: "Cheerful 1-bedroom in a townhouse with parking",
+    endDate: "19/7/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "3230",
+    authorId: "64a3579a022fd3e25b27e4c7",
+  },
+  //earth home stop
+  // Beachfront start
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/6be9257e-5cb6-4fc3-856a-44872306ebcd.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/ae5233e1-3a74-4e6d-bc39-a09a0cab7328.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/1c38dee0-65ff-455c-8287-b23c66935c0b.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/1636b5ae-de89-4d22-9d10-f7bf365c6bba.jpg?im_w=720",
+    ],
+
+    location: "Toree Del Mar, Spain",
+    distance: "105689",
+    countInStock: 1,
+    type: "Beachfront",
+    startDate: "18/7/2023",
+    title: "Cheerful 1-bedroom in a townhouse with parking",
+    endDate: "2/8/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "3230",
+    authorId: "64a3579a022fd3e25b27e4c8",
+  },
+  {
+    image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-607785480087064083/original/3c9018ec-5fe4-4f34-af84-0af11b11d751.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-607785480087064083/original/b588fc7b-b688-4c91-b569-3a135fdce373.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-607785480087064083/original/98ca7b50-b553-4f56-ae79-86684a327fad.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-607785480087064083/original/cddff7a2-f299-43f5-b74a-37b77b4ab64e.jpeg?im_w=720",
+    ],
+
+    location: "Canderallas, Spain",
+    distance: "405689",
+    countInStock: 1,
+    type: "Beachfront",
+    startDate: "30/7/2023",
+    title: "Cheerful Beachfront in a townhouse with parking",
+    endDate: "2/8/2023",
+    description:
+      "Drago, from StarAps Tenerife, one of our five private, exclusive and independent apartments, with: private pool with hydromassage chair, outdoor jacuzzi (recommended use of 30 minutes a day, but free use is 8 hours a day). Garden, barbecue and wonderful views of the sea and Teide, quiet area. Your hosts will make sure that you have an excellent vacation. Near the La Baranda bar and Casa del Vino, fun and tranquility in one place! Tourist license A38/4810 Please read additional rules",
+    price: "3230",
+    authorId: "64a3579a022fd3e25b27e4c9",
+  },
+  //Beachfront stop
+];
+
 export default gigData;

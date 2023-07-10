@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm install --legacy-peer-deps && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview" 
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -51,9 +51,6 @@
     "eslint-plugin-flowtype": "^8.0.3",
     "https": "^1.0.0",
     "vite": "^4.1.0"
-  },
-  "engines": {
-    "node": ">=14 <15"
   },
   "proxy": "http://localhost:4000",
   "allowedHosts": "all"
