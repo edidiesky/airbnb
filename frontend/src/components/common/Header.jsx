@@ -270,7 +270,7 @@ export default function Header({ type }) {
                     style={{
                       width: "2rem",
                       height: "2rem",
-                      filter: "brightness(50%)",
+                      opacity: ".5",
                     }}
                   />
                   {x.text}

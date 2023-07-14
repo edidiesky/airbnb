@@ -34,8 +34,6 @@ app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/reservations", reservationRoute);
 app.use("/api/v1/chat", chatRoute);
-
-app.post("/api/v1/stripe", stripeCheckout);
 // app.get('/payment_intents', getAllStripePaymentIntent)
 const __dirname = path.resolve();
 

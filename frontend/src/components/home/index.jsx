@@ -7,19 +7,12 @@ import { clearWishMessage } from "../../Features/wish/wishSlice";
 export default function HomeIndex() {
   const { showAlert } = useSelector((store) => store.wish);
 
-  const dispatch = useDispatch();
-
   const handleClearMessage = () => {
     dispatch(clearWishMessage());
   };
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   // clear provious fetch actions and then fetch new gigs
-  //   dispatch(clearGigsAlert());
-  //   dispatch(getAllGigs());
-  // }, []);
   return (
     <HomeIndexContainer className="flex column ">
       <Message
