@@ -12,7 +12,7 @@ const GetAllListing = asyncHandler(async (req, res) => {
   const minprice = req.query.minprice;
   const category = req.query.category;
   const maxprice = req.query.maxprice;
-  const authorId = req.query.user;
+  const listing_host_Id = req.query.user;
   const sort = req.query.sort;
 
   const queryObject = {};
@@ -30,8 +30,8 @@ const GetAllListing = asyncHandler(async (req, res) => {
     queryObject.price = { $gt: maxprice };
   }
   // user
-  if (authorId) {
-    queryObject.authorId = user;
+  if (listing_host_Id) {
+    queryObject.listing_host_Id = user;
   }
   // category
   if (category) {
@@ -45,7 +45,7 @@ const GetAllListing = asyncHandler(async (req, res) => {
   let result = Listing.find(queryObject)
     .skip(skip)
     .limit(limit)
-    .populate("authorId", "image username");
+    .populate("listing_host_Id", "image username");
 
   // perform sorting operation
   if (sort === "latest") {
@@ -70,7 +70,7 @@ const GetSingleListing = asyncHandler(async (req, res) => {
   const { id } = req.params;
   // find the Listing
   const gig = await Listing.findById({ _id: id }).populate(
-    "authorId",
+    "listing_host_Id",
     "username image country role"
   );
   if (!gig) {
@@ -93,7 +93,7 @@ const CreateSingleListing = asyncHandler(async (req, res) => {
   }
 
   const gig = await Listing.create({
-    authorId: userId,
+    listing_host_Id: userId,
     ...req.body
   });
 
@@ -114,9 +114,9 @@ const UpdateListing = asyncHandler(async (req, res) => {
   // res.send(role)
   // console.log((role === 'admin'));
   // check if the user is the seller or is admin
-  if (gig.authorId.toString() === userId || role === "admin") {
+  if (gig.listing_host_Id.toString() === userId || role === "admin") {
     const data = {
-      authorId: userId,
+      listing_host_Id: userId,
       ...req.body
     };
     // check for empty values and repeated values
@@ -146,9 +146,9 @@ const DeleteListing = asyncHandler(async (req, res) => {
   }
   // res.send(role)
   // console.log((role === 'admin'));
-  // console.log(gig.authorId.toString() !== userId);
+  // console.log(gig.listing_host_Id.toString() !== userId);
   // check if the user is the seller or is admin
-  if (gig.authorId.toString() === userId || role === "admin") {
+  if (gig.listing_host_Id.toString() === userId || role === "admin") {
     await Listing.findByIdAndDelete({ _id: req.params.id });
     res.status(200).json({ message: "The Listing has been successfully deleted" });
   } else {

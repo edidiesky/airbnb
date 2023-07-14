@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const ListingSchema = new mongoose.Schema(
   {
-    listing_authorId: {
+    listing_host_Id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },

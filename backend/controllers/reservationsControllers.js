@@ -6,12 +6,12 @@ import Listing from "../models/Listing.js";
 //  Public
 const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   // instantiate the request queries
-  const queryObject = { authorId: req.user.userId };
+  const queryObject = { listing_host_Id: req.user.userId };
 
   let result = Reservations.find(queryObject)
-    .populate("authorId", "image username")
+    .populate("listing_host_Id", "image username")
     .populate(
-      "gigId",
+      "listing_Id",
       "image price startDate title location endDate adults children infants"
     );
 
@@ -31,8 +31,8 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   // find the Listing
   const reservations = await Reservations.findOne({
-    authorId: req.user.userId,
-  }).populate("gigId", "image price title location adults children infants");
+    listing_host_Id: req.user.userId,
+  }).populate("listing_Id", "listing_image listing_price listing_title listing_location listing_adults listing_children listing_infants");
 
   if (!reservations) {
     res.status(404);
@@ -45,19 +45,6 @@ const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
 // ADMIN
 const UpdateBuyerReservations = asyncHandler(async (req, res) => {
   const { userId, role } = req.user;
-  const {
-    title,
-    image,
-    category,
-    description,
-    price,
-    countInStock,
-    shortDescription,
-    tags,
-    subInfo,
-    type,
-    deliveryDays,
-  } = req.body;
   const reservation = await Reservations.findById({ _id: req.params.id });
 
   if (!reservation) {
@@ -66,17 +53,7 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
   }
   const data = {
     user: userId,
-    title,
-    tags,
-    image,
-    type,
-    description,
-    price,
-    countInStock,
-    shortDescription,
-    deliveryDays,
-    category,
-    subInfo,
+   ...req.body
   };
   // check for empty values and repeated values
 
@@ -113,15 +90,15 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
 
   // find the buyer reservations based on its userid and the gig id
   const alreadyinReservations = await Reservations.findOne({
-    gigId: id,
-    authorId: userId,
+    listing_Id: id,
+    listing_host_Id: userId,
   });
   // if in Reservations update it
   if (alreadyinReservations) {
     let reservations = await Reservations.findOneAndUpdate(
       {
-        gigId: id,
-        authorId: userId,
+        listing_Id: id,
+        listing_host_Id: userId,
       },
       { gigQuantity: qty, adults, children, infants, startDate, endDate },
       { new: true }
@@ -141,8 +118,8 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
 
     const reservations = await Reservations.create({
       gigQuantity: qty,
-      authorId: userId,
-      gigId: id,
+      listing_host_Id: userId,
+      listing_Id: id,
       adults,
       children,
       infants,
@@ -168,7 +145,7 @@ const DeleteBuyerReservations = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Reservations not found");
   }
-  await Reservations.findOneAndDelete({ authorId: userId, _id: id });
+  await Reservations.findOneAndDelete({ listing_host_Id: userId, _id: id });
   res
     .status(200)
     .json({ message: "This reservation has been succesfully deleted" });
