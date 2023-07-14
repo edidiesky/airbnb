@@ -1,9 +1,9 @@
 import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
-import Gig from "../models/Gig.js";
-// GET All Gig
+import Listing from "../models/Listing.js";
+// GET All Listing
 //  Public
-const GetAllGig = asyncHandler(async (req, res) => {
+const GetAllListing = asyncHandler(async (req, res) => {
   // instantiate the request queries
   // min and max price
   // search and userId
@@ -42,7 +42,7 @@ const GetAllGig = asyncHandler(async (req, res) => {
   const page = req.query.page;
   const skip = (page - 1) * limit;
 
-  let result = Gig.find(queryObject)
+  let result = Listing.find(queryObject)
     .skip(skip)
     .limit(limit)
     .populate("authorId", "image username");
@@ -57,47 +57,34 @@ const GetAllGig = asyncHandler(async (req, res) => {
 
   // console.log(queryObject)
 
-  const totalGig = await Gig.countDocuments({});
-  const noOfPages = Math.ceil(totalGig / limit);
+  const totalListing = await Listing.countDocuments({});
+  const noOfPages = Math.ceil(totalListing / limit);
 
   const gig = await result;
-  res.status(200).json({ gig, totalGig, noOfPages });
+  res.status(200).json({ gig, totalListing, noOfPages });
 });
 //
-// GET SINGLE Gig
+// GET SINGLE Listing
 // Not Private
-const GetSingleGig = asyncHandler(async (req, res) => {
+const GetSingleListing = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  // find the Gig
-  const gig = await Gig.findById({ _id: id }).populate(
+  // find the Listing
+  const gig = await Listing.findById({ _id: id }).populate(
     "authorId",
     "username image country role"
   );
   if (!gig) {
     res.status(404);
-    throw new Error("Gig not found");
+    throw new Error("Listing not found");
   }
   res.status(200).json({ gig });
 });
 
-// GET SINGLE Gig
+// GET SINGLE Listing
 // Not Private
 // Admin and seller
-const CreateSingleGig = asyncHandler(async (req, res) => {
+const CreateSingleListing = asyncHandler(async (req, res) => {
   // get the request body parameters
-  const {
-    title,
-    image,
-    category,
-    description,
-    price,
-    countInStock,
-    shortDescription,
-    tags,
-    subInfo,
-    type,
-    deliveryDays,
-  } = req.body;
   const { userId, role } = req.user;
 
   if (role === "user") {
@@ -105,46 +92,24 @@ const CreateSingleGig = asyncHandler(async (req, res) => {
     throw new Error("User cannot perform this action");
   }
 
-  const gig = await Gig.create({
-    title,
-    image,
-    description,
-    price,
-    countInStock,
-    shortDescription,
-    tags,
-    type,
-    deliveryDays,
+  const gig = await Listing.create({
     authorId: userId,
-    category,
-    subInfo,
+    ...req.body
   });
 
   res.status(200).json({ gig });
 });
 
 //PRIVATE
-// ADMIN
-const UpdateGig = asyncHandler(async (req, res) => {
+// ADMIN and seller
+const UpdateListing = asyncHandler(async (req, res) => {
   const { userId, role } = req.user;
-  const {
-    title,
-    image,
-    category,
-    description,
-    price,
-    countInStock,
-    shortDescription,
-    tags,
-    subInfo,
-    type,
-    deliveryDays,
-  } = req.body;
-  const gig = await Gig.findById({ _id: req.params.id });
+
+  const gig = await Listing.findById({ _id: req.params.id });
 
   if (!gig) {
     res.status(404);
-    throw new Error("Gig not found");
+    throw new Error("Listing not found");
   }
   // res.send(role)
   // console.log((role === 'admin'));
@@ -152,26 +117,16 @@ const UpdateGig = asyncHandler(async (req, res) => {
   if (gig.authorId.toString() === userId || role === "admin") {
     const data = {
       authorId: userId,
-      title,
-      tags,
-      image,
-      type,
-      description,
-      price,
-      countInStock,
-      shortDescription,
-      deliveryDays,
-      category,
-      subInfo,
+      ...req.body
     };
     // check for empty values and repeated values
 
-    const updatedGig = await Gig.findByIdAndUpdate(
+    const updatedListing = await Listing.findByIdAndUpdate(
       { _id: req.params.id },
       { ...data },
       { new: true }
     );
-    res.status(200).json({ updatedGig });
+    res.status(200).json({ updatedListing });
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
@@ -180,22 +135,22 @@ const UpdateGig = asyncHandler(async (req, res) => {
 
 //PRIVATE/
 // ADMIN
-const DeleteGig = asyncHandler(async (req, res) => {
+const DeleteListing = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { userId, role } = req.user;
-  const gig = await Gig.findById({ _id: id });
+  const gig = await Listing.findById({ _id: id });
 
   if (!gig) {
     res.status(404);
-    throw new Error("Gig not found");
+    throw new Error("Listing not found");
   }
   // res.send(role)
   // console.log((role === 'admin'));
   // console.log(gig.authorId.toString() !== userId);
   // check if the user is the seller or is admin
   if (gig.authorId.toString() === userId || role === "admin") {
-    await Gig.findByIdAndDelete({ _id: req.params.id });
-    res.status(200).json({ message: "The Gig has been successfully deleted" });
+    await Listing.findByIdAndDelete({ _id: req.params.id });
+    res.status(200).json({ message: "The Listing has been successfully deleted" });
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
@@ -207,17 +162,17 @@ const DeleteGig = asyncHandler(async (req, res) => {
 
 });
 
-const GetTopRatedGig = asyncHandler(async (req, res) => {
-  // get the Gig but based on the rating and then send 4 Gig
-  const toprated = await Gig.find({}).sort({ rating: -1 }).limit(3);
+const GetTopRatedListing = asyncHandler(async (req, res) => {
+  // get the Listing but based on the rating and then send 4 Listing
+  const toprated = await Listing.find({}).sort({ rating: -1 }).limit(3);
   res.status(200).json({ toprated });
 });
 
 export {
-  GetSingleGig,
-  GetAllGig,
-  UpdateGig,
-  DeleteGig,
-  GetTopRatedGig,
-  CreateSingleGig,
+  GetSingleListing,
+  GetAllListing,
+  UpdateListing,
+  DeleteListing,
+  GetTopRatedListing,
+  CreateSingleListing,
 };

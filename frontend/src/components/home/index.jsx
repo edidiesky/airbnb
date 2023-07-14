@@ -4,7 +4,7 @@ import GigsIndex from "./gigs";
 import Message from "../loaders/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { clearWishMessage } from "../../Features/wish/wishSlice";
-export default function HomeIndex() {
+export default function HomeIndex({loader}) {
   const { showAlert } = useSelector((store) => store.wish);
 
   const handleClearMessage = () => {
@@ -31,7 +31,7 @@ export default function HomeIndex() {
           </div>
         </div>
       </div>
-      <GigsIndex />
+      <GigsIndex loader={loader} />
     </HomeIndexContainer>
   );
 }

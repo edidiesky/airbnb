@@ -6,7 +6,7 @@ import {
   offSelectModal,
   onCalendarModal,
   onSelectModal,
-} from "../../../Features/gigs/gigsSlice";
+} from "../../../Features/listing/listingSlice";
 import { AnimatePresence } from "framer-motion";
 import CalendarModal from "../../modals/CalendarModal";
 import Selection from "../../modals/SelectionModal";
@@ -24,7 +24,7 @@ export default function SingleLeftIndex({ id }) {
     (store) => store.reservations
   );
 
-  const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
+  const { selectmodal, calendarmodal } = useSelector((store) => store.listing);
   const { isloadingStripe, url } = useSelector((store) => store.order);
   const [children, setChildren] = useState(
     ReservationsDetails?.gigId?.children

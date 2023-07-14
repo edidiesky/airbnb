@@ -5,8 +5,8 @@ import HomeIndex from "../components/home";
 import styled from "styled-components";
 import ProfileModal from "../components/modals/ProfileModal";
 import { AnimatePresence } from "framer-motion";
-import { clearGigsAlert } from "../Features/gigs/gigsSlice";
-import { getAllGigs } from "../Features/gigs/gigsReducer";
+import { clearGigsAlert } from "../Features/listing/listingSlice";
+import { getAllGigs } from "../Features/listing/listingReducer";
 
 export default function Home() {
   const dispatch = useDispatch();

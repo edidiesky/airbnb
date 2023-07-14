@@ -230,7 +230,7 @@ export default function AuthModal({ type, click }) {
             className="btn w-100 fs-16 text-white text-center"
           >
             {" "}
-            {auth ? "Sign Up" : "Sign In"}
+            {!auth ? "Sign Up" : "Sign In"}
           </div>
           <div className="option">or</div>
 
@@ -246,7 +246,7 @@ export default function AuthModal({ type, click }) {
             </div>
           </div>
           <div className="w-100 fs-14 text-light text-grey text-center">
-            Already a member?{" "}
+            {!auth?'Already a member?':'Not a member?'}{" "}
             <span onClick={() => setAuth(!auth)} className="text-red">
               {auth ? "Sign Up" : "Sign In"}
             </span>

@@ -15,7 +15,7 @@ export const getAllGigs = createAsyncThunk(
         time,
         maxprice,
       } = thunkAPI.getState().gigs;
-      let GigsUrl = `/api/v1/gig`;
+      let GigsUrl = `/api/v1/listing`;
       if (sort) {
         productUrl = productUrl + `?sort=${sort}`;
       }
@@ -60,7 +60,7 @@ export const getSingleGigsDetails = createAsyncThunk(
   "Gigs/getGigsDetails",
   async (name, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/gig/${name}`);
+      const { data } = await axios.get(`/api/v1/listing/${name}`);
 
       return data.gig;
     } catch (error) {
@@ -84,7 +84,7 @@ export const CreateSingleGig = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.post(`/api/v1/gig`, GigsData, config);
+      const { data } = await axios.post(`/api/v1/listing`, GigsData, config);
 
       return data.gig;
     } catch (error) {
@@ -110,7 +110,7 @@ export const UpdateGig = createAsyncThunk(
       };
       const { _id } = state.gigs.GigsDetails;
       const { data } = await axios.put(
-        `/api/v1/gig/${_id}`,
+        `/api/v1/listing/${_id}`,
         GigsData,
         config
       );
@@ -138,7 +138,7 @@ export const DeleteGig = createAsyncThunk(
         },
       };
       const { data } = await axios.delete(
-        `/api/v1/gig/${Gigsid}`,
+        `/api/v1/listing/${Gigsid}`,
         config
       );
       return Gigsid;
@@ -164,7 +164,7 @@ export const createReviewGigs = createAsyncThunk(
         },
       };
       const { data } = await axios.post(
-        `/api/v1/gig/review/${id}`,
+        `/api/v1/listing/review/${id}`,
         Reviewdata,
         config
       );
@@ -190,7 +190,7 @@ export const getTopRatedGigs = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/gig/rated`, config);
+      const { data } = await axios.get(`/api/v1/listing/rated`, config);
       return data.toprated;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -213,7 +213,7 @@ export const getGigsStats = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/gig/stats`, config);
+      const { data } = await axios.get(`/api/v1/listing/stats`, config);
       return data.stats;
     } catch (error) {
       return thunkAPI.rejectWithValue(

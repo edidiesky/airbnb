@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
-import Gig from "../models/Gig.js";
+import Gig from "../models/Listing.js";
 import Reviews from "../models/Reviews.js";
 
 // Create reviews

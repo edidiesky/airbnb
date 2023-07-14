@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Slider } from "../../common";
-import Card from "../../common/Card";
+import Card, { CardLoading } from "../../common/Card";
 import { useSelector } from "react-redux";
+import { projectdata } from "../../../data";
 
-
-
-export default function GigsIndex() {
+export default function GigsIndex({ loader }) {
   const { Gigs } = useSelector((store) => store.gigs);
+  // console.log(loader)
   return (
     <GigsIndexContainer>
       <div className="w-90 auto flex column">
@@ -16,9 +16,13 @@ export default function GigsIndex() {
         </div>
         <div className="w-100 project">
           <div className="w-100 wrapper">
-            {Gigs?.map((x, index) => {
-              return <Card x={x} index={index} />;
-            })}
+            {loader
+              ? projectdata.map((x) => {
+                  return <CardLoading />;
+                })
+              : Gigs?.map((x, index) => {
+                  return <Card x={x} loader={loader} index={index} />;
+                })}
           </div>
         </div>
       </div>
@@ -40,5 +44,4 @@ const GigsIndexContainer = styled.div`
     grid-row-gap: 2rem;
     grid-column-gap: 1.4rem;
   }
-
 `;

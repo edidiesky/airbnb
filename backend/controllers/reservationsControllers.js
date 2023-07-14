@@ -1,7 +1,7 @@
 // import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import Reservations from "../models/Reservations.js";
-import Gig from "../models/Gig.js";
+import Listing from "../models/Listing.js";
 // GET All Reservations
 //  Public
 const GetAllBuyerReservations = asyncHandler(async (req, res) => {
@@ -26,10 +26,10 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   }
 });
 
-// GET SINGLE Gig
+// GET SINGLE Listing
 // Not Private
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
-  // find the Gig
+  // find the Listing
   const reservations = await Reservations.findOne({
     authorId: req.user.userId,
   }).populate("gigId", "image price title location adults children infants");
@@ -80,12 +80,12 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
   };
   // check for empty values and repeated values
 
-  const updatedGig = await Reservations.findByIdAndUpdate(
+  const updatedListing = await Reservations.findByIdAndUpdate(
     { _id: req.params.id },
     { ...data },
     { new: true }
   );
-  res.status(200).json({ updatedGig });
+  res.status(200).json({ updatedListing });
 });
 
 // GET SINGLE Reservations
@@ -104,11 +104,11 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
 
   // console.log(qty);
   const { id } = req.params;
-  const gig = await Gig.findById({ _id: id });
+  const gig = await Listing.findById({ _id: id });
   const { userId } = req.user;
   if (!gig) {
     res.status(404);
-    throw new Error("Gig not found");
+    throw new Error("Listing not found");
   }
 
   // find the buyer reservations based on its userid and the gig id
@@ -132,8 +132,8 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     // checking if the required quantity is greater that the gig countInStock
     // console.log(qty);
     // console.log(gig.countInStock);
-    // trying to update the sellers's Gig count in stock
-    await Gig.findByIdAndUpdate(
+    // trying to update the sellers's Listing count in stock
+    await Listing.findByIdAndUpdate(
       { _id: id },
       { countInStock: 0 },
       { new: true }

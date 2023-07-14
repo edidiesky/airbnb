@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   onCalendarModal,
   onSelectModal,
-} from "../../../Features/gigs/gigsSlice";
+} from "../../../Features/listing/listingSlice";
 import LoaderIndex from "../../loaders";
 import { useNavigate } from "react-router-dom";
 import { clearReservationsAlert } from "../../../Features/reservations/reservationsSlice";

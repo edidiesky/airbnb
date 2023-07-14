@@ -5,7 +5,7 @@ import {
   CreateSingleGig,
   DeleteGig,
   UpdateGig,
-} from "./gigsReducer";
+} from "./listingReducer";
 
 const Gigs = JSON.parse(localStorage.getItem("Gigs"));
 

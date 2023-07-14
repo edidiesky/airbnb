@@ -42,5 +42,4 @@ const userData = [
     about: {},
   },
 ];
-
 export default userData;

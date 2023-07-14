@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthModal } from "../../Features/user/userSlice";
 
 const options2 = {
-  items: 12,
+  items: 10,
   nav: true,
   dots: false,
   loop: true,
@@ -31,7 +31,7 @@ const options2 = {
       items: 6,
     },
     1024: {
-      items: 12,
+      items: 10,
     },
   },
 };
@@ -42,7 +42,7 @@ const data = [
   { id: 5, title: "Become a Seller", path: "/seller_onboarding" },
 ];
 
-export default function Header({ type }) {
+export default function Header({ type, loader }) {
   const { userInfo } = useSelector((store) => store.user);
   const dropin = {
     hidden: {
@@ -111,9 +111,7 @@ export default function Header({ type }) {
       >
         {userInfo ? (
           <div className="">
-            <li
-              className="fs-14 text-bold text-dark"
-            >
+            <li className="fs-14 text-bold text-dark">
               <Link className="w-100" to={"/reservations"}>
                 Reservations
               </Link>
@@ -257,9 +255,14 @@ export default function Header({ type }) {
         <div className="w-90 auto flex item-center justify-space gap-2">
           <SliderIndex options={options2}>
             {categorydata.map((x, index) => {
-              return (
+              return loader ? (
+                <div className="loaderIcon flex-1 flex item-center justify-center  column">
+                  <div className="circle"></div>
+                  <div className="bar"></div>
+                </div>
+              ) : (
                 <div
-                  className="flex column imagewrapper item-center fs-10 text-grey"
+                  className="flex column imagewrapper item-center fs-12 text-grey"
                   style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
                   key={index}
                 >
@@ -268,9 +271,9 @@ export default function Header({ type }) {
                     alt=""
                     className="image"
                     style={{
-                      width: "2rem",
-                      height: "2rem",
-                      opacity: ".5",
+                      width: "1.7rem",
+                      height: "1.7rem",
+                      opacity: ".7",
                     }}
                   />
                   {x.text}
@@ -298,6 +301,31 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #fff;
+  .loaderIcon {
+    gap: 0.7rem;
+    padding: 0.6rem 0;
+    .circle {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      animation: card-loading 1s infinite alternate;
+    }
+    .bar {
+      width: 80%;
+      margin: 0 auto;
+      height: 0.8rem;
+      border-radius: 3px;
+      animation: card-loading 1.4s infinite alternate;
+    }
+    @keyframes card-loading {
+      0% {
+        background-color: #ebebeb;
+      }
+      100% {
+        background-color: #d4dee2a1;
+      }
+    }
+  }
   .dropdown {
     position: absolute;
     right: 2%;
@@ -389,10 +417,8 @@ const HeaderWrapper = styled.div`
   }
   .owl-nav {
     position: absolute;
-    top: -10%;
+    top: 10%;
     width: 100%;
-
-    /* transform: translateY(40%); */
     z-index: 10;
     background-color: #fff;
     &.disabled {
@@ -407,12 +433,12 @@ const HeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 30px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 24px;
+      font-size: 18px;
       color: #777;
       &.disabled {
         display: none;
@@ -431,13 +457,13 @@ const HeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 30px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
       color: #777;
-      font-size: 24px;
+      font-size: 18px;
       &.disabled {
         display: none;
       }

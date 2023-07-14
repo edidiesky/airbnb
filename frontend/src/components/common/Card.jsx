@@ -17,7 +17,7 @@ import { useEffect } from "react";
 import Message from "../loaders/Message";
 import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
 
-const CardLoading = () => {
+export const CardLoading = () => {
   return (
     <CardLoadingContent
       style={{ gap: ".4rem" }}
@@ -67,18 +67,18 @@ export default function Card({ x, index, type }) {
 
   const handleImagePosition = (position) => {
     if (position === "left") {
-      setTabIndex(tabindex < 0 ? x?.image?.length - 1 : tabindex - 1);
+      setTabIndex(tabindex < 0 ? x?.listing_image?.length - 1 : tabindex - 1);
     }
     if (position === "right") {
-      setTabIndex(tabindex >= x?.image?.length - 1 ? 0 : tabindex + 1);
+      setTabIndex(tabindex >= x?.listing_image?.length - 1 ? 0 : tabindex + 1);
     }
   };
 
   const handleAddToWish = () => {
     dispatch(
       addProductToWish({
-        image: x.image,
-        title: x.title,
+        listing_image: x?.listing_listing_image,
+        title: x?.listing_title,
         _id: x?._id,
       })
     );
@@ -90,10 +90,10 @@ export default function Card({ x, index, type }) {
   if (type === "wish") {
     return (
       <CardContent>
-        <div className="w-100 cards flex gap-1 column" key={x?.id}>
+        <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
           <div className="detailsImageContainer">
             <div className="detailsImageWrapper">
-              {x?.image?.map((x) => {
+              {x?.listing_image?.map((x) => {
                 return (
                   <div
                     style={{ transform: `translateX(-${tabindex * 100}%)` }}
@@ -124,30 +124,31 @@ export default function Card({ x, index, type }) {
     dispatch(clearWishMessage());
   };
 
-  useEffect(() => {
-    // const found = Gigs.some((gig) => {
-    //   wish.some((gigs) => gigs?._id === gig?._id);
-    // });
+  // useEffect(() => {
+  //   // const found = Gigs.some((gig) => {
+  //   //   wish.some((gigs) => gigs?._id === gig?._id);
+  //   // });
 
-    Gigs.some((obj1, index1) =>
-      wish.some((obj2, index2) => {
-        if (obj2?._id === obj1?._id) {
-          // if it includes in the wishidarray stop else proceed in adding it to the array
-          if (wishidArray.includes(obj2?._id)) {
-            return;
-          } else {
-            dispatch(handleWishId(obj1?._id));
-            return;
-          }
-          return;
-        }
-        return;
-      })
-    );
-    // console.log(found);
-  }, [wish, Gigs]);
+  //   Gigs.some((obj1, index1) =>
+  //     wish.some((obj2, index2) => {
+  //       if (obj2?._id === obj1?._id) {
+  //         // if it includes in the wishidarray stop else proceed in adding it to the array
+  //         if (wishidArray.includes(obj2?._id)) {
+  //           return;
+  //         } else {
+  //           dispatch(handleWishId(obj1?._id));
+  //           return;
+  //         }
+  //         return;
+  //       }
+  //       return;
+  //     })
+  //   );
+  //   // console.log(found);
+  // }, [wish, Gigs]);
   let cardid = x?._id;
 
+  // resrevation cards
   if (type === "reservations") {
     return (
       <>
@@ -155,13 +156,13 @@ export default function Card({ x, index, type }) {
           <CardLoading />
         ) : (
           <CardContent>
-            <div className="w-100 cards flex gap-1 column" key={x?.id}>
+            <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
               <div className="detailsImageContainer">
                 <div onClick={handleAddToWish} className="icon">
                   <Heart wishsindex={wishidArray} index={cardid} />
                 </div>
                 <div className="detailsImageWrapper">
-                  {x?.gigId?.image?.map((x) => {
+                  {x?.listing_gigId?.listing_image?.map((x) => {
                     return (
                       <Link
                         to={`/${cardid}/payment`}
@@ -182,7 +183,7 @@ export default function Card({ x, index, type }) {
                 style={{ gap: ".2rem" }}
               >
                 <div className="w-100 flex item-center justify-space cardTop">
-                  <h4 className="fs-18 text-dark">{x?.gigId?.location}</h4>
+                  <h4 className="fs-18 text-dark">{x?.listing_gigId?.location}</h4>
                   <div
                     style={{ gap: ".3rem" }}
                     className="flex text-light fs-16 item-center"
@@ -193,14 +194,14 @@ export default function Card({ x, index, type }) {
                 </div>
                 <div className="flex column">
                   <h4 className="fs-16 text-grey text-light">
-                    {x?.gigId?.distance} kilometers away
+                    {x?.listing_gigId?.distance} kilometers away
                   </h4>
                   <h4 className="fs-14 flex item-center gap-1 text-grey text-light">
-                    {x?.gigId?.startDate} <span>to</span> <span> {x?.gigId?.startDate}</span>
+                    {x?.listing_gigId?.startDate} <span>to</span> <span> {x?.listing_gigId?.startDate}</span>
                   </h4>
                 </div>
                 <h4 className="fs-16 text-dark">
-                  ${x?.gigId?.price}{" "}
+                  ${x?.listing_gigId?.price}{" "}
                   <span className="text-light fs-16">night</span>
                 </h4>
               </Link>
@@ -223,13 +224,13 @@ export default function Card({ x, index, type }) {
         <CardLoading />
       ) : (
         <CardContent>
-          <div className="w-100 cards flex gap-1 column" key={x?.id}>
+          <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
             <div className="detailsImageContainer">
               <div onClick={handleAddToWish} className="icon">
                 <Heart wishsindex={wishidArray} index={cardid} />
               </div>
               {/* button  */}
-              {x?.image?.length >= 2 && (
+              {x?.listing_image?.length >= 2 && (
                 <div className="flex">
                   {tabindex > 0 && (
                     <div
@@ -249,20 +250,21 @@ export default function Card({ x, index, type }) {
               )}
 
               <div className="detailsImageWrapper">
-                {x.hostinfo?.image && (
+                {/* host image */}
+                {/* {x?.listing_hostinfo?.listing_image && (
                   <div
                     onClick={() => dispatch(onProfileModal())}
                     className="hosticon flex item-center justify-center"
                   >
                     <img
                       className="hostavatar"
-                      src={x.hostinfo?.image}
+                      src={x?.listing_hostinfo?.image}
                       alt=""
                     />
                   </div>
-                )}
+                )} */}
 
-                {x?.image?.map((x) => {
+                {x?.listing_image?.map((x) => {
                   return (
                     <Link
                       to={`/rooms/${cardid}`}
@@ -283,7 +285,7 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-18 text-dark">{x?.location}</h4>
+                <h4 className="fs-18 text-dark">{x?.listing_location}</h4>
                 <div
                   style={{ gap: ".3rem" }}
                   className="flex text-light fs-16 item-center"
@@ -294,12 +296,12 @@ export default function Card({ x, index, type }) {
               </div>
               <div className="flex column">
                 <h4 className="fs-16 text-grey text-light">
-                  {x.distance} kilometers away
+                  {x?.listing_distance} kilometers away
                 </h4>
-                <h4 className="fs-16 text-grey text-light">{x.date}</h4>
+                {/* <h4 className="fs-16 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
               <h4 className="fs-16 text-dark">
-                ${x.price} <span className="text-light fs-16">night</span>
+                ${x?.listing_price} <span className="text-light fs-16">night</span>
               </h4>
             </Link>
           </div>
@@ -313,7 +315,7 @@ const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
   .reserveBtn {
-    background-image: linear-gradient(
+    background-listing_image: linear-gradient(
       to right,
       #e61e4d 0%,
       #e31c5f 50%,
