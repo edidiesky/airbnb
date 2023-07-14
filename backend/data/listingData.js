@@ -1,4 +1,3 @@
-
 const listingData = [
   {
     listing_title: "Cozy Cottage Retreat",
@@ -60,6 +59,12 @@ const listingData = [
     listing_bedrooms: 10,
     listing_duration: 7,
     listing_startDate: "7/26/2023",
+    listing_image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/a1cf4c19-a156-439d-bb5c-8d0e13544ed0.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
+    ],
   },
   {
     listing_title: "Cozy Cottage Retreat",

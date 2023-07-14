@@ -53,10 +53,6 @@ const ListingSchema = new mongoose.Schema(
     listing_beds: {
       type: Number,
     },
-    listing_countInStock: {
-      type: Number,
-      required: true,
-    },
     listing_startDate: {
       type: String,
     },
