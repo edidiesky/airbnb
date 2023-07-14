@@ -27,10 +27,10 @@ export default function SingleLeftIndex({ id }) {
   const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
   const { isloadingStripe, url } = useSelector((store) => store.order);
   const [children, setChildren] = useState(
-    ReservationsDetails?.gigId?.children
+    ReservationsDetails?.listing_Id?.children
   );
-  const [infants, setInfants] = useState(ReservationsDetails?.gigId?.infants);
-  const [adults, setAdults] = useState(ReservationsDetails?.gigId?.adults);
+  const [infants, setInfants] = useState(ReservationsDetails?.listing_Id?.infants);
+  const [adults, setAdults] = useState(ReservationsDetails?.listing_Id?.adults);
 
   const [dateRange, setDateRange] = useState({
     selection: {
@@ -56,7 +56,7 @@ export default function SingleLeftIndex({ id }) {
       setInfants(ReservationsDetails?.infants);
     }
     const backendStartDate = moment(
-      ReservationsDetails?.gigId?.startDate
+      ReservationsDetails?.listing_Id?.startDate
     ).toDate();
     const backendEndDate = moment(ReservationsDetails?.endDate).toDate();
     setDateRange({
@@ -82,44 +82,44 @@ export default function SingleLeftIndex({ id }) {
   };
 
   const dispatch = useDispatch();
-  let date1 = new Date(ReservationsDetails?.startDate);
-  let date2 = new Date(ReservationsDetails?.endDate);
+  let date1 = moment(ReservationsDetails?.startDate, "DD/MM/YYYY");
+  let date2 = moment(ReservationsDetails?.endDate, "DD/MM/YYYY");
+  const differenceInDays = date2.diff(date1, "days").toFixed(); // Convert milliseconds to days
 
-  const differenceInTime = date2?.getTime() - date1?.getTime(); // Difference in milliseconds
-  const differenceInDays = (differenceInTime / (1000 * 3600 * 24)).toFixed(); // Convert milliseconds to days
+  // console.log(ReservationsDetails?.listing_Id?.children);
 
-  // console.log(ReservationsDetails?.gigId?.children);
+  const orderPayment =
+    ReservationsDetails?.listing_Id?.listing_price * differenceInDays * 0.0142 +
+    ReservationsDetails?.listing_Id?.listing_price * differenceInDays +
+    50;
 
   const orders = [
     {
       price: (
-        (ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
-          ReservationsDetails?.gigId?.price * differenceInDays +
+        (ReservationsDetails?.listing_Id?.listing_price *
+          differenceInDays *
+          0.0142 +
+          ReservationsDetails?.listing_Id?.listing_price * differenceInDays +
           50) *
         100
       ).toFixed(),
-      image: ReservationsDetails?.gigId?.image,
-      title: ReservationsDetails?.gigId?.title,
+      image: ReservationsDetails?.listing_Id?.listing_image,
+      title: ReservationsDetails?.listing_Id?.listing_title,
       quantity: 1,
     },
   ];
 
   const sessionorder = {
     orders,
-    price: (
-      (ReservationsDetails?.gigId?.price * differenceInDays * 0.0142 +
-        ReservationsDetails?.gigId?.price * differenceInDays +
-        50) *
-      100
-    ).toFixed(),
-    title: ReservationsDetails?.gigId?.title,
+    price: parseFloat((orderPayment * 100).toFixed(0)),
+    title: ReservationsDetails?.listing_Id?.listing_title,
     quantity: 1,
     startDate: ReservationsDetails?.startDate,
     endDate: ReservationsDetails?.endDate,
   };
 
-  // console.log();
-  console.log(ReservationsDetails?.startDate, ReservationsDetails?.endDate);
+  console.log(sessionorder);
+  // console.log(ReservationsDetails?.startDate, ReservationsDetails?.endDate);
   const handleOrderCreation = () => {
     dispatch(createCustomersOrder(sessionorder));
   };
