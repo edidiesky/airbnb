@@ -24,7 +24,7 @@ export default function SingleLeftIndex({ id }) {
     (store) => store.reservations
   );
 
-  const { selectmodal, calendarmodal } = useSelector((store) => store.listing);
+  const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
   const { isloadingStripe, url } = useSelector((store) => store.order);
   const [children, setChildren] = useState(
     ReservationsDetails?.gigId?.children

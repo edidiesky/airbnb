@@ -54,13 +54,13 @@ const LeftCenter = () => {
     <div className="flex column gap-2">
       <div className="w-100 flex gap-1 bottom item-center justify-space">
         <h3 className="flex-1 text-dark " style={{ fontSize: "24px" }}>
-          {GigsDetails?.title}
+          {GigsDetails?.listing_title}
           <span className="block fs-16 text-grey text-light">
             3 guests1 <span>bedroom1</span> bed 1.5 baths
           </span>
         </h3>
         <div className="flex-1 justify-end flex">
-          <img src={GigsDetails?.authorId?.image} alt="" className="avatar" />
+          <img src={GigsDetails?.listing_host_Id?.image} alt="" className="avatar" />
         </div>
       </div>
       <div className="flex item-center gap-2 bottom w-100">
@@ -142,7 +142,7 @@ const LeftCenter = () => {
       <h4 className="fs-18 bottom text-dark text-light">
         Fully equipped large-volume camper van converted in 2021.
         <br />
-        {GigsDetails?.description}
+        {GigsDetails?.listing_description}
       </h4>
 
       {/* special offers */}

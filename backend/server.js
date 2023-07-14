@@ -20,7 +20,7 @@ import userRoute from "./routes/userRoute.js";
 import reviewRoute from "./routes/reviewRoutes.js";
 import listingRoute from "./routes/listingRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
-import reservationRoute from "./routes/resrevations.js";
+import reservationRoute from "./routes/reservations.js";
 import orderRoute from "./routes/orderRoutes.js";
 import chatRoute from "./routes/chatRoutes.js";
 

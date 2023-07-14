@@ -38,8 +38,10 @@ const CenterIndex = () => {
   };
 
   useEffect(() => {
-    const backendStartDate = moment(GigsDetails?.startDate).toDate();
-    const backendEndDate = moment(GigsDetails?.endDate).toDate();
+    const backendStartDate = moment(GigsDetails?.listing_startDate).toDate();
+    const backendEndDate = moment(GigsDetails?.listing_startDate)
+      .add(GigsDetails?.listing_duration, "days")
+      .toDate();
     setDateRange({
       selection: {
         startDate: backendStartDate,
