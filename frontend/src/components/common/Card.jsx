@@ -162,7 +162,7 @@ export default function Card({ x, index, type }) {
                   <Heart wishsindex={wishidArray} index={cardid} />
                 </div>
                 <div className="detailsImageWrapper">
-                  {x?.listing_gigId?.listing_image?.map((x) => {
+                  {x?.listing_Id?.listing_image?.map((x) => {
                     return (
                       <Link
                         to={`/${cardid}/payment`}
@@ -183,7 +183,7 @@ export default function Card({ x, index, type }) {
                 style={{ gap: ".2rem" }}
               >
                 <div className="w-100 flex item-center justify-space cardTop">
-                  <h4 className="fs-18 text-dark">{x?.listing_gigId?.location}</h4>
+                  <h4 className="fs-18 text-dark">{x?.listing_Id?.listing_title}</h4>
                   <div
                     style={{ gap: ".3rem" }}
                     className="flex text-light fs-16 item-center"
@@ -194,14 +194,14 @@ export default function Card({ x, index, type }) {
                 </div>
                 <div className="flex column">
                   <h4 className="fs-16 text-grey text-light">
-                    {x?.listing_gigId?.distance} kilometers away
+                    {x?.listing_Id?.listing_distance} kilometers away
                   </h4>
                   <h4 className="fs-14 flex item-center gap-1 text-grey text-light">
-                    {x?.listing_gigId?.startDate} <span>to</span> <span> {x?.listing_gigId?.startDate}</span>
+                    {x?.listing_Id?.listing_startDate} <span>to</span> <span> {x?.listing_Id?.listing_startDate}</span>
                   </h4>
                 </div>
                 <h4 className="fs-16 text-dark">
-                  ${x?.listing_gigId?.price}{" "}
+                  ${x?.listing_Id?.listing_price}{" "}
                   <span className="text-light fs-16">night</span>
                 </h4>
               </Link>

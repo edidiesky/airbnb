@@ -12,7 +12,7 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
     .populate("listing_host_Id", "image username")
     .populate(
       "listing_Id",
-      "image price startDate title location endDate adults children infants"
+      "listing_image listing_price listing_startDate listing_title listing_distance listing_location listing_endDate listing_adults listing_children listing_infants"
     );
 
   const totalReservations = await Reservations.countDocuments({});
@@ -32,7 +32,10 @@ const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   // find the Listing
   const reservations = await Reservations.findOne({
     listing_host_Id: req.user.userId,
-  }).populate("listing_Id", "listing_image listing_price listing_title listing_location listing_adults listing_children listing_infants");
+  }).populate(
+    "listing_Id",
+    "listing_image listing_price listing_title listing_location listing_adults listing_children listing_infants"
+  );
 
   if (!reservations) {
     res.status(404);
@@ -53,7 +56,7 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
   }
   const data = {
     user: userId,
-   ...req.body
+    ...req.body,
   };
   // check for empty values and repeated values
 

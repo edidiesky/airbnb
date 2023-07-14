@@ -10,7 +10,7 @@ const ReservationSchema = new mongoose.Schema(
     listing_Id: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "Gigs",
+      ref: "Listings",
     },
     gigQuantity: {
       type: Number,
