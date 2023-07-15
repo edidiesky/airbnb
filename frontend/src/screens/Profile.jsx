@@ -18,4 +18,7 @@ export default function Profile() {
 const PaymentContainer = styled.div`
   width: 100%;
   padding-top: 6rem;
+  @media (max-width:780px){
+    padding-top: 3rem;
+  }
 `;

@@ -145,4 +145,58 @@ const ProfileRightIndexContent = styled.div`
     padding: 2rem 1.4rem;
     border-radius: 15px;
   }
+  .owl-nav {
+    position: absolute;
+    top: -15%;
+    width: 100%;
+    right: 1%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* gap: 1rem; */
+    /* background-color: #fff; */
+    /* &.disabled {
+      display: none;
+    } */
+    button.owl-next {
+      background-color: #fff;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: all 0.4s;
+      font-size: 18px;
+      color: #777;
+      &:hover {
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        color: #777;
+      }
+    }
+    button.owl-prev {
+      background-color: #fff;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: all 0.4s;
+      color: #777;
+      font-size: 18px;
+      &:hover {
+        background-color: #fff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        color: #777;
+      }
+    }
+  }
 `;
