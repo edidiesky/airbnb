@@ -42,6 +42,9 @@ const AboutPlaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
   padding-bottom: 6rem;
+  @media (max-width: 580px) {
+    padding-top: 5rem;
+  }
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
@@ -53,14 +56,20 @@ const AboutPlaceContainer = styled.div`
     }
   }
   .image {
-    width: 25rem;
     object-fit: cover;
+    width: 300px;
+    @media (max-width: 580px) {
+      width: 90%;
+    }
   }
   h1 {
     font-size: 50px;
     line-height: 1.2;
     @media (max-width: 780px) {
       font-size: 40px;
+    }
+    @media (max-width: 580px) {
+      font-size: 30px;
     }
   }
 `;

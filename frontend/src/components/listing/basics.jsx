@@ -112,8 +112,14 @@ const BasicInfoAboutPlaceContainer = styled.div`
   width: 100%;
   /* overflow: hidden; */
   /* padding-bottom: 6rem; */
+  @media (max-width: 580px) {
+    padding-top: 2rem;
+  }
   .typeContainer {
     width: 60%;
+    @media (max-width: 580px) {
+      width: 90%;
+    }
   }
   .bottom {
     padding-bottom: 1.2rem !important;
@@ -122,6 +128,9 @@ const BasicInfoAboutPlaceContainer = styled.div`
     width: 80%;
     margin: 0 auto;
     padding-bottom: 6rem;
+    @media (max-width: 580px) {
+      width: 90%;
+    }
   }
   h2 {
     font-size: 35px;
@@ -129,7 +138,10 @@ const BasicInfoAboutPlaceContainer = styled.div`
     width: 60%;
 
     @media (max-width: 780px) {
-      /* font-size: 40px; */
+      font-size: 30px;
+    }
+    @media (max-width: 580px) {
+      width: 90%;
     }
   }
   .icons {

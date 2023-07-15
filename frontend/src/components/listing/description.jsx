@@ -9,8 +9,8 @@ export default function DescriptionofPlace() {
   const [tab, setTab] = useState(null);
   const { userInfo } = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  const handleListingTypes = (x,index) => {
-    setTab(index)
+  const handleListingTypes = (x, index) => {
+    setTab(index);
     dispatch(handleListingType(x.text));
   };
 
@@ -29,7 +29,7 @@ export default function DescriptionofPlace() {
             {categorydata.map((x, index) => {
               return (
                 <div
-                  onClick={() => handleListingTypes(x,index)}
+                  onClick={() => handleListingTypes(x, index)}
                   className={
                     tab === index
                       ? "card fs-16 column flex active"
@@ -61,6 +61,9 @@ const DescriptionofPlaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
   padding-bottom: 6rem;
+  @media (max-width: 580px) {
+    padding-top: 2rem;
+  }
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
@@ -70,6 +73,9 @@ const DescriptionofPlaceContainer = styled.div`
     grid-row-gap: 1rem;
     grid-column-gap: 1rem;
     width: 55%;
+    @media (max-width: 580px) {
+      width: 90%;
+    }
   }
   .card {
     padding: 1.5rem 1.4rem;
@@ -124,6 +130,10 @@ const DescriptionofPlaceContainer = styled.div`
       /* font-size: 40px; */
       width: 55%;
       padding-right: 0;
+    }
+    @media (max-width: 580px) {
+      width: 90%;
+      font-size: 30px;
     }
   }
 `;

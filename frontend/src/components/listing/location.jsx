@@ -68,7 +68,10 @@ const LocationofPlaceContainer = styled.div`
     width: 60%;
 
     @media (max-width: 780px) {
-      /* font-size: 40px; */
+      font-size: 30px;
+    }
+    @media (max-width: 580px) {
+      width: 90%;
     }
   }
   .locationsearch {
@@ -79,6 +82,9 @@ const LocationofPlaceContainer = styled.div`
       width: 60%;
       position: relative;
       height: 60vh;
+      @media (max-width: 580px) {
+        width: 90%;
+      }
       .icon {
         position: absolute;
         left: 5%;
@@ -106,6 +112,10 @@ const LocationofPlaceContainer = styled.div`
       box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
       &:hover {
         border: 2px solid rgba(0, 0, 0, 1);
+      }
+      @media (max-width: 580px) {
+        /* width: 90%; */
+        padding: 1rem 4rem;
       }
     }
   }
