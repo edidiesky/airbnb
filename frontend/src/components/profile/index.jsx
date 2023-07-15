@@ -16,7 +16,7 @@ export default function ProfileIndex() {
   return (
     <ProfileIndexContent>
       <div className="w-90 auto flex column">
-        <div className="w-90 auto py-4 grid grid-auto grid-gap4">
+        <div className="w-100 auto py-4 grid grid-auto grid-gap4">
           <ProfileLeftIndex />
           <ProfileRightIndex />
         </div>

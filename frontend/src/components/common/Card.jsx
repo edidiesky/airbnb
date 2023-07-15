@@ -124,7 +124,7 @@ export default function Card({ x, index, type }) {
     return (
       <CardContent>
         <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
-          <div className="detailsImageContainer listing">
+          <div className=" listing">
             <div className="detailsImageWrapper">
               {x?.listing_image?.map((x) => {
                 return (
@@ -372,45 +372,47 @@ const CardContent = styled.div`
       opacity: 0.6;
     }
   }
-  .detailsImageContainer {
-    width: 100%;
+  .listing {
+    border-radius: 10px;
+    height: 15rem;
     position: relative;
-    &.listing {
-      border-radius: 10px;
-      height: 15rem;
-      .detailsImageWrapper {
+    .detailsImageWrapper {
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 100%);
+      overflow: hidden;
+      grid-gap: 0rem;
+      height: 100%;
+      .imagesWrapper {
         width: 100%;
         position: relative;
-        display: grid;
-        grid-template-columns: repeat(4, 100%);
-        overflow: hidden;
-        grid-gap: 0rem;
-        height: 100%;
-        .imagesWrapper {
+        transition: all 0.6s ease-in-out;
+        /* height: 50rem; */
+        border-radius: 10px;
+        margin: 0 1.5rem;
+        @media (max-width: 780px) {
+          min-height: 100%;
+        }
+
+        img {
           width: 100%;
-          position: relative;
-          transition: all 0.6s ease-in-out;
-          /* height: 50rem; */
-          border-radius: 10px;
-          margin: 0 1.5rem;
-          @media (max-width: 780px) {
-            min-height: 100%;
-          }
+          object-fit: cover;
+          height: 100%;
+          position: absolute;
 
-          img {
-            width: 100%;
-            object-fit: cover;
+          @media (min-width: 1600px) {
             height: 100%;
-            position: absolute;
-
-            @media (min-width: 1600px) {
-              height: 100%;
-              object-fit: cover;
-            }
+            object-fit: cover;
           }
         }
       }
     }
+  }
+  .detailsImageContainer {
+    width: 100%;
+    position: relative;
+
     &:hover .btnArrow {
       opacity: 1;
     }

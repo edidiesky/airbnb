@@ -100,24 +100,6 @@ const ProfileRightIndexContent = styled.div`
   .p1 {
     padding: 1rem;
   }
-
-  .detailsImageWrapper {
-    width: 100%;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(4, 100%);
-    overflow: hidden;
-    grid-gap: 0rem;
-    height: 8rem;
-
-    img {
-      width: 100%;
-      object-fit: cover;
-      height: 8rem;
-      position: absolute;
-    }
-  }
-
   .border {
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 1.4rem;
