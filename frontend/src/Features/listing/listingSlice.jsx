@@ -44,7 +44,6 @@ const initialState = {
         listing_guests: 0,
         listing_bedrooms: 0,
         listing_beds: 0,
-        listing_offer: [],
         listing_images: [],
         listing_title: [],
         listing_description: "",

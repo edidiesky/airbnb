@@ -50,17 +50,19 @@ export default function OfferofPlace() {
   const [include, setInclusde] = useState(false);
   const handleListOffer = (index, data) => {
     setTab(index);
-    list.forEach((x) => {
-      // if (x._id !== data.id) {
-      //   setList([x, { text: data.title, _id: data.id }]);
-      //   return;
-      // }
-      // return x;
-      console.log(x);
-      return;
-    });
-    // setList([...list, { text: data.title, _id: data.id }]);
+    // list.forEach((x) => {
+    //   // if (x._id !== data.id) {
+    //   //   setList([x, { text: data.title, _id: data.id }]);
+    //   //   return;
+    //   // }
+    //   // return x;
+    //   console.log(x);
+    //   return;
+    // });
+    setList([...list, { text: data.title, _id: data.id }]);
   };
+
+  console.log(list);
 
   return (
     <>

@@ -65,7 +65,7 @@ export default function App() {
           <Route path=":id/location" element={<LocationOfplace />} />
           <Route path=":id/floor-plan" element={<BasicInfoAboutPlace />} />
           <Route path=":id/stand-out" element={<Exception />} />
-          <Route path=":id/amenities" element={<BasicOfferOfPlace />} />
+          {/* <Route path=":id/amenities" element={<BasicOfferOfPlace />} /> */}
           <Route path=":id/photos" element={<PhotosAboutPlace />} />
           <Route path=":id/title" element={<TitleOfPlace />} />
           <Route path=":id/description" element={<InformationOfplace />} />
