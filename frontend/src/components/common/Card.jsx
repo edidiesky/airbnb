@@ -119,6 +119,41 @@ export default function Card({ x, index, type }) {
         </div>
       </CardContent>
     );
+  } // if the type is wish
+  if (type === "listing") {
+    return (
+      <CardContent>
+        <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
+          <div className="detailsImageContainer listing">
+            <div className="detailsImageWrapper">
+              {x?.listing_image?.map((x) => {
+                return (
+                  <div
+                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                    className="w-100 card"
+                  >
+                    <div
+                      onClick={() => dispatch(onWishDeleteModal(wishdetails))}
+                      className="icon delete"
+                    >
+                      <RxCross2 />
+                    </div>
+                    <img src={x} alt="" className="w-100" />
+                    <div className="backdrop"></div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <h4 className="fs-18 text-dark">
+            Condo, <span className="fs-16 text-grey">2023</span>{" "}
+            <span className="block fs-14 text-grey text-light">
+              Large accomodation in a castle with pr...
+            </span>
+          </h4>
+        </div>
+      </CardContent>
+    );
   }
   const handleClearMessage = () => {
     dispatch(clearWishMessage());
@@ -183,7 +218,9 @@ export default function Card({ x, index, type }) {
                 style={{ gap: ".2rem" }}
               >
                 <div className="w-100 flex item-center justify-space cardTop">
-                  <h4 className="fs-18 text-dark">{x?.listing_Id?.listing_title}</h4>
+                  <h4 className="fs-18 text-dark">
+                    {x?.listing_Id?.listing_title}
+                  </h4>
                   <div
                     style={{ gap: ".3rem" }}
                     className="flex text-light fs-16 item-center"
@@ -197,7 +234,8 @@ export default function Card({ x, index, type }) {
                     {x?.listing_Id?.listing_distance} kilometers away
                   </h4>
                   <h4 className="fs-14 flex item-center gap-1 text-grey text-light">
-                    {x?.listing_Id?.listing_startDate} <span>to</span> <span> {x?.listing_Id?.listing_startDate}</span>
+                    {x?.listing_Id?.listing_startDate} <span>to</span>{" "}
+                    <span> {x?.listing_Id?.listing_startDate}</span>
                   </h4>
                 </div>
                 <h4 className="fs-16 text-dark">
@@ -301,7 +339,8 @@ export default function Card({ x, index, type }) {
                 {/* <h4 className="fs-16 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
               <h4 className="fs-16 text-dark">
-                ${x?.listing_price} <span className="text-light fs-16">night</span>
+                ${x?.listing_price}{" "}
+                <span className="text-light fs-16">night</span>
               </h4>
             </Link>
           </div>
@@ -315,7 +354,7 @@ const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
   .reserveBtn {
-    background-listing_image: linear-gradient(
+    background-image: linear-gradient(
       to right,
       #e61e4d 0%,
       #e31c5f 50%,
@@ -336,6 +375,42 @@ const CardContent = styled.div`
   .detailsImageContainer {
     width: 100%;
     position: relative;
+    &.listing {
+      border-radius: 10px;
+      height: 15rem;
+      .detailsImageWrapper {
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 100%);
+        overflow: hidden;
+        grid-gap: 0rem;
+        height: 100%;
+        .imagesWrapper {
+          width: 100%;
+          position: relative;
+          transition: all 0.6s ease-in-out;
+          /* height: 50rem; */
+          border-radius: 10px;
+          margin: 0 1.5rem;
+          @media (max-width: 780px) {
+            min-height: 100%;
+          }
+
+          img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+            position: absolute;
+
+            @media (min-width: 1600px) {
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
     &:hover .btnArrow {
       opacity: 1;
     }
@@ -378,6 +453,7 @@ const CardContent = styled.div`
       grid-template-columns: repeat(4, 100%);
       overflow: hidden;
       grid-gap: 0rem;
+      height: 100%;
       .imagesWrapper {
         width: 100%;
         position: relative;

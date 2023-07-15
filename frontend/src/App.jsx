@@ -24,6 +24,7 @@ import {
   ReviewOfplace,
   Payment,
   Reservations,
+  Profile,
 } from "./screens";
 import HomeLoader from "./components/loaders/homeloader";
 
@@ -45,10 +46,12 @@ export default function App() {
             }
           />
           <Route path="/rooms/:id" element={<Single />} />
+          <Route path="/users/show/:id" element={<Profile />} />
           <Route path="wishlists" element={<Wish />} />
           <Route path="reservations" element={<Reservations />} />
           <Route path="/:id/payment" element={<Payment />} />
         </Route>
+        {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
           <Route path="overview" element={<Overview />} />
           <Route path=":selllerid/about-your-place" element={<AboutPlace />} />

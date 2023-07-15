@@ -65,7 +65,7 @@ export const Wrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 6px;
   min-height: 20rem;
 
   .images {
@@ -102,7 +102,7 @@ export const Wrapper = styled.div`
     }
   }
   .image {
-    border-radius: 10px;
+    border-radius: 6px;
     position: absolute;
     object-fit: cover;
   }
