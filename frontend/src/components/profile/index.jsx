@@ -38,7 +38,7 @@ const ProfileIndexContent = styled.div`
   }
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 0.6rem;
+    padding-bottom: 1rem;
   }
   .avatar {
     width: 7rem !important;

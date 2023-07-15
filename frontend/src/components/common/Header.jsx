@@ -11,30 +11,9 @@ import SliderIndex from "./Slider";
 import { categorydata } from "../../data/category";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthModal } from "../../Features/user/userSlice";
+import { options2 } from "../../utils/carousel";
 
-const options2 = {
-  items: 10,
-  nav: true,
-  dots: false,
-  loop: true,
-  margin: 0,
-  width: "100%",
-  slideBy: 10,
-  responsive: {
-    0: {
-      items: 4,
-    },
-    460: {
-      items: 5,
-    },
-    760: {
-      items: 6,
-    },
-    1024: {
-      items: 10,
-    },
-  },
-};
+
 const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
   { id: 2, title: "Explore", path: "/explore" },
