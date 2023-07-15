@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
 import Map from "../forms/map";
-import { BiPlus } from "react-icons/bi";
+import { BiMinus, BiPlus } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { handleBasicListing } from "../../Features/listing/listingSlice";
 export default function BasicInfoAboutPlace() {
+  const { userInfo } = useSelector((store) => store.user);
+
+  const dispatch = useDispatch();
+  const [guests, setGuests] = useState(2);
+  const [bedrooms, setBedRooms] = useState(2);
+  const [beds, setBeds] = useState(1);
+
+  useEffect(() => {
+    dispatch(
+      handleBasicListing({ beds: beds, bedrooms: bedrooms, guests: guests })
+    );
+  }, [guests, bedrooms, beds]);
+
   return (
     <>
       <BasicInfoAboutPlaceContainer>
-        <div className="aboutCenter flex column gap-2 justify-center item-center w-85 auto">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1400"
+          className="aboutCenter flex column gap-2 justify-center item-center"
+        >
           <h2 className="text-bold w-100 text-start text-dark">
             Share some basics about your place
             <span className="fs-20 block py-1 text-light text-grey">
@@ -19,56 +39,71 @@ export default function BasicInfoAboutPlace() {
             <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
               Guests
               <div className="flex item-center" style={{ gap: "1.2rem" }}>
-                <div className="icons flex item-center justify-center">
+                <button
+                  onClick={() => setGuests(guests + 1)}
+                  disabled={guests >= 12}
+                  className="icons flex item-center justify-center"
+                >
                   <BiPlus fontSize={"20px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
-                  <BiPlus fontSize={"20px"} />
-                </div>
+                </button>{" "}
+                <h4 className="fs-18 text-extra-bold">{guests}</h4>
+                <button
+                  onClick={() => setGuests(guests - 1)}
+                  disabled={guests === 0}
+                  className="icons flex item-center justify-center"
+                >
+                  <BiMinus fontSize={"20px"} />
+                </button>
               </div>
             </div>{" "}
             {/* bedrooms */}
             <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
               Bedrooms
               <div className="flex item-center" style={{ gap: "1.2rem" }}>
-                <div className="icons flex item-center justify-center">
+                <button
+                  onClick={() => setBedRooms(bedrooms + 1)}
+                  disabled={bedrooms >= 10}
+                  className="icons flex item-center justify-center"
+                >
                   <BiPlus fontSize={"20px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
-                  <BiPlus fontSize={"20px"} />
-                </div>
+                </button>{" "}
+                <h4 className="fs-18 text-extra-bold">{bedrooms}</h4>
+                <button
+                  onClick={() => setBedRooms(bedrooms - 1)}
+                  disabled={bedrooms === 0}
+                  className="icons flex item-center justify-center"
+                >
+                  <BiMinus fontSize={"20px"} />
+                </button>
               </div>
             </div>{" "}
             <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
               Beds
               <div className="flex item-center" style={{ gap: "1.2rem" }}>
-                <div className="icons flex item-center justify-center">
+                <button
+                  onClick={() => setBeds(beds + 1)}
+                  disabled={beds >= 12}
+                  className="icons flex item-center justify-center"
+                >
                   <BiPlus fontSize={"20px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
-                  <BiPlus fontSize={"20px"} />
-                </div>
+                </button>{" "}
+                <h4 className="fs-18 text-extra-bold">{beds}</h4>
+                <button
+                  onClick={() => setBeds(beds - 1)}
+                  disabled={beds === 0}
+                  className="icons flex item-center justify-center"
+                >
+                  <BiMinus fontSize={"20px"} />
+                </button>
               </div>
             </div>{" "}
-            <div className="w-100 fs-18 text-light bottom typewrapper flex item-center justify-space">
-              Bathrooms
-              <div className="flex item-center" style={{ gap: "1.2rem" }}>
-                <div className="icons flex item-center justify-center">
-                  <BiPlus fontSize={"20px"} />
-                </div>{" "}
-                <h4 className="fs-18 text-extra-bold">2</h4>
-                <div className="icons flex item-center justify-center">
-                  <BiPlus fontSize={"20px"} />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </BasicInfoAboutPlaceContainer>
-      <FooterHosting prev={"373646/location"} next={"373646/stand-out"} />
+      <FooterHosting
+        prev={`${userInfo?._id}/location`}
+        next={`${userInfo?._id}/stand-out`}
+      />
     </>
   );
 }
@@ -79,6 +114,14 @@ const BasicInfoAboutPlaceContainer = styled.div`
   /* padding-bottom: 6rem; */
   .typeContainer {
     width: 60%;
+  }
+  .bottom {
+    padding-bottom: 1.2rem !important;
+  }
+  .aboutCenter {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 6rem;
   }
   h2 {
     font-size: 35px;
@@ -94,8 +137,13 @@ const BasicInfoAboutPlaceContainer = styled.div`
     border-radius: 50%;
     height: 2.5rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+    cursor: pointer;
     &:hover {
       border: 1px solid rgba(0, 0, 0, 1);
+    }
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 `;

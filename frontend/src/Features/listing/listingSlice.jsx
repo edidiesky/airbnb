@@ -7,7 +7,7 @@ import {
   UpdateGig,
 } from "./listingReducer";
 
-const Gigs = JSON.parse(localStorage.getItem("Gigs"));
+const host_listings = JSON.parse(localStorage.getItem("host_listing"));
 
 const initialState = {
   // states
@@ -36,20 +36,22 @@ const initialState = {
   deleteGigModalAlert: false,
   selectmodal: false,
   calendarmodal: false,
-  authorGig: {
-    structure: "",
-    location: "",
-    floor_plan: {
-      guests: 0,
-      bedrooms: 0,
-      beds: 0,
-    },
-    offer: [],
-    images: [],
-    title: [],
-    description: "",
-    price: "",
-  },
+  host_listing: host_listings
+    ? host_listings
+    : {
+        listing_structure: "",
+        listing_location: "",
+        listing_guests: 0,
+        listing_bedrooms: 0,
+        listing_beds: 0,
+        listing_offer: [],
+        listing_images: [],
+        listing_title: [],
+        listing_description: "",
+        listing_price: "",
+        listing_region: "",
+        listing_type: "",
+      },
 };
 
 const GigsSlice = createSlice({
@@ -63,12 +65,12 @@ const GigsSlice = createSlice({
     },
     setStructure: (state, action) => {
       state.authorGig = {
-        structure:action.payload
+        structure: action.payload,
       };
     },
     setLocation: (state, action) => {
       state.authorGig = {
-        location:action.payload
+        location: action.payload,
       };
     },
     getQuantity: (state, action) => {
@@ -134,6 +136,30 @@ const GigsSlice = createSlice({
     },
     getMinPrice: (state, action) => {
       state.minprice = action.payload;
+    },
+    handleListingType: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_type: action.payload,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
+    handleListingLocation: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_location: action.payload.location,
+        listing_region: action.payload.region,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
+    handleBasicListing: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_beds: action.payload.beds,
+        listing_bedrooms: action.payload.bedrooms,
+        listing_guests: action.payload.guests,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
     },
   },
 
@@ -272,6 +298,10 @@ export const {
   offSelectModal,
   onCalendarModal,
   offCalendarModal,
+
+  handleListingType,
+  handleListingLocation,
+  handleBasicListing
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

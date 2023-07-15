@@ -2,11 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FooterHosting from "./footer";
+import { useSelector } from "react-redux";
 export default function Starting() {
+  const { userInfo } = useSelector((store) => store.user);
   return (
     <>
       <StartingContainer>
-        <div className="authCenter flex item-center gap-3 justify-center w-85 auto">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1400"
+          className="authCenter flex item-center gap-3 justify-center w-85 auto"
+        >
           <div className="authC_right flex column flex-1">
             <h1 className=" text-extra-bold text-dark">
               It’s easy to get started on Airbnb
@@ -19,7 +25,7 @@ export default function Starting() {
                 <div className="flex-1">
                   {" "}
                   Tell us about your place{" "}
-                  <span className="block fs-20 text-light text-grey">
+                  <span className="block fs-18 text-light text-grey">
                     Share some basic info, like where it is and how many guests
                     can stay.
                   </span>
@@ -37,7 +43,7 @@ export default function Starting() {
                 <div className="flex-1">
                   {" "}
                   Make it stand out
-                  <span className="block fs-20 text-light text-grey">
+                  <span className="block fs-18 text-light text-grey">
                     Add 5 or more photos plus a title and description—we’ll help
                     you out.
                   </span>
@@ -55,7 +61,7 @@ export default function Starting() {
                 <div className="flex-1">
                   {" "}
                   Finish up and publish
-                  <span className="block fs-20 text-light text-grey">
+                  <span className="block fs-18 text-light text-grey">
                     Choose if you'd like to start with an experienced guest, set
                     a starting price, and publish your listing.
                   </span>
@@ -70,7 +76,11 @@ export default function Starting() {
           </div>
         </div>
       </StartingContainer>
-      <FooterHosting next={'132737/about-your-place'} prev={''} />
+      <FooterHosting
+        next={`${userInfo?._id}/about-your-place`}
+        text={"Get Started"}
+        prev={""}
+      />
     </>
   );
 }

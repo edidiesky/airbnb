@@ -36,7 +36,7 @@ export default function Layout({ type }) {
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
       {/* messgae modal */}
-      
+
       {/* delete modal */}
       <AnimatePresence
         initial="false"
@@ -76,8 +76,25 @@ const LayoutContainer = styled.div`
     padding-bottom: 1rem;
   }
   .hostbtn {
-    padding: 0.9rem 2rem;
-    background-color: var(--dark-1);
+    padding: 0.4rem 2rem;
+    background-image: linear-gradient(
+      to right,
+      #e61e4d 0%,
+      #e31c5f 50%,
+      #d70466 100%
+    );
+    /* padding: 0.8rem 2rem; */
+    min-height: 3rem;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    color: #fff !important;
+    /* padding: 0.8rem 2rem; */
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
     color: #fff;
     border-radius: 10px;
 
@@ -86,8 +103,8 @@ const LayoutContainer = styled.div`
       color: var(--dark-1);
     }
     &.grey {
-      background-color: transparent;
-      color: var(--dark-1);
+      background: transparent;
+      color: var(--dark-1) !important;
       text-decoration: underline;
     }
   }

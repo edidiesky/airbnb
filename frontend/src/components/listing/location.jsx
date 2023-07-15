@@ -4,15 +4,34 @@ import { MdLocationOn } from "react-icons/md";
 import FooterHosting from "./footer";
 import SelectInput from "../forms/Select";
 import Map from "../forms/map";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { handleListingLocation } from "../../Features/listing/listingSlice";
 export default function Location() {
+  const dispatch = useDispatch();
+
+  const { userInfo } = useSelector((store) => store.user);
+
   const [country, setCountry] = useState("");
   const onChange = (country) => {
     setCountry(country);
+    dispatch(
+      handleListingLocation({
+        location: country.label,
+        region: country.region,
+      })
+    );
   };
+
+  console.log(country);
   return (
     <>
       <LocationofPlaceContainer>
-        <div className="aboutCenter flex column gap-2 justify-center item-center w-85 auto">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1400"
+          className="aboutCenter flex column gap-2 justify-center item-center w-85 auto"
+        >
           <h2 className="text-bold w-100 text-start text-dark">
             Where's your place located?
             <span className="fs-20 block py-1 text-light text-grey">
@@ -31,7 +50,10 @@ export default function Location() {
           </form>
         </div>
       </LocationofPlaceContainer>
-      <FooterHosting prev={"373646/structure"} next={"373646/floor-plan"} />
+      <FooterHosting
+        next={`${userInfo?._id}/floor-plan`}
+        prev={`${userInfo?._id}/structure`}
+      />
     </>
   );
 }

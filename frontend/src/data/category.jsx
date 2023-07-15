@@ -74,20 +74,8 @@ export const categorydata = [
     text: "surfing",
   },
   {
-    image: "https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg",
-    text: "mansions",
-  },
-  {
-    image: "https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg",
-    text: "Golfing",
-  },
-  {
     image: "https://a0.muscache.com/pictures/31c1d523-cc46-45b3-957a-da76c30c85f9.jpg",
     text: "Campers",
-  },
-  {
-    image: "https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg",
-    text: "History",
   },
   {
     image: "https://a0.muscache.com/pictures/31c1d523-cc46-45b3-957a-da76c30c85f9.jpg",

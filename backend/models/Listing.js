@@ -37,8 +37,6 @@ const ListingSchema = new mongoose.Schema(
     },
     listing_type: {
       type: String,
-      enum: ["House", "Apartment", "Guest House", "Hotel"],
-      default: "House",
     },
     listing_price: {
       type: Number,

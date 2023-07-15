@@ -33,6 +33,12 @@ const HomeWrapper = lazy(() => import("./screens/Home"));
 export default function App() {
   const [height, setHeight] = useState(0);
 
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="based" style={{ height }}>
       <Routes>

@@ -20,8 +20,7 @@ export default function ListingHeader() {
 
 const ListingHeaderContainer = styled.div`
   width: 100%;
-  padding: 2rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0;
   top: 0;
   position: fixed;
   z-index: 3000;
