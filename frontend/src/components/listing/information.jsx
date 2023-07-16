@@ -9,7 +9,7 @@ export default function InformationofPlace() {
   const [description, setDescription] = useState("");
   const dispatch = useDispatch();
 
-  const handleListingDescription = (e) => {
+  const handleListingDescriptions = (e) => {
     setDescription(e.target.value);
     dispatch(handleListingDescription(e.target.value));
   };
@@ -27,7 +27,7 @@ export default function InformationofPlace() {
             <textarea
               value={description}
               name="description"
-              onChange={handleListingDescription}
+              onChange={handleListingDescriptions}
               placeholder="Feel refreshed when you stay in this rustic gem."
               className="uploadWrapper auto flex item-center justify-center flex column gap-1"
             />
