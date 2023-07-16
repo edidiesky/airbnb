@@ -160,6 +160,27 @@ const GigsSlice = createSlice({
       };
       localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
     },
+    handleListingImage: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_images: action.payload,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
+    handleListingTitle: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_title: action.payload,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
+    handleListingDescription: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_description: action.payload,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
   },
 
   extraReducers: {
@@ -300,7 +321,10 @@ export const {
 
   handleListingType,
   handleListingLocation,
-  handleBasicListing
+  handleBasicListing,
+  handleListingImage,
+  handleListingTitle,
+  handleListingDescription
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

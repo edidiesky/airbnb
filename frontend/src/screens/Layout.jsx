@@ -71,7 +71,7 @@ const LayoutContainer = styled.div`
     width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding-top: 1rem;
-    z-index: 32838;
+    z-index: 300;
     background-color: #fff;
     padding-bottom: 1rem;
   }

@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { handleListingDescription } from "../../Features/listing/listingSlice";
 export default function InformationofPlace() {
+  const { userInfo } = useSelector((store) => store.user);
+  const [description, setDescription] = useState("");
+  const dispatch = useDispatch();
+
+  const handleListingDescription = (e) => {
+    setDescription(e.target.value);
+    dispatch(handleListingDescription(e.target.value));
+  };
   return (
     <>
       <InformationofPlaceContainer>
@@ -14,13 +25,16 @@ export default function InformationofPlace() {
           </h2>
           <div className="grid w-85 auto">
             <textarea
+              value={description}
+              name="description"
+              onChange={handleListingDescription}
               placeholder="Feel refreshed when you stay in this rustic gem."
               className="uploadWrapper auto flex item-center justify-center flex column gap-1"
             />
           </div>
         </div>
       </InformationofPlaceContainer>
-      <FooterHosting prev={"373646/title"} next={"373646/price"} />
+      <FooterHosting prev={`${userInfo?._id}/title`} next={`${userInfo?._id}/price`} />
     </>
   );
 }
@@ -28,6 +42,12 @@ export default function InformationofPlace() {
 const InformationofPlaceContainer = styled.div`
   width: 100%;
   padding-bottom: 6rem;
+  @media (max-width: 780px) {
+    padding-top: 2.5rem;
+  }
+  @media (max-width: 380px) {
+    padding-top: 4.5rem;
+  }
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
@@ -47,6 +67,10 @@ const InformationofPlaceContainer = styled.div`
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     color: var(--grey-1);
+    @media (max-width: 780px) {
+      width: 100%;
+      /* padding: 0; */
+    }
 
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
@@ -83,6 +107,17 @@ const InformationofPlaceContainer = styled.div`
 
     @media (max-width: 780px) {
       /* font-size: 40px; */
+    }
+    
+    @media (max-width: 780px) {
+      font-size: 30px;
+    }
+    @media (max-width: 780px) {
+      width: 90%;
+      padding: 0;
+    }
+    @media (max-width: 320px) {
+      font-size: 27px;
     }
   }
 `;

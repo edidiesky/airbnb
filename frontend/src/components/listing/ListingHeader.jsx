@@ -23,7 +23,7 @@ const ListingHeaderContainer = styled.div`
   padding: 1.5rem 0;
   top: 0;
   position: fixed;
-  z-index: 3000;
+  z-index: 300;
   background-color: #fff;
   .top {
     @media (max-width: 580px) {

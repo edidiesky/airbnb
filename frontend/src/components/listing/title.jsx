@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { handleListingTitle } from "../../Features/listing/listingSlice";
 export default function TitleofPlace() {
+  const { userInfo } = useSelector((store) => store.user);
+  const [title, setTitle] = useState("");
+  const dispatch = useDispatch();
+
+  const handleListingTitles = (e) => {
+    setTitle(e.target.value);
+    dispatch(handleListingTitle(e.target.value));
+  };
   return (
     <>
       <TitleofPlaceContainer>
-        <div className="aboutCenter flex column gap-1 justify-center item-center w-85 auto">
+        <div className="aboutCenter flex column justify-center item-center w-85 auto">
           <h2 className="text-extra-bold w-100 text-start text-dark">
             Add some Title of your boat
-            <span className="block py-1 fs-20 text-light text-grey">
+            <span className="block py-1 fs-18 text-light text-grey">
               Short titles work best. Have fun with it—you can always change it
               later.
             </span>
@@ -16,12 +27,18 @@ export default function TitleofPlace() {
           <div className="grid w-85 auto">
             <textarea
               placeholder="fun boat"
+              value={title}
+              name="title"
+              onChange={handleListingTitles}
               className="uploadWrapper auto flex item-center justify-center flex column gap-1"
             />
           </div>
         </div>
       </TitleofPlaceContainer>
-      <FooterHosting prev={"373646/photos"} next={"373646/description"} />
+      <FooterHosting
+        prev={`${userInfo?._id}/photos`}
+        next={`${userInfo?._id}/description`}
+      />
     </>
   );
 }
@@ -29,6 +46,13 @@ export default function TitleofPlace() {
 const TitleofPlaceContainer = styled.div`
   width: 100%;
   padding-bottom: 6rem;
+  @media (max-width: 780px) {
+    padding-top: 2.5rem;
+  }
+  @media (max-width: 380px) {
+    padding-top: 4.5rem;
+  }
+
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
@@ -48,6 +72,10 @@ const TitleofPlaceContainer = styled.div`
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     color: var(--grey-1);
+    @media (max-width: 780px) {
+      width: 100%;
+      /* padding: 0; */
+    }
 
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
@@ -71,6 +99,10 @@ const TitleofPlaceContainer = styled.div`
       flex-direction: column;
       gap: 2rem;
     }
+    @media (max-width: 780px) {
+      width: 90%;
+      padding: 0;
+    }
   }
   .image {
     width: 2.5rem;
@@ -83,7 +115,14 @@ const TitleofPlaceContainer = styled.div`
     width: 60%;
 
     @media (max-width: 780px) {
-      /* font-size: 40px; */
+      font-size: 30px;
+    }
+    @media (max-width: 780px) {
+      width: 90%;
+      padding: 0;
+    }
+    @media (max-width: 320px) {
+      font-size: 27px;
     }
   }
 `;
