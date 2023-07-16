@@ -16,22 +16,28 @@ export default function TitleofPlace() {
   return (
     <>
       <TitleofPlaceContainer>
-        <div className="aboutCenter flex column justify-center item-center w-85 auto">
-          <h2 className="text-extra-bold w-100 text-start text-dark">
-            Add some Title of your boat
-            <span className="block py-1 fs-18 text-light text-grey">
-              Short titles work best. Have fun with it—you can always change it
-              later.
-            </span>
-          </h2>
-          <div className="grid w-85 auto">
-            <textarea
-              placeholder="fun boat"
-              value={title}
-              name="title"
-              onChange={handleListingTitles}
-              className="uploadWrapper auto flex item-center justify-center flex column gap-1"
-            />
+        <div className="w-100 hidden">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1400"
+            className="aboutCenter flex column justify-center item-center w-85 auto"
+          >
+            <h2 className="text-extra-bold w-100 text-start text-dark">
+              Add some Title of your boat
+              <span className="block py-1 fs-18 text-light text-grey">
+                Short titles work best. Have fun with it—you can always change
+                it later.
+              </span>
+            </h2>
+            <div className="grid w-85 auto">
+              <textarea
+                placeholder="fun boat"
+                value={title}
+                name="title"
+                onChange={handleListingTitles}
+                className="uploadWrapper auto flex item-center justify-center flex column gap-1"
+              />
+            </div>
           </div>
         </div>
       </TitleofPlaceContainer>

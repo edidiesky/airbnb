@@ -16,25 +16,34 @@ export default function InformationofPlace() {
   return (
     <>
       <InformationofPlaceContainer>
-        <div className="aboutCenter flex column gap-1 justify-center item-center w-85 auto">
-          <h2 className="text-extra-bold w-100 text-start text-dark">
-            Create your description
-            <span className="block py-1 fs-20 text-light text-grey">
-              Share what makes your place special.
-            </span>
-          </h2>
-          <div className="grid w-85 auto">
-            <textarea
-              value={description}
-              name="description"
-              onChange={handleListingDescriptions}
-              placeholder="Feel refreshed when you stay in this rustic gem."
-              className="uploadWrapper auto flex item-center justify-center flex column gap-1"
-            />
+        <div className="w-100 hidden">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1400"
+            className="aboutCenter flex column gap-1 justify-center item-center w-85 auto"
+          >
+            <h2 className="text-extra-bold w-100 text-start text-dark">
+              Create your description
+              <span className="block py-1 fs-20 text-light text-grey">
+                Share what makes your place special.
+              </span>
+            </h2>
+            <div className="grid w-85 auto">
+              <textarea
+                value={description}
+                name="description"
+                onChange={handleListingDescriptions}
+                placeholder="Feel refreshed when you stay in this rustic gem."
+                className="uploadWrapper auto flex item-center justify-center flex column gap-1"
+              />
+            </div>
           </div>
         </div>
       </InformationofPlaceContainer>
-      <FooterHosting prev={`${userInfo?._id}/title`} next={`${userInfo?._id}/price`} />
+      <FooterHosting
+        prev={`${userInfo?._id}/title`}
+        next={`${userInfo?._id}/price`}
+      />
     </>
   );
 }
@@ -108,7 +117,7 @@ const InformationofPlaceContainer = styled.div`
     @media (max-width: 780px) {
       /* font-size: 40px; */
     }
-    
+
     @media (max-width: 780px) {
       font-size: 30px;
     }

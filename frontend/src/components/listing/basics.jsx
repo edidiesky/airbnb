@@ -30,7 +30,7 @@ export default function BasicInfoAboutPlace() {
         >
           <h2 className="text-bold w-100 text-start text-dark">
             Share some basics about your place
-            <span className="fs-20 block py-1 text-light text-grey">
+            <span className="fs-18 block py-1 text-light text-grey">
               You'll add more details later, like bed types.
             </span>
           </h2>
@@ -142,6 +142,7 @@ const BasicInfoAboutPlaceContainer = styled.div`
     }
     @media (max-width: 580px) {
       width: 90%;
+      font-size: 26px;
     }
   }
   .icons {

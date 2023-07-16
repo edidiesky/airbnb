@@ -39,7 +39,6 @@ const initialState = {
   host_listing: host_listings
     ? host_listings
     : {
-        listing_structure: "",
         listing_location: "",
         listing_guests: 0,
         listing_bedrooms: 0,
@@ -178,6 +177,13 @@ const GigsSlice = createSlice({
       state.host_listing = {
         ...state.host_listing,
         listing_description: action.payload,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
+    handleListingPrice: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_price: action.payload,
       };
       localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
     },
@@ -324,7 +330,8 @@ export const {
   handleBasicListing,
   handleListingImage,
   handleListingTitle,
-  handleListingDescription
+  handleListingDescription,
+  handleListingPrice
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

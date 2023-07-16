@@ -13,9 +13,9 @@ export default function StandOut() {
             data-aos-duration="1400"
             className="aboutCenter flex item-center gap-3 justify-center w-85 auto"
           >
-            <div className="aboutC_right flex gap-2 column flex-1">
+            <div className="aboutC_right flex gap-1 column flex-1">
               <h1 className=" text-extra-bold text-dark">
-                <span className="block fs-20">Step 2</span>
+                <span className="block fs-20 py-1">Step 2</span>
                 Make your place stand out
               </h1>
               <span className="block fs-18 text-light text-dark">
@@ -62,11 +62,23 @@ const StandOutContainer = styled.div`
       width: 90%;
     }
   }
+  span {
+    @media (max-width: 580px) {
+      font-size: 16px;
+    }
+  }
   h1 {
     font-size: 55px;
     line-height: 1.1;
     @media (max-width: 980px) {
       font-size: 40px;
+    }
+    @media (max-width: 780px) {
+      font-size: 30px;
+    }
+    @media (max-width: 580px) {
+      width: 90%;
+      font-size: 26px;
     }
   }
 `;
