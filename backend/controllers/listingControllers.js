@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import Listing from "../models/Listing.js";
+import cloudinaryModule from "../utlis/cloudinary.js";
 // GET All Listing
 //  Public
 const GetAllListing = asyncHandler(async (req, res) => {
@@ -86,17 +87,6 @@ const GetSingleListing = asyncHandler(async (req, res) => {
 const CreateSingleListing = asyncHandler(async (req, res) => {
   // get the request body parameters
   const { userId, role } = req.user;
-
-  if (role === "user") {
-    res.status(404);
-    throw new Error("User cannot perform this action");
-  }
-
-  const gig = await Listing.create({
-    listing_host_Id: userId,
-    ...req.body
-  });
-
   res.status(200).json({ gig });
 });
 
@@ -117,7 +107,7 @@ const UpdateListing = asyncHandler(async (req, res) => {
   if (gig.listing_host_Id.toString() === userId || role === "admin") {
     const data = {
       listing_host_Id: userId,
-      ...req.body
+      ...req.body,
     };
     // check for empty values and repeated values
 
@@ -150,7 +140,9 @@ const DeleteListing = asyncHandler(async (req, res) => {
   // check if the user is the seller or is admin
   if (gig.listing_host_Id.toString() === userId || role === "admin") {
     await Listing.findByIdAndDelete({ _id: req.params.id });
-    res.status(200).json({ message: "The Listing has been successfully deleted" });
+    res
+      .status(200)
+      .json({ message: "The Listing has been successfully deleted" });
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
@@ -159,7 +151,6 @@ const DeleteListing = asyncHandler(async (req, res) => {
   // res.status(200).json({ gig});
 
   // console.log('Helolo world');
-
 });
 
 const GetTopRatedListing = asyncHandler(async (req, res) => {
