@@ -35,6 +35,7 @@ export default function StandOut() {
         </div>
       </StandOutContainer>
       <FooterHosting
+      active={true}
         prev={`${userInfo?._id}/floor-plan`}
         next={`${userInfo?._id}/photos`}
       />

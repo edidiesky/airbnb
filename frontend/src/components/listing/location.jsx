@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { MdLocationOn } from "react-icons/md";
 import FooterHosting from "./footer";
@@ -11,6 +11,7 @@ export default function Location() {
   const dispatch = useDispatch();
 
   const { userInfo } = useSelector((store) => store.user);
+  const { host_listing } = useSelector((store) => store.gigs);
 
   const [country, setCountry] = useState("");
   const onChange = (country) => {
@@ -23,7 +24,18 @@ export default function Location() {
     );
   };
 
-  console.log(country);
+  useEffect(() => {
+    if (host_listing.listing_region && host_listing?.listing_location) {
+      setCountry({
+        label: host_listing?.listing_location,
+        region: host_listing?.listing_region,
+      });
+    }
+  }, [host_listing]);
+
+  // console.log(country);
+  const active = host_listing.listing_region && host_listing?.listing_location
+  // console.log(active)
   return (
     <>
       <LocationofPlaceContainer>
@@ -51,6 +63,7 @@ export default function Location() {
         </div>
       </LocationofPlaceContainer>
       <FooterHosting
+        active={active}
         next={`${userInfo?._id}/floor-plan`}
         prev={`${userInfo?._id}/structure`}
       />
@@ -70,7 +83,7 @@ const LocationofPlaceContainer = styled.div`
     @media (max-width: 780px) {
       font-size: 30px;
     }
-    @media (max-width: 580px) {
+    @media (max-width: 780px) {
       width: 90%;
     }
   }
@@ -82,7 +95,7 @@ const LocationofPlaceContainer = styled.div`
       width: 60%;
       position: relative;
       height: 60vh;
-      @media (max-width: 580px) {
+      @media (max-width: 780px) {
         width: 90%;
       }
       .icon {
@@ -113,7 +126,7 @@ const LocationofPlaceContainer = styled.div`
       &:hover {
         border: 2px solid rgba(0, 0, 0, 1);
       }
-      @media (max-width: 580px) {
+      @media (max-width: 780px) {
         /* width: 90%; */
         padding: 1rem 4rem;
       }

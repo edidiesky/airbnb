@@ -1,7 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-export default function FooterHosting({ next, prev, text }) {
+export default function FooterHosting({ next, prev, text, active }) {
+  const navigate = useNavigate();
+  const handleNextNavigation = () => {
+    navigate(`/become-a-host/${next}`);
+  };
   return (
     <>
       <div className="hostingbottom">
@@ -13,9 +17,9 @@ export default function FooterHosting({ next, prev, text }) {
           )}
 
           <div className="flex-1 flex item-center justify-end">
-            <Link to={`/become-a-host/${next}`} className="hostbtn fs-18">
+            <button onClick={handleNextNavigation} disabled={!active} className={"hostbtn fs-18"}>
               {text ? text : "Next"}
-            </Link>
+            </button>
           </div>
         </div>
       </div>

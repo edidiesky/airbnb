@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { handleBasicListing } from "../../Features/listing/listingSlice";
 export default function BasicInfoAboutPlace() {
   const { userInfo } = useSelector((store) => store.user);
+  const { host_listing } = useSelector((store) => store.gigs);
 
   const dispatch = useDispatch();
   const [guests, setGuests] = useState(2);
@@ -19,6 +20,15 @@ export default function BasicInfoAboutPlace() {
       handleBasicListing({ beds: beds, bedrooms: bedrooms, guests: guests })
     );
   }, [guests, bedrooms, beds]);
+
+  useEffect(() => {
+    if (host_listing) {
+      setGuests(host_listing.listing_guests);
+      setBedRooms(host_listing.listing_bedrooms);
+      setBeds(host_listing.listing_beds);
+    }
+  }, [host_listing, setGuests, setBeds, setBedRooms]);
+  const active = beds && bedrooms && guests;
 
   return (
     <>
@@ -101,6 +111,7 @@ export default function BasicInfoAboutPlace() {
         </div>
       </BasicInfoAboutPlaceContainer>
       <FooterHosting
+        active={active}
         prev={`${userInfo?._id}/location`}
         next={`${userInfo?._id}/stand-out`}
       />

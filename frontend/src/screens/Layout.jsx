@@ -89,9 +89,15 @@ const LayoutContainer = styled.div`
     place-items: center;
     border-radius: 10px;
     color: #fff !important;
+    border: none;
+    outline: none;
     /* padding: 0.8rem 2rem; */
     border-radius: 10px;
     cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+    }
     &:hover {
       opacity: 0.6;
     }

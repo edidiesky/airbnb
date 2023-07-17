@@ -14,6 +14,8 @@ export default function DescriptionofPlace() {
     dispatch(handleListingType(x.text));
   };
 
+  
+
   return (
     <>
       <DescriptionofPlaceContainer>

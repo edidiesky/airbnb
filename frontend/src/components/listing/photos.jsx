@@ -12,6 +12,7 @@ import { handleListingImage } from "../../Features/listing/listingSlice";
 import Message from "../loaders/Message";
 export default function PhotosofPlace() {
   const { userInfo } = useSelector((store) => store.user);
+  const { host_listing } = useSelector((store) => store.gigs);
   const dispatch = useDispatch();
   const [uploadimage, setUploadImage] = useState([]);
   const [uploading, setUploading] = useState(false);
@@ -55,6 +56,11 @@ export default function PhotosofPlace() {
       }, 6000);
     }
   }, [alert]);
+  useEffect(() => {
+    if (host_listing.listing_images.length > 0) {
+      setUploadImage(host_listing.listing_images);
+    }
+  }, [host_listing, setUploadImage]);
 
   const handleDeleteListUpload = (listindex) => {
     const result = uploadimage.filter((x, index) => index !== listindex);
@@ -126,6 +132,9 @@ export default function PhotosofPlace() {
         </div>
       </PhotosofPlaceContainer>
       <FooterHosting
+        active={
+          host_listing.listing_images.length >= 4 || uploadimage?.length >= 4
+        }
         prev={`${userInfo?._id}/stand-out`}
         next={`${userInfo?._id}/title`}
       />
