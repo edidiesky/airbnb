@@ -50,7 +50,7 @@ export default function InformationofPlace() {
       <FooterHosting
         active={description}
         prev={`${userInfo?._id}/title`}
-        next={`${userInfo?._id}/price`}
+        next={`${userInfo?._id}/duration`}
       />
     </>
   );

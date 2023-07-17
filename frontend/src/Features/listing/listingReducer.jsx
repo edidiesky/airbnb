@@ -79,15 +79,15 @@ export const CreateSingleGig = createAsyncThunk(
   async (GigsData, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      // const config = {
-      //   headers: {
-      //     authorization: `Bearer ${state.user.token}`,
-      //   },
-      // };
-      // const { data } = await axios.post(`/api/v1/listing`, GigsData, config);
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.post(`/api/v1/listing`, GigsData, config);
 
-      // return data.gig;
-      console.log(GigsData)
+      return data.gig;
+      // console.log(GigsData)
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message

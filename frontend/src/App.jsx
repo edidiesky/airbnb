@@ -25,6 +25,7 @@ import {
   Payment,
   Reservations,
   Profile,
+  DurationsOfplace,
 } from "./screens";
 import HomeLoader from "./components/loaders/homeloader";
 
@@ -69,6 +70,7 @@ export default function App() {
           <Route path=":id/photos" element={<PhotosAboutPlace />} />
           <Route path=":id/title" element={<TitleOfPlace />} />
           <Route path=":id/description" element={<InformationOfplace />} />
+          <Route path=":id/duration" element={<DurationsOfplace />} />
           <Route path=":id/price" element={<PriceOfplace />} />
           <Route path=":id/reviews" element={<ReviewOfplace />} />
         </Route>

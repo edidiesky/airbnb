@@ -49,6 +49,8 @@ const initialState = {
         listing_price: "",
         listing_region: "",
         listing_type: "",
+        listing_startDate:"",
+        listing_endDate:""
       },
 };
 
@@ -177,6 +179,14 @@ const GigsSlice = createSlice({
       state.host_listing = {
         ...state.host_listing,
         listing_description: action.payload,
+      };
+      localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
+    },
+    handleListingDate: (state, action) => {
+      state.host_listing = {
+        ...state.host_listing,
+        listing_startDate: action.payload.startDate,
+        listing_endDate: action.payload.endDate,
       };
       localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
     },
@@ -331,7 +341,8 @@ export const {
   handleListingImage,
   handleListingTitle,
   handleListingDescription,
-  handleListingPrice
+  handleListingPrice,
+  handleListingDate
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;
