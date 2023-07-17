@@ -19,14 +19,6 @@ const ListingSchema = new mongoose.Schema(
     },
     listing_region: {
       type: String,
-      enum: [
-        "flexible",
-        "Africa",
-        "United States",
-        "United Kingdom",
-        "Canada",
-        "Middle East",
-      ],
     },
     listing_distance: {
       type: Number,
@@ -43,6 +35,9 @@ const ListingSchema = new mongoose.Schema(
       required: true,
     },
     listing_bedrooms: {
+      type: Number,
+    },
+    listing_guests: {
       type: Number,
     },
     listing_bathrooms: {

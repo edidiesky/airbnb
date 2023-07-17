@@ -6,6 +6,7 @@ import FooterHosting from "./footer";
 import { handleListingPrice } from "../../Features/listing/listingSlice";
 export default function PriceofPlace() {
   const { userInfo } = useSelector((store) => store.user);
+  const { host_listing } = useSelector((store) => store.gigs);
   const [price, setPrice] = useState("");
   const dispatch = useDispatch();
 
@@ -15,9 +16,16 @@ export default function PriceofPlace() {
   };
 
   useEffect(() => {
-    setPrice("$50");
-    dispatch(handleListingPrice(50));
+    dispatch(handleListingPrice(price));
   }, [setPrice]);
+
+  // useEffect(() => {
+  //   if (host_listing.listing_price) {
+  //     setPrice(host_listing.listing_price);
+  //   }
+  // }, [host_listing, setPrice]);
+
+  // console.log(host_listing.listing_price)
 
   return (
     <>
@@ -42,6 +50,7 @@ export default function PriceofPlace() {
                 <input
                   value={price}
                   name="price"
+                  placeholder="$50"
                   onChange={handleListingPrices}
                   className="fs-30 family1 text-dark text-center text-extra-bold"
                 />
@@ -51,6 +60,8 @@ export default function PriceofPlace() {
         </div>
       </PriceofPlaceContainer>
       <FooterHosting
+        submit={true}
+        active={host_listing.listing_price}
         prev={`${userInfo?._id}/description`}
         next={`${userInfo?._id}/reviews`}
       />

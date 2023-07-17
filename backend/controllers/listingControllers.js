@@ -87,6 +87,10 @@ const GetSingleListing = asyncHandler(async (req, res) => {
 const CreateSingleListing = asyncHandler(async (req, res) => {
   // get the request body parameters
   const { userId, role } = req.user;
+  const gig = await Listing.create({
+    listing_host_Id: userId,
+    ...req.body,
+  });
   res.status(200).json({ gig });
 });
 
