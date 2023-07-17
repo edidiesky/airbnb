@@ -3,11 +3,15 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import FooterHosting from "./footer";
-import { handleListingPrice } from "../../Features/listing/listingSlice";
+import {
+  clearGigsAlert,
+  handleListingPrice,
+} from "../../Features/listing/listingSlice";
+import Message from "../loaders/Message";
 export default function PriceofPlace() {
   const { userInfo } = useSelector((store) => store.user);
-  const { host_listing } = useSelector((store) => store.gigs);
-  const [price, setPrice] = useState("");
+  const { host_listing, gigsIsSuccess } = useSelector((store) => store.gigs);
+  const [price, setPrice] = useState(0);
   const dispatch = useDispatch();
 
   const handleListingPrices = (e) => {
@@ -16,6 +20,7 @@ export default function PriceofPlace() {
   };
 
   useEffect(() => {
+    setPrice(50);
     dispatch(handleListingPrice(price));
   }, [setPrice]);
 
@@ -30,6 +35,11 @@ export default function PriceofPlace() {
   return (
     <>
       <PriceofPlaceContainer>
+        <Message
+          alertText={"Your Listing has been succesfully created"}
+          showAlert={gigsIsSuccess}
+          handleClearAlert={dispatch(clearGigsAlert())}
+        />
         <div className="hidden-w-100">
           <div
             data-aos="fade-up"
@@ -62,7 +72,7 @@ export default function PriceofPlace() {
       <FooterHosting
         submit={true}
         active={host_listing.listing_price}
-        prev={`${userInfo?._id}/description`}
+        prev={`${userInfo?._id}/duration`}
         next={`${userInfo?._id}/reviews`}
       />
     </>

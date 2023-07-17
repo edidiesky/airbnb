@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,8 @@ import styled from "styled-components";
 import { CreateSingleGig } from "../../Features/listing/listingReducer";
 export default function FooterHosting({ next, prev, text, active, submit }) {
   const dispatch = useDispatch();
-  const { host_listing } = useSelector((store) => store.gigs);
+  const { userInfo } = useSelector((store) => store.user);
+  const { host_listing, gigsIsSuccess } = useSelector((store) => store.gigs);
 
   const navigate = useNavigate();
   const handleNextNavigation = () => {
@@ -16,7 +17,16 @@ export default function FooterHosting({ next, prev, text, active, submit }) {
     dispatch(CreateSingleGig(host_listing));
   };
 
-  return (  
+  // navigate if the listing has been succesfully created
+  useEffect(() => {
+    if (gigsIsSuccess) {
+      setTimeout(() => {
+        navigate(`/become-a-host/${userInfo?._id}/reviews`);
+      }, 6000);
+    }
+  }, [gigsIsSuccess, navigate]);
+
+  return (
     <>
       <div className="hostingbottom">
         <div className="w-85 auto flex item-center justify-space">

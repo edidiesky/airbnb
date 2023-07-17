@@ -323,20 +323,20 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-18 text-dark">{x?.listing_location}</h4>
+                <h4 className="fs-16 text-bold text-dark">{x?.listing_location}</h4>
                 <div
                   style={{ gap: ".3rem" }}
-                  className="flex text-light fs-16 item-center"
+                  className="flex text-light fs-14 item-center"
                 >
                   <Star />
                   4.98
                 </div>
               </div>
               <div className="flex column">
-                <h4 className="fs-16 text-grey text-light">
+                <h4 className="fs-14 text-grey text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
-                {/* <h4 className="fs-16 text-grey text-light">{x?.listing_date}</h4> */}
+                {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
               <h4 className="fs-16 text-dark">
                 ${x?.listing_price}{" "}

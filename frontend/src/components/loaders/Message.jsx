@@ -37,16 +37,16 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 450px;
+  min-width: 350px;
   padding: 1.2rem 2rem;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.26);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: #fff;
   position: fixed;
   z-index: 10000;
   left: 10%;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--dark-1);
   transition: all 0.6s;
   top: 5%;

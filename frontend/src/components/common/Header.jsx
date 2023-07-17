@@ -12,7 +12,8 @@ import { categorydata } from "../../data/category";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthModal } from "../../Features/user/userSlice";
 import { options2 } from "../../utils/carousel";
-
+import Logo2 from "./svg/Logo12";
+import Filter from "./svg/filter";
 
 const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
@@ -139,19 +140,41 @@ export default function Header({ type, loader }) {
   const HeaderTop = () => {
     return (
       <div className="w-100 headerTop flex w-100 ">
+        <div className="flex w-90 auto headertop1 flex-1 item-center justify-end">
+          <div className="center justify-space w-100 flex item-center gap-1">
+            <div className="flex item-center gap-2 ">
+              <HiSearch color="#000" fontSize={"20px"} />
+              <div className="fs-14 text-dark text-bold">
+                Anywhere
+                <span
+                  style={{ gap: ".3rem" }}
+                  className="text-light fs-12 text-grey flex item-center"
+                >
+                  Any week <span> . </span> <span>Add guests</span>
+                </span>
+              </div>
+            </div>
+            <div className="icons flex item-center justify-center">
+              <Filter />
+            </div>
+          </div>
+        </div>
         <div
           className={
             type
-              ? "w-85 auto flex item-center justify-space gap-2 "
-              : "w-90 auto flex item-center justify-space gap-2"
+              ? "headertop2 w-85 auto flex item-center justify-space gap-2 "
+              : "w-90 auto  headertop2 flex item-center justify-space gap-2"
           }
         >
-          <Link to={"/"} className="flex-1 left">
+          <Link to={"/"} className="logo1">
             <Logo />
+          </Link>{" "}
+          <Link to={"/"} className="logo2">
+            <Logo2 />
           </Link>
           {/* search */}
           {!type && (
-            <div className="flex flex-1 item-center justify-end">
+            <div className="flex item-center justify-end">
               <div className="center shadow flex item-center gap-1">
                 <div className="fs-14 text-grey text-bold">Anywhere</div>
                 <div className="left1 fs-14 text-grey text-bold">Anyweek</div>
@@ -167,10 +190,10 @@ export default function Header({ type, loader }) {
               </div>
             </div>
           )}
-          <div className="flex-1 right flex item-center gap-1">
+          <div className="right flex item-center gap-1">
             <Link
               to={"/become-a-host/overview"}
-              className="fs-16 text-light text text-grey"
+              className="fs-14 text-light text text-grey"
             >
               Airbnb your home
             </Link>
@@ -179,7 +202,7 @@ export default function Header({ type, loader }) {
             </div>
             <div
               onClick={() => setDrop(!drop)}
-              className="center1 flex shadow item-center gap-1"
+              className="center2 flex item-center"
             >
               <Bar />
               {userInfo?.image ? (
@@ -241,7 +264,7 @@ export default function Header({ type, loader }) {
                 </div>
               ) : (
                 <div
-                  className="flex column imagewrapper item-center fs-12 text-grey"
+                  className="flex column text-light imagewrapper item-center fs-12 text-dark"
                   style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
                   key={index}
                 >
@@ -252,7 +275,7 @@ export default function Header({ type, loader }) {
                     style={{
                       width: "1.7rem",
                       height: "1.7rem",
-                      opacity: ".7",
+                      opacity: ".6",
                     }}
                   />
                   {x.text}
@@ -280,6 +303,48 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #fff;
+  .icons {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.4s;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  /* .fs-14 {
+    @media (max-width: 980px) {
+      font-size: 13px !important;
+    }
+  } */
+  .headertop1 {
+    display: none;
+
+    .center {
+      padding: 0.6rem 1.3rem !important;
+      width: 90% !important;
+      margin: 0 auto !important;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+      border: 0.5px solid rgba(0, 0, 0, 0.08) !important;
+    }
+    @media (max-width: 780px) {
+      display: flex;
+    }
+  }
+  .headertop2 {
+    @media (max-width: 780px) {
+      display: none;
+    }
+  }
+  .logo2 {
+    display: none;
+    @media (max-width: 980px) {
+      display: flex;
+    }
+  }
+  .logo1 {
+    @media (max-width: 980px) {
+      display: none;
+    }
+  }
   .loaderIcon {
     gap: 0.7rem;
     padding: 0.6rem 0;
@@ -382,8 +447,14 @@ const HeaderWrapper = styled.div`
   .center1 {
     padding: 0.3rem 1rem;
     border-radius: 40px;
-    gap: 0.6rem;
+    gap: 0.4rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  .center2 {
+    border-radius: 40px;
+    /* gap: 0.2rem; */
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0.3rem 0.8rem;
   }
   .center {
     padding: 0.6rem 1.4rem;

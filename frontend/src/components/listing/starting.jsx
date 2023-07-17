@@ -94,19 +94,22 @@ const StartingContainer = styled.div`
     padding: 2rem 0;
   }
   .authCenter {
-    @media (max-width: 780px) {
+    @media (max-width: 980px) {
       flex-direction: column;
       gap: 2rem;
+      align-items: flex-start;
     }
   }
   .image {
     width: 7rem;
   }
   h1 {
-    font-size: 60px;
+    font-size: 50px;
     line-height: 1.2;
-    @media (max-width: 780px) {
+    @media (max-width: 980px) {
       font-size: 40px;
+      width: 100%;
+      text-align: start;
     }
   }
 `;

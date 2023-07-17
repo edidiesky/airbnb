@@ -193,7 +193,7 @@ const GigsSlice = createSlice({
     handleListingPrice: (state, action) => {
       state.host_listing = {
         ...state.host_listing,
-        listing_price: action.payload,
+        listing_price: parseInt(action.payload),
       };
       localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
     },

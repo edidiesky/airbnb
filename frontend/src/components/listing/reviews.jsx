@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import FooterHosting from "./footer";
+import { useSelector } from "react-redux";
 import Star from "../common/svg/star";
 export default function ReviewOfPlace() {
+  const { userInfo } = useSelector((store) => store.user);
+
   return (
     <>
       <ReviewOfPlaceContainer className="flex column gap-2 w-85 auto">
@@ -58,7 +61,7 @@ export default function ReviewOfPlace() {
           </div>
         </div>
       </ReviewOfPlaceContainer>
-      <FooterHosting next={"325353/structure"} prev={"overview"} />
+      <FooterHosting next={`${userInfo?._id}/price`} prev={`${userInfo?._id}/price`} />
     </>
   );
 }
@@ -79,22 +82,23 @@ const ReviewOfPlaceContainer = styled.div`
   }
   .list1 {
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
   .ReviewOfCenter {
     @media (max-width: 780px) {
       flex-direction: column;
       gap: 2rem;
+      width: 100%;
     }
   }
   .image {
-    width: 25rem;
+    width: 100%;
     object-fit: cover;
   }
   h2 {
     font-size: 45px;
     line-height: 1.2;
-    @media (max-width: 780px) {
+    @media (max-width: 980px) {
       font-size: 40px;
     }
   }
