@@ -52,18 +52,25 @@ const LeftCenter = () => {
   const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <div className="flex column gap-2">
-      <div className="w-100 flex gap-1 bottom item-center justify-space">
+      <div style={{flexWrap: "wrap"}} className="w-100 flex gap-1 bottom item-center justify-space">
         <h3 className="flex-1 text-dark " style={{ fontSize: "24px" }}>
           {GigsDetails?.listing_title}
           <span className="block fs-16 text-grey text-light">
             3 guests1 <span>bedroom1</span> bed 1.5 baths
           </span>
         </h3>
-        <div className="flex-1 justify-end flex">
-          <img src={GigsDetails?.listing_host_Id?.image} alt="" className="avatar" />
+        <div className="justify-end flex">
+          <img
+            src={GigsDetails?.listing_host_Id?.image}
+            alt=""
+            className="avatar"
+          />
         </div>
       </div>
-      <div className="flex item-center gap-2 bottom w-100">
+      <div
+        style={{ flexWrap: "wrap" }}
+        className="flex item-center gap-2 bottom w-100"
+      >
         <div
           className="flex item-center gap-1"
           style={{

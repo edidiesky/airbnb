@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { HiSearch } from "react-icons/hi";
 import Logo from "./svg/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Bar from "./svg/Bar";
 import Profile from "./svg/Profile";
 import World from "./svg/World";
@@ -24,6 +24,7 @@ const data = [
 
 export default function Header({ type, loader }) {
   const { userInfo } = useSelector((store) => store.user);
+  const navigate = useNavigate();
   const dropin = {
     hidden: {
       top: "40%",
@@ -136,6 +137,13 @@ export default function Header({ type, loader }) {
       </motion.ul>
     );
   };
+  const handleCreateListingSteps = () => {
+    if (userInfo) {
+      navigate("/become-a-host/overview");
+    } else {
+      dispatch(onAuthModal());
+    }
+  };
   // headertop
   const HeaderTop = () => {
     return (
@@ -191,18 +199,18 @@ export default function Header({ type, loader }) {
             </div>
           )}
           <div className="right flex item-center gap-1">
-            <Link
-              to={"/become-a-host/overview"}
-              className="fs-14 text-light text text-grey"
+            <div
+              onClick={handleCreateListingSteps}
+              className="fs-16 airHome text-light text text-grey"
             >
               Airbnb your home
-            </Link>
+            </div>
             <div className="icon1 flex item-center justify-center text-dark">
               <World />
             </div>
             <div
               onClick={() => setDrop(!drop)}
-              className="center2 flex item-center"
+              className="center2 gap-1 flex item-center"
             >
               <Bar />
               {userInfo?.image ? (
@@ -315,6 +323,11 @@ const HeaderWrapper = styled.div`
       font-size: 13px !important;
     }
   } */
+  .airHome {
+    @media (max-width: 980px) {
+      font-size: 14px !important;
+    }
+  }
   .headertop1 {
     display: none;
 

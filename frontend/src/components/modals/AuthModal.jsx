@@ -10,13 +10,14 @@ import {
   offAuthModal,
 } from "../../Features/user/userSlice";
 import Input from "../forms/Input";
-import { flip } from "../../utils/framer";
+import { slideUp } from "../../utils/framer";
 import {
   UpdateProfile,
   loginCustomer,
   registerCustomer,
 } from "../../Features/user/userReducer";
 import LoaderIndex from "../loaders";
+import Message from "../loaders/Message";
 
 export default function AuthModal({ type, click }) {
   const [auth, setAuth] = useState(false);
@@ -113,7 +114,7 @@ export default function AuthModal({ type, click }) {
           onClick={() => dispatch(offAuthModal())}
         ></div>
         <motion.div
-          variants={flip}
+          variants={slideUp}
           initial="hidden"
           animate="visible"
           exit={"exit"}
@@ -185,10 +186,11 @@ export default function AuthModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
+      <Message alertText={'success'} showAlert={true}/>
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       {isLoading && <LoaderIndex />} 
       <motion.div
-        variants={flip}
+        variants={slideUp}
         initial="hidden"
         animate="visible"
         exit={"exit"}
@@ -232,9 +234,9 @@ export default function AuthModal({ type, click }) {
             {" "}
             {!auth ? "Sign Up" : "Sign In"}
           </div>
-          <div className="option">or</div>
+          {/* <div className="option">or</div> */}
 
-          <div className="flex column gap-1">
+          {/* <div className="flex column gap-1">
             <div className="authBtn flex fs-16 text-dark item-center justify-space">
               <FcGoogle fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Google</div>{" "}
@@ -244,7 +246,7 @@ export default function AuthModal({ type, click }) {
               <FaGithub fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Github</div>{" "}
             </div>
-          </div>
+          </div> */}
           <div className="w-100 fs-14 text-light text-grey text-center">
             {!auth?'Already a member?':'Not a member?'}{" "}
             <span onClick={() => setAuth(!auth)} className="text-red">

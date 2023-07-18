@@ -43,18 +43,18 @@ const MessageContent = styled.div`
   background-color: #fff;
   position: fixed;
   z-index: 10000;
-  left: 10%;
+  left: 2%;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   color: var(--dark-1);
   transition: all 0.6s;
-  top: 5%;
+  top: 2%;
   transform: translateY(-1000%);
   /* top: 5%; */
 
   &.active {
-    top: 0%;
+    top: -5%;
     transform: translateY(100%);
   }
   &.danger {
