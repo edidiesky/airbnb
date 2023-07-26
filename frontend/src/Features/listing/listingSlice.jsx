@@ -13,7 +13,7 @@ const initialState = {
   // states
   gigsIsSuccess: false,
   gigsIsError: false,
-  gigsIsLoading: false,
+  gigsIsLoading: true,
   totalGigs: 0,
   Gigs: [],
   GigsDetails: null,
