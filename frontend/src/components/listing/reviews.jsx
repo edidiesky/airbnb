@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import Star from "../common/svg/star";
 export default function ReviewOfPlace() {
   const { userInfo } = useSelector((store) => store.user);
-
+  const { host_listing, gigsIsSuccess, gigsIsLoading } = useSelector(
+    (store) => store.gigs
+  );
   return (
     <>
       <ReviewOfPlaceContainer className="flex column gap-2 w-85 auto">

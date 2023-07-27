@@ -8,6 +8,7 @@ export default function FooterHosting({ next, prev, text, active, submit }) {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((store) => store.user);
   const { host_listing, gigsIsSuccess } = useSelector((store) => store.gigs);
+  // console.log(host_listing)
 
   const navigate = useNavigate();
   const handleNextNavigation = () => {

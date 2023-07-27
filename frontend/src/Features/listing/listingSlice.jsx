@@ -13,7 +13,7 @@ const initialState = {
   // states
   gigsIsSuccess: false,
   gigsIsError: false,
-  gigsIsLoading: true,
+  gigsIsLoading: false,
   totalGigs: 0,
   Gigs: [],
   GigsDetails: null,
@@ -43,7 +43,7 @@ const initialState = {
         listing_guests: 0,
         listing_bedrooms: 0,
         listing_beds: 0,
-        listing_images: [],
+        listing_image: [],
         listing_title: [],
         listing_description: "",
         listing_price: "",
@@ -113,6 +113,7 @@ const GigsSlice = createSlice({
       state.alertType = "";
       state.gigsIsSuccess = false;
       state.gigsIsError = false;
+      state.gigsIsLoading = false;
       state.category = null;
       state.minprice = 0;
       state.maxprice = 0;
@@ -164,7 +165,7 @@ const GigsSlice = createSlice({
     handleListingImage: (state, action) => {
       state.host_listing = {
         ...state.host_listing,
-        listing_images: action.payload,
+        listing_image: action.payload,
       };
       localStorage.setItem("host_listing", JSON.stringify(state.host_listing));
     },

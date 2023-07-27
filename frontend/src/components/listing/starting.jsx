@@ -70,6 +70,7 @@ export default function Starting() {
               <img
                 src="https://a0.muscache.com/4ea/air/v2/pictures/c0634c73-9109-4710-8968-3e927df1191c.jpg"
                 alt=""
+                active={true}
                 className="image"
               />
             </div>
@@ -80,6 +81,7 @@ export default function Starting() {
         next={`${userInfo?._id}/about-your-place`}
         text={"Get Started"}
         prev={""}
+        active={true}
       />
     </>
   );

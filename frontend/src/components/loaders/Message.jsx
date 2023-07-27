@@ -13,11 +13,11 @@ export default function Message({
   // dispatch
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(handleClearAlert())
-    }, 6000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     dispatch(handleClearAlert())
+  //   }, 10000);
+  // }, []);
 
   return (
     <MessageContent

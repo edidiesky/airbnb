@@ -33,7 +33,12 @@ export default function AboutPlace() {
           </div>
         </div>
       </AboutPlaceContainer>
-      <FooterHosting next={`${userInfo?._id}/structure`} prev={"overview"} />
+
+      <FooterHosting
+        active={true}
+        next={`${userInfo?._id}/structure`}
+        prev={"overview"}
+      />
     </>
   );
 }

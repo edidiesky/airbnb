@@ -23,9 +23,13 @@ export default function DurationofPlace() {
   const dispatch = useDispatch();
 
   const handleSelect = (ranges) => {
-    console.log(ranges);
-    const selectedStartDate = ranges.selection.startDate;
-    const selectedendDate = ranges.selection.endDate;
+    // console.log(ranges);
+    const selectedStartDate = ranges?.range1
+      ? ranges?.range1.startDate
+      : ranges.selection.startDate;
+    const selectedendDate = ranges?.range1
+      ? ranges?.range1.endDate
+      : ranges.selection.endDate;
 
     setDateRange({
       ...ranges.selection,

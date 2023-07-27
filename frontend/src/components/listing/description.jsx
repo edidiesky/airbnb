@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { handleListingType } from "../../Features/listing/listingSlice";
 export default function DescriptionofPlace() {
   const [tab, setTab] = useState(null);
+  const { host_listing, gigsIsSuccess } = useSelector((store) => store.gigs);
   const { userInfo } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const handleListingTypes = (x, index) => {
@@ -53,6 +54,7 @@ export default function DescriptionofPlace() {
       </DescriptionofPlaceContainer>
       <FooterHosting
         next={`${userInfo?._id}/location`}
+        active={host_listing.listing_type}
         prev={`${userInfo?._id}/about-your-place`}
       />
     </>

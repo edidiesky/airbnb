@@ -8,9 +8,12 @@ import {
   handleListingPrice,
 } from "../../Features/listing/listingSlice";
 import Message from "../loaders/Message";
+import LoaderIndex from "../loaders";
 export default function PriceofPlace() {
   const { userInfo } = useSelector((store) => store.user);
-  const { host_listing, gigsIsSuccess } = useSelector((store) => store.gigs);
+  const { host_listing, gigsIsSuccess, gigsIsLoading } = useSelector(
+    (store) => store.gigs
+  );
   const [price, setPrice] = useState(0);
   const dispatch = useDispatch();
 
@@ -24,22 +27,15 @@ export default function PriceofPlace() {
     dispatch(handleListingPrice(price));
   }, [setPrice]);
 
-  // useEffect(() => {
-  //   if (host_listing.listing_price) {
-  //     setPrice(host_listing.listing_price);
-  //   }
-  // }, [host_listing, setPrice]);
-
-  // console.log(host_listing.listing_price)
-
   return (
     <>
       <PriceofPlaceContainer>
         <Message
           alertText={"Your Listing has been succesfully created"}
           showAlert={gigsIsSuccess}
-          handleClearAlert={dispatch(clearGigsAlert())}
+          // handleClearAlert={}
         />
+        {gigsIsLoading && <LoaderIndex />}
         <div className="hidden-w-100">
           <div
             data-aos="fade-up"

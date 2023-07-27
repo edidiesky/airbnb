@@ -57,8 +57,8 @@ export default function PhotosofPlace() {
     }
   }, [alert]);
   useEffect(() => {
-    if (host_listing.listing_images.length > 0) {
-      setUploadImage(host_listing.listing_images);
+    if (host_listing.listing_image.length > 0) {
+      setUploadImage(host_listing.listing_image);
     }
   }, [host_listing, setUploadImage]);
 
@@ -133,7 +133,7 @@ export default function PhotosofPlace() {
       </PhotosofPlaceContainer>
       <FooterHosting
         active={
-          host_listing.listing_images.length >= 4 || uploadimage?.length >= 4
+          host_listing.listing_image.length >= 4 || uploadimage?.length >= 4
         }
         prev={`${userInfo?._id}/stand-out`}
         next={`${userInfo?._id}/title`}
