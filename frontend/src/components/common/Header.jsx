@@ -321,7 +321,8 @@ const HeaderWrapper = styled.div`
   background-color: #fff;
   .bottomWrapper {
     display: grid;
-    grid-template-columns: 1fr 7vw;
+    grid-template-columns: 1fr 8vw;
+    grid-gap: 1rem;
   }
   .fiterIcon {
     padding: 0.9rem 1rem;

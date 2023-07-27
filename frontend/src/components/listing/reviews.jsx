@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 import Star from "../common/svg/star";
 export default function ReviewOfPlace() {
   const { userInfo } = useSelector((store) => store.user);
-  const { host_listing, gigsIsSuccess, gigsIsLoading } = useSelector(
-    (store) => store.gigs
-  );
+  const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <>
       <ReviewOfPlaceContainer className="flex column gap-2 w-85 auto">
@@ -22,17 +20,18 @@ export default function ReviewOfPlace() {
           <div className="ReviewOfCenter flex item-start gap-4 justify-start w-90 auto">
             <div className="authC_right flex column flex-1 gap-1">
               <img
-                src="https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/4d713a1e-ab4c-4d70-905f-d24b4042189f.jpeg?im_w=720"
+                src={GigsDetails?.listing_image[0]}
                 alt=""
                 className="image"
               />
               <div className="flex column">
                 <h4 className="fs-16 text-bold w-100 flex item-center justify-space">
-                  Fun Boat
+                  {GigsDetails?.listing_title}
                   <Star />
                 </h4>
                 <h5 className="fs-16 text-extra-bold text-dark">
-                  $340 <span className="text-light fs-14">night</span>
+                  ${GigsDetails?.listing_price}{" "}
+                  <span className="text-light fs-14">night</span>
                 </h5>
               </div>
             </div>{" "}
@@ -63,7 +62,10 @@ export default function ReviewOfPlace() {
           </div>
         </div>
       </ReviewOfPlaceContainer>
-      <FooterHosting next={`${userInfo?._id}/price`} prev={`${userInfo?._id}/price`} />
+      <FooterHosting
+        next={`${userInfo?._id}/price`}
+        prev={`${userInfo?._id}/price`}
+      />
     </>
   );
 }
