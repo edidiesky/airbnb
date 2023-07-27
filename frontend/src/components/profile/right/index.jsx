@@ -40,8 +40,10 @@ const listingReviews = [
 ];
 
 export default function ProfileRightIndex() {
-  // const { ReservationsDetails } = useSelector((store) => store.reservations);
+  const { review } = useSelector((store) => store.review);
   const { userDetails } = useSelector((store) => store.user);
+
+  console.log(review);
 
   return (
     <ProfileRightIndexContent className="w-100">
@@ -60,30 +62,42 @@ export default function ProfileRightIndex() {
             </div>
           </div>
           <h5 className="fs-16 text-light">
-          I love traveling, photography, hiking, cooking, cinema...
+            I love traveling, photography, hiking, cooking, cinema...
           </h5>
         </div>{" "}
         {/* host reviews */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-24 text-light">{userDetails?.username}'s Reviews</h3>
-          <div className="w-100 w-100">
-            <SliderIndex options={options3}>
-              {listingReviews.map((x) => {
-                return (
-                  <div className="reviewCard flex column gap-1">
-                    <h4 className="fs-16 text-light">"{x.comments}"</h4>
-                    <div className="flex item-center justify-start gap-1">
-                      <img src={x.image} alt="" className="avatars" />
-                      <h4 className="fs-14 family1">
-                        Tonya
-                        <span className="block fs-12 text-light">{x.date}</span>
-                      </h4>
+          <h3 className="fs-24 text-light">
+            {userDetails?.username}'s Reviews
+          </h3>
+          {review?.length > 0 ? (
+            <div className="w-100 w-100">
+              <SliderIndex options={options3}>
+                {listingReviews.map((x) => {
+                  return (
+                    <div className="reviewCard flex column gap-1">
+                      <h4 className="fs-16 text-light">"{x.comments}"</h4>
+                      <div className="flex item-center justify-start gap-1">
+                        <img src={x.image} alt="" className="avatars" />
+                        <h4 className="fs-14 family1">
+                          Tonya
+                          <span className="block fs-12 text-light">
+                            {x.date}
+                          </span>
+                        </h4>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </SliderIndex>
-          </div>
+                  );
+                })}
+              </SliderIndex>
+            </div>
+          ) : (
+            <div className="w-100 w-100">
+              <h4 className="fs-20 text-dark text-light  flex item-center gap-1">
+                No reviews (yet)
+              </h4>
+            </div>
+          )}
         </div>
         {/* host lisitng */}
         <div className="flex column bottom gap-1">

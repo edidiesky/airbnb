@@ -6,44 +6,7 @@ export const getAllReviews = createAsyncThunk(
   "/fetch/allReviews",
   async (name, thunkAPI) => {
     try {
-      const {
-        page,
-        search,
-        sort,
-        category,
-        minprice,
-        time,
-        maxprice,
-      } = thunkAPI.getState().gigs;
-      let ReviewsUrl = `/api/v1/review`;
-      if (sort) {
-        productUrl = productUrl + `?sort=${sort}`;
-      }
-      // if (category) {
-      //   ReviewsUrl = ReviewsUrl + `?category=${category}`;
-      //   const { data } = await axios.get(ReviewsUrl);
-      //   return data;
-      // }
-      if (category || minprice) {
-        ReviewsUrl = ReviewsUrl + `?category=${category}&minprice=${minprice}`;
-        const { data } = await axios.get(ReviewsUrl);
-        return data;
-      }
-      if (category || minprice || maxprice) {
-        ReviewsUrl =
-          ReviewsUrl +
-          `?category=${category}&minprice=${minprice}&maxprice=${maxprice}`;
-        const { data } = await axios.get(ReviewsUrl);
-        return data;
-      }
-      if (page) {
-        ReviewsUrl =
-          ReviewsUrl +
-          `?page=${page}`;
-        const { data } = await axios.get(ReviewsUrl);
-        return data;
-      }
-      const { data } = await axios.get(ReviewsUrl);
+      const { data } = await axios.get(`/api/v1/review/${name}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
