@@ -7,9 +7,7 @@ import LoaderIndex from "../../loaders";
 import Star from "../../common/svg/star";
 
 export default function ProfileLeftIndex({ id }) {
-  // const { ReservationsDetails, ReservationsUpdateIsSuccess } = useSelector(
-  //   (store) => store.reservations
-  // );
+  const { userDetails } = useSelector((store) => store.user);
 
   return (
     <div>
@@ -20,14 +18,10 @@ export default function ProfileLeftIndex({ id }) {
       /> */}
       <div className="w-100 profileleft flex column gap-2">
         <div className="authCenter flex item-start gap-3 justify-center w-90 auto shadow">
-          <div className="authC_right flex column flex-1">
-            <img
-              src="https://a0.muscache.com/im/pictures/user/b9c551db-9203-4f2c-9572-216ebe07e25c.jpg?im_w=240"
-              alt=""
-              className="avatar"
-            />
+          <div className="authC_right flex gap-1 column flex-1">
+            <img src={userDetails?.image} alt="" className="avatar" />
             <h3 className="fs-30 family1 text-center text-extra-bold text-dark">
-              Liza
+              {userDetails?.username}
               <span className="block fs-16 text-light text-center family2">
                 Superhost
               </span>

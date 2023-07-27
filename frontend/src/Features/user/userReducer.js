@@ -99,7 +99,7 @@ export const getSingleCustomer = createAsyncThunk(
       };
 
       const { data } = await axios.get(
-        `/api/v1/user/admin/profile/${name}`,
+        `/api/v1/user/profile/${name}`,
         config
       );
       return data;

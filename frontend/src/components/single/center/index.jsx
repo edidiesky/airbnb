@@ -128,5 +128,24 @@ const CenterWrapper = styled.div`
   .rightwrapper {
     width: 100%;
   }
+  .imageWrapper {
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover {
+      .imageGradient {
+        opacity: 1;
+      }
+    }
+    img {
+      border-radius: inherit;
+    }
+    .imageGradient {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: inherit;
+      opacity: 0;
+      z-index: 10;
+      transition: all 0.4s;
+    }
+  }
 `;
 export default CenterIndex;

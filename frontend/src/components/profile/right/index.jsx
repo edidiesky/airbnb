@@ -41,12 +41,14 @@ const listingReviews = [
 
 export default function ProfileRightIndex() {
   // const { ReservationsDetails } = useSelector((store) => store.reservations);
+  const { userDetails } = useSelector((store) => store.user);
+
   return (
     <ProfileRightIndexContent className="w-100">
       <div className="ProfileRight flex gap-2 column">
         {/* host details */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-35 family1">About Liza</h3>
+          <h3 className="fs-35 family1">About {userDetails?.username}</h3>
           <div className="flex item-center fs-16 text-light gap-1 flex-wrap">
             <div className="flex item-center gap-1">
               <Language />
@@ -58,12 +60,12 @@ export default function ProfileRightIndex() {
             </div>
           </div>
           <h5 className="fs-16 text-light">
-            We love traveling, photography, hiking, cooking, cinema...
+          I love traveling, photography, hiking, cooking, cinema...
           </h5>
         </div>{" "}
         {/* host reviews */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-24 text-light">Liza’s Reviews</h3>
+          <h3 className="fs-24 text-light">{userDetails?.username}'s Reviews</h3>
           <div className="w-100 w-100">
             <SliderIndex options={options3}>
               {listingReviews.map((x) => {

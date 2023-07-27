@@ -13,6 +13,7 @@ import Carbon from "../../common/svg/carbon";
 import Profile from "./profile";
 import DateInput from "../../forms/Date";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const offerdata = [
   {
     image: <Kitchen />,
@@ -52,7 +53,10 @@ const LeftCenter = () => {
   const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <div className="flex column gap-2">
-      <div style={{flexWrap: "wrap"}} className="w-100 flex gap-1 bottom item-center justify-space">
+      <div
+        style={{ flexWrap: "wrap" }}
+        className="w-100 flex gap-1 bottom item-center justify-space"
+      >
         <h3 className="flex-1 text-dark " style={{ fontSize: "24px" }}>
           {GigsDetails?.listing_title}
           <span className="block fs-16 text-grey text-light">
@@ -60,11 +64,17 @@ const LeftCenter = () => {
           </span>
         </h3>
         <div className="justify-end flex">
-          <img
-            src={GigsDetails?.listing_host_Id?.image}
-            alt=""
-            className="avatar"
-          />
+          <Link
+            to={`/users/show/${GigsDetails?.listing_host_Id?._id}`}
+            className="imageWrapper avatar relative"
+          >
+            <div className="imageGradient absolute w-100 h-100"></div>
+            <img
+              src={GigsDetails?.listing_host_Id?.image}
+              alt=""
+              className="w-100 h-100 absolute"
+            />
+          </Link>
         </div>
       </div>
       <div

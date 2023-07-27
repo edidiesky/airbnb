@@ -5,13 +5,14 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import ProfileLeftIndex from "./left";
 import ProfileRightIndex from "./right";
+import { getSingleCustomer } from "../../Features/user/userReducer";
 export default function ProfileIndex() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(GetSingleBuyerReservations(id));
-  // }, [id]);
+  useEffect(() => {
+    dispatch(getSingleCustomer(id));
+  }, [id]);
 
   return (
     <ProfileIndexContent>

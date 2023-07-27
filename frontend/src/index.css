@@ -22,6 +22,12 @@
 button {
   font-family: inherit;
 }
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
 .owl-carousel .owl-stage-outer {
   overflow: hidden;
 }
@@ -227,7 +233,6 @@ p {
 .text-light {
   font-weight: 400;
   font-family: "CustomFont_Regular", sans-serif;
-
 }
 .radius1 {
   border-radius: 10px;
