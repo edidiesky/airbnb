@@ -81,7 +81,24 @@ const GetSingleListing = asyncHandler(async (req, res) => {
   res.status(200).json({ gig });
 });
 
-// GET SINGLE Listing
+// GET User Listing
+// Not Private
+const GetHostListing = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  // find the Listing
+  const gig = await Listing.findOne({ listing_host_Id: id }).populate(
+    "listing_host_Id",
+    "username image country role"
+  );
+  if (!gig) {
+    res.status(404);
+    throw new Error("Listing not found");
+  }
+  res.status(200).json({ gig });
+});
+
+
+// GET User Listing
 // Not Private
 // Admin and seller
 const CreateSingleListing = asyncHandler(async (req, res) => {
@@ -157,17 +174,12 @@ const DeleteListing = asyncHandler(async (req, res) => {
   // console.log('Helolo world');
 });
 
-const GetTopRatedListing = asyncHandler(async (req, res) => {
-  // get the Listing but based on the rating and then send 4 Listing
-  const toprated = await Listing.find({}).sort({ rating: -1 }).limit(3);
-  res.status(200).json({ toprated });
-});
 
 export {
   GetSingleListing,
   GetAllListing,
   UpdateListing,
   DeleteListing,
-  GetTopRatedListing,
   CreateSingleListing,
+  GetHostListing
 };

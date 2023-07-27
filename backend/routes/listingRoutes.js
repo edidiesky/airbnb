@@ -11,8 +11,8 @@ import {
   GetAllListing,
   UpdateListing,
   DeleteListing,
-  GetTopRatedListing,
   CreateSingleListing,
+  GetHostListing,
 } from "../controllers/listingControllers.js";
 
 router
@@ -20,6 +20,7 @@ router
   .get(GetAllListing)
   .post(authMiddleware, sellerAdminMiddleware, CreateSingleListing);
 
+router.route("/host/:id").get(GetHostListing);
 router
   .route("/:id")
   .get(GetSingleListing)

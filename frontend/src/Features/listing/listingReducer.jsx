@@ -74,6 +74,24 @@ export const getSingleGigsDetails = createAsyncThunk(
 );
 
 // fetching single Gigs based on its id
+export const getHostListing = createAsyncThunk(
+  "Gigs/getHostListing",
+  async (name, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/api/v1/listing/host/${name}`);
+
+      return data.gig;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
+
+// fetching single Gigs based on its id
 export const CreateSingleGig = createAsyncThunk(
   "Gigs/createGigs",
   async (GigsData, thunkAPI) => {

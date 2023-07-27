@@ -7,6 +7,7 @@ import LoaderIndex from "../../loaders";
 import Star from "../../common/svg/star";
 
 export default function ProfileLeftIndex({ id }) {
+  const { review } = useSelector((store) => store.review);
   const { userDetails } = useSelector((store) => store.user);
 
   return (
@@ -29,12 +30,12 @@ export default function ProfileLeftIndex({ id }) {
           </div>{" "}
           <div className="authC_right flex column flex-1">
             <div className="list1 fs-20 text-bold text-dark">
-              171{" "}
+              {review?.length || 0}{" "}
               <span className="block fs-12 text-light text-dark">Reviews</span>
             </div>
             <div className="list1 fs-20 text-bold text-dark">
               <div className="flex item-center gap-1 ">
-                4.87 <Star />
+                {review?.length || 0} <Star />
               </div>{" "}
               <span className="block fs-12 text-light text-dark">Rating</span>
             </div>

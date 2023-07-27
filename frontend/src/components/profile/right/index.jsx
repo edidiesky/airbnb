@@ -93,7 +93,7 @@ export default function ProfileRightIndex() {
             </div>
           ) : (
             <div className="w-100 w-100">
-              <h4 className="fs-20 text-dark text-light  flex item-center gap-1">
+              <h4 className="fs-18 text-dark text-light  flex item-center gap-1">
                 No reviews (yet)
               </h4>
             </div>
@@ -103,9 +103,15 @@ export default function ProfileRightIndex() {
         <div className="flex column bottom gap-1">
           <h3 className="fs-24 text-light">Liza’s listings</h3>
           <div className="wrapper w-100">
-            {projectdata.slice(0, 3).map((x, index) => {
-              return <Card x={x} type={"listing"} index={index} />;
-            })}
+            {review?.length > 0 ? (
+              review?.map((x, index) => {
+                return <Card x={x} type={"listing"} index={index} />;
+              })
+            ) : (
+              <h4 className="fs-18 text-dark text-light  flex item-center gap-1">
+                No Listing (yet)
+              </h4>
+            )}
           </div>
         </div>
       </div>

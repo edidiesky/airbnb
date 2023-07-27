@@ -5,6 +5,7 @@ import {
   CreateSingleGig,
   DeleteGig,
   UpdateGig,
+  getHostListing,
 } from "./listingReducer";
 
 const host_listings = JSON.parse(localStorage.getItem("host_listing"));
@@ -49,8 +50,8 @@ const initialState = {
         listing_price: "",
         listing_region: "",
         listing_type: "",
-        listing_startDate:"",
-        listing_endDate:""
+        listing_startDate: "",
+        listing_endDate: "",
       },
 };
 
@@ -221,6 +222,25 @@ const GigsSlice = createSlice({
       state.alertText = action.payload;
       state.alertType = "danger";
     },
+
+    //get host listing
+    [getHostListing.pending]: (state) => {
+      state.gigsIsLoading = true;
+    },
+    [getHostListing.fulfilled]: (state, action) => {
+      state.gigsIsLoading = false;
+      state.Gigs = action.payload.gig;
+      state.showAlert = true;
+      state.alertText = "All Gigs has been successfully fetched";
+    },
+    // gigs
+    [getHostListing.rejected]: (state, action) => {
+      state.gigsIsLoading = false;
+      state.showAlert = true;
+      state.gigsIsError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
     // create gigs action handling
     [CreateSingleGig.pending]: (state) => {
       state.gigsIsLoading = true;
@@ -343,7 +363,7 @@ export const {
   handleListingTitle,
   handleListingDescription,
   handleListingPrice,
-  handleListingDate
+  handleListingDate,
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

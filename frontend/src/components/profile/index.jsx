@@ -7,13 +7,17 @@ import ProfileLeftIndex from "./left";
 import ProfileRightIndex from "./right";
 import { getSingleCustomer } from "../../Features/user/userReducer";
 import { getAllReviews } from "../../Features/reviews/reviewReducer";
+import { getHostListing } from "../../Features/listing/listingReducer";
+
+
 export default function ProfileIndex() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getSingleCustomer(id));
-    dispatch(getAllReviews(id))
+    dispatch(getAllReviews(id));
+    dispatch(getHostListing(id));
   }, [id]);
 
   return (
