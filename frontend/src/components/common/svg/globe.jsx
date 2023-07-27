@@ -11,7 +11,7 @@ const Globe = () => {
         focusable="false"
         style={{
           display: "block",
-          fill: "currentc olor",
+          fill: "currentcolor",
           height: "25px",
           width: "25px",
         }}

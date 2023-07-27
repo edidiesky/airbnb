@@ -262,35 +262,43 @@ export default function Header({ type, loader }) {
   const HeaderBottom = () => {
     return (
       <div className="w-100 HeaderBottom flex w-100 ">
-        <div className="w-90 auto flex item-center justify-space gap-2">
-          <SliderIndex options={options2}>
-            {categorydata.map((x, index) => {
-              return loader ? (
-                <div className="loaderIcon flex-1 flex item-center justify-center  column">
-                  <div className="circle"></div>
-                  <div className="bar"></div>
-                </div>
-              ) : (
-                <div
-                  className="flex column text-light imagewrapper item-center fs-12 text-dark"
-                  style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
-                  key={index}
-                >
-                  <img
-                    src={x.image}
-                    alt=""
-                    className="image"
-                    style={{
-                      width: "1.7rem",
-                      height: "1.7rem",
-                      opacity: ".6",
-                    }}
-                  />
-                  {x.text}
-                </div>
-              );
-            })}
-          </SliderIndex>
+        <div className="w-90 auto  bottomWrapper item-center justify-space">
+          <div className="w-100 hidden">
+            <SliderIndex options={options2}>
+              {categorydata.map((x, index) => {
+                return loader ? (
+                  <div className="loaderIcon flex-1 flex item-center justify-center  column">
+                    <div className="circle"></div>
+                    <div className="bar"></div>
+                  </div>
+                ) : (
+                  <div
+                    className="flex column text-light imagewrapper item-center fs-12 text-dark"
+                    style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
+                    key={index}
+                  >
+                    <img
+                      src={x.image}
+                      alt=""
+                      className="image"
+                      style={{
+                        width: "1.7rem",
+                        height: "1.7rem",
+                        opacity: ".6",
+                      }}
+                    />
+                    {x.text}
+                  </div>
+                );
+              })}
+            </SliderIndex>
+          </div>
+          <div className="fiterWrapper flex item-center justify-end">
+            <div className="fs-12 fiterIcon gap-1 text-dark flex item-center justify-center">
+              <Filter />
+              Fiters
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -311,6 +319,19 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #fff;
+  .bottomWrapper {
+    display: grid;
+    grid-template-columns: 1fr 7vw;
+  }
+  .fiterIcon {
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 15px;
+  }
+  .fiterWrapper {
+    /* width: 300px; */
+    /* background-color: red; */
+  }
   .icons {
     width: 30px;
     height: 30px;
@@ -318,11 +339,7 @@ const HeaderWrapper = styled.div`
     transition: all 0.4s;
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
-  /* .fs-14 {
-    @media (max-width: 980px) {
-      font-size: 13px !important;
-    }
-  } */
+
   .airHome {
     @media (max-width: 980px) {
       font-size: 14px !important;
