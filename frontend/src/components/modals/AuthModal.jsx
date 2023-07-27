@@ -61,9 +61,8 @@ export default function AuthModal({ type, click }) {
   ];
   // dispatch
   const dispatch = useDispatch();
-  const { userAlert, userDetails, usernamemodal, isLoading } = useSelector(
-    (store) => store.user
-  );
+  const { userAlert, userDetails, usernamemodal, isLoading, showAlert } =
+    useSelector((store) => store.user);
 
   useEffect(() => {
     setFormData({
@@ -72,6 +71,11 @@ export default function AuthModal({ type, click }) {
       username: "",
     });
   }, [setFormData]);
+  useEffect(() => {
+    if (usernamemodal) {
+      setAuth(true);
+    }
+  }, [usernamemodal, setAuth]);
   // open modal if type  === users
 
   const onChange = (e) => {
@@ -103,7 +107,7 @@ export default function AuthModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
-      <Message alertText={"success"} showAlert={true} />
+      <Message alertText={"success"} showAlert={showAlert} />
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       {isLoading && <LoaderIndex />}
       <motion.div
@@ -126,23 +130,41 @@ export default function AuthModal({ type, click }) {
         <div className="w-90 authBottom auto flex column gap-1">
           <h3 className="fs-20 py-1 text-dark text-bold">Welcome to Airbnb</h3>
           <div className="flex column gap-1">
-            {inputData.map((input) => {
-              return (
-                <Input
-                  id={input.text}
-                  onChange={onChange}
-                  placeholder={input.placeholder}
-                  type={input.type}
-                  name={input.name}
-                  value={formdata[input.name]}
-                  input={input}
-                  key={input.id}
-                  required={input.required}
-                  pattern={input.pattern}
-                  errorMessage={input.errorMessage}
-                />
-              );
-            })}
+            {!auth
+              ? inputData.map((input) => {
+                  return (
+                    <Input
+                      id={input.text}
+                      onChange={onChange}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      name={input.name}
+                      value={formdata[input.name]}
+                      input={input}
+                      key={input.id}
+                      required={input.required}
+                      pattern={input.pattern}
+                      errorMessage={input.errorMessage}
+                    />
+                  );
+                })
+              : inputData.slice(1,3).map((input) => {
+                  return (
+                    <Input
+                      id={input.text}
+                      onChange={onChange}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      name={input.name}
+                      value={formdata[input.name]}
+                      input={input}
+                      key={input.id}
+                      required={input.required}
+                      pattern={input.pattern}
+                      errorMessage={input.errorMessage}
+                    />
+                  );
+                })}
           </div>
           <div
             onClick={handleSubmit}

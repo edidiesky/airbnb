@@ -129,9 +129,9 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.loginSuccess = true;
       state.userInfo = action.payload.user;
+      state.authmodal = false;
       state.token = action.payload.token;
       state.showAlert = true;
-      state.usernamemodal = false;
       state.alertText = "Login successfull. ...Redirecting soon!";
       state.alertType = "success";
     },
