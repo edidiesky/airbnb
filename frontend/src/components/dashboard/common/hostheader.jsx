@@ -72,7 +72,18 @@ export default function Hostheader() {
   return (
     <>
       <HostheaderContainer>
-        <div className="aboutCenter flex item-center gap-3 justify-space w-90 auto">
+        <div
+          onClick={() => setDrop(false)}
+          className="backdrop_dropdown absolute"
+          style={{
+            height: "100vh",
+            width: "100vw",
+            top: 0,
+            left: 0,
+            position: "absolute",
+          }}
+        ></div>
+        <div  style={{zIndex:"20"}} className="aboutCenter flex item-center gap-3 justify-space w-90 auto">
           <Logo2 />
           <div className="center fs-16 w-100 text-grey text-light flex item-center justify-center gap-1">
             <NavLink activeClassName="active" to={`/dashboard/hosting/reviews`}>
@@ -162,7 +173,7 @@ const HostheaderContainer = styled.div`
     position: absolute;
     right: 2%;
     background-color: #fff;
-    min-width: 230px;
+    min-width: 220px;
     z-index: 200000;
     top: -100%;
     border-radius: 8px;
@@ -171,9 +182,11 @@ const HostheaderContainer = styled.div`
       right: 17%;
     }
     li {
-      padding: 0.8rem 1.2rem;
+      padding: 0.8rem 1rem;
       cursor: pointer;
+      z-index: 30;
       border-radius: inherit;
+      /* font-size: 1.2rem; */
       &:hover {
         background-color: #f7f7f7;
       }

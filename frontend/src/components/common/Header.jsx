@@ -89,10 +89,11 @@ export default function Header({ type, loader }) {
         exit={"exit"}
         className="dropdown shadow flex column"
         onClick={() => setDrop(!drop)}
+        // style={{ position: "absolute" }}
       >
         {userInfo ? (
           <div className="">
-            <li className="fs-14 text-bold text-dark">
+            <li className="fs-14 text-light text-dark">
               <Link className="w-100" to={"/reservations"}>
                 Reservations
               </Link>
@@ -102,38 +103,38 @@ export default function Header({ type, loader }) {
           <div className="">
             <li
               onClick={() => dispatch(onAuthModal())}
-              className="fs-14 text-bold"
+              className="fs-14 text-light"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
-              className="fs-14 text-bold text-dark"
+              className="fs-14 text-light text-dark"
             >
               Sign up
             </li>
           </div>
         )}
 
-        <li className="fs-14 text-bold text-dark">
+        <li className="fs-14 text-light text-dark">
           {" "}
           <Link className="w-100" to={"/wishlists"}>
             Wishlists
           </Link>
         </li>
-        <li className="fs-14 text-bold text-dark">
+        <li className="fs-14 text-light text-dark">
           {" "}
           <Link className="w-100" to={"/favorites"}>
             Favorites
           </Link>
         </li>
-        <li className="fs-14 text-bold text-dark">
+        <li className="fs-14 text-light text-dark">
           {" "}
           <Link className="w-100" to={"/trips"}>
             Trips
           </Link>
         </li>
-        <li className="fs-14 text-bold text-dark">Logout</li>
+        <li className="fs-14 text-light text-dark">Logout</li>
       </motion.ul>
     );
   };
@@ -244,6 +245,21 @@ export default function Header({ type, loader }) {
                   <Profile />
                 </div>
               )}
+              {drop && (
+                <div
+                  onClick={() => setDrop(false)}
+                  className="backdrop_dropdown absolute"
+                  style={{
+                    height: "100vh",
+                    width: "100vw",
+                    position: "absolute",
+                    zIndex: "-1",
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                  }}
+                ></div>
+              )}
 
               <AnimatePresence
                 initial="false"
@@ -321,7 +337,7 @@ const HeaderWrapper = styled.div`
   background-color: #fff;
   .bottomWrapper {
     display: grid;
-    grid-template-columns: 1fr 8vw;
+    grid-template-columns: 1fr 6vw;
     grid-gap: 1rem;
   }
   .fiterIcon {
@@ -556,7 +572,7 @@ const HeaderWrapper = styled.div`
       }
     }
     button.owl-prev {
-      left: -2%;
+      left: 0%;
     }
     button.owl-next {
       right: 1%;
