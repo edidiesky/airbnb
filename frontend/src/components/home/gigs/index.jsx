@@ -4,6 +4,7 @@ import { Slider } from "../../common";
 import Card, { CardLoading } from "../../common/Card";
 import { useSelector } from "react-redux";
 import { projectdata } from "../../../data";
+import CardSkeleton from "../../common/cardskeleton";
 
 export default function GigsIndex({ loader }) {
   const { Gigs } = useSelector((store) => store.gigs);
@@ -18,7 +19,7 @@ export default function GigsIndex({ loader }) {
           <div className="w-100 wrapper">
             {loader
               ? projectdata.map((x) => {
-                  return <CardLoading />;
+                  return <CardSkeleton />;
                 })
               : Gigs?.map((x, index) => {
                   return <Card x={x} loader={loader} index={index} />;

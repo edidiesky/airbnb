@@ -57,7 +57,7 @@ export default function App() {
             index
             element={
               <Suspense fallback={HomeLoader}>
-                <HomeWrapper />
+                <HomeLoader />
               </Suspense>
             }
           />
