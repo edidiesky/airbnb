@@ -221,7 +221,7 @@ const DeleteContainer = styled(motion.div)`
   }
   .authBtn {
     border: 1px solid rgba(0, 0, 0, 1);
-    padding: 0.5rem 2rem;
+    padding: 0.5rem   2rem;
     border-radius: 8px;
   }
   .icon {
