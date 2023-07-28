@@ -17,42 +17,8 @@ import {
 import { useEffect } from "react";
 import Message from "../loaders/Message";
 import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
+import CardSkeleton from "./cardskeleton";
 
-export const CardLoading = () => {
-  return (
-    <CardLoadingContent
-      style={{ gap: ".4rem" }}
-      className="w-100 flex column back-white"
-    >
-      <div className="top w-100"></div>
-      <div style={{ gap: ".2rem" }} className="flex column w-100">
-        <div className="center w-100 auto flex gap-1 item-center justify-space">
-          <div
-            style={{ borderRadius: "6px" }}
-            className="topCenter skeleton"
-          ></div>
-          <div
-            style={{ borderRadius: "6px" }}
-            className="bottomCenter skeleton"
-          ></div>
-        </div>
-        <div
-          className="w-100 auto flex column item-start"
-          style={{ gap: ".4rem" }}
-        >
-          <div
-            style={{ width: "50%", borderRadius: "6px" }}
-            className="h-6 duration1 skeleton"
-          ></div>
-          <div
-            style={{ width: "35%", borderRadius: "6px" }}
-            className="h-6 duration2 skeleton"
-          ></div>
-        </div>
-      </div>
-    </CardLoadingContent>
-  );
-};
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
@@ -189,7 +155,7 @@ export default function Card({ x, index, type }) {
     return (
       <>
         {ReservationsIsLoading ? (
-          <CardLoading />
+          <CardSkeleton />
         ) : (
           <CardContent>
             <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
@@ -260,7 +226,7 @@ export default function Card({ x, index, type }) {
   return (
     <>
       {gigsIsLoading ? (
-        <CardLoading />
+        <CardSkeleton />
       ) : (
         <CardContent>
           <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>

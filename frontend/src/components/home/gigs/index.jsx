@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Slider } from "../../common";
-import Card, { CardLoading } from "../../common/Card";
+import Card from "../../common/Card";
 import { useSelector } from "react-redux";
 import { projectdata } from "../../../data";
 import CardSkeleton from "../../common/cardskeleton";

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from "react-loading-skeleton";
 import { HiSearch } from "react-icons/hi";
 import Logo from "./svg/Logo";
 import { Link, useNavigate } from "react-router-dom";
@@ -283,9 +285,9 @@ export default function Header({ type, loader }) {
             <SliderIndex options={options2}>
               {categorydata.map((x, index) => {
                 return loader ? (
-                  <div className="loaderIcon flex-1 flex item-center justify-center  column">
-                    <div className="circle"></div>
-                    <div className="bar"></div>
+                  <div style={{margin:"0 10px"}} className=" flex-1 flex item-center justify-center column">
+                    <Skeleton width={25} height={25} circle />
+                    <Skeleton width={80} height={15} />
                   </div>
                 ) : (
                   <div

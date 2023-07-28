@@ -53,14 +53,7 @@ export default function App() {
     <div className="based" style={{ height }}>
       <Routes>
         <Route path={"/"} element={<Layout />}>
-          <Route
-            index
-            element={
-              <Suspense fallback={HomeLoader}>
-                <HomeLoader />
-              </Suspense>
-            }
-          />
+          <Route index element={<Home />} />
           <Route path="/rooms/:id" element={<Single />} />
           <Route path="/users/show/:id" element={<Profile />} />
           <Route path="wishlists" element={<Wish />} />
