@@ -27,6 +27,13 @@ import {
   Profile,
   DurationsOfplace,
 } from "./screens";
+import {
+  HostInbox,
+  HostLayout,
+  HostListings,
+  HostOrders,
+  HostProfile,
+} from "./screens/dashboard";
 import HomeLoader from "./components/loaders/homeloader";
 
 const HomeWrapper = lazy(() => import("./screens/Home"));
@@ -73,6 +80,14 @@ export default function App() {
           <Route path=":id/duration" element={<DurationsOfplace />} />
           <Route path=":id/price" element={<PriceOfplace />} />
           <Route path=":id/reviews" element={<ReviewOfplace />} />
+        </Route>
+
+        {/* host listing routes */}
+        <Route path={"/dashboard/hosting"} element={<HostLayout />}>
+          <Route path="profile" element={<HostProfile />} />
+          <Route path="inbox" element={<HostInbox />} />
+          <Route path="orders" element={<HostOrders />} />
+          <Route path="listings" element={<HostListings />} />
         </Route>
       </Routes>
     </div>
