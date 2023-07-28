@@ -15,10 +15,10 @@ const listingData = [
     listing_startDate: "7/24/2023",
     listing_distance: 6798,
     listing_image: [
-      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/4d713a1e-ab4c-4d70-905f-d24b4042189f.jpeg?im_w=720",
-      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/7f98dcc6-18f9-4cf6-8f83-798c20f1ba7f.jpeg?im_w=720",
-      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
-      "https://a0.muscache.com/im/pictures/miso/Hosting-47025046/original/fa670b4e-cb55-470b-a84c-ffc4b9422710.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-432044/original/f2d20695-680c-4637-b72c-80238c0dd384.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-432044/original/4c803418-7de5-41d4-877e-2a99388e9047.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-432044/original/f2d20695-680c-4637-b72c-80238c0dd384.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-432044/original/697ff0dd-c155-444f-808c-5b431d47b8e9.jpeg?im_w=720",
     ],
   },
   {
