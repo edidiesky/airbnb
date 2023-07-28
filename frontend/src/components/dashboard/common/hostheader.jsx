@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BiChevronDown } from "react-icons/bi";
 export default function Hostheader() {
   const [drop, setDrop] = useState(false);
+  const [drop2, setDrop2] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
   const dropin = {
     hidden: {
@@ -74,7 +75,7 @@ export default function Hostheader() {
         <div className="aboutCenter flex item-center gap-3 justify-space w-90 auto">
           <Logo2 />
           <div className="center fs-16 w-100 text-grey text-light flex item-center justify-center gap-1">
-            <NavLink activeClassName="active" to={`/dashboard/hosting/`}>
+            <NavLink activeClassName="active" to={`/dashboard/hosting/reviews`}>
               Reviews
             </NavLink>
             <NavLink activeClassName="active" to={`/dashboard/hosting`}>
@@ -101,9 +102,13 @@ export default function Hostheader() {
               </AnimatePresence>
             </div>
           </div>
-          <div className="flex top item-center gap-1 justify-end">
+          <div className="flex relative top item-center gap-1 justify-end">
+            {drop2 && <Dropdown />}
             {userInfo?.image ? (
-              <div className="text-white fs-14">
+              <div
+                onClick={() => setDrop2(!drop2)}
+                className="text-white fs-14"
+              >
                 <img
                   style={{
                     width: "2rem",
@@ -117,6 +122,7 @@ export default function Hostheader() {
               </div>
             ) : !userInfo?.username ? (
               <div
+                onClick={() => setDrop2(!drop2)}
                 style={{
                   width: "2rem",
                   height: "2rem",
@@ -129,7 +135,11 @@ export default function Hostheader() {
                 {userInfo?.username.charAt(0)}
               </div>
             ) : (
-              <div className="" style={{ width: "2rem", height: "2rem" }}>
+              <div
+                onClick={() => setDrop2(!drop2)}
+                className=""
+                style={{ width: "2rem", height: "2rem" }}
+              >
                 <Profile />
               </div>
             )}
@@ -150,7 +160,7 @@ const HostheaderContainer = styled.div`
   background-color: #fff;
   .dropdown {
     position: absolute;
-    right: 0%;
+    right: 2%;
     background-color: #fff;
     min-width: 230px;
     z-index: 200000;

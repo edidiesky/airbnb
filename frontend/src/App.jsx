@@ -34,6 +34,7 @@ import {
   HostListings,
   HostOrders,
   HostProfile,
+  HostReviews,
 } from "./screens/dashboard";
 import HomeLoader from "./components/loaders/homeloader";
 
@@ -85,12 +86,13 @@ export default function App() {
 
         {/* host listing routes */}
         <Route path={"/dashboard/hosting"} element={<HostLayout />}>
-          <Route path="profile" element={<HostProfile />} />
-          <Route path="inbox" element={<HostInbox />} />
-          <Route path="orders" element={<HostOrders />} />
-          <Route path="listings" element={<HostListings />} />
+          <Route exact index element={<HostEarnings />} />
+          <Route exact path="profile" element={<HostProfile />} />
+          <Route exact path="inbox" element={<HostInbox />} />
+          <Route exact path="orders" element={<HostOrders />} />
+          <Route exact path="listings" element={<HostListings />} />
+          <Route exact path="reviews" element={<HostReviews />} />
           {/* <Route path="listings" element={<host />} /> */}
-          <Route path="" element={<HostEarnings />} />
         </Route>
       </Routes>
     </div>
