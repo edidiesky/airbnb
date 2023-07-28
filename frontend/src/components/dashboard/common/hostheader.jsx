@@ -1,21 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Logo2 from "../../common/svg/Logo12";
 import { useSelector } from "react-redux";
 import Profile from "../../common/svg/Profile";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { BiChevronDown } from "react-icons/bi";
 export default function Hostheader() {
+  const [drop, setDrop] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
+  const dropin = {
+    hidden: {
+      opacity: 0,
+      top: "500%",
+      visibility: "hidden",
+      transition: {},
+    },
+    visible: {
+      top: "120%",
+      opacity: 1,
+      visibility: "visible",
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      top: "500%",
+      opacity: 0,
+      visibility: "hidden",
+      transition: {},
+    },
+  };
+  const Dropdown = () => {
+    return (
+      <motion.ul
+        variants={dropin}
+        initial="hidden"
+        animate="visible"
+        exit={"exit"}
+        className="dropdown shadow flex column"
+        onClick={() => setDrop(!drop)}
+      >
+        <li className="fs-16 text-light text-dark">
+          {" "}
+          <Link className="w-100" to={"/wishlists"}>
+            Listings
+          </Link>
+        </li>
+        <li className="fs-16 text-light text-dark">
+          {" "}
+          <Link className="w-100" to={"/favorites"}>
+            Reservations
+          </Link>
+        </li>
+        <li className="fs-16 text-light text-dark">
+          {" "}
+          <Link className="w-100" to={"/trips"}>
+            Create a New Listings
+          </Link>
+        </li>
+        <li className="fs-16 text-light text-dark">
+          <Link to={"/trips"} className="w-100">
+            Logout
+          </Link>
+        </li>
+      </motion.ul>
+    );
+  };
+
   return (
     <>
       <HostheaderContainer>
         <div className="aboutCenter flex item-center gap-3 justify-space w-90 auto">
           <Logo2 />
           <div className="center fs-16 w-100 text-grey text-light flex item-center justify-center gap-1">
-            <NavLink>Reviews</NavLink>
-            <NavLink>Earnings</NavLink>
-            <NavLink>Inbox</NavLink>
-            <NavLink>Menu</NavLink>
+            <NavLink activeClassName="active" to={`/dashboard/hosting/`}>
+              Reviews
+            </NavLink>
+            <NavLink activeClassName="active" to={`/dashboard/hosting`}>
+              Insights
+            </NavLink>
+            <NavLink activeClassName="active" to={`/dashboard/hosting/inbox`}>
+              Inbox
+            </NavLink>
+            <div className="relative menu">
+              <div
+                onClick={() => setDrop(!drop)}
+                className="flex item-center"
+                style={{ gap: ".5rem" }}
+              >
+                Menu
+                <BiChevronDown fontSize={"20px"} />
+              </div>
+              <AnimatePresence
+                initial="false"
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {drop && <Dropdown />}
+              </AnimatePresence>
+            </div>
           </div>
           <div className="flex top item-center gap-1 justify-end">
             {userInfo?.image ? (
@@ -64,10 +148,43 @@ const HostheaderContainer = styled.div`
   z-index: 300;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  .dropdown {
+    position: absolute;
+    right: 0%;
+    background-color: #fff;
+    min-width: 230px;
+    z-index: 200000;
+    top: -100%;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    @media (min-width: 1807px) {
+      right: 17%;
+    }
+    li {
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      border-radius: inherit;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.07); */
+    }
+  }
   .center {
+    .menu {
+      border-radius: 40px;
+      padding: 0.6rem 1rem;
+      position: relative;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
     a {
       padding: 0.6rem 1rem;
       border-radius: 40px;
+      &.active {
+        color: #50fc61;
+      }
       &:hover {
         background-color: #f7f7f7;
       }

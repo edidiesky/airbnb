@@ -28,6 +28,7 @@ import {
   DurationsOfplace,
 } from "./screens";
 import {
+  HostEarnings,
   HostInbox,
   HostLayout,
   HostListings,
@@ -88,6 +89,8 @@ export default function App() {
           <Route path="inbox" element={<HostInbox />} />
           <Route path="orders" element={<HostOrders />} />
           <Route path="listings" element={<HostListings />} />
+          {/* <Route path="listings" element={<host />} /> */}
+          <Route path="" element={<HostEarnings />} />
         </Route>
       </Routes>
     </div>

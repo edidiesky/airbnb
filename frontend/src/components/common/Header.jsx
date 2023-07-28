@@ -408,6 +408,7 @@ const HeaderWrapper = styled.div`
     min-width: 230px;
     z-index: 200000;
     border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     @media (min-width: 1807px) {
       right: 17%;
     }
