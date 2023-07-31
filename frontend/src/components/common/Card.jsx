@@ -79,9 +79,9 @@ export default function Card({ x, index, type }) {
               })}
             </div>
           </div>
-          <h4 className="fs-18 text-dark">
-            Amazing Views, <span className="fs-16 text-grey">2023</span>{" "}
-            <span className="block fs-14 text-grey">1 saved</span>
+          <h4 className="fs-18 text-dark text-bold">
+            Amazing Views, <span className="fs-16 text-light text-grey">2023</span>{" "}
+            <span className="block fs-14 text-grey text-light">1 saved</span>
           </h4>
         </div>
       </CardContent>
@@ -300,12 +300,12 @@ export default function Card({ x, index, type }) {
                 </div>
               </div>
               <div className="flex column">
-                <h4 className="fs-14 text-grey text-light">
+                <h4 className="fs-16 text-grey text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
-              <h4 className="fs-16 text-dark">
+              <h4 className="fs-14 text-dark">
                 ${x?.listing_price}{" "}
                 <span className="text-light fs-16">night</span>
               </h4>

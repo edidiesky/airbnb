@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="flex column gap-1">
             {listdata1.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-16 text-dark text-light">
                   {x}
                 </Link>
               );
@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="flex column gap-1">
             {listdata2.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-16 text-dark text-light">
                   {x}
                 </Link>
               );
@@ -65,7 +65,7 @@ const Footer = () => {
           <div className="flex column gap-1">
             {listdata3.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-16 text-dark text-light">
                   {x}
                 </Link>
               );
@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="flex column gap-1">
             {listsdata4.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-16 text-dark text-light">
                   {x}
                 </Link>
               );

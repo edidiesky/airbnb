@@ -168,7 +168,7 @@ export default function AuthModal({ type, click }) {
           </div>
           <div
             onClick={handleSubmit}
-            className="btn w-100 fs-16 text-white text-center"
+            className="btn w-100 text-bold fs-16 text-white text-center"
           >
             {" "}
             {!auth ? "Sign Up" : "Sign In"}
@@ -214,7 +214,7 @@ const DeleteContainer = styled(motion.div)`
     background: var(--red);
     color: #fff;
     padding: 0.8rem 2rem;
-    border-radius: 10px;
+    border-radius: 5px;
     &:hover {
       opacity: 0.8;
     }
