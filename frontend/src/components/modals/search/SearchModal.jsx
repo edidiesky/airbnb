@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
-import { RxCross1 } from "react-icons/rx";
-import { BiMinus, BiPlus } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { RxCross2 } from "react-icons/rx";
 import { destinations } from "../../../data/destinations";
 import GuestDropdown from "./guestdropdown";
 import RegionDropdown from "./regiondropdown";
@@ -45,7 +41,7 @@ export default function SearchModal() {
         style={{ zIndex: "10000" }}
         className="searchWrapper w-100 flex column item-center justify-center"
       >
-        <Header type={"type"} />
+        <Header type={"search"} />
         <div className="search_container flex item-center gap-1">
           {/* region serach */}
           {tab === 0 && <RegionDropdown destinations={destinations} />}
@@ -162,11 +158,11 @@ const SearchModalContainer = styled.div`
   }
   .guest_search {
     padding: 1.5rem 1rem;
-    border-radius: 40px;
+    border-radius: 20px;
     position: absolute;
     background-color: #fff;
     top: 120%;
-    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.4);
     width: 50%;
     right: 0;
     @media (max-width: 780px) {
@@ -199,14 +195,14 @@ const SearchModalContainer = styled.div`
       padding: 0.1rem 0;
       border-radius: 100px;
       position: relative;
-      margin-top: 6rem;
+      margin-top: 4rem;
       .region_search {
         padding: 1.5rem 1rem;
-        border-radius: 40px;
+        border-radius: 20px;
         position: absolute;
         background-color: #fff;
         top: 120%;
-        box-shadow: 0 20px 46px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 46px rgba(0, 0, 0, 0.2);
         .grid_wrapper {
           width: 100%;
           grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -223,7 +219,7 @@ const SearchModalContainer = styled.div`
         }
 
         &.active {
-          box-shadow: 0 20px 46px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 46px rgba(0, 0, 0, 0.2);
           background-color: #fff;
         }
       }
@@ -249,7 +245,7 @@ const SearchModalContainer = styled.div`
         }
 
         &.active {
-          box-shadow: 0 20px 46px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 46px rgba(0, 0, 0, 0.2);
           background-color: #fff;
         }
         input {

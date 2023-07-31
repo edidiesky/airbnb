@@ -40,7 +40,7 @@ export default function Home() {
         <>
           <Meta />
           <Header />
-          {/* <SearchModal/> */}
+          <SearchModal/>
           <AnimatePresence
             initial="false"
             exitBeforeEnter={true}

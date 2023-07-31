@@ -17,13 +17,6 @@ import { options2 } from "../../utils/carousel";
 import Logo2 from "./svg/Logo12";
 import Filter from "./svg/filter";
 
-const data = [
-  { id: 1, title: "Fiverr Business", path: "/business" },
-  { id: 2, title: "Explore", path: "/explore" },
-  { id: 3, title: "English", path: "/product" },
-  { id: 5, title: "Become a Seller", path: "/seller_onboarding" },
-];
-
 export default function Header({ type, loader }) {
   const { userInfo } = useSelector((store) => store.user);
   const navigate = useNavigate();
@@ -150,7 +143,13 @@ export default function Header({ type, loader }) {
   // headertop
   const HeaderTop = () => {
     return (
-      <div className="w-100 headerTop flex w-100 ">
+      <div
+        className={
+          type === "search"
+            ? "w-100 headerTop flex w-100 active"
+            : "w-100 headerTop flex w-100 "
+        }
+      >
         <div className="flex w-90 auto headertop1 flex-1 item-center justify-end">
           <div className="center justify-space w-100 flex item-center gap-1">
             <div className="flex item-center gap-2 ">
@@ -184,6 +183,11 @@ export default function Header({ type, loader }) {
             <Logo2 />
           </Link>
           {/* search */}
+          {/* {type === 'search' && (
+            <div className="flex item-center justify-center">
+              <h4 className="fs-18 text-light text-center">Stays</h4>
+            </div>
+          )} */}
           {!type && (
             <div className="flex item-center justify-end">
               <div className="center shadow flex item-center gap-1">
@@ -285,7 +289,10 @@ export default function Header({ type, loader }) {
             <SliderIndex options={options2}>
               {categorydata.map((x, index) => {
                 return loader ? (
-                  <div style={{margin:"0 10px"}} className=" flex-1 flex item-center justify-center column">
+                  <div
+                    style={{ margin: "0 10px" }}
+                    className=" flex-1 flex item-center justify-center column"
+                  >
                     <Skeleton width={25} height={25} circle />
                     <Skeleton width={80} height={15} />
                   </div>
@@ -513,6 +520,10 @@ const HeaderWrapper = styled.div`
   }
   .headerTop {
     padding: 1.3rem 0;
+    &.active {
+      padding: 1rem 0;
+      border: none;
+    }
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   }
   .owl-nav {
