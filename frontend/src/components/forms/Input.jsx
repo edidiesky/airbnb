@@ -15,8 +15,8 @@ const InputTextField = styled(TextField)(({ theme }) => ({
       borderColor: "transparent",
     },
     "&.Mui-focused fieldset": {
-      border: "2px solid rgba(0,0,0,1)",
-      
+      border: "1px solid rgba(0,0,0,1)",
+      borderColor: "transparent",
     },
   },
   "& .MuiOutlinedInput-input": {
@@ -37,7 +37,6 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   },
   "& .MuiInputLabel-shrink": {
     transform: "translate(12px, 1px) scale(0.85)",
-    color: "var(--red)",
   },
 }));
 

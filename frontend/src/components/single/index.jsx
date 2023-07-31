@@ -15,9 +15,9 @@ const SingleIndex = () => {
           <DetailsLoading />
         ) : (
           <>
-            <TopIndex />
+            {/* <TopIndex /> */}
             <CenterIndex />
-            <BottomIndex />
+            {/* <BottomIndex /> */}
           </>
         )}
       </div>

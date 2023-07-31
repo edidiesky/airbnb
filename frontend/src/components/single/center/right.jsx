@@ -15,11 +15,8 @@ import { clearReservationsAlert } from "../../../Features/reservations/reservati
 
 const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   const navigate = useNavigate();
-  const {
-    ReservationsIsLoading,
-    ReservationsIsSuccess,
-    ReservationsDetails,
-  } = useSelector((store) => store.reservations);
+  const { ReservationsIsLoading, ReservationsIsSuccess, ReservationsDetails } =
+    useSelector((store) => store.reservations);
 
   // console.log(ReservationsDetails);
   // navigate if the reservation of the user has been succesfully created
@@ -27,15 +24,15 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
     if (ReservationsIsSuccess) {
       navigate(`/${ReservationsDetails?._id}/payment`);
     }
-  }, [ReservationsDetails,ReservationsIsSuccess, navigate]);
+  }, [ReservationsDetails, ReservationsIsSuccess, navigate]);
 
   const formatDate = (date) => {
     return moment(date).format("DD/MM/YYYY");
   };
   const dispatch = useDispatch();
   return (
-    <div className="w-100 flex column gap-2">
-      <RightCard>
+    <RigthWrapper className="w-100 flex column gap-2">
+      <div className="RightCard">
         <div className="flex w-100 wrapper column gap-1 item-start">
           <div className="top flex justify-space w-100">
             <h4 className="fs-24 text-dark text-bold">
@@ -155,25 +152,23 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
             <span className="text-dark">$485</span>
           </h4>
         </div>
-      </RightCard>
-      {/* <DateReservationsIsSuccess /> */}
-    </div>
+      </div>
+    </RigthWrapper>
   );
 };
 
-const RightCard = styled.div`
-  width: 100%;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+const RigthWrapper = styled.div`
+  .RightCard {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 20px;
+    position: sticky;
+    top: 10%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
 
   svg {
     cursor: pointer;
-  }
-
-  .wrapper {
-    position: sticky;
-    top: 5%;
   }
 
   .reserveBtn {

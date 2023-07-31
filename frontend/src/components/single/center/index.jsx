@@ -75,7 +75,17 @@ const CenterIndex = () => {
   let limit = adults + children + infants;
   return (
     <CenterWrapper>
-      <LeftCenter />
+      <div className="grid_auto w-90 auto">
+        <LeftCenter />
+        <div className="rightwrapper flex column gap-2">
+          <RightCenter
+            limit={limit}
+            dateRange={dateRange}
+            handleCreateReservation={handleCreateReservation}
+          />
+        </div>
+      </div>
+
       <AnimatePresence
         initial="false"
         exitBeforeEnter={true}
@@ -103,23 +113,16 @@ const CenterIndex = () => {
           />
         )}
       </AnimatePresence>
-
-      <div className="rightwrapper flex column gap-2">
-        <RightCenter
-          limit={limit}
-          dateRange={dateRange}
-          handleCreateReservation={handleCreateReservation}
-        />
-      </div>
     </CenterWrapper>
   );
 };
 const CenterWrapper = styled.div`
   width: 100%;
-  display: grid;
-  grid-gap: 6rem;
-  grid-template-columns: 1fr 27vw;
-  place-items: start;
+  .grid_auto {
+    display: grid;
+    grid-gap: 6rem;
+    grid-template-columns: 1fr 27vw;
+  }
   /* place-items: start; */
   @media (max-width: 1080px) {
     display: flex;
