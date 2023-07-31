@@ -11,7 +11,7 @@ const SingleIndex = () => {
   return (
     <div className="w-100">
       <div className="w-85 auto flex column gap-4">
-        {!gigsIsLoading ? (
+        {gigsIsLoading ? (
           <DetailsLoading />
         ) : (
           <>
