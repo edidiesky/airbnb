@@ -9,7 +9,11 @@ const Imagewrapper = () => {
   return (
     <Wrapper>
       <div className="w-100 imagewrapper">
-        <img src={GigsDetails?.listing_image[0]} alt="" className="image w-100 h-100" />
+        <img
+          src={GigsDetails?.listing_image[0]}
+          alt=""
+          className="image w-100 h-100"
+        />
         <div className="gradient"></div>
       </div>
       <Wrapper>
@@ -47,9 +51,15 @@ const Imagewrapper = () => {
           <div className="gradient"></div>
         </div>{" "}
         <div className="w-100 imagewrapper images">
-          {GigsDetails?.listing_image[4] && (
+          {GigsDetails?.listing_image[4] ? (
             <img
               src={GigsDetails?.listing_image[4]}
+              alt=""
+              className="image w-100 h-100"
+            />
+          ) : (
+            <img
+              src={GigsDetails?.listing_image[1]}
               alt=""
               className="image w-100 h-100"
             />
@@ -81,6 +91,28 @@ export const Wrapper = styled.div`
   .imagewrapper {
     position: relative;
     height: 100%;
+    &:nth-child(2),
+    &:nth-child(3) {
+      img {
+        border-radius: 0;
+      }
+      .gradient {
+        border-radius: 0;
+      }
+    }
+    &:nth-child(2),
+    &:nth-child(5) {
+      img {
+        border-radius: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .gradient {
+        border-radius: 0;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
     @media (max-width: 780px) {
       min-height: 25rem;
     }
