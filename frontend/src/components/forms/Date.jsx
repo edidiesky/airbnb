@@ -11,9 +11,10 @@ export default function DateInput({ handleSelect,dateRange }) {
       rangeColors={["var(--grey-1)"]}
       ranges={[dateRange.selection]}
       onChange={handleSelect}
-      direction="vertical"
       showDateDisplay={false}
       minDate={new Date()}
+      months={2}
+      direction="horizontal"
       //   disabledDates={Date}
     />
   );

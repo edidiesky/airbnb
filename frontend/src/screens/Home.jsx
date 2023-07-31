@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { clearGigsAlert } from "../Features/listing/listingSlice";
 import { getAllGigs } from "../Features/listing/listingReducer";
 import HomeLoader from "../components/loaders/homeloader";
-import SearchModal from "../components/modals/SearchModal";
+import SearchModal from "../components/modals/search/SearchModal";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function Home() {
         <>
           <Meta />
           <Header />
-          <SearchModal/>
+          {/* <SearchModal/> */}
           <AnimatePresence
             initial="false"
             exitBeforeEnter={true}
