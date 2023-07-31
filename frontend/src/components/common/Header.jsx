@@ -17,7 +17,7 @@ import { options2 } from "../../utils/carousel";
 import Logo2 from "./svg/Logo12";
 import Filter from "./svg/filter";
 
-export default function Header({ type, loader }) {
+export default function Header({ type, loader, setSearch }) {
   const { userInfo } = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dropin = {
@@ -189,7 +189,10 @@ export default function Header({ type, loader }) {
             </div>
           )} */}
           {!type && (
-            <div className="flex item-center justify-end">
+            <div
+              onClick={() => setSearch(true)}
+              className="flex item-center justify-end"
+            >
               <div className="center shadow flex item-center gap-1">
                 <div className="fs-14 text-grey text-bold">Anywhere</div>
                 <div className="left1 fs-14 text-grey text-bold">Anyweek</div>

@@ -7,9 +7,10 @@ import GuestDropdown from "./guestdropdown";
 import RegionDropdown from "./regiondropdown";
 import { Header } from "../../common";
 import DateInput from "../../forms/Date";
-export default function SearchModal() {
-  const [search, setSearch] = useState("");
-  const [tab, setTab] = useState(0);
+import { motion } from "framer-motion";
+import { searchIn } from "../../../utils/framer";
+export default function SearchModal({ setSearch }) {
+  const [tab, setTab] = useState(-1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -28,8 +29,14 @@ export default function SearchModal() {
   });
 
   return (
-    <SearchModalContainer>
+    <SearchModalContainer
+      variants={searchIn}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div
+        onClick={() => setSearch(false)}
         style={{
           width: "100vw",
           height: "100vh",
@@ -42,7 +49,12 @@ export default function SearchModal() {
         className="searchWrapper w-100 flex column item-center justify-center"
       >
         <Header type={"search"} />
-        <div className="search_container flex item-center gap-1">
+        <motion.div
+          initial={{ opacity: 0 }} // Set the initial opacity of the child to 0
+          animate={{ opacity: 1 }} // Set the target opacity to 1 with bouncing scale animation
+          transition={{ delay: 1 }} //
+          className="search_container flex item-center gap-1"
+        >
           {/* region serach */}
           {tab === 0 && <RegionDropdown destinations={destinations} />}
           <div
@@ -124,13 +136,13 @@ export default function SearchModal() {
             </div>
             <div className="btn fs-16 text-white">Search</div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </SearchModalContainer>
   );
 }
 
-const SearchModalContainer = styled.div`
+const SearchModalContainer = styled(motion.div)`
   z-index: 2000;
   position: fixed;
   top: 0;
@@ -138,6 +150,8 @@ const SearchModalContainer = styled.div`
   height: 100vh;
   display: flex;
   align-items: flex-start;
+  transform-origin: top center;
+  /* transform-origin: "top center", */
   .icons {
     width: 2.5rem;
     border-radius: 50%;

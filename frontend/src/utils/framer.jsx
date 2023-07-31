@@ -22,6 +22,30 @@ export const dropin = {
   },
 };
 
+export const searchIn = {
+  hidden: {
+    transform: "scale(0.01)",
+    opacity: 0,
+    transition: {
+      delay: 0.3,
+    },
+  },
+  visible: {
+    transform: " scale(1)",
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  exit: {
+    transform: "scale(0)",
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 export const flip = {
   hidden: {
     transform: "translateY(100%)",

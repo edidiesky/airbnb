@@ -94,7 +94,7 @@ const CreateOrder = async (req, res) => {
 
   res.status(200).json({ order, url: session.url });
 
-  // console.log(req.body);
+  // console.log(req.body);y
 };
 
 // Update Order to paid for the user

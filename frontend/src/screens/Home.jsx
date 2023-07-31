@@ -13,6 +13,7 @@ import SearchModal from "../components/modals/search/SearchModal";
 export default function Home() {
   const dispatch = useDispatch();
   const [loader, setLoader] = useState(true);
+  const [search, setSearch] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -39,8 +40,15 @@ export default function Home() {
       ) : (
         <>
           <Meta />
-          <Header />
-          <SearchModal/>
+          <Header setSearch={setSearch} />
+          <AnimatePresence
+            initial="false"
+            exitBeforeEnter={true}
+            onExitComplete={() => null}
+          >
+            {search && <SearchModal setSearch={setSearch} />}
+          </AnimatePresence>
+
           <AnimatePresence
             initial="false"
             exitBeforeEnter={true}
