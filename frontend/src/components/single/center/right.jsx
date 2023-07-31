@@ -31,7 +31,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   };
   const dispatch = useDispatch();
   return (
-    <RigthWrapper className="w-100 flex column gap-2">
+    <RigthWrapper className="w-100 h-100">
       <div className="RightCard">
         <div className="flex w-100 wrapper column gap-1 item-start">
           <div className="top flex justify-space w-100">

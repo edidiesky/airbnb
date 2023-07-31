@@ -61,8 +61,15 @@ export default function AuthModal({ type, click }) {
   ];
   // dispatch
   const dispatch = useDispatch();
-  const { userAlert, userDetails, usernamemodal, isLoading, showAlert } =
-    useSelector((store) => store.user);
+  const {
+    userAlert,
+    loginSuccess,
+    userDetails,
+    usernamemodal,
+    isLoading,
+    showAlert,
+    alertText,
+  } = useSelector((store) => store.user);
 
   useEffect(() => {
     setFormData({
@@ -76,16 +83,15 @@ export default function AuthModal({ type, click }) {
       setAuth(true);
     }
   }, [usernamemodal, setAuth]);
+  useEffect(() => {
+    if (loginSuccess) {
+      dispatch(offAuthModal());
+    }
+  }, [loginSuccess, dispatch]);
   // open modal if type  === users
 
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
-  };
-
-  const HandleUsername = (e) => {
-    e.preventDefault();
-    // console.log('hello')
-    dispatch(UpdateProfile({ username }));
   };
 
   const handleSubmit = (e) => {
@@ -95,10 +101,19 @@ export default function AuthModal({ type, click }) {
       dispatch(loginCustomer({ email, password }));
       // console.log("login");
     } else {
-      dispatch(registerCustomer({ email, password }));
+      dispatch(registerCustomer({ email, password, username }));
       // console.log("registration");
     }
   };
+
+  useEffect(() => {
+    if (showAlert) {
+      setTimeout(() => {
+        dispatch(clearUserAlertError());
+      }, 5000);
+      return () => clearTimeout(dispatch(clearUserAlertError()), 4000);
+    }
+  }, [showAlert]);
 
   return (
     <DeleteContainer
@@ -107,7 +122,7 @@ export default function AuthModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
-      <Message alertText={"success"} showAlert={showAlert} />
+      <Message alertText={alertText} showAlert={showAlert} />
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       {isLoading && <LoaderIndex />}
       <motion.div
@@ -120,7 +135,10 @@ export default function AuthModal({ type, click }) {
         <div className="w-100 authTop fs-16 text-extra-bold text-dark flex item-center justify-space">
           <div className="w-90 auto flex item-center justify-space text-center">
             {" "}
-            <div className="icon flex item-center justify-center">
+            <div
+              onClick={() => dispatch(offAuthModal())}
+              className="icon flex item-center justify-center"
+            >
               <RxCross2 fontSize={"20px"} />
             </div>{" "}
             <span className="text-center w-100">Login or Sign up</span>
@@ -148,7 +166,7 @@ export default function AuthModal({ type, click }) {
                     />
                   );
                 })
-              : inputData.slice(1,3).map((input) => {
+              : inputData.slice(1, 3).map((input) => {
                   return (
                     <Input
                       id={input.text}
@@ -221,7 +239,7 @@ const DeleteContainer = styled(motion.div)`
   }
   .authBtn {
     border: 1px solid rgba(0, 0, 0, 1);
-    padding: 0.5rem   2rem;
+    padding: 0.5rem 2rem;
     border-radius: 8px;
   }
   .icon {

@@ -75,8 +75,8 @@ const CenterIndex = () => {
   let limit = adults + children + infants;
   return (
     <CenterWrapper>
-      <div className="grid_auto w-90 auto">
-        <LeftCenter />
+      <div className="grid_auto w-100 auto">
+        <LeftCenter handleSelect={handleSelect} dateRange={dateRange} />
         <div className="rightwrapper flex column gap-2">
           <RightCenter
             limit={limit}
@@ -120,14 +120,16 @@ const CenterWrapper = styled.div`
   width: 100%;
   .grid_auto {
     display: grid;
-    grid-gap: 6rem;
+    grid-gap: 2rem;
     grid-template-columns: 1fr 27vw;
+    min-height: 70vh;
+    @media (max-width: 1080px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
   /* place-items: start; */
-  @media (max-width: 1080px) {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+
   .rightwrapper {
     width: 100%;
   }

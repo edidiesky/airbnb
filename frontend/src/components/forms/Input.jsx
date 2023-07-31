@@ -6,7 +6,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     borderRadius: "4px",
     backgroundColor: "#fff",
-    border: "1px solid rgba(0,0,0,.6)",
+    border: "1px solid rgba(0,0,0,.4)",
 
     "& fieldset": {
       borderColor: "transparent",
@@ -25,10 +25,12 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     fontWeight: "400",
     fontFamily: "CustomFont2_light, sans-serif",
     color: "var(--dark-1)",
+    textTransform: "Capitalize",
   },
   "& .MuiInputLabel-root": {
     fontSize: "15px",
     fontWeight: "400",
+    color: "var(--dark-1)",
   },
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused
@@ -40,13 +42,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const FormInput = ({ types, setState, state, id, ...props }) => {
-  const handleFormInput = (e) => {
-    if (setState) {
-      setState(e.target.value);
-    }
-  };
-
+const FormInput = ({ types, setState, onChange, value, id, ...props }) => {
   return (
     <InputTextField
       label={id}
@@ -54,8 +50,8 @@ const FormInput = ({ types, setState, state, id, ...props }) => {
       fullWidth
       autoComplete="off"
       {...props}
-      value={state}
-      onChange={handleFormInput}
+      value={value}
+      onChange={onChange}
       multiline={types === "textarea"}
     />
   );

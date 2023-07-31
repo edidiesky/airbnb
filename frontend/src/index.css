@@ -40,10 +40,23 @@ a {
 }
 .rdrMonth {
   width: 100% !important;
+  font-size: 15px !important;
+}
+.rdrMonthAndYearPickers select {
+  font-size: 16px !important;
+  color: var(--dark-1) !important;
+
+}
+
+.rdrDateRangePickerWrapper {
+  border: 2px solid #ccc;
+  border-radius: 50% !important;
+  padding: 10px;
 }
 .rdrCalendarWrapper {
   width: 100% !important;
-  font-size: 13px !important;
+  color: var(--dark-1) !important;
+  font-size: 15px !important;
 }
 .avatar-large {
   width: 5rem;
@@ -102,7 +115,7 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .bottom {
-  padding-bottom: 2rem;
+  padding-bottom: 2.4rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
