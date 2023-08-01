@@ -26,6 +26,7 @@ import {
   Reservations,
   Profile,
   DurationsOfplace,
+  Order,
 } from "./screens";
 import {
   HostEarnings,
@@ -59,6 +60,7 @@ export default function App() {
           <Route path="wishlists" element={<Wish />} />
           <Route path="reservations" element={<Reservations />} />
           <Route path="/:id/payment" element={<Payment />} />
+          <Route path="/:id/order" element={<Order />} />
         </Route>
         {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
