@@ -522,7 +522,7 @@ const HeaderWrapper = styled.div`
     position: relative;
   }
   .headerTop {
-    padding: 1.3rem 0;
+    padding: .7rem 0;
     &.active {
       padding: 1rem 0;
       border: none;

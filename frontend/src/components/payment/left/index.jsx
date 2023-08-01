@@ -23,6 +23,7 @@ export default function SingleLeftIndex({ id }) {
   const { ReservationsDetails, ReservationsUpdateIsSuccess } = useSelector(
     (store) => store.reservations
   );
+  const { GigsDetails } = useSelector((store) => store.gigs);
 
   const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
   const { isloadingStripe, url } = useSelector((store) => store.order);

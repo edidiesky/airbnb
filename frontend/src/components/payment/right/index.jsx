@@ -7,9 +7,9 @@ export default function RightIndex() {
   const { ReservationsDetails } = useSelector((store) => store.reservations);
   let date1 = moment(ReservationsDetails?.startDate, "DD/MM/YYYY");
   let date2 = moment(ReservationsDetails?.endDate, "DD/MM/YYYY");
-  const differenceInDays = date2.diff(date1, "days").toFixed(); // Convert milliseconds to days
+  const differenceInDays = Math.round((date2 - date1) / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
 
-  // console.log(differenceInDays, date1);
+  console.log(differenceInDays, date1, date2);
 
   return (
     <RightIndexContent className="w-100">
@@ -24,8 +24,8 @@ export default function RightIndex() {
                   }
                 )}
               </div>
-              <h4 className="fs-16 w-100 text-grey">
-                <span className="block fs-12 text-grey text-bold">
+              <h4 className="fs-16 w-100 text-dark text-light">
+                <span className="block fs-12 text-dark text-light">
                   Room in bed and breakfast
                 </span>
                 {/* Quiet riad with lovely terrace (private room) */}
@@ -117,6 +117,7 @@ const RightIndexContent = styled.div`
       object-fit: cover;
       height: 8rem;
       position: absolute;
+      border-radius: 10px;
     }
   }
 

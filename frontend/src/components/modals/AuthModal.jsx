@@ -147,7 +147,7 @@ export default function AuthModal({ type, click }) {
 
         <div className="w-90 authBottom auto flex column gap-1">
           <h3 className="fs-20 py-1 text-dark text-bold">Welcome to Airbnb</h3>
-          <div className="flex column gap-1">
+          <div className="flex column" style={{ gap: ".5rem" }}>
             {!auth
               ? inputData.map((input) => {
                   return (
