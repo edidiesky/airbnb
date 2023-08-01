@@ -45,7 +45,17 @@ a {
 .rdrMonthAndYearPickers select {
   font-size: 16px !important;
   color: var(--dark-1) !important;
+}
+.css-1flmtb5-MuiDataGrid-root .MuiDataGrid-row {
+  max-height: 100px !important;
+  min-height: 100px !important;
+}
 
+.css-1flmtb5-MuiDataGrid-root
+  .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)
+  > .MuiDataGrid-cell {
+  max-height: 100px !important;
+  min-height: 100px !important;
 }
 
 .rdrDateRangePickerWrapper {

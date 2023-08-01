@@ -7,6 +7,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     borderRadius: "4px",
     backgroundColor: "#fff",
     border: "1px solid rgba(0,0,0,.4)",
+    transitino: "all .4s",
 
     "& fieldset": {
       borderColor: "transparent",
@@ -14,9 +15,16 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     "&:hover fieldset": {
       borderColor: "transparent",
     },
+    "&:hover": {
+      borderColor: "2px solid rgba(0,0,0,1)",
+    },
     "&.Mui-focused fieldset": {
       border: "1px solid rgba(0,0,0,1)",
       borderColor: "transparent",
+    },
+    "&.Mui-focused ": {
+      border: "2px solid rgba(0,0,0,1)",
+      // borderColor: "transparent",
     },
   },
   "& .MuiOutlinedInput-input": {
@@ -35,10 +43,11 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused
     color: "var(--dark-1)",
-    fontWeight: "400",
+    fontWeight: "bold",
   },
   "& .MuiInputLabel-shrink": {
     transform: "translate(12px, 1px) scale(0.85)",
+    fontWeight: "bold",
   },
 }));
 

@@ -10,6 +10,7 @@ import { useDemoData } from "@mui/x-data-grid-generator";
 import { styled } from "@mui/material/styles";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
+import { columnsData, rowData } from "./data";
 
 function customCheckbox(theme) {
   return {
@@ -76,7 +77,8 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   ].join(","),
   WebkitFontSmoothing: "auto",
   letterSpacing: "normal",
-  fontSize: "15px",
+  fontSize: "16px",
+
   "& .MuiDataGrid-columnsContainer": {
     backgroundColor: theme.palette.mode === "light" ? "#fafafa" : "#1d1d1d",
   },
@@ -98,55 +100,26 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   ...customCheckbox(theme),
 }));
 
-function CustomPagination() {
-  const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
-  const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-
-  return (
-    <Pagination
-      color="primary"
-      variant="outlined"
-      shape="rounded"
-      page={page + 1}
-      count={pageCount}
-      // @ts-expect-error
-      renderItem={(props2) => <PaginationItem {...props2} disableRipple />}
-      onChange={(event, value) => apiRef.current.setPage(value - 1)}
-    />
-  );
-}
-
-const PAGE_SIZE = 5;
-
 export default function AntDesignGrid() {
-  const { data } = useDemoData({
-    dataSet: "Commodity",
-    rowLength: 10,
-    maxColumns: 10,
-  });
-
-  //   console.log(data);
-
-  const [paginationModel, setPaginationModel] = React.useState({
-    pageSize: PAGE_SIZE,
-    page: 0,
-  });
 
   return (
     <div className="w-100 flex column">
       <div className="w-85 auto flex column gap-2 py-2">
-        <h2 className="fs-40">Bookings</h2>
-        <div style={{ height: 400, width: "100%" }}>
+        <h2 className="fs-35 text-bold">Bookings</h2>
+        <div style={{ minHeight: '400px', width: "100%" ,maxHeight:'500px'}}>
           <StyledDataGrid
-            checkboxSelection
-            paginationModel={paginationModel}
-            onPaginationModelChange={setPaginationModel}
-            pageSizeOptions={[PAGE_SIZE]}
-            slots={{
-              pagination: CustomPagination,
+            rows={rowData}
+            columns={columnsData}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 5,
+                },
+              },
             }}
-            {...data}
+            pageSizeOptions={[5]}
+            checkboxSelection
+            disableRowSelectionOnClick
           />
         </div>
       </div>
