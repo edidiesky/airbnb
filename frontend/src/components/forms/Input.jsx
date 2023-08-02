@@ -7,7 +7,6 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     borderRadius: "10px",
     backgroundColor: "#fff",
     border: "1px solid rgba(0,0,0,.4)",
-    transitino: "all .4s",
 
     "& fieldset": {
       borderColor: "transparent",
@@ -39,7 +38,6 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     fontSize: "15px",
     fontWeight: "400",
     color: "var(--dark-1)",
-    transitino: "all .4s",
   },
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused

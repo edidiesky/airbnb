@@ -350,6 +350,9 @@ const HeaderWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 6vw;
     grid-gap: 1rem;
+    @media (max-width: 780px) {
+      grid-template-columns: 1fr;
+    }
   }
   .fiterIcon {
     padding: 0.9rem 1rem;
@@ -359,6 +362,9 @@ const HeaderWrapper = styled.div`
   .fiterWrapper {
     /* width: 300px; */
     /* background-color: red; */
+    @media (max-width: 780px) {
+      display: none;
+    }
   }
   .icons {
     width: 30px;
@@ -440,7 +446,7 @@ const HeaderWrapper = styled.div`
       right: 17%;
     }
     li {
-      padding: .7rem 2rem;
+      padding: 0.7rem 2rem;
       cursor: pointer;
       border-radius: inherit;
       &:hover {
