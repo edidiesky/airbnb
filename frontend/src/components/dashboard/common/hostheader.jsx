@@ -81,13 +81,20 @@ export default function Hostheader() {
             top: 0,
             left: 0,
             position: "absolute",
+            zIndex: -1,
           }}
         ></div>
-        <div  style={{zIndex:"20"}} className="aboutCenter flex item-center gap-3 justify-space w-90 auto">
+        <div
+          style={{ zIndex: "20" }}
+          className="aboutCenter flex item-center gap-3 justify-space w-90 auto"
+        >
           <Logo2 />
           <div className="center fs-16 w-100 text-grey text-light flex item-center justify-center gap-1">
             <NavLink activeClassName="active" to={`/dashboard/hosting/reviews`}>
               Reviews
+            </NavLink>
+            <NavLink activeClassName="active" to={`/dashboard/hosting/reviews`}>
+              Messenger
             </NavLink>
             <NavLink activeClassName="active" to={`/dashboard/hosting`}>
               Insights
@@ -205,6 +212,8 @@ const HostheaderContainer = styled.div`
     a {
       padding: 0.6rem 1rem;
       border-radius: 40px;
+      font-weight: 600;
+      font-size: 14px;
       &.active {
         color: #50fc61;
       }
