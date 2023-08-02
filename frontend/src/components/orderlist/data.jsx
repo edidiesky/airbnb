@@ -46,8 +46,8 @@ export const rowData = [
 ];
 
 export const columnsData = [
-  { field: "date", headerName: "DATE", width: 140 },
-  { field: "listing_title", headerName: "LISITNG", width: 250 },
+  { field: "date", headerName: "DATE", width: 170 },
+  { field: "listing_title", headerName: "LISITNG", width: 350 },
   { field: "status", headerName: "STATUS", width: 120 },
   { field: "amount", headerName: "Amount", width: 130 },
   { field: "beds", headerName: "Beds", width: 100 },

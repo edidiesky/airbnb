@@ -48,7 +48,7 @@ const LoginUser = asyncHandler(async (req, res) => {
   if (!email || !password) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
-  }
+  } 
   // Find the user in the database
 
   const user = await User.findOne({ email });

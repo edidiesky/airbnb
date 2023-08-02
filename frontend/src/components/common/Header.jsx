@@ -93,6 +93,25 @@ export default function Header({ type, loader, setSearch }) {
                 Reservations
               </Link>
             </li>
+            <li className="fs-14 text-light text-dark">
+              {" "}
+              <Link className="w-100" to={"/wishlists"}>
+                Wishlists
+              </Link>
+            </li>
+            <li className="fs-14 text-light text-dark">
+              {" "}
+              <Link className="w-100" to={"/favorites"}>
+                Favorites
+              </Link>
+            </li>
+            <li className="fs-14 text-light text-dark">
+              {" "}
+              <Link className="w-100" to={"/trips"}>
+                Trips
+              </Link>
+            </li>
+            <li className="fs-14 text-light text-dark">Logout</li>
           </div>
         ) : (
           <div className="">
@@ -110,26 +129,6 @@ export default function Header({ type, loader, setSearch }) {
             </li>
           </div>
         )}
-
-        <li className="fs-14 text-light text-dark">
-          {" "}
-          <Link className="w-100" to={"/wishlists"}>
-            Wishlists
-          </Link>
-        </li>
-        <li className="fs-14 text-light text-dark">
-          {" "}
-          <Link className="w-100" to={"/favorites"}>
-            Favorites
-          </Link>
-        </li>
-        <li className="fs-14 text-light text-dark">
-          {" "}
-          <Link className="w-100" to={"/trips"}>
-            Trips
-          </Link>
-        </li>
-        <li className="fs-14 text-light text-dark">Logout</li>
       </motion.ul>
     );
   };
@@ -441,7 +440,7 @@ const HeaderWrapper = styled.div`
       right: 17%;
     }
     li {
-      padding: 1rem 2rem;
+      padding: .7rem 2rem;
       cursor: pointer;
       border-radius: inherit;
       &:hover {
@@ -490,7 +489,7 @@ const HeaderWrapper = styled.div`
     justify-content: flex-end;
   }
   .HeaderBottom {
-    padding: 0.3rem 0;
+    padding: 0.8rem 0;
   }
   .text {
     padding: 0.6rem 1rem;
@@ -522,7 +521,7 @@ const HeaderWrapper = styled.div`
     position: relative;
   }
   .headerTop {
-    padding: .7rem 0;
+    padding: 0.7rem 0;
     &.active {
       padding: 1rem 0;
       border: none;

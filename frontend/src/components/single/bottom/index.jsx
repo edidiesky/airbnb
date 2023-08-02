@@ -21,7 +21,7 @@ const BottomIndex = () => {
             <img
               src={GigsDetails?.listing_host_Id?.image}
               alt=""
-              style={{ width: "5rem", height: "5rem", borderRadius: "50%" }}
+              style={{ width: "5rem", height: "5rem", borderRadius: "50%",objectFit:"cover" }}
             />
             <div className="flex column item-start gap-2">
               <h3 className="fs-24 text-dark text-bold">
@@ -46,7 +46,7 @@ const BottomIndex = () => {
             >
               {GigsDetails?.listing_host_Id?.username} is a Superhost
               <span
-                style={{ width: "60%" }}
+                style={{ width: "100%" }}
                 className="block w-50 fs-16 text-dark text-light"
               >
                 Superhosts are experienced, highly rated hosts who are committed

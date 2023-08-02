@@ -33,7 +33,7 @@ export default function AuthModal({ type, click }) {
     {
       id: 1,
       name: "username",
-      placeholder: "Insert your username",
+      placeholder: "Username",
       type: "text",
       text: "Choose a username",
       errorMessage: "username cannot be left empty",
@@ -42,7 +42,7 @@ export default function AuthModal({ type, click }) {
     {
       id: 1,
       name: "email",
-      placeholder: "example@site.com",
+      placeholder: "Email",
       type: "email",
       text: "Email",
       errorMessage: "It should be a valid email",
@@ -51,9 +51,9 @@ export default function AuthModal({ type, click }) {
     {
       id: 2,
       name: "password",
-      placeholder: "Minimum 8 Characters",
+      placeholder: "Password",
       type: "password",
-      text: "password",
+      text: "Password",
       errorMessage:
         "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
       required: true,
@@ -145,8 +145,8 @@ export default function AuthModal({ type, click }) {
           </div>
         </div>
 
-        <div className="w-90 authBottom auto flex column gap-1">
-          <h3 className="fs-20 py-1 text-dark text-bold">Welcome to Airbnb</h3>
+        <div className="w-90 authBottom auto flex column">
+          <h3 className="fs-24 py-1 text-dark text-bold">Welcome to Airbnb</h3>
           <div className="flex column" style={{ gap: ".5rem" }}>
             {!auth
               ? inputData.map((input) => {
@@ -186,7 +186,7 @@ export default function AuthModal({ type, click }) {
           </div>
           <div
             onClick={handleSubmit}
-            className="btn w-100 text-bold fs-16 text-white text-center"
+            className="btn py-1 w-100 text-bold fs-16 text-white text-center"
           >
             {" "}
             {!auth ? "Sign Up" : "Sign In"}
@@ -229,10 +229,16 @@ const DeleteContainer = styled(motion.div)`
   justify-content: center;
   top: 0;
   .btn {
-    background: var(--red);
+    background-image: linear-gradient(
+      to right,
+      #e61e4d 0%,
+      #e31c5f 50%,
+      #d70466 100%
+    );
     color: #fff;
     padding: 0.8rem 2rem;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin: 1rem 0;
     &:hover {
       opacity: 0.8;
     }
@@ -300,7 +306,7 @@ const DeleteContainer = styled(motion.div)`
     justify-content: center;
     flex-direction: column;
     background: #fff;
-    gap: 2rem;
+    gap: 1rem;
     border-radius: 10px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
