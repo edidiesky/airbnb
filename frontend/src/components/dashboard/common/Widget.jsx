@@ -36,7 +36,7 @@ export default function Widget() {
       percent: "+1.06",
     },
     {
-      id: 4,
+      id: 5,
       title: "Listed Merchant",
       qty: `100`,
       icon: <BsCartPlus />,
@@ -114,8 +114,8 @@ const WidgetWrapper = styled.div`
       }
       .span1 {
         display: block;
-        font-size: 17px;
-        font-weight: 600;
+        font-size: 14px;
+        font-weight: 400;
         font-family: "Montserrat", sans-serif;
         color: var(--grey-1);
         text-transform: capitalize;

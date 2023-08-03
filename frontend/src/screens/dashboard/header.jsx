@@ -8,7 +8,7 @@ const HeaderWrapper = styled.div`
   background-color: #fff;
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 2000;
   h3 {
     font-family: "Montserrat", sans-serif;
 

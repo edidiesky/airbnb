@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,7 +17,6 @@ import { useEffect } from "react";
 import Message from "../loaders/Message";
 import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
 import CardSkeleton from "./cardskeleton";
-
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
@@ -50,6 +48,7 @@ export default function Card({ x, index, type }) {
       })
     );
   };
+  let cardid = x?._id;
 
   let wishdetails = x;
 
@@ -80,7 +79,8 @@ export default function Card({ x, index, type }) {
             </div>
           </div>
           <h4 className="fs-18 text-dark text-bold">
-            Amazing Views, <span className="fs-16 text-light text-grey">2023</span>{" "}
+            Amazing Views,{" "}
+            <span className="fs-16 text-light text-grey">2023</span>{" "}
             <span className="block fs-14 text-grey text-light">1 saved</span>
           </h4>
         </div>
@@ -122,6 +122,37 @@ export default function Card({ x, index, type }) {
       </CardContent>
     );
   }
+  if (type === "dashboard") {
+    return (
+      <>
+        {gigsIsLoading ? (
+          <CardSkeleton />
+        ) : (
+          <CardContent>
+            <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
+              <div className="detailsImageContainer">
+                {/* button  */}
+                <div className="detailsImageWrapper">
+                  {x?.listing_image?.map((x) => {
+                    return (
+                      <Link
+                        to={`/rooms/${cardid}`}
+                        style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                        className="w-100 card"
+                      >
+                        <img src={x} alt="" className="w-100" />
+                        <div className="backdrop"></div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        )}
+      </>
+    );
+  }
   const handleClearMessage = () => {
     dispatch(clearWishMessage());
   };
@@ -148,7 +179,6 @@ export default function Card({ x, index, type }) {
   //   );
   //   // console.log(found);
   // }, [wish, Gigs]);
-  let cardid = x?._id;
 
   // resrevation cards
   if (type === "reservations") {
@@ -290,7 +320,9 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-16 text-bold text-dark">{x?.listing_location}</h4>
+                <h4 className="fs-16 text-bold text-dark">
+                  {x?.listing_location}
+                </h4>
                 <div
                   style={{ gap: ".3rem" }}
                   className="flex text-light fs-14 item-center"

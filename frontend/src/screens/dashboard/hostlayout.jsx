@@ -17,7 +17,6 @@ const LayoutWrapper = styled.div`
     font-family: inherit;
     .OutletWrapper {
       width: 100%;
-      padding-bottom: 3.5rem;
       @media (max-width: 980px) {
         transform: translateY(0);
         z-index: 9000;
