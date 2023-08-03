@@ -5,30 +5,21 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Heart from "./svg/heart";
 import Star from "./svg/star";
-import { onProfileModal } from "../../Features/user/userSlice";
 import { RxCross2 } from "react-icons/rx";
 import {
   addProductToWish,
   clearWishMessage,
-  handleWishId,
   onWishDeleteModal,
 } from "../../Features/wish/wishSlice";
-import { useEffect } from "react";
-import Message from "../loaders/Message";
 import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
 import CardSkeleton from "./cardskeleton";
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
-  // const [wishsindex, wishidArray] = useState([]);
   const dispatch = useDispatch();
-  const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
-  const { Reservations, ReservationsIsLoading } = useSelector(
-    (store) => store.reservations
-  );
-  const { wish, wishidArray, showAlert, alertText } = useSelector(
-    (store) => store.wish
-  );
+  const { gigsIsLoading } = useSelector((store) => store.gigs);
+  const { ReservationsIsLoading } = useSelector((store) => store.reservations);
+  const { wishidArray } = useSelector((store) => store.wish);
 
   const handleImagePosition = (position) => {
     if (position === "left") {
@@ -128,35 +119,39 @@ export default function Card({ x, index, type }) {
         {gigsIsLoading ? (
           <CardSkeleton />
         ) : (
-          <CardContent>
-            <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
-              <div className="detailsImageContainer">
-                {/* button  */}
-                <div className="detailsImageWrapper">
-                  {x?.listing_image?.map((x) => {
-                    return (
-                      <Link
-                        to={`/rooms/${cardid}`}
-                        style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                        className="w-100 card"
-                      >
-                        <img src={x} alt="" className="w-100" />
-                        <div className="backdrop"></div>
-                      </Link>
-                    );
-                  })}
+          <DashboardCard key={x?.listing_id}>
+            <div className="backdrop"></div>
+            <div className="card_header w-100 flex column gap-1 item-start">
+              <div className="w-85 auto flex column item-start gap-1">
+                <div className="flex">
+                  <h5 className="fs-12 text-white listing_status">Booked</h5>
+                </div>
+                <div className="flex column">
+                  <h4 className="fs-14 text-white">{x?.listing_location}</h4>
+                  <h5 className="fs-12 text-white text-light">
+                    {x?.listing_distance} kilometers away
+                  </h5>
                 </div>
               </div>
             </div>
-          </CardContent>
+            <div className="detailsImageWrapper">
+              {x?.listing_image?.map((x) => {
+                return (
+                  <Link
+                    to={`/rooms/${cardid}`}
+                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                    className="w-100 card"
+                  >
+                    <img src={x} alt="" className="w-100 h-100" />
+                  </Link>
+                );
+              })}
+            </div>
+          </DashboardCard>
         )}
       </>
     );
   }
-  const handleClearMessage = () => {
-    dispatch(clearWishMessage());
-  };
-
   // useEffect(() => {
   //   // const found = Gigs.some((gig) => {
   //   //   wish.some((gigs) => gigs?._id === gig?._id);
@@ -408,9 +403,30 @@ const CardContent = styled.div`
       }
     }
   }
+  .card_header {
+    position: absolute;
+    z-index: 40;
+    bottom: 10%;
+    h4,
+    h5 {
+      color: #fff;
+    }
+  }
   .detailsImageContainer {
     width: 100%;
+    transition: all 0.4s;
     position: relative;
+    &.dashboardCard {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    &.dashboardCard:hover {
+      transform: scale(1.1);
+
+      .detailsImageWrapper {
+        transform: none;
+      }
+    }
 
     &:hover .btnArrow {
       opacity: 1;
@@ -445,6 +461,22 @@ const CardContent = styled.div`
         top: 50%;
         transform: translateY(-50%);
       }
+    }
+    .listing_status {
+      padding: 0.2rem 0.8rem;
+      color: #fff;
+      border-radius: 40px;
+      background: var(--red);
+      font-weight: 400;
+    }
+    .backdrop {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      transition: all 0.4s;
+      width: 100%;
+      height: 18rem;
+      z-index: 10;
+      border-radius: 10px;
     }
 
     .detailsImageWrapper {
@@ -618,43 +650,70 @@ const CardContent = styled.div`
   }
 `;
 
-const CardLoadingContent = styled.div`
-  /* min-height: 35rem; */
-  min-width: 100%;
-  background-color: #fff;
-  .skeleton {
-    opacity: 0.7;
-    animation: card-loading 1s infinite alternate;
+const DashboardCard = styled.div`
+  height: 18rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  &:hover {
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
+    transform: scale(1.12);
   }
-  .top {
-    height: 17rem;
-    opacity: 0.4;
-    border-radius: 12px;
-    animation: card-loading 2s infinite alternate;
+  .backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    transition: all 0.4s;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 10px;
   }
-  .bottomCenter {
-    height: 1rem;
-    flex: 0.3;
-  }
-  .h-6 {
-    height: 1.5rem;
-  }
-  .topCenter {
-    width: 50%;
-    height: 1.5rem;
-  }
-  .period1 {
-    animation-duration: 1.5s;
-  }
-  .period2 {
-    animation-duration: 2s;
-  }
-  @keyframes card-loading {
-    0% {
-      background-color: #ebebeb;
+  .card_header {
+    position: absolute;
+    z-index: 40;
+    bottom: 10%;
+    h4,
+    h5 {
+      color: #fff;
     }
-    100% {
-      background-color: #d4dee2a1;
+  }
+
+  .listing_status {
+    padding: 0.2rem 0.8rem;
+    color: #fff;
+    border-radius: 40px;
+    background: var(--red);
+    font-weight: 400;
+  }
+
+  .detailsImageWrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    overflow: hidden;
+    grid-gap: 0rem;
+    height: 100%;
+    position: absolute;
+    transition: all 0.4s;
+    width: 100%;
+    height: 100%;
+    .card {
+      width: 100%;
+      position: relative;
+      transition: all 0.6s ease-in-out;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        /* position: absolute; */
+
+        @media (min-width: 1600px) {
+          height: 100%;
+          /* object-fit: cover; */
+        }
+      }
     }
   }
 `;

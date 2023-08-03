@@ -14,7 +14,4 @@ export default function HostListings() {
 
 const HostListingsPlaceContainer = styled.div`
   width: 100%;
-  /* overflow: hidden; */
-  /* min-height: 70vh; */
-  padding-top: 4rem;
 `;
