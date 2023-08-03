@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Heart from "./svg/heart";
 import Star from "./svg/star";
@@ -119,33 +119,57 @@ export default function Card({ x, index, type }) {
         {gigsIsLoading ? (
           <CardSkeleton />
         ) : (
-          <DashboardCard key={x?.listing_id}>
-            <div className="backdrop"></div>
-            <div className="card_header w-100 flex column gap-1 item-start">
-              <div className="w-85 auto flex column item-start gap-1">
-                <div className="flex">
-                  <h5 className="fs-12 text-white listing_status">Booked</h5>
-                </div>
-                <div className="flex column">
-                  <h4 className="fs-14 text-white">{x?.listing_location}</h4>
-                  <h5 className="fs-12 text-white text-light">
-                    {x?.listing_distance} kilometers away
-                  </h5>
+          <DashboardCard key={x?.listing_id} className="flex column gap-1">
+            <div className="dashboard_wrapper">
+              <div className="backdrop"></div>
+              <div className="card_header w-100 flex column gap-1 item-start">
+                <div className="w-85 auto flex column item-start gap-1">
+                  <div className="flex">
+                    <h5 className="fs-12 text-white listing_status">Booked</h5>
+                  </div>
+                  <div className="flex column">
+                    <h4 className="fs-14 text-white">{x?.listing_location}</h4>
+                    <h5 className="fs-12 text-white text-light">
+                      {x?.listing_distance} kilometers away
+                    </h5>
+                  </div>
                 </div>
               </div>
+              <div className="detailsImageWrapper">
+                {x?.listing_image?.map((x) => {
+                  return (
+                    <Link
+                      to={`/rooms/${cardid}`}
+                      style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                      className="w-100 card"
+                    >
+                      <img src={x} alt="" className="w-100 h-100" />
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
-            <div className="detailsImageWrapper">
-              {x?.listing_image?.map((x) => {
-                return (
-                  <Link
-                    to={`/rooms/${cardid}`}
-                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                    className="w-100 card"
-                  >
-                    <img src={x} alt="" className="w-100 h-100" />
-                  </Link>
-                );
-              })}
+            <div className="flex column w-90 auto">
+              <div
+                style={{ gap: ".3rem" }}
+                className="flex fs-12 text-bold item-center"
+              >
+                4.98
+                <div className="flex item-center">
+                  <BiStar color="var(--red)" />
+                  <BiStar color="var(--red)" />
+                  <BiStar color="var(--red)" />
+                  <BiStar color="var(--red)" />
+                </div>
+              </div>
+              <h4 className="fs-14 text-dark">
+                {x?.listing_beds}{" "}
+                <span className="text-light fs-12">Beds</span>
+              </h4>
+              <h4 className="fs-14 text-dark">
+                ${x?.listing_price}{" "}
+                <span className="text-light fs-12">night</span>
+              </h4>
             </div>
           </DashboardCard>
         )}
@@ -651,13 +675,15 @@ const CardContent = styled.div`
 `;
 
 const DashboardCard = styled.div`
-  height: 18rem;
-  position: relative;
-  transition: all 0.3s ease;
-  border-radius: 20px;
-  overflow: hidden;
+  background-color: transparent;
+  .dashboard_wrapper {
+    height: 18rem;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+  }
   &:hover {
-    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
     transform: scale(1.12);
   }
   .backdrop {

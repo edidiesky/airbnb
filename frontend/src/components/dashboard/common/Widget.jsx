@@ -14,8 +14,8 @@ export default function Widget() {
     {
       id: 1,
       title: "Total Sales",
-      qty: "$100,357",
-      icon: <RiMoneyDollarCircleLine />,
+      qty: "$10,357",
+      icon: 'https://assets.website-files.com/6057ab51530cb39d3fdac75d/605882d03baf8a2d544bd28f_dollar-sign.svg',
       back: "#ff3333",
       percent: "2.6",
     },
@@ -23,7 +23,7 @@ export default function Widget() {
       id: 2,
       title: "Visitors",
       qty: `$100`,
-      icon: <FaEye />,
+      icon: 'https://assets.website-files.com/6057ab51530cb39d3fdac75d/6058831adf921f01483b3167_tag.svg',
       back: "#50fc61",
       percent: "-0.06",
     },
@@ -31,7 +31,7 @@ export default function Widget() {
       id: 4,
       title: "Total Product",
       qty: `100`,
-      icon: <BiStats />,
+      icon: 'https://assets.website-files.com/6057ab51530cb39d3fdac75d/605883bbba1d7412377fefe7_truck.svg',
       back: "#1457ed",
       percent: "+1.06",
     },
@@ -39,7 +39,7 @@ export default function Widget() {
       id: 5,
       title: "Listed Merchant",
       qty: `100`,
-      icon: <BsCartPlus />,
+      icon: 'https://assets.website-files.com/6057ab51530cb39d3fdac75d/605884bd2fa05845ae96285f_users.svg',
       back: "#1457ed",
       percent: "+1.06",
     },
@@ -58,7 +58,9 @@ export default function Widget() {
             key={x.id}
             onClick={() => setWidgetTab(x.id)}
           >
-            <div className="Icons">{x.icon}</div>
+            <div className="Icons">
+              <img src={x.icon} alt="" />
+            </div>
             <h3 className="text-dark">
               {x.qty}
               <span className="span1">{x.title}</span>
@@ -93,6 +95,8 @@ const WidgetWrapper = styled.div`
     width: 100%;
     border-radius: 10px;
     transition: all 0.3s;
+    box-shadow: 0 1px 1px 0 rgba(118, 135, 154, 0.24),
+      0 3px 8px 0 rgba(118, 135, 154, 0.08);
     h4 {
       font-size: 13px;
       color: var(--grey-2);

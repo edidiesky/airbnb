@@ -433,9 +433,11 @@
   
   .w-85 {
     width: 90%;
+    max-width: 1290px;
   }
   .w-90 {
     width: 95%;
+    max-width: 1290px;
   }
   .w-100 {
     width: 100%;

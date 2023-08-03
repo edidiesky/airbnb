@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { MdDashboard, MdAddBusiness, MdSettings } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 import Logo from "../../components/common/svg/Logo";
+import { FaPen } from "react-icons/fa";
 const SidebarWrapper = styled.div`
   width: 350px;
   background: #fff;
@@ -31,16 +32,50 @@ const SidebarWrapper = styled.div`
   .fill {
     fill: #333;
   }
+  h3 {
+    font-family: "Montserrat", sans-serif;
+  }
 
   .sidebarContainer {
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: 0 auto;
-    gap: 2rem;
+    gap: 1rem;
+
+    .image_wrapper {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      border: 5px solid var(--red);
+      &:hover {
+        .image_gradient {
+          opacity: 1;
+        }
+      }
+      .image_gradient {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        /* transform: translateY(-100%); */
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .avatar_profile {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        /* transform: translateY(-100%); */
+        position: absolute;
+      }
+    }
     .imageWrapper {
-      width: 100%;
-      padding: 1.6rem 1rem;
+      width: 90%;
+      margin: 1rem auto;
       .sidebarIcon {
         height: 5rem;
       }
@@ -51,30 +86,31 @@ const SidebarWrapper = styled.div`
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
+      margin-top: 2rem;
+      align-items: flex-start;
       .nav-link {
         padding: 13px 16px;
         /* font-size: 1rem; */
         font-size: 14px;
         font-weight: 600;
-        margin: 0 auto;
-        width: 100%;
+        margin: 0 ;
         color: var(--grey-1);
         display: flex;
         align-items: center;
         justify-content: flex-start;
         gap: 20px;
-        border-radius: 4px;
+        border-radius: 40px;
 
         &:hover {
           background-color: rgba(255, 219, 226, 0.337);
-           color: rgb(249, 38, 77);
+          color: rgb(249, 38, 77);
         }
         svg {
           font-size: 24px;
         }
         &.active {
           background-color: rgba(255, 219, 226, 0.337);
-           color: rgb(249, 38, 77);
+          color: rgb(249, 38, 77);
         }
       }
     }
@@ -100,7 +136,6 @@ export const sidebarData = [
   { id: 6, icon1: <MdSettings />, title: "Settings", path: "Profile" },
 ];
 
-
 export default function Sidebar() {
   return (
     <SidebarWrapper>
@@ -109,6 +144,31 @@ export default function Sidebar() {
           {/* <Logo type={"type"} /> */}
           <Logo />
         </NavLink>
+        <div className="w-90 auto flex column" style={{ gap: ".5rem" }}>
+          <div className="image_wrapper">
+            <img src="/images/user_1.jpeg" alt="" className="avatar_profile" />
+            <div className="image_gradient"></div>
+            <div
+              style={{
+                width: "2.4rem",
+                height: "2.4rem",
+                borderRadius: "50%",
+                bottom: "2%",
+                right: "-10%",
+                background: "#fafaface",
+              }}
+              className="flex absolute item-center justify-center"
+            >
+              <FaPen fontSize={"16px"} color="var(--dark-1)" />
+            </div>
+          </div>
+          <h3 className="fs-20 text-extra-bold">
+            Daniel Gokins
+            <span className="block fs-12 text-grey text-light">
+              Gokin1000@gmail.com
+            </span>
+          </h3>
+        </div>
         <div className="list">
           {sidebarData.map((x) => {
             return (

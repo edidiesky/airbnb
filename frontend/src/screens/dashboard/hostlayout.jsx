@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import './index.css'
 import Header from "./header";
 const LayoutWrapper = styled.div`
-  background: var(--grey-2);
+  background: #F8F9FB;
   height: 100vh;
   overflow: auto;
   width: 100%;
