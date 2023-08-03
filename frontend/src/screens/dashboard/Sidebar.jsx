@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 import { MdDashboard, MdAddBusiness, MdSettings } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 import Logo from "../../components/common/svg/Logo";
-import { FaPen } from "react-icons/fa";
+import { FaPen, FaUsers } from "react-icons/fa";
 const SidebarWrapper = styled.div`
   width: 350px;
   background: #fff;
@@ -91,9 +91,9 @@ const SidebarWrapper = styled.div`
       .nav-link {
         padding: 13px 16px;
         /* font-size: 1rem; */
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
-        margin: 0 ;
+        margin: 0;
         color: var(--grey-1);
         display: flex;
         align-items: center;
@@ -131,8 +131,9 @@ export const sidebarData = [
     path: "listings",
   },
   { id: 4, icon1: <BsCalendar3 />, title: "Bookings", path: "orders" },
+  { id: 7, icon1: <FaUsers />, title: "Conclerge", path: "" },
 
-  { id: 5, icon1: <HiUsers />, title: "Guests", path: "users" },
+  { id: 5, icon1: <HiUsers />, title: "Guests", path: "guests" },
   { id: 6, icon1: <MdSettings />, title: "Settings", path: "Profile" },
 ];
 

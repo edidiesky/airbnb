@@ -31,6 +31,7 @@ import {
 } from "./screens";
 import {
   HostEarnings,
+  HostGuests,
   HostInbox,
   HostLayout,
   HostListings,
@@ -86,6 +87,7 @@ export default function App() {
           <Route exact path="profile" element={<HostProfile />} />
           <Route exact path="inbox" element={<HostInbox />} />
           <Route exact path="orders" element={<HostOrders />} />
+          <Route exact path="guests" element={<HostGuests />} />
           <Route exact path="listings" element={<HostListings />} />
           <Route exact path="reviews" element={<HostReviews />} />
           {/* <Route path="listings" element={<host />} /> */}
