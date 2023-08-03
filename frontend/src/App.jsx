@@ -1,6 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import AOS from "aos";
+import "./index.css";
 import "aos/dist/aos.css";
 import {
   Layout,

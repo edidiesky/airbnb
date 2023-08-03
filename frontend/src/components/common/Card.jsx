@@ -127,12 +127,6 @@ export default function Card({ x, index, type }) {
                   <div className="flex">
                     <h5 className="fs-12 text-white listing_status">Booked</h5>
                   </div>
-                  <div className="flex column">
-                    <h4 className="fs-14 text-white">{x?.listing_location}</h4>
-                    <h5 className="fs-12 text-white text-light">
-                      {x?.listing_distance} kilometers away
-                    </h5>
-                  </div>
                 </div>
               </div>
               <div className="detailsImageWrapper">
@@ -150,6 +144,18 @@ export default function Card({ x, index, type }) {
               </div>
             </div>
             <div className="flex column w-90 auto">
+              <div className="flex column">
+                <h4 className="fs-16 text-dark">
+                  ${x?.listing_price}{" "}
+                  <span className="text-light fs-12">night</span>
+                </h4>
+                <h4 className="fs-14 text-dark">
+                  {x?.listing_title} {x?.listing_city}
+                </h4>
+                <h5 className="fs-12 text-dark text-light">
+                  {x?.listing_distance} kilometers away
+                </h5>
+              </div>
               <div
                 style={{ gap: ".3rem" }}
                 className="flex fs-12 text-bold item-center"
@@ -162,14 +168,6 @@ export default function Card({ x, index, type }) {
                   <BiStar color="var(--red)" />
                 </div>
               </div>
-              <h4 className="fs-14 text-dark">
-                {x?.listing_beds}{" "}
-                <span className="text-light fs-12">Beds</span>
-              </h4>
-              <h4 className="fs-14 text-dark">
-                ${x?.listing_price}{" "}
-                <span className="text-light fs-12">night</span>
-              </h4>
             </div>
           </DashboardCard>
         )}
@@ -339,7 +337,7 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-16 text-bold text-dark">
+                <h4 className="fs-18 text-bold text-dark">
                   {x?.listing_location}
                 </h4>
                 <div
@@ -676,15 +674,13 @@ const CardContent = styled.div`
 
 const DashboardCard = styled.div`
   background-color: transparent;
+  cursor: pointer;
   .dashboard_wrapper {
-    height: 18rem;
+    height: 15rem;
     position: relative;
     transition: all 0.3s ease;
     border-radius: 20px;
     overflow: hidden;
-  }
-  &:hover {
-    transform: scale(1.12);
   }
   .backdrop {
     background-color: rgba(0, 0, 0, 0.4);

@@ -4,9 +4,9 @@ import { styled } from "@mui/material/styles";
 
 const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
-    borderRadius: "10px",
+    // borderRadius: "10px",
     backgroundColor: "#fff",
-    border: "1px solid rgba(0,0,0,.4)",
+    border: "1px solid rgba(0,0,0,.2)",
 
     "& fieldset": {
       borderColor: "transparent",
@@ -32,7 +32,6 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     fontWeight: "400",
     fontFamily: "CustomFont2_light, sans-serif",
     color: "var(--dark-1)",
-    textTransform: "Capitalize",
   },
   "& .MuiInputLabel-root": {
     fontSize: "15px",
