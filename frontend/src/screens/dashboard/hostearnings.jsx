@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import React from "react";
 import HostEarningIndex from "../../components/dashboard/earnings";
+import Widget from "./Widget";
 
 export default function HostEarnings() {
   return (
     <>
       <HostEarningsPlaceContainer className="flex item-center justify-center">
-        <HostEarningIndex />
+        <div className="w-90 auto flex column gap-1">
+          <Widget />
+          <HostEarningIndex />
+        
+        </div>
       </HostEarningsPlaceContainer>
     </>
   );
@@ -16,5 +21,4 @@ const HostEarningsPlaceContainer = styled.div`
   width: 100%;
   /* overflow: hidden; */
   /* min-height: 70vh; */
-  padding-top: 4rem;
 `;

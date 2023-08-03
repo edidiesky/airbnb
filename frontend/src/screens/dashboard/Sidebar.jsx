@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FiLogOut } from "react-icons/fi";
 
-import { HiOutlineShoppingCart } from "react-icons/hi";
+import { FiKey } from "react-icons/fi";
 
 import { HiUsers } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { MdDashboard, MdAddBusiness, MdSettings } from "react-icons/md";
-import { BsCollection } from "react-icons/bs";
+import { BsCalendar3 } from "react-icons/bs";
+import Logo from "../../components/common/svg/Logo";
 const SidebarWrapper = styled.div`
-  width: 270px;
+  width: 350px;
   background: #fff;
 
   height: 100vh;
   top: 0%;
   position: sticky;
-  border-right: 1px solid #d1d1d1;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
+
   .fill {
     fill: #333;
   }
@@ -33,13 +35,12 @@ const SidebarWrapper = styled.div`
   .sidebarContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
-    gap: 3rem;
     width: 90%;
     margin: 0 auto;
+    gap: 2rem;
     .imageWrapper {
       width: 100%;
-      padding: 1.6rem 2rem;
+      padding: 1.6rem 1rem;
       .sidebarIcon {
         height: 5rem;
       }
@@ -50,24 +51,10 @@ const SidebarWrapper = styled.div`
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
-      &.List1 {
-        padding-top: 2rem;
-        padding-bottom: 0;
-        border-top: 1px solid #ccc;
-        border-bottom: none;
-      }
-      h3 {
-        color: #777;
-        font-size: 1.6rem;
-        font-weight: 600;
-        width: 100%;
-        margin: 1.5rem 0;
-        padding: 1rem 0;
-        text-align: start;
-      }
       .nav-link {
-        padding:1rem 16px;
-        font-size: 1rem;
+        padding: 13px 16px;
+        /* font-size: 1rem; */
+        font-size: 14px;
         font-weight: 600;
         margin: 0 auto;
         width: 100%;
@@ -75,19 +62,19 @@ const SidebarWrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        flex-direction: column;
-        gap: .4rem;
-        border-radius: 40px;
+        gap: 20px;
+        border-radius: 4px;
 
         &:hover {
+          background-color: rgba(255, 219, 226, 0.337);
+           color: rgb(249, 38, 77);
         }
         svg {
-          font-size: 2rem;
+          font-size: 24px;
         }
         &.active {
-          background: #2363c414;
-          position: relative;
-          color: #50fc61;
+          background-color: rgba(255, 219, 226, 0.337);
+           color: rgb(249, 38, 77);
         }
       }
     }
@@ -103,25 +90,16 @@ export const sidebarData = [
   },
   {
     id: 2,
-    icon1: <HiOutlineShoppingCart />,
-    title: "gigs",
-    path: "gigs",
+    icon1: <FiKey />,
+    title: "Rooms",
+    path: "listings",
   },
-  {
-    id: 3,
-    icon1: <MdAddBusiness />,
-    title: "Add gigs",
-    path: "create-gig",
-  },
-  { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
+  { id: 4, icon1: <BsCalendar3 />, title: "Bookings", path: "orders" },
 
-  { id: 5, icon1: <HiUsers />, title: "Buyers", path: "users" },
+  { id: 5, icon1: <HiUsers />, title: "Guests", path: "users" },
   { id: 6, icon1: <MdSettings />, title: "Settings", path: "Profile" },
 ];
 
-export const sidebarData2 = [
-  { id: 2, icon1: <FiLogOut />, title: "Log Out", path: "" },
-];
 
 export default function Sidebar() {
   return (
@@ -129,6 +107,7 @@ export default function Sidebar() {
       <div className="sidebarContainer">
         <NavLink to={"/"} className="imageWrapper">
           {/* <Logo type={"type"} /> */}
+          <Logo />
         </NavLink>
         <div className="list">
           {sidebarData.map((x) => {
@@ -136,22 +115,12 @@ export default function Sidebar() {
               <NavLink
                 className="nav-link "
                 activeClassName="active"
-                to={`/dashboard/${x.path}`}
+                to={`/dashboard/hosting/${x.path}`}
                 key={x.id}
               >
                 {x.icon1}
                 {x.title}
               </NavLink>
-            );
-          })}
-        </div>
-
-        <div className="list List1">
-          {sidebarData2.map((x) => {
-            return (
-              <div className="nav-link family1" key={x.id}>
-                {x.icon1} {x.title}
-              </div>
             );
           })}
         </div>

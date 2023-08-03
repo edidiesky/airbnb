@@ -104,9 +104,8 @@
   }
   
   .shadow {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
     transition: all 0.5s;
-    border: 1px solid rgba(0, 0, 0, 0.1);
   }
   
   .shadow:hover {
@@ -235,11 +234,9 @@
   }
   .text-extra-bold {
     font-weight: 700;
-    font-family: "CustomFont_Bold", sans-serif;
   }
   .text-bold {
     font-weight: 600;
-    font-family: "CustomFont_Bold", sans-serif;
   }
   .text-light {
     font-weight: 400;

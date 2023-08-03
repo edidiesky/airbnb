@@ -80,7 +80,7 @@ export default function App() {
         </Route>
 
         {/* host listing routes */}
-        <Route path={"/dashboard/hosting"} element={<HostLayout />}>
+        <Route path={"/dashboard/hosting/"} element={<HostLayout />}>
           <Route exact index element={<HostEarnings />} />
           <Route exact path="profile" element={<HostProfile />} />
           <Route exact path="inbox" element={<HostInbox />} />

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import './index.css'
+import Header from "./header";
 const LayoutWrapper = styled.div`
   background: var(--grey-2);
   height: 100vh;
@@ -39,7 +40,8 @@ export default function HostLayout() {
       <Sidebar />
       {/* <Header /> */}
       <div className="LayoutContainer">
-        <div className="OutletWrapper">
+        <div className="OutletWrapper flex column gap-2">
+          <Header/>
           <Outlet />
         </div>
       </div>
