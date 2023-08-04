@@ -65,7 +65,7 @@ const CreateOrder = async (req, res) => {
 
   const order = await Order.create({
     buyerId: userId,
-    image,
+    image: orders[0].image,
     title,
     price: parseInt(price),
     startDate,
@@ -88,8 +88,8 @@ const CreateOrder = async (req, res) => {
     }),
     mode: "payment",
     payment_method_types: ["card"],
-    success_url: `http://localhost:5173/profile`,
-    cancel_url: `http://localhost:5173/order`,
+    success_url: `http://localhost:5173/${order?._id}/order`,
+    cancel_url: `http://localhost:5173/reservations`,
   });
 
   res.status(200).json({ order, url: session.url });
@@ -102,29 +102,24 @@ const CreateOrder = async (req, res) => {
 // Admin
 const UpdateOrderToPaid = async (req, res) => {
   // find the user order in the data base
-  const order = await Order.findOne({ cartId: req.params.id });
-  // check if the order exist
+  const order = await Order.findOne({
+    _id: req.params.id,
+    buyerId: req.user.userId,
+  });
+  // // check if the order exist
   if (!order) {
     res.status(403);
     throw new Error("This order request does not exist");
   }
-  // udate the cart
+  // // udate the cart
   const updatedOrder = await Order.findOneAndUpdate(
-    { cartId: req.params.id },
+    { _id: req.params.id, buyerId: req.user.userId },
     {
       isPaid: true,
       paidAt: Date.now(),
-      paymentResult: {
-        id: req.body.id,
-        status: req.body.status,
-        update_time: req.body.update_time,
-        email_address: req.body.email_address,
-      },
     },
     { new: true }
   );
-  // clear the buyer cart
-  await Cart.findByIdAndDelete({ _id: req.params.id });
 
   res.status(200).json({ updatedOrder });
 };
