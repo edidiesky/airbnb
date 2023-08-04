@@ -80,7 +80,7 @@ const WidgetWrapper = styled.div`
 
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 
-  @media (max-width: 780px) {
+  @media (max-width: 880px) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
   @media (max-width: 480px) {

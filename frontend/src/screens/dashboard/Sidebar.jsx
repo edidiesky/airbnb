@@ -17,12 +17,14 @@ const SidebarWrapper = styled.div`
   height: 100vh;
   top: 0%;
   position: sticky;
-  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+  /* box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09); */
 
   .fill {
     fill: #333;
   }
-  @media (max-width: 1080px) {
+  @media (max-width: 780px) {
     display: inline-block;
     position: fixed;
     top: 0;
