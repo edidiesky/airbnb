@@ -57,7 +57,7 @@ export default function HostGuestsLeftIndex() {
                 </h4>
               </div>
             </div>
-            <h4 className="py-1 fs-14 text-bold text-dark">
+            <h4 className=" fs-14 text-bold text-dark">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
               praesentium esse exercitationem optio! Eum, fugit magni tempora
               praesentium laborum eveniet!

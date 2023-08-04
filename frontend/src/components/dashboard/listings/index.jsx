@@ -22,7 +22,7 @@ export default function HostLsitingsIndex() {
     <>
       <HostLsitingsIndexPlaceContainer className="flex item-center justify-center">
         <div className="w-90 auto">
-          <div className="w-90 auto flex column gap-2">
+          <div className="w-100 auto flex column gap-2">
             <div className="flex top item-center justify-space w-100">
               <h3 className="fs-24 text-extra-bold">Popular Rooms</h3>
 
@@ -60,11 +60,6 @@ export default function HostLsitingsIndex() {
               </div>
               {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
             </Table>
-            {/* <div className="w-100 wrapper">
-              {Gigs?.map((x, index) => {
-                return <Card x={x} type={"dashboard"} index={index} />;
-              })}
-            </div> */}
           </div>
         </div>
       </HostLsitingsIndexPlaceContainer>
