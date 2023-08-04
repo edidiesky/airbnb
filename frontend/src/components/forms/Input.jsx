@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
+import useValidate from "../../hooks/useValidate";
+import { useFormik } from "formik";
 
 const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
@@ -50,18 +52,33 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const FormInput = ({ types, setState, onChange, value, id, ...props }) => {
+const FormInput = ({
+  types,
+  setState,
+  onChange,
+  value,
+  id,
+  label,
+  formdata,
+  ...props
+}) => {
+  const { values, errors, touched } = formdata;
   return (
-    <InputTextField
-      label={id}
-      variant="outlined"
-      fullWidth
-      autoComplete="off"
-      {...props}
-      value={value}
-      onChange={onChange}
-      multiline={types === "textarea"}
-    />
+    <div className="w-100 flex column">
+      <InputTextField
+        label={label}
+        variant="outlined"
+        fullWidth
+        autoComplete="off"
+        {...props}
+        value={value}
+        onChange={onChange}
+        onBlur={formdata.handleBlur}
+        multiline={types === "textarea"}
+        // error={!!errors[id] && touched[id]}
+        // helperText={touched[id] && errors[id] ? errors[id] : ""}
+      />
+    </div>
   );
 };
 

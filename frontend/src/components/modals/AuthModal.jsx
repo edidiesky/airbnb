@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useFormik } from "formik";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
@@ -19,6 +20,7 @@ import {
 import LoaderIndex from "../loaders";
 import Message from "../loaders/Message";
 import FomickInput from "../forms/formick";
+import useValidate from "../../hooks/useValidate";
 
 export default function AuthModal({ type, click }) {
   const [auth, setAuth] = useState(false);
@@ -28,7 +30,21 @@ export default function AuthModal({ type, click }) {
     password: "",
     username: "",
   });
-  const { username, email, password } = formdata;
+  const { email, password, username } = formdata;
+  const errors = useValidate(formdata);
+  const formik = useFormik({
+    initialValues: formdata,
+    validateOnChange: false,
+    validate: useValidate, // Use the validate function for validation
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+  // console.log("formdata:", formdata);
+  // console.log("formik.values:", formik.values);
+  // console.log("formik.errors:", formik.errors);
+  // console.log("formik.touched:", formik.touched);
 
   const inputData = [
     {
@@ -41,7 +57,7 @@ export default function AuthModal({ type, click }) {
       required: true,
     },
     {
-      id: 1,
+      id: 2,
       name: "email",
       placeholder: "Email",
       type: "email",
@@ -50,7 +66,7 @@ export default function AuthModal({ type, click }) {
       required: true,
     },
     {
-      id: 2,
+      id: 3,
       name: "password",
       placeholder: "Password",
       type: "password",
@@ -86,7 +102,16 @@ export default function AuthModal({ type, click }) {
   }, [usernamemodal, setAuth]);
   useEffect(() => {
     if (loginSuccess) {
-      dispatch(offAuthModal());
+      setTimeout(() => {
+        dispatch(offAuthModal());
+      }, 5000);
+      return () =>
+        clearTimeout(
+          setTimeout(() => {
+            dispatch(offAuthModal());
+          }, 5000),
+          5000
+        );
     }
   }, [loginSuccess, dispatch]);
   // open modal if type  === users
@@ -100,10 +125,10 @@ export default function AuthModal({ type, click }) {
     if (auth) {
       // dispatch(loginCustomer(formdata));
       dispatch(loginCustomer({ email, password }));
-      // console.log("login");
+      console.log("login");
     } else {
       dispatch(registerCustomer({ email, password, username }));
-      // console.log("registration");
+      console.log("registration");
     }
   };
 
@@ -148,13 +173,13 @@ export default function AuthModal({ type, click }) {
 
         <div className="w-90 authBottom auto flex column">
           <h3 className="fs-24 py-1 text-dark text-bold">Welcome to Airbnb</h3>
-          <FomickInput/>
-          <div className="flex column">
+
+          <form style={{ gap: ".2rem" }} className="flex column">
             {!auth
               ? inputData.map((input) => {
                   return (
                     <Input
-                      id={input.text}
+                      id={input.id}
                       onChange={onChange}
                       placeholder={input.placeholder}
                       type={input.type}
@@ -165,13 +190,15 @@ export default function AuthModal({ type, click }) {
                       required={input.required}
                       pattern={input.pattern}
                       errorMessage={input.errorMessage}
+                      formdata={formik}
                     />
                   );
                 })
               : inputData.slice(1, 3).map((input) => {
                   return (
                     <Input
-                      id={input.text}
+                      label={input.text}
+                      id={input.name}
                       onChange={onChange}
                       placeholder={input.placeholder}
                       type={input.type}
@@ -182,24 +209,29 @@ export default function AuthModal({ type, click }) {
                       required={input.required}
                       pattern={input.pattern}
                       errorMessage={input.errorMessage}
+                      formdata={formik}
                     />
                   );
                 })}
-          </div>
-          <h5 className="fs-10 text-light py-1 text--grey">
-            We’ll call or text you to confirm your number. Standard message and
-            data rates apply.{" "}
-            <span className="fs-12 text-dark text-extra-bold">
-              Privacy Policy
-            </span>
-          </h5>
-          <div
-            onClick={handleSubmit}
-            className="btn w-100 text-bold fs-14 text-white text-center"
-          >
-            {" "}
-            {!auth ? "Sign Up" : "Sign In"}
-          </div>
+            <h5
+              style={{ margin: ".4rem auto" }}
+              className="fs-10 text-light text--grey"
+            >
+              We’ll call or text you to confirm your number. Standard message
+              and data rates apply.{" "}
+              <span className="fs-12 text-dark text-extra-bold">
+                Privacy Policy
+              </span>
+            </h5>
+            <div
+              onClick={handleSubmit}
+              className="btn w-100 text-bold fs-14 text-white text-center"
+            >
+              {" "}
+              {!auth ? "Sign Up" : "Sign In"}
+            </div>
+          </form>
+
           <div className="flex column gap-1" style={{ marginTop: "1.5rem" }}>
             <div className="option">or</div>
 
@@ -217,7 +249,7 @@ export default function AuthModal({ type, click }) {
             <div className="w-100 fs-12 text-light text-grey text-center">
               {!auth ? "Already a member?" : "Not a member?"}{" "}
               <span
-                style={{ textDecoration: "underline",cursor:"pointer" }}
+                style={{ textDecoration: "underline", cursor: "pointer" }}
                 onClick={() => setAuth(!auth)}
                 className="text-red fs-12 text-bold"
               >
