@@ -44,7 +44,7 @@ export const Table = styled.div`
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width: 100%;
+      min-width: 1000px;
       @media (min-width: 1209px) {
         min-width: 1000px;
       }

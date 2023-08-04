@@ -56,7 +56,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
   const differnceinDays = Math.round(
     (moment(dateRange.selection.endDate, "DD/MM/YYYY") -
       moment(dateRange.selection.startDate, "DD/MM/YYYY")) /
-      (1000 * 3600 * 24)
+      (1000 * 3600 * 20)
   );
   return (
     <div className="flex column gap-2">
@@ -174,7 +174,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
       {/* special offers */}
 
       <div className="flex column gap-2 bottom w-100">
-        <h3 className="fs-24 text-dark text-bold">What this place offers</h3>
+        <h3 className="fs-20 text-dark text-bold">What this place offers</h3>
         <ul
           className="grid w-100"
           style={{ gridTemplateColumns: "1fr 1fr", gridGap: "1rem" }}
@@ -195,9 +195,9 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
       </div>
       {/* date picker  */}
       <div className="flex column w-100 gap-1">
-        <h3 className="fs-24 text-bold">
+        <h3 className="fs-20 text-bold">
           {differnceinDays} night in {GigsDetails?.listing_location}
-          <span className="block text-grey text-light fs-18">
+          <span className="block text-grey text-light fs-14">
             <span>{startDate}</span> - <span>{endDate}</span>
           </span>
         </h3>

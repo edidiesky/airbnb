@@ -45,7 +45,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
           <div className="top flex justify-space w-100">
             <h4 className="fs-24 text-dark text-bold">
               ${GigsDetails?.listing_price}{" "}
-              <span className="text-grey text-light fs-16">night</span>
+              <span className="text-dark text-bold fs-12">/ night</span>
             </h4>
             {/* reviews */}
             <h5
@@ -74,10 +74,10 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
             >
               <div
                 style={{ padding: ".7rem" }}
-                className=" fs-10 flex-1 family1 text-extra-bold uppercase text-bold"
+                className="fs-10 flex-1 text-extra-bold uppercase"
               >
                 check-in
-                <div className="fs-12 block text-grey text-light">
+                <div className="fs-12 block text-dark text-light">
                   {formatDate(dateRange.selection.startDate)}
                 </div>
               </div>{" "}
@@ -87,10 +87,10 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                   borderLeft: "1px solid rgba(0,0,0,.3)",
                   height: "100%",
                 }}
-                className=" fs-10 text-start flex-1 wrap family1 text-extra-bold uppercase text-bold"
+                className=" fs-10 text-start flex-1 wrap family1 text-extra-bold uppercase"
               >
                 check-out
-                <div className="fs-12 block text-grey text-light">
+                <div className="fs-12 block text-dark text-light">
                   {formatDate(dateRange.selection.endDate)}
                 </div>
               </div>

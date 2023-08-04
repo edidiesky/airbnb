@@ -30,7 +30,9 @@ export default function SingleLeftIndex({ id }) {
   const [children, setChildren] = useState(
     ReservationsDetails?.listing_Id?.children
   );
-  const [infants, setInfants] = useState(ReservationsDetails?.listing_Id?.infants);
+  const [infants, setInfants] = useState(
+    ReservationsDetails?.listing_Id?.infants
+  );
   const [adults, setAdults] = useState(ReservationsDetails?.listing_Id?.adults);
 
   const [dateRange, setDateRange] = useState({
@@ -130,6 +132,11 @@ export default function SingleLeftIndex({ id }) {
       window.location.href = url;
     }
   }, [url]);
+
+  const startDate = moment(dateRange.selection.startDate).format(
+    "MMMM Do YYYY"
+  );
+  const endDate = moment(dateRange.selection.endDate).format("MMMM Do YYYY");
   return (
     <div>
       <Message
@@ -173,13 +180,13 @@ export default function SingleLeftIndex({ id }) {
           className="flex w-100 column gap-1 bottom"
           style={{ paddingBottom: "1.6rem" }}
         >
-          <h3 className="fs-24">Your trip</h3>
+          <h3 className="fs-20">Your trip</h3>
           <div className="w-100 flex column gap-1">
             <div className="w-100 flex item-center justify-space">
               <h4 className="fs-18 text-bold">
                 Dates
                 <span className="block fs-16 text-grey text-light">
-                  Sep 20 – 22
+                  <span>{startDate}</span> – <span>{endDate}</span>
                 </span>
               </h4>
               <div
@@ -217,7 +224,7 @@ export default function SingleLeftIndex({ id }) {
         </div>
         {/* policy */}
         <div className="flex column gap-1 bottom">
-          <h3 className="fs-24">Cancellation policy</h3>
+          <h3 className="fs-20">Cancellation policy</h3>
           <h4 className="fs-14 family1 text-light">
             <span className="text-bold" style={{ textDecoration: "underline" }}>
               Free cancellation before Nov 9.
@@ -230,7 +237,7 @@ export default function SingleLeftIndex({ id }) {
         </div>
         {/* rules */}
         <div className="flex column bottom">
-          <h3 className="fs-24">Ground rules</h3>
+          <h3 className="fs-20">Ground rules</h3>
           <h4 className="fs-16 text-light">
             We ask every guest to remember a few simple things about what makes
             a great guest.

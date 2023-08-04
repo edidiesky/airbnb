@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
 import { BiChevronLeft, BiChevronRight, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -43,6 +44,10 @@ export default function Card({ x, index, type }) {
 
   let wishdetails = x;
 
+  // start date and enddate
+  const startDate = moment(x?.listing_startDate).format("MMMM Do YYYY");
+  const endDate = moment(x?.listing_endDate).format("MMMM Do YYYY");
+  // const endDate = startDate.add(x?.listing_duration, '')
   // if the type is wish
   if (type === "wish") {
     return (
@@ -337,8 +342,8 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-18 text-bold text-dark">
-                  {x?.listing_location}
+                <h4 className="fs-16 text-bold text-dark">
+                  {x?.listing_city} {' '} {x?.listing_country}
                 </h4>
                 <div
                   style={{ gap: ".3rem" }}
@@ -349,14 +354,17 @@ export default function Card({ x, index, type }) {
                 </div>
               </div>
               <div className="flex column">
-                <h4 className="fs-16 text-grey text-light">
+                <h4 className="fs-14 text-grey text-light">
                   {x?.listing_distance} kilometers away
+                </h4>
+                <h4 className="fs-14 text-grey text-light">
+                  {startDate} - {endDate}
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
-              <h4 className="fs-14 text-dark">
+              <h4 className="fs-16 text-dark">
                 ${x?.listing_price}{" "}
-                <span className="text-light fs-16">night</span>
+                <span className="text-light fs-14">night</span>
               </h4>
             </Link>
           </div>

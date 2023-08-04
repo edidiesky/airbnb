@@ -18,6 +18,7 @@ import {
 } from "../../Features/user/userReducer";
 import LoaderIndex from "../loaders";
 import Message from "../loaders/Message";
+import FomickInput from "../forms/formick";
 
 export default function AuthModal({ type, click }) {
   const [auth, setAuth] = useState(false);
@@ -147,7 +148,8 @@ export default function AuthModal({ type, click }) {
 
         <div className="w-90 authBottom auto flex column">
           <h3 className="fs-24 py-1 text-dark text-bold">Welcome to Airbnb</h3>
-          <div className="flex column" style={{ gap: ".5rem" }}>
+          <FomickInput/>
+          <div className="flex column">
             {!auth
               ? inputData.map((input) => {
                   return (
@@ -184,31 +186,44 @@ export default function AuthModal({ type, click }) {
                   );
                 })}
           </div>
+          <h5 className="fs-10 text-light py-1 text--grey">
+            We’ll call or text you to confirm your number. Standard message and
+            data rates apply.{" "}
+            <span className="fs-12 text-dark text-extra-bold">
+              Privacy Policy
+            </span>
+          </h5>
           <div
             onClick={handleSubmit}
-            className="btn py-1 w-100 text-bold fs-16 text-white text-center"
+            className="btn w-100 text-bold fs-14 text-white text-center"
           >
             {" "}
             {!auth ? "Sign Up" : "Sign In"}
           </div>
-          {/* <div className="option">or</div> */}
+          <div className="flex column gap-1" style={{ marginTop: "1.5rem" }}>
+            <div className="option">or</div>
 
-          {/* <div className="flex column gap-1">
-            <div className="authBtn flex fs-16 text-dark item-center justify-space">
-              <FcGoogle fontSize={"20px"} />{" "}
-              <div className="w-100 text-center">Continue with Google</div>{" "}
-            </div>
+            <div className="flex column gap-1">
+              <div className="authBtn flex fs-14 text-dark item-center justify-space">
+                <FcGoogle fontSize={"20px"} />{" "}
+                <div className="w-100 text-center">Continue with Google</div>{" "}
+              </div>
 
-            <div className="authBtn flex fs-16 text-dark item-center justify-center">
-              <FaGithub fontSize={"20px"} />{" "}
-              <div className="w-100 text-center">Continue with Github</div>{" "}
+              <div className="authBtn flex fs-14 text-dark item-center justify-center">
+                <FaGithub fontSize={"20px"} />{" "}
+                <div className="w-100 text-center">Continue with Github</div>{" "}
+              </div>
             </div>
-          </div> */}
-          <div className="w-100 fs-14 text-light text-grey text-center">
-            {!auth ? "Already a member?" : "Not a member?"}{" "}
-            <span onClick={() => setAuth(!auth)} className="text-red">
-              {auth ? "Sign Up" : "Sign In"}
-            </span>
+            <div className="w-100 fs-12 text-light text-grey text-center">
+              {!auth ? "Already a member?" : "Not a member?"}{" "}
+              <span
+                style={{ textDecoration: "underline",cursor:"pointer" }}
+                onClick={() => setAuth(!auth)}
+                className="text-red fs-12 text-bold"
+              >
+                {auth ? "Sign Up" : "Sign In"}
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -238,14 +253,14 @@ const DeleteContainer = styled(motion.div)`
     color: #fff;
     padding: 0.8rem 2rem;
     border-radius: 10px;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
     &:hover {
       opacity: 0.8;
     }
   }
   .authBtn {
     border: 1px solid rgba(0, 0, 0, 1);
-    padding: 0.5rem 2rem;
+    padding: 0.8rem 2rem;
     border-radius: 8px;
   }
   .icon {
@@ -267,9 +282,9 @@ const DeleteContainer = styled(motion.div)`
       color: var(--grey-1);
       &::after {
         width: 45%;
-        height: 0.4px;
+        height: 0.2px;
         content: "";
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.1);
         left: 0;
         position: absolute;
         top: 50%;
@@ -279,7 +294,7 @@ const DeleteContainer = styled(motion.div)`
         width: 45%;
         height: 0.4px;
         content: "";
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.1);
         right: 0;
         position: absolute;
         top: 50%;

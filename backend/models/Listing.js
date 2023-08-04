@@ -14,6 +14,12 @@ const ListingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    listing_country: {
+      type: String,
+    },
+    listing_city: {
+      type: String,
+    },
     listing_location: {
       type: String,
     },

@@ -23,10 +23,16 @@ export default function HostLsitingsIndex() {
       <HostLsitingsIndexPlaceContainer className="flex item-center justify-center">
         <div className="w-90 auto">
           <div className="w-100 auto flex column gap-2">
-            <div className="flex top item-center justify-space w-100">
+            <div
+              style={{ flexWrap: "wrap" }}
+              className="flex top item-center flex-wrap gap-1 justify-space w-100"
+            >
               <h3 className="fs-24 text-extra-bold">Popular Rooms</h3>
 
-              <div className="flex item-center gap-2">
+              <div
+                style={{ flexWrap: "wrap" }}
+                className="flex  item-center gap-1"
+              >
                 <div className={"where_wrapper flex column"}>
                   <input type="text" placeholder="Search destinations" />
                 </div>
