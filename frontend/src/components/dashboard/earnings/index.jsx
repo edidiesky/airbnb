@@ -31,15 +31,6 @@ export default function HostEarningIndex() {
               })}
             </div>
           </div>
-          <div className="selectform column flex">
-            <h3 className="fs-20 text-grey text-light">Select month</h3>
-          </div>
-          <h2 className="fs-50 text-extra-bold">
-            $0.00
-            <span className="block fs-16 text-grey text-light">
-              Booked earnings for 2023
-            </span>
-          </h2>
           <Charts />
         </div>
       </HostEarningIndexPlaceContainer>

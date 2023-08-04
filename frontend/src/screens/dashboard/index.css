@@ -72,6 +72,13 @@
     line-height: 1.5;
     font-weight: 600;
   }
+  .highcharts-contextmenu {
+    border-radius: 20px !important; 
+    width: 200px !important;
+    background-color: #f8f8f8 !important; /* Adjust the radius value as needed */
+   color: #333 !important; /* Adjust the radius value as needed */
+  }
+  
 
   .family3 {
     font-family: "Montserrat", sans-serif;
