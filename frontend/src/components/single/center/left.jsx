@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import Person from "../../common/svg/person";
+import moment from "moment";
 import Location from "../../common/svg/Location";
 import Date from "../../common/svg/Date";
 import Kitchen from "../../common/svg/kitchen";
@@ -52,6 +51,13 @@ const offerdata = [
 
 const LeftCenter = ({ handleSelect, dateRange }) => {
   const { GigsDetails } = useSelector((store) => store.gigs);
+  const startDate = moment(dateRange.selection.startDate).format('MMMM Do YYYY')
+  const endDate = moment(dateRange.selection.endDate).format('MMMM Do YYYY')
+  const differnceinDays = Math.round(
+    (moment(dateRange.selection.endDate, "DD/MM/YYYY") -
+      moment(dateRange.selection.startDate, "DD/MM/YYYY")) /
+      (1000 * 3600 * 24)
+  );
   return (
     <div className="flex column gap-2">
       <div
@@ -190,9 +196,9 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
       {/* date picker  */}
       <div className="flex column w-100 gap-1">
         <h3 className="fs-24 text-bold">
-          1 night in {GigsDetails?.listing_location}
+          {differnceinDays} night in {GigsDetails?.listing_location}
           <span className="block text-grey text-light fs-18">
-            <span>Dec 14, 2023</span> - <span>Dec 15, 2023</span>
+            <span>{startDate}</span> - <span>{endDate}</span>
           </span>
         </h3>
         <DateInput handleSelect={handleSelect} dateRange={dateRange} />

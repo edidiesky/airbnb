@@ -17,6 +17,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   const navigate = useNavigate();
   const { ReservationsIsLoading, ReservationsIsSuccess, ReservationsDetails } =
     useSelector((store) => store.reservations);
+  const { GigsDetails } = useSelector((store) => store.gigs);
 
   // console.log(ReservationsDetails);
   // navigate if the reservation of the user has been succesfully created
@@ -27,16 +28,24 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
   }, [ReservationsDetails, ReservationsIsSuccess, navigate]);
 
   const formatDate = (date) => {
-    return moment(date).format("DD/MM/YYYY");
+    return moment(date).format("MMMM Do YYYY");
   };
   const dispatch = useDispatch();
+  const differnceinDays = Math.round(
+    (moment(dateRange.selection.endDate, "MMMM Do YYYY") -
+      moment(dateRange.selection.startDate, "MMMM Do YYYY")) /
+      (1000 * 3600 * 24)
+  );
+
+  // console.log(moment(dateRange.selection.endDate, "MMMM Do YYYY"));
   return (
     <RigthWrapper className="w-100 h-100">
       <div className="RightCard">
         <div className="flex w-100 wrapper column gap-1 item-start">
           <div className="top flex justify-space w-100">
             <h4 className="fs-24 text-dark text-bold">
-              $97 <span className="text-grey text-light fs-16">night</span>
+              ${GigsDetails?.listing_price}{" "}
+              <span className="text-grey text-light fs-16">night</span>
             </h4>
             {/* reviews */}
             <h5
@@ -136,20 +145,33 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
           <div className="flex bottom w-100 column gap-1">
             <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
               <span style={{ textDecoration: "underline" }}>
-                $97 x 5 nights
+                ${GigsDetails?.listing_price} x {differnceinDays} nights
               </span>
-              <span className="text-dark">$485</span>
+              <span className="text-dark">
+                ${(GigsDetails?.listing_price * differnceinDays).toFixed(2)}
+              </span>
             </h4>{" "}
             <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
               <span style={{ textDecoration: "underline" }}>
                 Airbnb service fee
               </span>
-              <span className="text-dark">$485</span>
+              <span className="text-dark">
+                $
+                {(GigsDetails?.listing_price * differnceinDays * 0.015).toFixed(
+                  2
+                )}
+              </span>
             </h4>
           </div>
           <h4 className="fs-18 text-bold text-dark family1 w-100 justify-space flex item-center">
             <span>Total before taxes</span>
-            <span className="text-dark">$485</span>
+            <span className="text-dark">
+              $
+              {(
+                GigsDetails?.listing_price * differnceinDays +
+                GigsDetails?.listing_price * differnceinDays * 0.015
+              ).toFixed(2)}
+            </span>
           </h4>
         </div>
       </div>
