@@ -27,7 +27,7 @@ import {
   Reservations,
   Profile,
   DurationsOfplace,
-  Order,
+  UserOrder,
 } from "./screens";
 import {
   HostEarnings,
@@ -62,7 +62,7 @@ export default function App() {
           <Route path="wishlists" element={<Wish />} />
           <Route path="reservations" element={<Reservations />} />
           <Route path="/:id/payment" element={<Payment />} />
-          <Route path="/:id/order" element={<Order />} />
+          <Route path="/:id/order" element={<UserOrder />} />
         </Route>
         {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>

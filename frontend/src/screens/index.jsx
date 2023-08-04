@@ -18,8 +18,9 @@ import Payment from "./Payment";
 import Reservations from "./Reservations";
 import ReviewOfplace from "./ReviewOfPlace";
 import Profile from "./Profile";
-import DurationsOfplace from './Duration'
-import Order from './OrderList'
+import DurationsOfplace from "./Duration";
+import Order from "./OrderList";
+import UserOrder from "./UserOrder";
 export {
   DescriptionOfplace,
   Layout,
@@ -42,5 +43,6 @@ export {
   Reservations,
   Profile,
   DurationsOfplace,
-  Order
+  Order,
+  UserOrder,
 };
