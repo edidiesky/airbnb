@@ -104,12 +104,13 @@
   }
   
   .shadow {
-    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
+    
     transition: all 0.5s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   
   .shadow:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09);
   }
   .bottom {
     padding-bottom: 2.4rem;
