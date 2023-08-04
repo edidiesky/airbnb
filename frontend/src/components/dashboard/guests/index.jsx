@@ -7,7 +7,7 @@ export default function HostGuestsIndex() {
   return (
     <>
       <HostGuestsIndexPlaceContainer className="flex item-center justify-center">
-        <div className="w-90 auto grid_wrapper">
+        <div className="w-100 flex_wrapper">
           <HostGuestsLeftIndex />
           <HostGuestsRightIndex />
         </div>
@@ -18,13 +18,11 @@ export default function HostGuestsIndex() {
 
 const HostGuestsIndexPlaceContainer = styled.div`
   width: 100%;
-  .grid_wrapper {
-    display: grid;
-    grid-template-columns: 29vw 1fr;
-    grid-gap: 2rem;
-    place-items: start;
+  padding: 2rem 0;
+  .flex_wrapper {
+    display: flex;
     @media (max-width: 780px) {
-      grid-template-columns: 1fr;
+      flex-direction: column;
     }
   }
 `;

@@ -58,7 +58,7 @@ export default function DetailsTopLeft() {
         </div>
       </div>
 
-      <div className="imageOptions">
+      {/* <div className="imageOptions">
         {Gigs[0]?.listing_image?.map((x, index) => {
           return (
             <div
@@ -75,7 +75,7 @@ export default function DetailsTopLeft() {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </DetailsTopLeftContainer>
   );
 }
@@ -84,6 +84,9 @@ const DetailsTopLeftContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  /* height: 100%; */
+  /* background-color: red; */
+
   &.detailsImage {
   }
   .imageOptions {
@@ -110,6 +113,7 @@ const DetailsTopLeftContainer = styled.div`
         background: rgba(255 255 255 /60%);
         &.active {
           background: rgba(0 0 0 /20%);
+          border: 4px solid var(--red);
         }
       }
       img {
@@ -118,13 +122,15 @@ const DetailsTopLeftContainer = styled.div`
         object-fit: cover;
         height: 100%;
         border-radius: 10px;
-
       }
     }
   }
   .detailsImageContainer {
     width: 100%;
     position: relative;
+    height: 100%;
+    /* background-color: red; */
+
     &:hover .btnArrow {
       opacity: 1;
     }
@@ -136,27 +142,24 @@ const DetailsTopLeftContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fff;
-      border-radius: 50%;
+      /* background: #fff; */
+      border-radius: 3px;
+      border: 1px solid #fff;
       transition: all 0.4s;
       cursor: pointer;
-      /* @media (max-width: 780px) {
-        display: none;
-      } */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       &:hover {
       }
       svg {
         font-size: 26px;
-        color: #222;
+        color: #fff;
       }
       &.right {
-        right: -3%;
+        right: 3%;
         top: 50%;
         transform: translateY(-50%);
       }
       &.left {
-        left: -3%;
+        left: 3%;
         top: 50%;
         transform: translateY(-50%);
       }
@@ -170,6 +173,8 @@ const DetailsTopLeftContainer = styled.div`
       grid-template-columns: repeat(4, 100%);
       overflow: hidden;
       height: 100%;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
       background: #f5f5f5;
       @media (max-width: 780px) {
         min-height: 100%;
@@ -177,7 +182,8 @@ const DetailsTopLeftContainer = styled.div`
       .imagesWrapper {
         width: 100%;
         position: relative;
-        border-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
         height: 100%;
         transition: all 0.6s ease-in-out;
         &:hover {
@@ -186,7 +192,11 @@ const DetailsTopLeftContainer = styled.div`
           }
         }
         img {
+          height: 100%;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
           width: 100%;
+          object-fit: cover;
           transition: all 0.6s ease-in-out;
         }
       }
