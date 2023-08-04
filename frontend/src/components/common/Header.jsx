@@ -210,7 +210,7 @@ export default function Header({ type, loader, setSearch }) {
           <div className="right flex item-center gap-1">
             <div
               onClick={handleCreateListingSteps}
-              className="fs-16 airHome text-light text text-grey"
+              className="fs-14 text-bold text text-grey"
             >
               Airbnb your home
             </div>

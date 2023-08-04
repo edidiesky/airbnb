@@ -93,9 +93,9 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           }}
         >
           <Room />
-          <h4 className="text-dark text-bold fs-16  ">
+          <h4 className="text-dark text-bold fs-14  ">
             Bedroom
-            <span className="block fs-16 text-grey text-light">1 king bed</span>
+            <span className="block fs-14 text-grey text-light">1 king bed</span>
           </h4>
         </div>{" "}
         <div
@@ -108,9 +108,9 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           }}
         >
           <Room />
-          <h4 className="text-dark text-bold fs-16  ">
+          <h4 className="text-dark text-bold fs-14  ">
             Bedroom
-            <span className="block fs-16 text-grey text-light">1 king bed</span>
+            <span className="block fs-14 text-grey text-light">1 king bed</span>
           </h4>
         </div>{" "}
         <div
@@ -123,9 +123,9 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           }}
         >
           <Room />
-          <h4 className="text-dark text-bold fs-16  ">
+          <h4 className="text-dark text-bold fs-14  ">
             Bedroom
-            <span className="block fs-16 text-grey text-light">1 king bed</span>
+            <span className="block fs-14 text-grey text-light">1 king bed</span>
           </h4>
         </div>
       </div>
@@ -135,7 +135,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           <Key />
           <span className="text-dark text-bold">
             Lanzarote Van Campers is a Superhost
-            <div className="block text-grey fs-16 w-85 text-light">
+            <div className="block text-grey fs-14 w-85 text-light">
               Superhosts are experienced, highly rated hosts who are committed
               to providing great stays for guests.
             </div>
@@ -145,7 +145,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           <Location />
           <span className="text-dark text-bold">
             Great location
-            <div className="block text-grey fs-16 text-light">
+            <div className="block text-grey fs-14 text-light">
               100% of recent guests gave the location a 5-star rating.
             </div>
           </span>
@@ -155,10 +155,9 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           <span className="text-dark text-bold">Great location</span>
         </li>
       </ul>
-      {/* profile */}
       {/* <Profile /> */}
       {/* description */}
-      <h4 className="fs-20 bottom text-dark text-bold text-light">
+      <h4 className="fs-16 bottom text-dark text-bold text-light">
         Fully equipped large-volume camper van converted in 2021.
         <br />
         {GigsDetails?.listing_description}
@@ -172,13 +171,13 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
         <h3 className="fs-24 text-dark text-bold">What this place offers</h3>
         <ul
           className="grid w-100"
-          style={{ gridTemplateColumns: "1fr 1fr", gridGap: "1.4rem" }}
+          style={{ gridTemplateColumns: "1fr 1fr", gridGap: "1rem" }}
         >
           {offerdata.map((x, index) => {
             return (
               <li
                 key={index}
-                className="fs-16 text-dark text-bold text-light flex item-center gap-1"
+                className="fs-14 text-dark text-bold text-light flex item-center gap-1"
               >
                 {/* <img src={x.image} style={{width:"2.5rem",height:"2.5rem"}} alt="" /> */}
                 {x.image}
