@@ -25,6 +25,15 @@ export default function TableCard({ x, type }) {
     navigate(`/dashboard/users/${x?._id}`);
   };
 
+  const facilitiesdata = [
+    "Air Conditioner",
+    "Fan",
+    "Electricity",
+    "LED TV",
+    "Shower",
+    "Bath Tub",
+  ];
+
   return (
     <>
       {/* <Delete type="users" /> */}
@@ -36,24 +45,55 @@ export default function TableCard({ x, type }) {
         {/* {userAlert && <Delete type={"users"} />} */}
       </AnimatePresence>
       <tr key={x?._id}>
-        <td>{x?._id}</td>
         <td>
-          <div className="flex fs-12 text-bold item-center gap-2">
-            <img src={x.image} alt="" className="avatar" />
-            {x?.username}
+          <div className="flex item-center gap-1">
+            <div
+              style={{ width: "8rem", borderRadius: "10px" }}
+              className="flex"
+            >
+              <img
+                style={{ borderRadius: "10px" }}
+                src={x?.listing_image[0]}
+                className="w-100"
+                alt=""
+              />
+            </div>
+            <h4 className="fs-16 text-bold text-dark">
+              {x?.listing_title}
+              <span className="block fs-12 text-grey">{x?._id}</span>
+            </h4>
           </div>
         </td>
-        <td>{x?.email}</td>
-        <td>{x?.country}</td>
-        <td>{x?.country}</td>
+        <td>{x?.listing_type}</td>
+        <td>{x?.listing_beds}</td>
+        <td>
+          <div
+            style={{ flexWrap: "wrap", gap: ".4rem" }}
+            className="flex item-center flex-wrap"
+          >
+            {facilitiesdata.map((x, index) => {
+              return (
+                <h4
+                  key={index}
+                  style={{
+                    gap: ".2rem",
+                    borderRadius: "20px",
+                    background: "#fff",
+                    padding: ".4rem",
+                    border: "1px solid rgba(0,0,0,.1)",
+                  }}
+                  className="flex  justify-center fs-12 item-center text-extra-bold text-dark"
+                >
+                  {x}
+                </h4>
+              );
+            })}
+          </div>
+        </td>
+        <td>${x?.listing_price}</td>
         <td>
           <div className="action">
-            <div className="icons" onClick={handleDeleteUser}>
-              <BsTrash />
-            </div>
-            <div className="icons" onClick={handleEditUser}>
-              <MdEdit />
-            </div>
+            <div className="listing_status">Booked</div>
           </div>
         </td>
       </tr>

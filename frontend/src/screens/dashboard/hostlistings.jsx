@@ -16,5 +16,5 @@ const HostListingsPlaceContainer = styled.div`
   width: 100%;
   /* overflow: hidden; */
   /* min-height: 70vh; */
-  padding-top: 4rem;
+  /* padding-top: 1rem; */
 `;

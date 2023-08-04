@@ -5,6 +5,8 @@ import { Card } from "../../common";
 import { getAllGigs } from "../../../Features/listing/listingReducer";
 import { useDispatch } from "react-redux";
 import { clearGigsAlert } from "../../../Features/listing/listingSlice";
+import TableCard from "../../common/TableCard";
+import { Table } from "../../common/styles";
 
 export default function HostLsitingsIndex() {
   const { Gigs } = useSelector((store) => store.gigs);
@@ -33,11 +35,36 @@ export default function HostLsitingsIndex() {
                 </div>
               </div>
             </div>
-            <div className="w-100 wrapper">
+            <Table>
+              <div className="TableContainer">
+                <table className="tableWrapper">
+                  <thead>
+                    <tr>
+                      <th>Rooms Name</th>
+                      <th>Bed Type</th>
+                      <th>Room Floor</th>
+                      <th>Facilities</th>
+                      <th>Rate</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Gigs?.slice(0, 3)?.map((x) => {
+                      return <TableCard x={x} key={x?._id} />;
+                    })}
+                    {/* {userData?.slice(0,4).map((x) => {
+                  return <TableCard x={x} key={x?._id} type="users" />;
+                })} */}
+                  </tbody>
+                </table>
+              </div>
+              {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
+            </Table>
+            {/* <div className="w-100 wrapper">
               {Gigs?.map((x, index) => {
                 return <Card x={x} type={"dashboard"} index={index} />;
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </HostLsitingsIndexPlaceContainer>
