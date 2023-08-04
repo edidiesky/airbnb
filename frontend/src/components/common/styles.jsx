@@ -7,8 +7,8 @@ export const Table = styled.div`
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  padding-top: 3rem;
-  gap: 2rem;
+  padding-top: 24px;
+  /* gap: 10px; */
   transition: all 0.5s;
   border: 1px solid rgba(0, 0, 0, 0.1);
 

@@ -84,16 +84,12 @@ export default function TableCard({ x, type }) {
             </div>
           </td>
           <td>
-            <h4 className="fs-14 text-bold">
+            <h4 className="fs-16 text-extra-bold">
               ${x?.listing_price}{" "}
               <span className="text-light fs-12">/night</span>
             </h4>
           </td>
-          <td>
-            <div className="action">
-              <div className="listing_status">Booked</div>
-            </div>
-          </td>
+         
         </tr>
       </>
     );
