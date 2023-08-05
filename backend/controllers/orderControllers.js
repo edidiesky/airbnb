@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 import stripe from "stripe";
 const stripeClient = stripe(process.env.STRIPE_KEY);
-import Cart from "../models/Reservations.js";
 import Order from "../models/Order.js";
 import moment from "moment";
 import asyncHandler from "express-async-handler";
@@ -117,7 +116,7 @@ const UpdateOrderToPaid = async (req, res) => {
     {
       isPaid: true,
       paidAt: Date.now(),
-    },
+    },  
     { new: true }
   );
 

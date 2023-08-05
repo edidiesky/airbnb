@@ -39,7 +39,7 @@ export default function Message({
 const MessageContent = styled.div`
   min-width: 350px;
   padding: 1.2rem 2rem;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: #fff;
   position: fixed;
   z-index: 10000;
@@ -51,10 +51,11 @@ const MessageContent = styled.div`
   transition: all 0.6s;
   top: 2%;
   transform: translateY(-1000%);
+
   /* top: 5%; */
 
   &.active {
-    top: -5%;
+    top: -2%;
     transform: translateY(100%);
   }
   &.danger {
@@ -65,6 +66,11 @@ const MessageContent = styled.div`
   @media (max-width: 780px) {
     min-width: 300px;
     justify-content: flex-start;
+  }
+  @media (max-width: 480px) {
+    min-width: 200px;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
   }
   .flex1 {
     flex: 1;

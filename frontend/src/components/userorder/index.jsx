@@ -6,24 +6,17 @@ import { Table } from "../common/styles";
 import TableCard from "../common/TableCard";
 import { clearGigsAlert } from "../../Features/listing/listingSlice";
 import { getAllGigs } from "../../Features/listing/listingReducer";
+import { useParams } from "react-router-dom";
+import { updateCustomersOrderToPaid } from "../../Features/order/orderReducer";
 
 const UsreOrderIndex = () => {
   const dispatch = useDispatch();
-  const { Reservations, showAlert, alertText } = useSelector(
-    (store) => store.reservations
-  );
-
-  // console.log(Reservations);
-  // const handleClearMessage = () => {
-  //   dispatch(clearReservationsAlert());
-  // };
-  const { Gigs } = useSelector((store) => store.gigs);
-
+  const { id } = useParams();
+  const { order, showAlert, alertText } = useSelector((store) => store.order);
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    dispatch(clearGigsAlert());
-    dispatch(getAllGigs());
-  }, []);
+    dispatch(updateCustomersOrderToPaid(id));
+  }, [id]);
 
   return (
     <div
@@ -37,7 +30,7 @@ const UsreOrderIndex = () => {
       />
       <h2 className="fs-35">Transaction History</h2>
 
-      {Gigs.length > 0 ? (
+      {order?.length > 0 ? (
         <Table>
           <div className="TableContainer">
             <div className="flex column gap-2 justify-space w-100 flex-wrap">
@@ -45,7 +38,7 @@ const UsreOrderIndex = () => {
             </div>
             <table className="tableWrapper">
               <tbody>
-                {Gigs?.slice(0, 1)?.map((x) => {
+                {order?.slice(0, 1)?.map((x) => {
                   return <TableCard type={"guests"} x={x} key={x?._id} />;
                 })}
               </tbody>
@@ -67,15 +60,5 @@ const UsreOrderIndex = () => {
     </div>
   );
 };
-
-const ReservationsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1.5rem;
-  @media (max-width: 980px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  /* padding: 2rem 0; */
-`;
 
 export default UsreOrderIndex;

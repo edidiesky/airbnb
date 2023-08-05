@@ -35,7 +35,7 @@ export default function SingleLeftIndex({ id }) {
   );
   const [adults, setAdults] = useState(ReservationsDetails?.listing_Id?.adults);
 
-  const [dateRange, setDateRange] = useState({
+  const [daterange, setDateRange] = useState({
     selection: {
       startDate: null,
       endDate: null,
@@ -47,8 +47,8 @@ export default function SingleLeftIndex({ id }) {
     children,
     infants,
     adults,
-    startDate: moment(dateRange.selection.startDate).format("DD/MM/YYYY"),
-    endDate: moment(dateRange.selection.endDate).format("DD/MM/YYYY"),
+    startDate: moment(daterange.selection.startDate).format("DD/MM/YYYY"),
+    endDate: moment(daterange.selection.endDate).format("DD/MM/YYYY"),
     qty: 1,
   };
 
@@ -85,8 +85,8 @@ export default function SingleLeftIndex({ id }) {
   };
 
   const dispatch = useDispatch();
-  let date1 = moment(ReservationsDetails?.startDate, "DD/MM/YYYY");
-  let date2 = moment(ReservationsDetails?.endDate, "DD/MM/YYYY");
+  let date1 = moment(ReservationsDetails?.startDate, "MMMM Do YYYY, h:mm:ss a");
+  let date2 = moment(ReservationsDetails?.endDate, "MMMM Do YYYY, h:mm:ss a");
   const differenceInDays = date2.diff(date1, "days").toFixed(); // Convert milliseconds to days
 
   // console.log(ReservationsDetails?.listing_Id?.children);
@@ -117,8 +117,10 @@ export default function SingleLeftIndex({ id }) {
     price: parseFloat((orderPayment * 100).toFixed(0)),
     title: ReservationsDetails?.listing_Id?.listing_title,
     quantity: 1,
-    startDate: ReservationsDetails?.startDate,
-    endDate: ReservationsDetails?.endDate,
+    startDate: moment(daterange.selection.startDate).format("Do MMM YYYY, h:mm:ss a"),
+    endDate: moment(ReservationsDetails?.endDate).format(
+      "MMMM Do YYYY, h:mm:ss a"
+    ),
   };
 
   console.log(sessionorder);
@@ -133,10 +135,10 @@ export default function SingleLeftIndex({ id }) {
     }
   }, [url]);
 
-  const startDate = moment(dateRange.selection.startDate).format(
+  const startDate = moment(daterange.selection.startDate).format(
     "MMMM Do YYYY"
   );
-  const endDate = moment(dateRange.selection.endDate).format("MMMM Do YYYY");
+  const endDate = moment(daterange.selection.endDate).format("MMMM Do YYYY");
   return (
     <div>
       <Message
@@ -153,7 +155,7 @@ export default function SingleLeftIndex({ id }) {
           <CalendarModal
             data={data}
             handleSelect={handleSelect}
-            dateRange={dateRange}
+            daterange={daterange}
           />
         )}
       </AnimatePresence>
