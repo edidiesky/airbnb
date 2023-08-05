@@ -14,7 +14,7 @@ import {
 const initialState = {
   orderisSuccess: false,
   orderisError: false,
-  order: null,
+  order: [],
   orderDetails: null,
   orderisLoading: false,
   showAlert: false,
@@ -164,7 +164,7 @@ const orderSlice = createSlice({
     },
     [updateCustomersOrderToPaid.fulfilled]: (state, action) => {
       state.loadingPay = false;
-      state.orderDetails = action.payload;
+      state.order = action.payload;
       state.successPay = true;
     },
     [updateCustomersOrderToPaid.rejected]: (state, action) => {

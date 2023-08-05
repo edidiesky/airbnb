@@ -121,7 +121,7 @@ const UpdateOrderToPaid = expressAsyncHandler(async (req, res) => {
     { new: true }
   );
 
-  res.status(200).json({ updatedOrder });
+  res.status(200).json({ order });
 });
 // Update Order to Delivered for the user
 //  Private

@@ -152,12 +152,12 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
         },
       };
       const { data } = await axios.put(
-        `/api/v1/order/${details}/pay`,
+        `/api/v1/order/${details}/pay`, 
         null,
         config
       );
 
-      return data.updatedOrder;
+      return data.order;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
