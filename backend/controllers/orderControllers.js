@@ -6,6 +6,7 @@ const stripeClient = stripe(process.env.STRIPE_KEY);
 import Order from "../models/Order.js";
 import moment from "moment";
 import asyncHandler from "express-async-handler";
+import expressAsyncHandler from "express-async-handler";
 
 // GET All Order
 //  Private
@@ -57,7 +58,7 @@ const GetOrderById = async (req, res) => {
 // Create Order for the user
 //  Private
 // User
-const CreateOrder = async (req, res) => {
+const CreateOrder = expressAsyncHandler(async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
   const { image, title, price, startDate, endDate, orders } = req.body;
@@ -94,12 +95,12 @@ const CreateOrder = async (req, res) => {
   res.status(200).json({ order, url: session.url });
 
   // console.log(req.body);y
-};
+});
 
 // Update Order to paid for the user
 //  Private
 // Admin
-const UpdateOrderToPaid = async (req, res) => {
+const UpdateOrderToPaid = expressAsyncHandler(async (req, res) => {
   // find the user order in the data base
   const order = await Order.findOne({
     _id: req.params.id,
@@ -110,19 +111,18 @@ const UpdateOrderToPaid = async (req, res) => {
     res.status(403);
     throw new Error("This order request does not exist");
   }
-  // // udate the cart
+  // // // udate the cart
   const updatedOrder = await Order.findOneAndUpdate(
     { _id: req.params.id, buyerId: req.user.userId },
     {
       isPaid: true,
       paidAt: Date.now(),
-    },  
+    },
     { new: true }
   );
 
   res.status(200).json({ updatedOrder });
-};
-
+});
 // Update Order to Delivered for the user
 //  Private
 // Admin

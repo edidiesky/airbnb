@@ -26,7 +26,7 @@ export default function SingleLeftIndex({ id }) {
   const { GigsDetails } = useSelector((store) => store.gigs);
 
   const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
-  const { isloadingStripe, url } = useSelector((store) => store.order);
+  const { orderisLoading, url } = useSelector((store) => store.order);
   const [children, setChildren] = useState(
     ReservationsDetails?.listing_Id?.children
   );
@@ -275,7 +275,7 @@ export default function SingleLeftIndex({ id }) {
         </h5>
         <div className="w-50 flex item-center">
           <div onClick={handleOrderCreation} className="btn fs-16 text-white">
-            {isloadingStripe ? (
+            {orderisLoading ? (
               <LoaderIndex type={"dots"} />
             ) : (
               "Confirm and Pay"
