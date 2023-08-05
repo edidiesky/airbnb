@@ -342,7 +342,7 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-16 text-bold text-dark">
+                <h4 className="fs-14 text-extra-bold text-dark">
                   {x?.listing_city}, {x?.listing_country}
                 </h4>
                 <div
@@ -357,14 +357,14 @@ export default function Card({ x, index, type }) {
                 <h4 className="fs-14 text-grey text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
-                <h4 className="fs-14 text-grey text-light">
+                <h4 className="fs-12 text-grey text-light">
                   {startDate} - {endDate}
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
               <h4 className="fs-16 text-dark">
                 ${x?.listing_price}{" "}
-                <span className="text-light fs-14">night</span>
+                <span className="text-light fs-12">night</span>
               </h4>
             </Link>
           </div>

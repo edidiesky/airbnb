@@ -88,42 +88,42 @@ export default function Header({ type, loader, setSearch }) {
       >
         {userInfo ? (
           <div className="">
-            <li className="fs-14 text-light text-dark">
+            <li className="fs-12 text-light text-dark">
               <Link className="w-100" to={"/reservations"}>
                 Reservations
               </Link>
             </li>
-            <li className="fs-14 text-light text-dark">
+            <li className="fs-12 text-light text-dark">
               {" "}
               <Link className="w-100" to={"/wishlists"}>
                 Wishlists
               </Link>
             </li>
-            <li className="fs-14 text-light text-dark">
+            <li className="fs-12 text-light text-dark">
               {" "}
-              <Link className="w-100" to={"/favorites"}>
-                Favorites
+              <Link className="w-100" to={"/order"}>
+                Orders
               </Link>
             </li>
-            <li className="fs-14 text-light text-dark">
+            <li className="fs-12 text-light text-dark">
               {" "}
               <Link className="w-100" to={"/trips"}>
                 Trips
               </Link>
             </li>
-            <li className="fs-14 text-light text-dark">Logout</li>
+            <li className="fs-12 text-light text-dark">Logout</li>
           </div>
         ) : (
           <div className="">
             <li
               onClick={() => dispatch(onAuthModal())}
-              className="fs-14 text-light"
+              className="fs-12 text-light"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
-              className="fs-14 text-light text-dark"
+              className="fs-12 text-light text-dark"
             >
               Sign up
             </li>

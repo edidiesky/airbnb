@@ -119,34 +119,39 @@ const CreateOrder = expressAsyncHandler(async (req, res) => {
 const UpdateOrderToPaid = expressAsyncHandler(async (req, res) => {
   // const { reservation_id } = req.body;
   // find the user order in the data base
+  // if the order id was being provided
+  if (req.params.id !== "undefined") {
+    const order = await Order.findOne({
+      _id: req.params.id,
+      buyerId: req.user.userId,
+    });
+    // // check if the order exist
+    if (!order) {
+      res.status(403);
+      throw new Error("This order request does not exist");
+    }
+    // // // udate the cart
+    const updatedOrder = await Order.findOneAndUpdate(
+      { _id: req.params.id, buyerId: req.user.userId },
+      {
+        isPaid: true,
+        paidAt: Date.now(),
+      },
+      { new: true }
+    );
 
-  const order = await Order.findOne({
-    _id: req.params.id,
-    buyerId: req.user.userId,
-  });
-  // // check if the order exist
-  if (!order) {
-    res.status(403);
-    throw new Error("This order request does not exist");
+    // get the whi=ole user order
+    const userorder = await Order.find({
+      buyerId: req.user.userId,
+    });
+    res.status(200).json({ userorder });
+  } else {
+    const userorder = await Order.find({
+      buyerId: req.user.userId,
+    });
+    res.status(200).json({ userorder });
   }
-  // // // udate the cart
-  const updatedOrder = await Order.findOneAndUpdate(
-    { _id: req.params.id, buyerId: req.user.userId },
-    {
-      isPaid: true,
-      paidAt: Date.now(),
-    },
-    { new: true }
-  );
-
-  // get the whi=ole user order
-  const userorder = await Order.find({
-    buyerId: req.user.userId,
-  });
-  // clear the user reservations
-  await Reservations.deleteOne({ _id: order?.reservation_id });
-
-  res.status(200).json({ userorder });
+  // console.log(req.params.id == 'undefined');
 });
 // Update Order to Delivered for the user
 //  Private

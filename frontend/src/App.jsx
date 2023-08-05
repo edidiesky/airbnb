@@ -63,6 +63,7 @@ export default function App() {
           <Route path="reservations" element={<Reservations />} />
           <Route path="/:id/payment" element={<Payment />} />
           <Route path="/:id/order" element={<UserOrder />} />
+          <Route path="/order" element={<UserOrder />} />
         </Route>
         {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
