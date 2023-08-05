@@ -7,6 +7,7 @@ import Order from "../models/Order.js";
 import moment from "moment";
 import asyncHandler from "express-async-handler";
 import expressAsyncHandler from "express-async-handler";
+import Reservations from "../models/Reservations.js";
 
 // GET All Order
 //  Private
@@ -61,7 +62,18 @@ const GetOrderById = async (req, res) => {
 const CreateOrder = expressAsyncHandler(async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
-  const { image, title, price, startDate, endDate, orders } = req.body;
+  const {
+    image,
+    title,
+    price,
+    children,
+    infants,
+    adults,
+    startDate,
+    endDate,
+    orders,
+    reservation_id,
+  } = req.body;
 
   const order = await Order.create({
     buyerId: userId,
@@ -70,6 +82,10 @@ const CreateOrder = expressAsyncHandler(async (req, res) => {
     price: parseInt(price),
     startDate,
     endDate,
+    children,
+    infants,
+    adults,
+    reservation_id,
   });
 
   const session = await stripeClient.checkout.sessions.create({
@@ -101,7 +117,9 @@ const CreateOrder = expressAsyncHandler(async (req, res) => {
 //  Private
 // Admin
 const UpdateOrderToPaid = expressAsyncHandler(async (req, res) => {
+  // const { reservation_id } = req.body;
   // find the user order in the data base
+
   const order = await Order.findOne({
     _id: req.params.id,
     buyerId: req.user.userId,
@@ -121,7 +139,14 @@ const UpdateOrderToPaid = expressAsyncHandler(async (req, res) => {
     { new: true }
   );
 
-  res.status(200).json({ order });
+  // get the whi=ole user order
+  const userorder = await Order.find({
+    buyerId: req.user.userId,
+  });
+  // clear the user reservations
+  await Reservations.deleteOne({ _id: order?.reservation_id });
+
+  res.status(200).json({ userorder });
 });
 // Update Order to Delivered for the user
 //  Private

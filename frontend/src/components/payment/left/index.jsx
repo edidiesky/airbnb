@@ -114,6 +114,10 @@ export default function SingleLeftIndex({ id }) {
 
   const sessionorder = {
     orders,
+    reservation_id:ReservationsDetails?._id,
+    children,
+    infants,
+    adults,
     price: parseFloat((orderPayment * 100).toFixed(0)),
     title: ReservationsDetails?.listing_Id?.listing_title,
     quantity: 1,
@@ -123,7 +127,7 @@ export default function SingleLeftIndex({ id }) {
     ),
   };
 
-  console.log(sessionorder);
+  // console.log(sessionorder);
   // console.log(ReservationsDetails?.startDate, ReservationsDetails?.endDate);
   const handleOrderCreation = () => {
     dispatch(createCustomersOrder(sessionorder));

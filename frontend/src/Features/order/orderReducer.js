@@ -157,7 +157,7 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
         config
       );
 
-      return data.order;
+      return data.userorder;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message

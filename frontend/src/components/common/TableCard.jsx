@@ -94,6 +94,65 @@ export default function TableCard({ x, type }) {
       </>
     );
   }
+  if (type === "order") {
+    return (
+      <>
+        {/* <Delete type="users" /> */}
+        <AnimatePresence
+          initial="false"
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {/* {userAlert && <Delete type={"users"} />} */}
+        </AnimatePresence>
+        <tr key={x?._id}>
+          <td>
+            <div className="flex item-center gap-1">
+              <div
+                style={{ width: "11rem", borderRadius: "10px" }}
+                className="flex"
+              >
+                <img
+                  style={{ borderRadius: "10px" }}
+                  src={x?.image[0]}
+                  className="w-100"
+                  alt=""
+                />
+              </div>
+              <h4 className="fs-16 text-bold text-dark">
+                {x?.title}
+                <span className="block fs-12 text-grey">{x?._id}</span>
+              </h4>
+            </div>
+          </td>
+          <td>{x?.status}</td>
+          <td>
+            <div className="flex column">
+              <h5 className="fs-10 text-light text-grey">Check In</h5>
+              <h4 className="fs-14 text-bold text-dark">
+                {x?.startDate}
+              </h4>
+            </div>
+          </td>
+          <td>
+            <div className="flex column">
+              <h5 className="fs-10 text-light text-grey">Check Out</h5>
+              <h4 className="fs-14 text-bold text-dark">
+              {x?.endDate}
+              </h4>
+            </div>
+          </td>
+          <td>
+            <h4 className="fs-16 text-extra-bold">
+              ${x?.price}{" "}
+              <span className="text-light fs-12">/night</span>
+            </h4>
+          </td>
+         
+        </tr>
+      </>
+    );
+  }
 
   return (
     <>

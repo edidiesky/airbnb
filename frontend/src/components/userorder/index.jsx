@@ -39,7 +39,7 @@ const UsreOrderIndex = () => {
             <table className="tableWrapper">
               <tbody>
                 {order?.map((x) => {
-                  return <TableCard type={"guests"} x={x} key={x?._id} />;
+                  return <TableCard type={"order"} x={x} key={x?._id} />;
                 })}
               </tbody>
             </table>
