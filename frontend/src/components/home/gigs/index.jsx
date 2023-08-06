@@ -18,24 +18,26 @@ export default function GigsIndex({ loader }) {
 
           <div className="w-100 project">
             <>
+            {
+              loader
+              ? <div className="w-100 wrapper">
+                {
+                  projectdata.map((x) => {
+                    return <CardSkeleton />
+                  })
+                }
+              </div>
+              :Gigs?.length === 0? <h3 className="fs-20 text-dark w-90 auto text-center">
+              No Listing for this category </h3>
+             : <div className="w-100 wrapper">
               {
-               Gigs?.length === 0? <h3 className="fs-20 text-dark w-90 auto text-center">
-               No Listing for this category </h3>:
-               
-               <div className="w-100 wrapper">
-                 {
-                   loader
-                   ? projectdata.map((x) => {
-                       return <CardSkeleton />;
-                     })
-                   : Gigs?.map((x, index) => {
-                       return <Card x={x} loader={loader} index={index} />;
-                     })
-                 }
-               </div>
+                 Gigs?.map((x, index) => {
+                  return <Card x={x} loader={loader} index={index} />;
+                })
               }
+             </div>
+            }
             </>
-           
           </div>
         </div>
     </GigsIndexContainer>

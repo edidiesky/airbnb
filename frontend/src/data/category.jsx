@@ -1,6 +1,11 @@
 export const categorydata = [
   {
     image:
+      "https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg",
+    text: "Guest House",
+  },
+  {
+    image:
       "https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg",
     text: "Tropical",
   },
@@ -17,12 +22,12 @@ export const categorydata = [
   {
     image:
       "https://a0.muscache.com/pictures/31c1d523-cc46-45b3-957a-da76c30c85f9.jpg",
-    text: "Rooms",
+    text: "Hotel",
   },
   {
     image:
-      "https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg",
-    text: "Lakefront",
+      "https://a0.muscache.com/pictures/251c0635-cc91-4ef7-bb13-1084d5229446.jpg",
+    text: "Apartment",
   },
   {
     image:
@@ -49,20 +54,10 @@ export const categorydata = [
       "https://a0.muscache.com/pictures/1b6a8b70-a3b6-48b5-88e1-2243d9172c06.jpg",
     text: "castles",
   },
- 
-  {
-    image:
-      "https://a0.muscache.com/pictures/251c0635-cc91-4ef7-bb13-1084d5229446.jpg",
-    text: "tiny-homes",
-  },
   {
     image:
       "https://a0.muscache.com/pictures/60ff02ae-d4a2-4d18-a120-0dd274a95925.jpg",
     text: "vineyards",
-  },
-  {
-    image: "",
-    text: "Lakefront",
   },
   {
     image:
