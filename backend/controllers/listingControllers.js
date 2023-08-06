@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
 import asyncHandler from "express-async-handler";
 import Listing from "../models/Listing.js";
 import cloudinaryModule from "../utlis/cloudinary.js";
@@ -6,37 +7,42 @@ import cloudinaryModule from "../utlis/cloudinary.js";
 //  Public
 const GetAllListing = asyncHandler(async (req, res) => {
   // instantiate the request queries
+  const queryObject = {};
   // min and max price
   // search and userId
   // category
-  const search = req.query.search;
-  const minprice = req.query.minprice;
-  const category = req.query.category;
-  const maxprice = req.query.maxprice;
-  const listing_host_Id = req.query.user;
+  const type = req.query.type;
+  const listing_endDate = req.query.listing_endDate;
+  const listing_startDate = req.query.listing_startDate;
+  const listing_region = req.query.listing_region;
+  const listing_country = req.query.listing_country;
+  const listing_city = req.query.listing_city;
   const sort = req.query.sort;
+  const listing_host_Id = req.query.user;
 
-  const queryObject = {};
+  if (type) {
+    queryObject.listing_type = type;
+  }
+  if (listing_endDate) {
+    queryObject.listing_endDate = listing_endDate;
+  }
+  if (listing_startDate) {
+    queryObject.listing_startDate = listing_startDate;
+  }
 
-  // search
-  if (search) {
-    queryObject.title = { $regex: search, options: "i" };
+  if (listing_country) {
+    queryObject.listing_country = listing_country;
   }
-  // minimum price
-  if (minprice) {
-    queryObject.price = { $gt: minprice };
+  if (listing_region) {
+    queryObject.listing_region = listing_region;
   }
-  // maxprice
-  if (maxprice) {
-    queryObject.price = { $gt: maxprice };
+  // based on listing_city
+  if (listing_city) {
+    queryObject.listing_city = listing_city;
   }
-  // user
+  // based on user
   if (listing_host_Id) {
-    queryObject.listing_host_Id = user;
-  }
-  // category
-  if (category) {
-    queryObject.category = category;
+    queryObject.listing_host_Id = listing_host_Id;
   }
 
   const limit = req.query.limit || 12;
@@ -96,7 +102,6 @@ const GetHostListing = asyncHandler(async (req, res) => {
   }
   res.status(200).json({ gig });
 });
-
 
 // GET User Listing
 // Not Private
@@ -174,12 +179,11 @@ const DeleteListing = asyncHandler(async (req, res) => {
   // console.log('Helolo world');
 });
 
-
 export {
   GetSingleListing,
   GetAllListing,
   UpdateListing,
   DeleteListing,
   CreateSingleListing,
-  GetHostListing
+  GetHostListing,
 };
