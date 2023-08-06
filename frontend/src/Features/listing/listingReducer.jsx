@@ -10,20 +10,21 @@ export const getAllGigs = createAsyncThunk(
         page,
         search,
         sort,
-        category,
+        type,
         minprice,
         time,
+        category,
         maxprice,
       } = thunkAPI.getState().gigs;
       let GigsUrl = `/api/v1/listing`;
       if (sort) {
         productUrl = productUrl + `?sort=${sort}`;
       }
-      // if (category) {
-      //   GigsUrl = GigsUrl + `?category=${category}`;
-      //   const { data } = await axios.get(GigsUrl);
-      //   return data;
-      // }
+      if (type) {
+        GigsUrl = GigsUrl + `?type=${type}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      }
       if (category || minprice) {
         GigsUrl = GigsUrl + `?category=${category}&minprice=${minprice}`;
         const { data } = await axios.get(GigsUrl);

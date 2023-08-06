@@ -28,7 +28,7 @@ export default function Message({
       }
     >
       <AiFillCheckCircle fontSize={"24px"} color="green" />
-      <div className="flex flex1 fs-12 text-dark">{alertText}</div>
+      <div className="flex flex1 fs-10 text-extra-bold text-dark">{alertText}</div>
       <div className="icon" onClick={handleClearAlert}>
         <RxCross1 />
       </div>

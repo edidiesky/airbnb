@@ -34,6 +34,7 @@ const initialState = {
   maxprice: 0,
   minprice: 0,
   page: 1,
+  type: "",
   deleteGigModalAlert: false,
   selectmodal: false,
   calendarmodal: false,
@@ -79,6 +80,9 @@ const GigsSlice = createSlice({
     },
     getPage: (state, action) => {
       state.page = action.payload;
+    },
+    getLsitingType: (state, action) => {
+      state.type = action.payload;
     },
     onSelectModal: (state, action) => {
       state.selectmodal = true;
@@ -355,6 +359,7 @@ export const {
   offSelectModal,
   onCalendarModal,
   offCalendarModal,
+  getLsitingType,
 
   handleListingType,
   handleListingLocation,

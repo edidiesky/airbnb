@@ -14,12 +14,20 @@ export default function Home() {
   const dispatch = useDispatch();
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState(false);
+  const { type } = useSelector((store) => store.gigs);
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(clearGigsAlert());
     dispatch(getAllGigs());
   }, []);
+  useEffect(() => {
+    if(type) {
+      dispatch(clearGigsAlert());
+    dispatch(getAllGigs());
+    }
+  }, [type]);
   // actions
   const { profilemodal } = useSelector((store) => store.user);
   useEffect(() => {
@@ -31,7 +39,7 @@ export default function Home() {
   // if (loader) {
   //   return <HomeLoader />;
   // }
-  console.log(loader);
+  // console.log(loader);
 
   return (
     <>

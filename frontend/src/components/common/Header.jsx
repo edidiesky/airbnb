@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import styled from "styled-components";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
@@ -16,10 +18,24 @@ import { onAuthModal } from "../../Features/user/userSlice";
 import { options2 } from "../../utils/carousel";
 import Logo2 from "./svg/Logo12";
 import Filter from "./svg/filter";
+import { getLsitingType } from "../../Features/listing/listingSlice";
 
 export default function Header({ type, loader, setSearch }) {
+  const dispatch = useDispatch();
   const { userInfo } = useSelector((store) => store.user);
+  let [searchParams, setSearchParams] = useSearchParams();
+  const typevalue = searchParams.get("type")
+  console.log(typevalue)
   const [tab, setTab] = useState(0);
+  const handleListingType = (tab, type) => {
+    setTab(tab);
+    setSearchParams((type = { type }));
+  };
+  useEffect(() => {
+    if (typevalue !== null) {
+      dispatch(getLsitingType(typevalue));
+    }
+  }, [typevalue]);
   const navigate = useNavigate();
   const dropin = {
     hidden: {
@@ -74,7 +90,7 @@ export default function Header({ type, loader, setSearch }) {
     },
   };
   const [drop, setDrop] = useState(false);
-  const dispatch = useDispatch();
+
   // dropdown for
   const Dropdown = () => {
     return (
@@ -301,7 +317,7 @@ export default function Header({ type, loader, setSearch }) {
                   </div>
                 ) : (
                   <div
-                    onClick={() => setTab(index)}
+                    onClick={() => handleListingType(index, x.text)}
                     className={
                       tab === index
                         ? "flex column text-bold imagewrapper item-center fs-10 text-dark active"

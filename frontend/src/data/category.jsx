@@ -7,7 +7,7 @@ export const categorydata = [
   {
     image:
       "https://a0.muscache.com/pictures/a6dd2bae-5fd0-4b28-b123-206783b5de1d.jpg",
-    text: "Deserts",
+    text: "Desert",
   },
   {
     image:
