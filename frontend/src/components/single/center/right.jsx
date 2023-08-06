@@ -186,6 +186,7 @@ const RigthWrapper = styled.div`
     border-radius: 20px;
     position: sticky;
     top: 10%;
+    width: 370px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 

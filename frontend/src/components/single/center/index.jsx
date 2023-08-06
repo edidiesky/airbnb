@@ -121,7 +121,7 @@ const CenterWrapper = styled.div`
   .grid_auto {
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: 1fr 27vw;
+    grid-template-columns: 1fr auto;
     min-height: 70vh;
     @media (max-width: 1080px) {
       display: flex;
