@@ -19,6 +19,7 @@ import Filter from "./svg/filter";
 
 export default function Header({ type, loader, setSearch }) {
   const { userInfo } = useSelector((store) => store.user);
+  const [tab, setTab] = useState(0);
   const navigate = useNavigate();
   const dropin = {
     hidden: {
@@ -192,7 +193,7 @@ export default function Header({ type, loader, setSearch }) {
               onClick={() => setSearch(true)}
               className="flex item-center justify-end"
             >
-              <div className="center shadow flex item-center gap-1">
+              <div className="center flex item-center gap-1">
                 <div className="fs-14 text-grey text-bold">Anywhere</div>
                 <div className="left1 fs-14 text-grey text-bold">Anyweek</div>
                 <div
@@ -300,7 +301,12 @@ export default function Header({ type, loader, setSearch }) {
                   </div>
                 ) : (
                   <div
-                    className="flex column text-bold imagewrapper item-center fs-10 text-dark"
+                    onClick={() => setTab(index)}
+                    className={
+                      tab === index
+                        ? "flex column text-bold imagewrapper item-center fs-10 text-dark active"
+                        : "flex column text-bold imagewrapper item-center fs-10 text-dark"
+                    }
                     style={{
                       width: "5rem",
                       height: "5rem",
@@ -384,6 +390,13 @@ const HeaderWrapper = styled.div`
       font-size: 14px !important;
     }
   }
+
+  .center {
+    padding: 0.6rem 1.3rem !important;
+    margin: 0 auto !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    border: 0.5px solid rgba(0, 0, 0, 0.1) !important;
+  }
   .headertop1 {
     display: none;
 
@@ -464,9 +477,23 @@ const HeaderWrapper = styled.div`
     position: relative;
     cursor: pointer;
     justify-content: center;
+    &.active {
+      &::after {
+        width: 50%;
+        transition: all 0.3s;
+        position: absolute;
+        bottom: -0%;
+        content: "";
+        left: 50%;
+        height: 2px;
+        border-radius: 20px;
+        background-color: var(--grey-1);
+        transform: translateX(-50%);
+      }
+    }
     &:hover {
       ::after {
-        width: 100%;
+        width: 70%;
       }
     }
     &::after {
@@ -478,7 +505,7 @@ const HeaderWrapper = styled.div`
       left: 50%;
       height: 2px;
       border-radius: 20px;
-      background-color: var(--grey-1);
+      background-color: rgba(0, 0, 0, 0.2);
       transform: translateX(-50%);
     }
   }

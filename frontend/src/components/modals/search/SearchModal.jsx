@@ -65,14 +65,14 @@ export default function SearchModal({ setSearch }) {
                 : "where_wrapper flex column"
             }
           >
-            <h5 className="fs-12 text-bold">Where</h5>
+            <h5 className="fs-10 text-bold">Where</h5>
             <input type="text" placeholder="Search destinations" />
           </div>
           {/* calendar start date modal */}
           {tab === 1 && (
             <div className="region_search w-100">
               <div className="w-85 auto flex column gap-1">
-                <h5 className="fs-16 text-bold">Search by Start Date</h5>
+                <h5 className="fs-10 text-bold">Search by Start Date</h5>
                 <DateInput dateRange={dateRange} />
               </div>
             </div>
@@ -86,15 +86,15 @@ export default function SearchModal({ setSearch }) {
                 : "check_in flex-1 flex column"
             }
           >
-            <h5 className="fs-12 text-bold">Check In</h5>
-            <h4 className="fs-14 text-light text-grey">Add Dates</h4>
+            <h5 className="fs-10 text-bold">Check In</h5>
+            <h4 className="fs-12 text-light text-grey">Add Dates</h4>
           </div>
           {/* end date selection */}
           {/* calendar end date */}
           {tab === 2 && (
             <div className="region_search w-100">
               <div className="w-85 auto flex column gap-1">
-                <h5 className="fs-16 text-bold">Search by End Date</h5>
+                <h5 className="fs-12 text-bold">Search by End Date</h5>
                 <DateInput dateRange={dateRange} />
               </div>
             </div>
@@ -107,8 +107,8 @@ export default function SearchModal({ setSearch }) {
                 : "check_in flex-1 flex column"
             }
           >
-            <h5 className="fs-12 text-bold">Check Out</h5>
-            <h4 className="fs-14 text-light text-grey">Add Dates</h4>
+            <h5 className="fs-10 text-bold">Check Out</h5>
+            <h4 className="fs-12 text-light text-grey">Add Dates</h4>
           </div>
           {/* who guets */}
           {tab === 3 && (
@@ -131,10 +131,10 @@ export default function SearchModal({ setSearch }) {
             }
           >
             <div className="flex column">
-              <h5 className="fs-12 text-bold">Check In</h5>
-              <h4 className="fs-14 text-light text-grey">Add Dates</h4>
+              <h5 className="fs-10 text-bold">Check In</h5>
+              <h4 className="fs-12 text-light text-grey">Add Dates</h4>
             </div>
-            <div className="btn fs-16 text-white">Search</div>
+            <div className="btn fs-12 text-white">Search</div>
           </div>
         </motion.div>
       </div>
@@ -175,9 +175,9 @@ const SearchModalContainer = styled(motion.div)`
     border-radius: 20px;
     position: absolute;
     background-color: #fff;
-    top: 120%;
+    top: 100%;
     box-shadow: 0 20px 46px rgba(0, 0, 0, 0.4);
-    width: 50%;
+    width: 45%;
     right: 0;
     @media (max-width: 780px) {
       width: 60%;
@@ -204,7 +204,7 @@ const SearchModalContainer = styled(motion.div)`
     padding: 1rem 0;
     width: 100vw;
     .search_container {
-      /* width: 50%; */
+      width: 60%;
       background-color: #ebebeb;
       padding: 0.1rem 0;
       border-radius: 100px;
@@ -216,7 +216,11 @@ const SearchModalContainer = styled(motion.div)`
         position: absolute;
         background-color: #fff;
         top: 120%;
+        width: 100%;
         box-shadow: 0 20px 46px rgba(0, 0, 0, 0.2);
+        &.search_1 {
+          width: 70%;
+        }
         .grid_wrapper {
           width: 100%;
           grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -266,7 +270,7 @@ const SearchModalContainer = styled(motion.div)`
           border: none;
           outline: none;
           font-family: inherit;
-          font-size: 16px;
+          font-size: 14px;
           color: var(--grey-1);
           background-color: transparent;
         }
