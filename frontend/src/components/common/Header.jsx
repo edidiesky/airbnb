@@ -300,8 +300,13 @@ export default function Header({ type, loader, setSearch }) {
                   </div>
                 ) : (
                   <div
-                    className="flex column text-light imagewrapper item-center fs-12 text-dark"
-                    style={{ width: "5rem", height: "5rem", gap: ".5rem" }}
+                    className="flex column text-bold imagewrapper item-center fs-10 text-dark"
+                    style={{
+                      width: "5rem",
+                      height: "5rem",
+                      gap: ".5rem",
+                      fontSize: "11px",
+                    }}
                     key={index}
                   >
                     <img
@@ -496,6 +501,7 @@ const HeaderWrapper = styled.div`
   }
   .HeaderBottom {
     padding: 0.8rem 0;
+    padding-top: 1rem;
   }
   .text {
     padding: 0.6rem 1rem;
