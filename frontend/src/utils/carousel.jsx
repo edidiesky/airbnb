@@ -14,10 +14,10 @@ export const options2 = {
       items: 6,
     },
     760: {
-      items: 10,
+      items: 8,
     },
     1024: {
-      items: 12,
+      items: 10,
     },
   },
 };

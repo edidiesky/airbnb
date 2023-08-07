@@ -13,21 +13,57 @@ export default function SearchModal({ setSearch }) {
   const [tab, setTab] = useState(-1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const [children, setChildren] = useState(0);
-  const [infants, setInfants] = useState(1);
-  const [adults, setAdults] = useState(1);
-
-  let limit = adults + children;
-
   const [dateRange, setDateRange] = useState({
     selection: {
-      startDate: null,
-      endDate: null,
+      startDate: new Date(),
+      endDate: new Date(),
       key: "selection",
     },
   });
+  const [children, setChildren] = useState(0);
+  const [infants, setInfants] = useState(1);
+  const [adults, setAdults] = useState(1);
+  const handleSelect = (ranges) => {
+    console.log(ranges);
+    setTab(1)
+    const { startDate, endDate } = ranges.selection;
+        // Check if startDate and endDate are the same
+        if (startDate.getTime() === endDate.getTime()) {
+          // If they are the same, create a new endDate by adding one day to the selected startDate
+          const newEndDate = new Date(startDate);
+          newEndDate.setDate(newEndDate.getDate() + 1);
+          setDateRange({
+            ...ranges.selection,
+            selection:{
+              startDate,
+              endDate: newEndDate,
+              key: 'selection',
+            }
+          })
+        } else {
+          setDateRange(...ranges.selection,ranges.selection);
+        }
+    // const selectedStartDate = ranges.selection.startDate;
+    // const selectedendDate = ranges.selection.endDate;
 
+    // setDateRange({
+    //   ...ranges.selection,
+    //   selection: {
+    //     startDate: selectedStartDate,
+    //     endDate: selectedendDate,
+    //   },
+    // });
+
+    // if (selectedStartDate) {
+    //   setTab(1)
+    // }
+    
+    // if (selectedendDate) {
+    //   setTab(3)
+    // }
+  };
+  let limit = adults + children;
+  
   return (
     <SearchModalContainer
       variants={searchIn}
@@ -69,11 +105,11 @@ export default function SearchModal({ setSearch }) {
             <input type="text" placeholder="Search destinations" />
           </div>
           {/* calendar start date modal */}
-          {tab === 1 && (
+          {(tab === 1 || tab ===2) && (
             <div className="region_search w-100">
               <div className="w-85 auto flex column gap-1">
                 <h5 className="fs-10 text-bold">Search by Start Date</h5>
-                <DateInput dateRange={dateRange} />
+                <DateInput type={'type'} dateRange={dateRange} handleSelect={handleSelect} />
               </div>
             </div>
           )}
@@ -91,16 +127,9 @@ export default function SearchModal({ setSearch }) {
           </div>
           {/* end date selection */}
           {/* calendar end date */}
-          {tab === 2 && (
-            <div className="region_search w-100">
-              <div className="w-85 auto flex column gap-1">
-                <h5 className="fs-12 text-bold">Search by End Date</h5>
-                <DateInput dateRange={dateRange} />
-              </div>
-            </div>
-          )}
+   
           <div
-            onClick={() => setTab(2)}
+          // onClick={() => setTab(2)}
             className={
               tab === 2
                 ? "check_in flex-1 flex column active"
@@ -210,6 +239,9 @@ const SearchModalContainer = styled(motion.div)`
       border-radius: 100px;
       position: relative;
       margin-top: 4rem;
+      @media (max-width:1180px) {
+        width: 90%;
+      }
       .region_search {
         padding: 1.5rem 1rem;
         border-radius: 20px;

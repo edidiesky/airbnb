@@ -4,7 +4,7 @@ import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import styled from "styled-components";
 
-export default function DateInput({ handleSelect,dateRange }) {
+export default function DateInput({ handleSelect,dateRange,type }) {
 
   return (
     <DateRange
@@ -14,6 +14,9 @@ export default function DateInput({ handleSelect,dateRange }) {
       showDateDisplay={false}
       minDate={new Date()}
       months={2}
+      showSelectionPreview={true}
+      moveRangeOnFirstSelection={false}
+      range={false}
       direction="horizontal"
       //   disabledDates={Date}
     />

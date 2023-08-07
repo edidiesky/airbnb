@@ -25,7 +25,7 @@ export default function Header({ type, loader, setSearch }) {
   const { userInfo } = useSelector((store) => store.user);
   let [searchParams, setSearchParams] = useSearchParams();
   const typevalue = searchParams.get("type")
-  console.log(typevalue)
+  // console.log(typevalue)
   const [tab, setTab] = useState(0);
   const handleListingType = (tab, type) => {
     setTab(tab);
@@ -210,11 +210,11 @@ export default function Header({ type, loader, setSearch }) {
               className="flex item-center justify-end"
             >
               <div className="center flex item-center gap-1">
-                <div className="fs-14 text-grey text-bold">Anywhere</div>
-                <div className="left1 fs-14 text-grey text-bold">Anyweek</div>
+                <div className="fs-12 text-dark text-bold">Anywhere</div>
+                <div className="left1 fs-12 text-dark text-bold">Anyweek</div>
                 <div
                   style={{ gap: ".4rem" }}
-                  className="flex item-center justify-center fs-14 text-grey text-light"
+                  className="flex item-center justify-center fs-12 text-dark text-light"
                 >
                   Add guests
                   <div className="icon flex item-center back-red justify-center">
@@ -377,7 +377,7 @@ const HeaderWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 6vw;
     grid-gap: 1rem;
-    @media (max-width: 780px) {
+    @media (max-width: 1080px) {
       grid-template-columns: 1fr;
     }
   }
@@ -389,7 +389,7 @@ const HeaderWrapper = styled.div`
   .fiterWrapper {
     /* width: 300px; */
     /* background-color: red; */
-    @media (max-width: 780px) {
+    @media (max-width: 1080px) {
       display: none;
     }
   }
