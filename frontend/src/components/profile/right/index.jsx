@@ -43,14 +43,14 @@ export default function ProfileRightIndex() {
   const { review } = useSelector((store) => store.review);
   const { userDetails } = useSelector((store) => store.user);
 
-  console.log(review);
+  // console.log(review);
 
   return (
     <ProfileRightIndexContent className="w-100">
-      <div className="ProfileRight flex gap-2 column">
+      <div className="ProfileRight w-90 auto flex gap-2 column">
         {/* host details */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-35 family1">About {userDetails?.username}</h3>
+          <h3 className="fs-30 family1">About {userDetails?.username}</h3>
           <div className="flex item-center fs-16 text-light gap-1 flex-wrap">
             <div className="flex item-center gap-1">
               <Language />
@@ -67,7 +67,7 @@ export default function ProfileRightIndex() {
         </div>{" "}
         {/* host reviews */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-24 text-light">
+          <h3 className="fs-20 text-bold">
             {userDetails?.username}'s Reviews
           </h3>
           {review?.length > 0 ? (
@@ -93,7 +93,7 @@ export default function ProfileRightIndex() {
             </div>
           ) : (
             <div className="w-100 w-100">
-              <h4 className="fs-18 text-dark text-light  flex item-center gap-1">
+              <h4 className="fs-16 text-dark text-light  flex item-center gap-1">
                 No reviews (yet)
               </h4>
             </div>
@@ -101,14 +101,14 @@ export default function ProfileRightIndex() {
         </div>
         {/* host lisitng */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-24 text-light">Liza’s listings</h3>
+          <h3 className="fs-20 text-bold">Liza’s listings</h3>
           <div className="wrapper w-100">
             {review?.length > 0 ? (
               review?.map((x, index) => {
                 return <Card x={x} type={"listing"} index={index} />;
               })
             ) : (
-              <h4 className="fs-18 text-dark text-light  flex item-center gap-1">
+              <h4 className="fs-16 text-dark text-light  flex item-center gap-1">
                 No Listing (yet)
               </h4>
             )}

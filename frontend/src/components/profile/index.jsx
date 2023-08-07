@@ -58,18 +58,23 @@ const ProfileIndexContent = styled.div`
   }
   .authCenter {
     padding: 3rem;
+    width: 350px;
+    margin: 0 auto;
     box-shadow: 0 19px 39px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    margin: 1.4rem 0;
+    margin: 1.4rem auto;
     background-color: #fff;
+    @media (max-width: 780px) {
+      width: 70%;
+    }
   }
   .grid-auto {
     display: grid;
     padding: 3rem;
-    grid-template-columns: 26vw 1fr;
+    grid-template-columns: auto 1fr;
     grid-gap: 4rem;
     @media (min-width: 1500px) {
-      grid-template-columns: 0.8fr 1fr;
+      grid-template-columns: auto 1fr;
     }
     @media (max-width: 980px) {
       grid-template-columns: 1fr;

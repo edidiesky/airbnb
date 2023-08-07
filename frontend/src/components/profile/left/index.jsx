@@ -21,9 +21,9 @@ export default function ProfileLeftIndex({ id }) {
         <div className="authCenter flex item-start gap-3 justify-center w-90 auto shadow">
           <div className="authC_right flex gap-1 column flex-1">
             <img src={userDetails?.image} alt="" className="avatar" />
-            <h3 className="fs-30 family1 text-center text-extra-bold text-dark">
+            <h3 className="fs-20 family1 text-center text-extra-bold text-dark">
               {userDetails?.username}
-              <span className="block fs-16 text-light text-center family2">
+              <span className="block fs-14 text-light text-center family2">
                 Superhost
               </span>
             </h3>
