@@ -128,6 +128,17 @@ const CenterWrapper = styled.div`
       flex-direction: column-reverse;
     }
   }
+  .listing_prop {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(170px,1fr));
+  }
+  .center_left_top {
+    @media (max-width:580px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
   /* place-items: start; */
 
   .rightwrapper {

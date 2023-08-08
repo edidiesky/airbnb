@@ -28,7 +28,7 @@ const TopIndex = () => {
               className="fs-16 text-dark"
               style={{ textDecoration: "underline" }}
             >
-              Ubud, Bali, Indonesia
+              {GigsDetails?.listing_city},{" "} {GigsDetails?.listing_country}
             </span>
           </h5>
         </div>

@@ -51,7 +51,7 @@ const Reviews = () => {
           return <ReviewsCard x={x} />;
         })}
       </ReviewWrapper> */}
-      <h3 className="fs-24 text-dark text-light  flex item-center gap-1">
+      <h3 className="fs-20 text-dark text-bold  flex item-center gap-1">
       No reviews (yet)
       </h3>
     </ReviewStyles>

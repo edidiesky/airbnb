@@ -62,16 +62,16 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
     <div className="flex column gap-2">
       <div
         style={{ flexWrap: "wrap" }}
-        className="w-100 flex gap-1 bottom item-center justify-space"
+        className="w-100 flex gap-1 center_left_top bottom item-center justify-space"
       >
         <h3 className="flex-1 text-dark text-bold" style={{ fontSize: "27px" }}>
           {GigsDetails?.listing_title}
-          <span className="block fs-18 text-dark text-light">
+          <span className="block fs-14 text-dark text-bold">
             <span>4 guests</span> <span>. 2 bedrooms</span>{" "}
             <span>. 4 beds</span> <span>. 4 baths</span>
           </span>
         </h3>
-        <div className="justify-end flex">
+        <div className="justify-end flex-1 flex">
           <Link
             to={`/users/show/${GigsDetails?.listing_host_Id?._id}`}
             className="imageWrapper avatar relative"
@@ -86,8 +86,8 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
         </div>
       </div>
       <div
-        style={{ flexWrap: "wrap" }}
-        className="flex item-center gap-2 bottom w-100"
+        
+        className=" listing_prop item-center bottom w-100"
       >
         <div
           className="flex item-center gap-1"
