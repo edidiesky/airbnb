@@ -26,11 +26,20 @@ export default function SearchModal({
   location,
   setLocation,
 }) {
+  const navigate = useNavigate()
+
   const { listing_children, listing_infants, listing_adults } = useSelector(
     (store) => store.gigs
   );
   let limit = listing_adults + listing_children;
 
+  const handleSearch = () => {
+    navigate({
+      pathname: '/',
+      search: `?listing_location=${location}&listing_children=${listing_children}&check_in=${startDate}&check_out=${endDate}`,
+    });
+
+  };
 
   return (
     <SearchModalContainer
@@ -144,20 +153,21 @@ export default function SearchModal({
             />
           )}
           <div
-            onClick={() => setTab(3)}
             className={
               tab === 3
                 ? "where_wrapper gap-4 active flex item-center justify-space"
                 : "where_wrapper gap-4 flex item-center justify-space"
             }
           >
-            <div className="flex column">
+            <div onClick={() => setTab(3)} className="flex column">
               <h5 className="fs-10 text-bold">Who</h5>
               <h4 className="fs-12 text-bold text-dark">
                 {limit ? <span>{limit} Guests</span> : "Add Guests"}
               </h4>
             </div>
-            <div className="btn fs-12 text-white">Search</div>
+            <div onClick={handleSearch} className="btn fs-12 text-white">
+              Search
+            </div>
           </div>
         </motion.div>
       </div>
@@ -275,6 +285,7 @@ const SearchModalContainer = styled(motion.div)`
         padding-left: 2rem;
         .btn {
           padding: 0.8rem 2rem;
+          cursor: pointer;
           background-image: linear-gradient(
             to right,
             #e61e4d 0%,

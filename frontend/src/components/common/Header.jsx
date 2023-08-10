@@ -34,7 +34,7 @@ export default function Header({
     startDate,
     endDate,
     location,
-    listing_children,
+    listing_children, 
     listing_infants,
     listing_adults,
   } = useSelector((store) => store.gigs);
@@ -43,7 +43,7 @@ export default function Header({
 
   let [searchParams, setSearchParams] = useSearchParams();
   const typevalue = searchParams.get("type");
-  console.log(startDate);
+  // console.log(startDate);
   const [tab, setTab] = useState(0);
   const handleListingType = (tab, type) => {
     setTab(tab);

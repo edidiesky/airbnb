@@ -17,12 +17,15 @@ import {
 import { getAllGigs } from "../Features/listing/listingReducer";
 import HomeLoader from "../components/loaders/homeloader";
 import SearchModal from "../components/modals/search/SearchModal";
+import { useSearchParams } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState(false);
   const [tab, setTab] = useState(-1);
+  let [searchParams, setSearchParams] = useSearchParams();
+
 
   const [dateRange, setDateRange] = useState({
     selection: {
@@ -33,8 +36,8 @@ export default function Home() {
   });
   const [children, setChildren] = useState(0);
   const [location, setLocation] = useState("");
-  const [infants, setInfants] = useState(1);
-  const [adults, setAdults] = useState(1);
+  const [infants, setInfants] = useState(0);
+  const [adults, setAdults] = useState(0);
   const handleSelect = (ranges) => {
     // console.log(ranges);
     setTab(1);
