@@ -34,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
       role: user.role,
     },
     process.env.JWT_CODE,
-    { expiresIn: "2d" }
+    { expiresIn: "20d" }
   );
 
   res.status(200).json({ user, token });
@@ -70,7 +70,7 @@ const LoginUser = asyncHandler(async (req, res) => {
       name: user.name,
     },
     process.env.JWT_CODE,
-    { expiresIn: "2d" }
+    { expiresIn: "20d" }
   );
 
   res.status(200).json({ user, token });

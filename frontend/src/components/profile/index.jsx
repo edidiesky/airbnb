@@ -67,6 +67,9 @@ const ProfileIndexContent = styled.div`
     @media (max-width: 780px) {
       width: 70%;
     }
+    @media (max-width: 450px) {
+      width: 90%;
+    }
   }
   .grid-auto {
     display: grid;

@@ -188,6 +188,9 @@ const RigthWrapper = styled.div`
     top: 10%;
     width: 370px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    @media (max-width:580px) {
+      width: 80%;
+    }
   }
 
   svg {
