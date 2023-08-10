@@ -5,7 +5,7 @@ import { DateRange } from "react-date-range";
 import styled from "styled-components";
 
 export default function DateInput({ handleSelect,dateRange,type }) {
-
+  
   return (
     <DateContainer>
        <DateRange
