@@ -327,7 +327,8 @@ export default function Header({ type, loader, setSearch }) {
                       width: "5rem",
                       height: "5rem",
                       gap: ".5rem",
-                      fontSize: "11px",
+                      fontSize: "10px",
+                      fontWeight:500
                     }}
                     key={index}
                   >
@@ -338,7 +339,6 @@ export default function Header({ type, loader, setSearch }) {
                       style={{
                         width: "1.7rem",
                         height: "1.7rem",
-                        opacity: ".6",
                       }}
                     />
                     {x.text}
@@ -493,6 +493,9 @@ const HeaderWrapper = styled.div`
     position: relative;
     cursor: pointer;
     justify-content: center;
+    img {
+      opacity: .5;
+    }
     &.active {
       &::after {
         width: 50%;
@@ -510,6 +513,9 @@ const HeaderWrapper = styled.div`
     &:hover {
       ::after {
         width: 70%;
+      }
+      img {
+        opacity: 1;
       }
     }
     &::after {

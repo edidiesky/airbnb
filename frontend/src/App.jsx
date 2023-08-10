@@ -1,6 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import AOS from "aos";
+import 'react-dates/lib/css/_datepicker.css';
 import "./index.css";
 import "aos/dist/aos.css";
 import {
