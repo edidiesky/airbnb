@@ -5,7 +5,7 @@ import { DateRange } from "react-date-range";
 import styled from "styled-components";
 
 export default function DateInput({ handleSelect,dateRange,type }) {
-  
+
   return (
     <DateContainer>
        <DateRange
@@ -29,10 +29,10 @@ export default function DateInput({ handleSelect,dateRange,type }) {
 
 const DateContainer = styled.div`
   width: 100%;
-  @media (min-width: 450px) {
+  /* @media (min-width: 450px) {
       display: none;
     }
   @media (max-width: 450px) {
       display: block;
-    }
+    } */
 `;

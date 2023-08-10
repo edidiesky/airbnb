@@ -53,6 +53,8 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
   const { GigsDetails } = useSelector((store) => store.gigs);
   const startDate = moment(dateRange.selection.startDate).format('MMMM Do YYYY')
   const endDate = moment(dateRange.selection.endDate).format('MMMM Do YYYY')
+ 
+ 
   const differnceinDays = Math.round(
     (moment(dateRange.selection.endDate, "DD/MM/YYYY") -
       moment(dateRange.selection.startDate, "DD/MM/YYYY")) /

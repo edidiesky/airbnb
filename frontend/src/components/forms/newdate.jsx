@@ -1,17 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-// import {
-//   DateRangePicker,
-//   SingleDatePicker,
-//   DayPickerRangeController,
-// } from "react-dates";
-// import "react-dates/lib/css/_datepicker.css";
 // import 'react-dates/initialize';
+
+import 'react-dates/initialize';
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 export default function NewDateInput({focusedInput, startDate, endDate,setFocusedInput, setDates, type }) {
   return (
     <>
-      {/* <DateRangePicker
+      <DateRangePicker
         startDate={startDate}
         startDateId="start_date_id"
         endDate={endDate}
@@ -22,7 +20,7 @@ export default function NewDateInput({focusedInput, startDate, endDate,setFocuse
         focusedInput={focusedInput}
         onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
         inputClassName="custom-input-class"
-      /> */}
+      />
     </>
   );
 }
