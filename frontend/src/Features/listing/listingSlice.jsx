@@ -28,6 +28,12 @@ const initialState = {
   // req queries
   category: "",
   search: "",
+  startDate:'',
+  endDate:'',
+  listing_adults:0,
+  listing_infants:0,
+  listing_children:0,
+  location:'',
   sort: "",
   limit: 10,
   user: "",
@@ -77,6 +83,25 @@ const GigsSlice = createSlice({
     },
     getQuantity: (state, action) => {
       state.quantity = action.payload;
+    },
+    getStartDate: (state, action) => {
+      state.startDate = action.payload;
+    },
+    getLocation: (state, action) => {
+      state.location = action.payload;
+    },
+   
+     getChildren: (state, action) => {
+      state.listing_children = action.payload;
+    },
+    getInfants: (state, action) => {
+      state.listing_infants = action.payload;
+    },
+    getAdults: (state, action) => {
+      state.listing_adults = action.payload;
+    },
+    getEndDate: (state, action) => {
+      state.endDate = action.payload;
     },
     getPage: (state, action) => {
       state.page = action.payload;
@@ -369,6 +394,14 @@ export const {
   handleListingDescription,
   handleListingPrice,
   handleListingDate,
+
+
+  getStartDate,
+  getEndDate,
+  getLocation,
+  getChildren,
+  getAdults,
+  getInfants
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

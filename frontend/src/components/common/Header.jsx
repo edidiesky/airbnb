@@ -20,12 +20,30 @@ import Logo2 from "./svg/Logo12";
 import Filter from "./svg/filter";
 import { getLsitingType } from "../../Features/listing/listingSlice";
 
-export default function Header({ type, loader, setSearch }) {
+export default function Header({
+  type,
+  loader,
+  setSearch,
+  adults,
+  infants,
+  children,
+}) {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((store) => store.user);
+  const {
+    startDate,
+    endDate,
+    location,
+    listing_children,
+    listing_infants,
+    listing_adults,
+  } = useSelector((store) => store.gigs);
+
+  let limit = listing_adults + listing_children;
+
   let [searchParams, setSearchParams] = useSearchParams();
-  const typevalue = searchParams.get("type")
-  // console.log(typevalue)
+  const typevalue = searchParams.get("type");
+  console.log(startDate);
   const [tab, setTab] = useState(0);
   const handleListingType = (tab, type) => {
     setTab(tab);
@@ -156,6 +174,7 @@ export default function Header({ type, loader, setSearch }) {
       dispatch(onAuthModal());
     }
   };
+
   // headertop
   const HeaderTop = () => {
     return (
@@ -176,7 +195,10 @@ export default function Header({ type, loader, setSearch }) {
                   style={{ gap: ".3rem" }}
                   className="text-light fs-12 text-grey flex item-center"
                 >
-                  Any week <span> . </span> <span>Add guests</span>
+                  {/* {startDate !== undefined
+                    ? startDate - endDate
+                    : startDate - endDate}{" "} */}
+                  <span> . </span> <span>Add guests</span>
                 </span>
               </div>
             </div>
@@ -210,13 +232,24 @@ export default function Header({ type, loader, setSearch }) {
               className="flex item-center justify-end"
             >
               <div className="center flex item-center gap-1">
-                <div className="fs-12 text-dark text-bold">Anywhere</div>
-                <div className="left1 fs-12 text-dark text-bold">Anyweek</div>
+                <div className="fs-12 text-dark text-bold">
+                  {location ? location : "Location"}
+                </div>
+                <div className="left1 fs-12 text-dark text-bold">
+                  {startDate === "Invalid date" &&
+                  endDate === "Invalid date" ? (
+                    "Add Date"
+                  ) : (
+                    <span>
+                      {startDate} - {endDate}
+                    </span>
+                  )}
+                </div>
                 <div
                   style={{ gap: ".4rem" }}
-                  className="flex item-center justify-center fs-12 text-dark text-light"
+                  className="flex item-center justify-center fs-12 text-dark text-bold"
                 >
-                  Add guests
+                  {limit ? <span>{limit} Guests</span> : " Add guests"}
                   <div className="icon flex item-center back-red justify-center">
                     <HiSearch color="#fff" fontSize={"18px"} />
                   </div>
@@ -224,10 +257,10 @@ export default function Header({ type, loader, setSearch }) {
               </div>
             </div>
           )}
-          <div className="right flex item-center gap-1">
+          <div className="right flex item-center">
             <div
               onClick={handleCreateListingSteps}
-              className="fs-14 text-bold text text-grey"
+              className="fs-14 text text-grey"
             >
               Airbnb your home
             </div>
@@ -328,7 +361,7 @@ export default function Header({ type, loader, setSearch }) {
                       height: "5rem",
                       gap: ".5rem",
                       fontSize: "10px",
-                      fontWeight:500
+                      fontWeight: 500,
                     }}
                     key={index}
                   >
@@ -494,7 +527,7 @@ const HeaderWrapper = styled.div`
     cursor: pointer;
     justify-content: center;
     img {
-      opacity: .5;
+      opacity: 0.5;
     }
     &.active {
       &::after {
