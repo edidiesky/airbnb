@@ -16,7 +16,7 @@ const userData = [
     image: "/images/user_2.png",
     country: "United Arab Emirates",
     email: "DamiLola17b@gmail.com",
-    createdAt: "1/17/2020",
+    createdAt: "1/17/2020",.vcss
     password: bcrypt.hashSync("12345", 10),
     role: "user",
     about: {},

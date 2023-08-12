@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import './index.css'
 import Header from "./header";
 const LayoutWrapper = styled.div`
-  background: #F8F9FB;
+  background: #fff;
   height: 100vh;
   overflow: auto;
   width: 100%;
@@ -36,7 +36,7 @@ const LayoutWrapper = styled.div`
 export default function HostLayout() {
   return (
     <LayoutWrapper>
-      <Sidebar />
+      {/* <Sidebar /> */}
       {/* <Header /> */}
       <div className="LayoutContainer">
         <div className="OutletWrapper flex column gap-2">

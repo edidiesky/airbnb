@@ -35,7 +35,7 @@ const SidebarWrapper = styled.div`
     fill: #333;
   }
   h3 {
-    font-family: "Montserrat", sans-serif;
+  
   }
 
   .sidebarContainer {
