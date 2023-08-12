@@ -15,6 +15,9 @@ export const getAllGigs = createAsyncThunk(
         time,
         category,
         maxprice,
+        endDate,
+        startDate,
+        location,
       } = thunkAPI.getState().gigs;
       let GigsUrl = `/api/v1/listing`;
       if (sort) {
@@ -25,8 +28,10 @@ export const getAllGigs = createAsyncThunk(
         const { data } = await axios.get(GigsUrl);
         return data;
       }
-      if (category || minprice) {
-        GigsUrl = GigsUrl + `?category=${category}&minprice=${minprice}`;
+      if (endDate !== "Invalid date" || startDate !== "Invalid date" || location) {
+        GigsUrl =
+          GigsUrl +
+          `?listing_endDate=${endDate}&listing_startDate=${startDate}&listing_country=${location}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
@@ -38,9 +43,7 @@ export const getAllGigs = createAsyncThunk(
         return data;
       }
       if (page) {
-        GigsUrl =
-          GigsUrl +
-          `?page=${page}`;
+        GigsUrl = GigsUrl + `?page=${page}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
@@ -120,7 +123,7 @@ export const CreateSingleGig = createAsyncThunk(
 // Update a single Gigs for the admin
 export const UpdateGig = createAsyncThunk(
   "/updateGig",
-  async ({GigsData}, thunkAPI) => {
+  async ({ GigsData }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -157,10 +160,7 @@ export const DeleteGig = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.delete(
-        `/api/v1/listing/${Gigsid}`,
-        config
-      );
+      const { data } = await axios.delete(`/api/v1/listing/${Gigsid}`, config);
       return Gigsid;
     } catch (error) {
       return thunkAPI.rejectWithValue(

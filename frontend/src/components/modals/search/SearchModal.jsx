@@ -26,7 +26,8 @@ export default function SearchModal({
   location,
   setLocation,
 }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const { listing_children, listing_infants, listing_adults } = useSelector(
     (store) => store.gigs
@@ -35,10 +36,14 @@ export default function SearchModal({
 
   const handleSearch = () => {
     navigate({
-      pathname: '/',
-      search: `?listing_location=${location}&listing_children=${listing_children}&check_in=${startDate}&check_out=${endDate}`,
+      pathname: "/",
+      search: `?listing_country=${location}
+      &listing_children=${listing_children}
+      &listing_startDate=${startDate}
+      &listing_endDate=${endDate}`,
     });
 
+    dispatch(getAllGigs())
   };
 
   return (
