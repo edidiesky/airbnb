@@ -35,6 +35,7 @@ export default function HostEarningIndex() {
             </div>
           </div> */}
           <Charts />
+          {/* booking history */}
           <div className="grid wrapper">
             <div className="transaction_wrapper flex column gap-4">
               <h3 className="fs-24 text-bold">Booking History</h3>
@@ -110,6 +111,10 @@ const HostEarningIndexPlaceContainer = styled.div`
   .booking_card {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 680px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   .grid-auto {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -153,6 +158,9 @@ const HostEarningIndexPlaceContainer = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-row-gap: 2rem;
     grid-column-gap: 1.4rem;
+    @media (max-width: 980px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   padding: 2rem 0;

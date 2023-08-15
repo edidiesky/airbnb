@@ -28,8 +28,10 @@ const HeaderWrapper = styled.div`
   .list {
     width: 100%;
     display: flex;
-    gap: 0.4rem;
     align-items: center;
+    @media (max-width:780px) {
+      display: none;
+    }
     .nav-link {
       padding: 13px 16px;
       font-size: 12px;
@@ -79,7 +81,7 @@ export const sidebarData = [
 export default function Header() {
   return (
     <HeaderWrapper>
-      <div className="sidebarContainer w-85 auto flex item-center justify-space">
+      <div className="sidebarContainer w-90 auto flex item-center justify-space">
         <NavLink to={"/"} className="imageWrapper">
           {/* <Logo type={"type"} /> */}
           <Logo />
@@ -102,7 +104,7 @@ export default function Header() {
             })}
           </div>
         </div>
-        <div className="right flex item-center gap-1">
+        <div className="right flex item-center" style={{gap:".5rem"}}>
           <img src="/images/user_1.jpeg" alt="" className="avatar" />
           <h5 className="fs-14 text-light text-white">
             Edidiong Essien

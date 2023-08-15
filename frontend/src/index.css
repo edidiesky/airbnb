@@ -1,16 +1,4 @@
-@font-face {
-  font-family: "CustomFont_Bold";
-  src: url("./assets/ClashDisplay-Bold.otf") format("opentype");
-}
-@font-face {
-  font-family: "CustomFont_Medium";
-  src: url("./assets/ClashDisplay-Medium.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "CustomFont_Regular";
-  src: url("./assets/ClashDisplay-Regular.otf") format("opentype");
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&display=swap');
 
 * {
   margin: 0;
@@ -79,7 +67,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
-  font-family: "CustomFont_Medium", sans-serif;
+  font-family: "DM Sans", sans-serif;
   line-height: 1.5;
   font-weight: 600;
 }
@@ -91,7 +79,7 @@ body {
 }
 
 .family3 {
-  font-family: "CustomFont_Medium", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 :root {
@@ -182,7 +170,7 @@ h1 {
 }
 
 p {
-  font-family: "CustomFont_Medium", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .py-6 {
@@ -250,17 +238,17 @@ p {
 }
 .text-extra-bold {
   font-weight: 700;
-  font-family: "CustomFont_Bold", sans-serif;
+  font-family: "DM Sans", sans-serif;
 
 }
 .text-bold {
   font-weight: 600;
-  font-family: "CustomFont_Medium", sans-serif;
+  font-family: "DM Sans", sans-serif;
 
 }
 .text-light {
   font-weight: 400;
-  font-family: "CustomFont_Regular", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 .radius1 {
   border-radius: 10px;
