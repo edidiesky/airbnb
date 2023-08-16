@@ -26,15 +26,8 @@ export default function HostEarningIndex() {
             <h2 className="fs-40 text-bold">Dashboard</h2>
           </div>
           <Widget />
-          {/* <div className="w-100 flex column gap-1">
-            <h3 className="fs-24 text-extra-bold">Popular Rooms</h3>
-            <div className="w-100 wrapper">
-              {Gigs?.slice(0, 4)?.map((x, index) => {
-                return <Card x={x} type={'dashboard'} index={index} />;
-              })}
-            </div>
-          </div> */}
-          <Charts />
+     
+          
           {/* booking history */}
           <div className="grid wrapper">
             <div className="transaction_wrapper flex column gap-4">
@@ -96,7 +89,9 @@ export default function HostEarningIndex() {
             </div>
             <div className="transaction_wrapper flex column gap-4">
               <h3 className="fs-24 text-bold">Booking History</h3>
-              <div className="flex column w-100 gap-1 py-2"></div>
+              <div className="flex column w-100 gap-1 py-2">
+                <Charts />
+              </div>
             </div>
           </div>
         </div>
