@@ -58,7 +58,7 @@ export const Table = styled.div`
             font-size: 12px;
             font-weight: 700;
             text-align: start;
-            font-family: "CustomFont_Regular", sans-serif;
+            font-family: "Montserrat", sans-serif;
 
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 0 10px;
@@ -84,7 +84,7 @@ export const Table = styled.div`
             text-align: start;
             padding: 10px;
             color: #222;
-            font-family: "CustomFont_Regular", sans-serif;
+            font-family: "Montserrat", sans-serif;
 
             .true {
               color: e72d2d;

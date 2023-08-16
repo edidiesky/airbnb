@@ -75,7 +75,7 @@ export default function HostLsitingsIndex() {
 
 const HostLsitingsIndexPlaceContainer = styled.div`
   width: 100%;
-  font-family: "CustomFont_Regular", sans-serif;
+  font-family: "Montserrat", sans-serif;
 
   .wrapper {
     display: grid;
@@ -139,7 +139,7 @@ const HostLsitingsIndexPlaceContainer = styled.div`
   }
   h3,
   h2 {
-    font-family: "CustomFont_Medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
 
   }
   padding: 2rem 0;

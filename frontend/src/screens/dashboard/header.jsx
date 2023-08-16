@@ -19,7 +19,7 @@ const HeaderWrapper = styled.div`
   color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   h3 {
-    font-family: "CustomFont_Medium", sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
   .avatar {
     width: 3rem !important;
@@ -37,7 +37,7 @@ const HeaderWrapper = styled.div`
       font-size: 12px;
       font-weight: 400;
       margin: 0;
-      font-family: "CustomFont_Regular", sans-serif;
+      font-family: "Montserrat", sans-serif;
       color: #fff;
       display: flex;
       align-items: center;

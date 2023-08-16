@@ -106,7 +106,7 @@ const WidgetWrapper = styled.div`
     }
 
     h3 {
-      font-family: "CustomFont_Medium", sans-serif;
+      font-family: "Montserrat", sans-serif;
       color: var(--grey-1);
       font-size: 35px;
       color: var(--dark-1);
@@ -119,7 +119,7 @@ const WidgetWrapper = styled.div`
         display: block;
         font-size: 14px;
         font-weight: 400;
-        font-family: "CustomFont_Medium", sans-serif;
+        font-family: "Montserrat", sans-serif;
         color: var(--grey-1);
         text-transform: capitalize;
       }
