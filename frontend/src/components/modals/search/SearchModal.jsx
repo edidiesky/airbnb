@@ -9,6 +9,7 @@ import { Header } from "../../common";
 import DateInput from "../../forms/Date";
 import { motion } from "framer-motion";
 import { searchIn } from "../../../utils/framer";
+import { getAllGigs } from "../../../Features/listing/listingReducer";
 export default function SearchModal({
   setSearch,
   startDate,
@@ -27,7 +28,8 @@ export default function SearchModal({
   setLocation,
 }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [disable, setDisable] = useState(true);
 
   const { listing_children, listing_infants, listing_adults } = useSelector(
     (store) => store.gigs
@@ -35,16 +37,84 @@ export default function SearchModal({
   let limit = listing_adults + listing_children;
 
   const handleSearch = () => {
-    navigate({
-      pathname: "/",
-      search: `?listing_country=${location}
-      &listing_children=${listing_children}
-      &listing_startDate=${startDate}
-      &listing_endDate=${endDate}`,
-    });
-
-    dispatch(getAllGigs())
+    if (
+      location &&
+      startDate === "Invalid date" &&
+      endDate === "Invalid date" &&
+      !limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}`,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      location &&
+      startDate !== "Invalid date" &&
+      endDate !== "Invalid date" &&
+      !limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}
+        &listing_startDate=${startDate}
+      &listing_endDate=${endDate}
+        `,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      location &&
+      startDate !== "Invalid date" &&
+      endDate !== "Invalid date" &&
+      limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}
+        &listing_startDate=${startDate}
+      &listing_endDate=${endDate}
+      &limit=${limit}
+        `,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      !location &&
+      startDate === "Invalid date" &&
+      endDate === "Invalid date" &&
+      limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?limit=${limit}`,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      location ||
+      limit ||
+      (startDate === "Invalid date" && endDate === "Invalid date")
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}
+      &limit=${limit}
+        `,
+      });
+      dispatch(getAllGigs());
+    }
   };
+
+  // useEffect(() => {
+  //   location && setDisable(false);
+  //   // : startDate
+  //   // ? console.log("N0 startDate")
+  //   // : location || (startDate && endDate)
+  //   // ? console.log("No location and startDate")
+  //   // : limit
+  //   // ? console.log("No Limit")
+  //   // : location || limit || (startDate && endDate)
+  //   // ? console.log("No location, no limit and startDate")
+  //   // : "";
+  // }, [setDisable, location]);
 
   return (
     <SearchModalContainer
@@ -125,7 +195,7 @@ export default function SearchModal({
                 style={{ fontSize: "13px" }}
                 className="fs-14 text-bold text-dark"
               >
-                {startDate !== null ? startDate : "Add Dates"}
+                {startDate !== "Invalid date" ? startDate : "Add Dates"}
               </h4>
             </div>
             <div
@@ -137,7 +207,7 @@ export default function SearchModal({
                 style={{ fontSize: "13px" }}
                 className="fs-12 text-bold text-dark"
               >
-                {endDate !== null ? endDate : "Add Dates"}
+                {endDate !== "Invalid date" ? endDate : "Add Dates"}
               </h4>
             </div>
           </div>
@@ -170,9 +240,14 @@ export default function SearchModal({
                 {limit ? <span>{limit} Guests</span> : "Add Guests"}
               </h4>
             </div>
-            <div onClick={handleSearch} className="btn fs-12 text-white">
+            <button
+              disabled={!disable}
+              onClick={handleSearch}
+              style={{ border: "none", outline: "none" }}
+              className="btn fs-12 text-white"
+            >
               Search
-            </div>
+            </button>
           </div>
         </motion.div>
       </div>
@@ -299,6 +374,10 @@ const SearchModalContainer = styled(motion.div)`
           );
           border-radius: 40px;
           color: #fff;
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+          }
         }
         &:hover {
           background-color: #cbc8c88e;

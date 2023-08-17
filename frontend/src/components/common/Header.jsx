@@ -19,6 +19,7 @@ import { options2 } from "../../utils/carousel";
 import Logo2 from "./svg/Logo12";
 import Filter from "./svg/filter";
 import { getLsitingType } from "../../Features/listing/listingSlice";
+import { getAllGigs } from "../../Features/listing/listingReducer";
 
 export default function Header({
   type,
@@ -29,12 +30,13 @@ export default function Header({
   children,
 }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { userInfo } = useSelector((store) => store.user);
   const {
     startDate,
     endDate,
     location,
-    listing_children, 
+    listing_children,
     listing_infants,
     listing_adults,
   } = useSelector((store) => store.gigs);
@@ -54,7 +56,6 @@ export default function Header({
       dispatch(getLsitingType(typevalue));
     }
   }, [typevalue]);
-  const navigate = useNavigate();
   const dropin = {
     hidden: {
       top: "40%",
@@ -108,6 +109,73 @@ export default function Header({
     },
   };
   const [drop, setDrop] = useState(false);
+
+  const handleSearch = () => {
+    if (
+      location &&
+      startDate === "Invalid date" &&
+      endDate === "Invalid date" &&
+      !limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}`,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      location &&
+      startDate !== "Invalid date" &&
+      endDate !== "Invalid date" &&
+      !limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}
+        &listing_startDate=${startDate}
+      &listing_endDate=${endDate}
+        `,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      location &&
+      startDate !== "Invalid date" &&
+      endDate !== "Invalid date" &&
+      limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}
+        &listing_startDate=${startDate}
+      &listing_endDate=${endDate}
+      &limit=${limit}
+        `,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      !location &&
+      startDate === "Invalid date" &&
+      endDate === "Invalid date" &&
+      limit
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?limit=${limit}`,
+      });
+      dispatch(getAllGigs());
+    } else if (
+      location ||
+      limit ||
+      (startDate === "Invalid date" && endDate === "Invalid date")
+    ) {
+      navigate({
+        pathname: "/",
+        search: `?listing_country=${location}
+      &limit=${limit}
+        `,
+      });
+      dispatch(getAllGigs());
+    }
+  };
 
   // dropdown for
   const Dropdown = () => {
@@ -250,7 +318,7 @@ export default function Header({
                   className="flex item-center justify-center fs-12 text-dark text-bold"
                 >
                   {limit ? <span>{limit} Guests</span> : " Add guests"}
-                  <div className="icon flex item-center back-red justify-center">
+                  <div onClick={handleSearch} className="icon flex item-center back-red justify-center">
                     <HiSearch color="#fff" fontSize={"18px"} />
                   </div>
                 </div>

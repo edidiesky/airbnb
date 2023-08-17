@@ -18,7 +18,10 @@ export const getAllGigs = createAsyncThunk(
         endDate,
         startDate,
         location,
+        listing_children,
+        listing_adults,
       } = thunkAPI.getState().gigs;
+      const limit = listing_children + listing_adults;
       let GigsUrl = `/api/v1/listing`;
       if (sort) {
         productUrl = productUrl + `?sort=${sort}`;
@@ -28,10 +31,48 @@ export const getAllGigs = createAsyncThunk(
         const { data } = await axios.get(GigsUrl);
         return data;
       }
-      if (endDate !== "Invalid date" || startDate !== "Invalid date" || location) {
+      if (
+        location &&
+        startDate === "Invalid date" &&
+        endDate === "Invalid date" &&
+        limit !== 0
+      ) {
+        GigsUrl = GigsUrl + `?listing_country=${location}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      } else if (
+        location &&
+        startDate !== "Invalid date" &&
+        endDate !== "Invalid date" &&
+        limit !== 0
+      ) {
         GigsUrl =
           GigsUrl +
           `?listing_endDate=${endDate}&listing_startDate=${startDate}&listing_country=${location}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      } else if (
+        location &&
+        startDate !== "Invalid date" &&
+        endDate !== "Invalid date" &&
+        limit
+      ) {
+        console.log("All filled");
+      } else if (
+        !location &&
+        startDate === "Invalid date" &&
+        endDate === "Invalid date" &&
+        limit
+      ) {
+        GigsUrl = GigsUrl + `?limit=${limit}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      } else if (
+        location ||
+        limit ||
+        (startDate === "Invalid date" && endDate === "Invalid date")
+      ) {
+        GigsUrl = GigsUrl + `?limit=${limit}&listing_country=${location}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
