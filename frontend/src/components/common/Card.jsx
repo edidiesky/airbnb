@@ -138,7 +138,7 @@ export default function Card({ x, index, type }) {
                 {x?.listing_image?.map((x) => {
                   return (
                     <Link
-                      target="_blank"
+                     
                       to={`/rooms/${cardid}`}
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
@@ -220,7 +220,7 @@ export default function Card({ x, index, type }) {
                   {x?.listing_Id?.listing_image?.map((x) => {
                     return (
                       <Link
-                        target="_blank"
+                       
                         to={`/${cardid}/payment`}
                         style={{ transform: `translateX(-${tabindex * 100}%)` }}
                         className="w-100 card"
@@ -234,7 +234,7 @@ export default function Card({ x, index, type }) {
               </div>
 
               <Link
-                target="_blank"
+               
                 to={`/${x?._id}/payment`}
                 className="flex column"
                 style={{ gap: ".2rem" }}
@@ -327,7 +327,7 @@ export default function Card({ x, index, type }) {
                 {x?.listing_image?.map((x) => {
                   return (
                     <Link
-                      target="_blank"
+                     
                       to={`/rooms/${cardid}`}
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
@@ -341,7 +341,7 @@ export default function Card({ x, index, type }) {
             </div>
 
             <Link
-              target="_blank"
+             
               to={`/rooms/${x?._id}`}
               className="flex column"
               style={{ gap: ".2rem" }}
