@@ -13,10 +13,10 @@ export default function Widget() {
   const WidgetData = [
     {
       id: 1,
-      title: "Total Sales",
+      title: "Total Earnings",
       qty: "$10,357",
       icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605882d03baf8a2d544bd28f_dollar-sign.svg",
-      back: "#ff3333",
+      back: "#fcdddd",
       percent: "2.6",
     },
     {
@@ -24,22 +24,14 @@ export default function Widget() {
       title: "Visitors",
       qty: `$100`,
       icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/6058831adf921f01483b3167_tag.svg",
-      back: "#50fc61",
+      back: "#c9f8ce",
       percent: "-0.06",
     },
     {
       id: 4,
-      title: "Total Product",
+      title: "Total listings",
       qty: `100`,
       icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605883bbba1d7412377fefe7_truck.svg",
-      back: "#1457ed",
-      percent: "+1.06",
-    },
-    {
-      id: 5,
-      title: "Listed Merchant",
-      qty: `100`,
-      icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605884bd2fa05845ae96285f_users.svg",
       back: "#1457ed",
       percent: "+1.06",
     },
@@ -58,12 +50,12 @@ export default function Widget() {
             key={x.id}
             onClick={() => setWidgetTab(x.id)}
           >
-            <div className="Icons">
+            <div style={{color:`var(--red)`}} className="Icons">
               <img src={x.icon} alt="" />
             </div>
             <h3 className="text-dark">
               {x.qty}
-              <span className="span1">{x.title}</span>
+              <span className="span1 text-dark">{x.title}</span>
             </h3>
           </div>
         );
@@ -88,13 +80,14 @@ const WidgetWrapper = styled.div`
   }
 
   .widgetCard {
-    padding: 30px 10px;
+    padding: 40px 10px;
     background-color: #fafafa;
     display: flex;
     gap: 10px;
     width: 100%;
     border-radius: 10px;
     transition: all 0.3s;
+    
     h4 {
       font-size: 13px;
       color: var(--grey-2);
@@ -116,10 +109,10 @@ const WidgetWrapper = styled.div`
       }
       .span1 {
         display: block;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 400;
         font-family: "Montserrat", sans-serif;
-        color: var(--grey-1);
+        color: var(--dark-1);
         text-transform: capitalize;
       }
     }

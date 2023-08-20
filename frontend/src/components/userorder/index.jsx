@@ -33,10 +33,17 @@ const UsreOrderIndex = () => {
       {order?.length > 0 ? (
         <Table>
           <div className="TableContainer">
-            <div className="flex column gap-2 justify-space w-100 flex-wrap">
-              {/* <h3 className="fs-24 text-bold">Transaction History</h3> */}
-            </div>
             <table className="tableWrapper">
+              <thead>
+                <tr>
+                  <th>Rooms Name</th>
+                  <th>Bed Type</th>
+                  <th>Room Floor</th>
+                  <th>Facilities</th>
+                  <th>Rate</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
               <tbody>
                 {order?.map((x) => {
                   return <TableCard type={"order"} x={x} key={x?._id} />;
