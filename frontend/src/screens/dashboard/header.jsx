@@ -9,15 +9,15 @@ import { MdDashboard, MdAddBusiness, MdSettings } from "react-icons/md";
 import { FaPen, FaUsers } from "react-icons/fa";
 import Heart from "../../components/common/svg/heart";
 import Logo from "../../components/common/svg/Logo";
+import { BiSearch } from "react-icons/bi";
 
 const HeaderWrapper = styled.div`
   padding: 1rem 0;
-  background-color: #000;
+  background-color: #fff;
   position: sticky;
   top: 0;
   z-index: 2000;
   color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   h3 {
     font-family: "Montserrat", sans-serif;
   }
@@ -25,11 +25,21 @@ const HeaderWrapper = styled.div`
     width: 3rem !important;
     height: 3rem !important;
   }
+  .left {
+    input {
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--grey-1);
+      background-color: transparent;
+    }
+  }
   .list {
     width: 100%;
     display: flex;
     align-items: center;
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       display: none;
     }
     .nav-link {
@@ -82,33 +92,17 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <div className="sidebarContainer w-90 auto flex item-center justify-space">
-        <NavLink to={"/"} className="imageWrapper">
-          {/* <Logo type={"type"} /> */}
-          <Logo />
-        </NavLink>
-        <div className="left justify-center flex item-center">
-          {/* <h3 className="fs-24 text-bold text">Dashboard</h3> */}
-          <div className="list">
-            {sidebarData.map((x) => {
-              return (
-                <NavLink
-                  className="nav-link text-light"
-                  activeClassName="active"
-                  to={`/dashboard/hosting/${x.path}`}
-                  key={x.id}
-                >
-                  {x.icon1}
-                  {x.title}
-                </NavLink>
-              );
-            })}
-          </div>
+        <div className="left justify-center text-dark fs-20 gap-1 flex item-center">
+          <BiSearch />
+          <input type="text" placeholder="Search destinations" />
         </div>
-        <div className="right flex item-center" style={{gap:".5rem"}}>
-          <img src="/images/user_1.jpeg" alt="" className="avatar" />
-          <h5 className="fs-14 text-light text-white">
+        <div className="right flex item-center" style={{ gap: ".5rem" }}>
+          <img src="/images/user_3.jpg" alt="" className="avatar" />
+          <h5 className="fs-14 text-bold text-dark">
             Edidiong Essien
-            <span className="block fs-12">essienedidong@gmail.com</span>
+            <span className="block text-light fs-12">
+              essienedidong@gmail.com
+            </span>
           </h5>
         </div>
       </div>

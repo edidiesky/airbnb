@@ -36,10 +36,10 @@ const LayoutWrapper = styled.div`
 export default function HostLayout() {
   return (
     <LayoutWrapper>
-      {/* <Sidebar /> */}
+      <Sidebar />
       {/* <Header /> */}
       <div className="LayoutContainer">
-        <div className="OutletWrapper flex column gap-2">
+        <div className="OutletWrapper flex column">
           <Header/>
           <Outlet />
         </div>

@@ -23,7 +23,7 @@ export default function HostEarningIndex() {
       <HostEarningIndexPlaceContainer className="">
         <div className="w-100 auto flex column gap-2">
           <div className="flex column gap-1">
-            <h2 className="fs-40 text-bold">Dashboard</h2>
+            <h3 className="fs-24 text-bold">Dashboard</h3>
           </div>
           <Widget />
      
@@ -90,7 +90,7 @@ export default function HostEarningIndex() {
             <div className="transaction_wrapper flex column gap-4">
               <h3 className="fs-24 text-bold">Booking History</h3>
               <div className="flex column w-100 gap-1 py-2">
-                <Charts />
+                {/* <Charts /> */}
               </div>
             </div>
           </div>

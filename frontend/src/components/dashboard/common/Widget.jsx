@@ -89,13 +89,12 @@ const WidgetWrapper = styled.div`
 
   .widgetCard {
     padding: 30px 10px;
-    background: #fff;
+    background-color: #fafafa;
     display: flex;
     gap: 10px;
     width: 100%;
     border-radius: 10px;
     transition: all 0.3s;
-    border: 1px solid rgba(0, 0, 0, 0.07);
     h4 {
       font-size: 13px;
       color: var(--grey-2);
@@ -133,7 +132,7 @@ const WidgetWrapper = styled.div`
       align-items: center;
       justify-content: center;
       border-radius: 10px;
-      background-color: rgba(255, 219, 226, 0.337);
+      background-color: #fafafa;
 
       svg {
         font-size: 20px;
@@ -142,9 +141,9 @@ const WidgetWrapper = styled.div`
     }
     &.active,
     &:hover {
-      background-color: rgba(255, 219, 226, 0.337);
+      background-color: #fafafa;
       .Icons {
-        background: rgba(240, 221, 225, 0.626);
+        background: #fafafa;
         svg {
           color: rgba(240, 49, 88, 0.969);
         }

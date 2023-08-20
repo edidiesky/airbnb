@@ -11,13 +11,13 @@ import { BsCalendar3 } from "react-icons/bs";
 import Logo from "../../components/common/svg/Logo";
 import { FaPen, FaUsers } from "react-icons/fa";
 const SidebarWrapper = styled.div`
-  width: 350px;
-  background: #fff;
+  width: 300px;
+  background: #fafafa;
 
   height: 100vh;
   top: 0%;
   position: sticky;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
 
   /* box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09); */
 
@@ -93,6 +93,7 @@ const SidebarWrapper = styled.div`
       .nav-link {
         padding: 13px 16px;
         /* font-size: 1rem; */
+        width: 100%;
         font-size: 13px;
         font-weight: 600;
         margin: 0;
@@ -101,7 +102,7 @@ const SidebarWrapper = styled.div`
         align-items: center;
         justify-content: flex-start;
         gap: 20px;
-        border-radius: 40px;
+        border-radius: 8px;
 
         &:hover {
           background-color: rgba(255, 219, 226, 0.337);
@@ -111,8 +112,11 @@ const SidebarWrapper = styled.div`
           font-size: 24px;
         }
         &.active {
-          background-color: rgba(255, 219, 226, 0.337);
-          color: rgb(249, 38, 77);
+          background-color: #000;
+         color:#fff;
+          svg {
+            color: rgb(249, 38, 77);
+        }
         }
       }
     }
@@ -133,7 +137,6 @@ export const sidebarData = [
     path: "listings",
   },
   { id: 4, icon1: <BsCalendar3 />, title: "Bookings", path: "orders" },
-  { id: 7, icon1: <FaUsers />, title: "Conclerge", path: "" },
 
   { id: 5, icon1: <HiUsers />, title: "Guests", path: "guests" },
   { id: 6, icon1: <MdSettings />, title: "Settings", path: "Profile" },
@@ -147,7 +150,7 @@ export default function Sidebar() {
           {/* <Logo type={"type"} /> */}
           <Logo />
         </NavLink>
-        <div className="w-90 auto flex column" style={{ gap: ".5rem" }}>
+        {/* <div className="w-90 auto flex column" style={{ gap: ".5rem" }}>
           <div className="image_wrapper">
             <img src="/images/user_1.jpeg" alt="" className="avatar_profile" />
             <div className="image_gradient"></div>
@@ -171,7 +174,7 @@ export default function Sidebar() {
               Gokin1000@gmail.com
             </span>
           </h3>
-        </div>
+        </div> */}
         <div className="list">
           {sidebarData.map((x) => {
             return (
