@@ -48,10 +48,10 @@ export const Table = styled.div`
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width: 1000px;
-      @media (max-width: 1080px) {
+      min-width: 1200px;
+      /* @media (max-width: 1080px) {
         min-width: 100%;
-      }
+      } */
 
       thead {
         tr {

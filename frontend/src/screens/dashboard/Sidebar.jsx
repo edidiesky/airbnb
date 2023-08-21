@@ -113,16 +113,17 @@ const SidebarWrapper = styled.div`
         justify-content: flex-start;
         gap: 20px;
         border-radius: 40px;
+        position: relative;
         /* box-shadow: 0 2px 10px rgba(0,0,0,1); */
         @media (max-width: 980px) {
           justify-content: center;
           /* border-radius: 50%; */
           padding: 0;
-        /* padding: 13px 16px; */
+          /* padding: 13px 16px; */
 
           width: 3rem;
           height: 3rem;
-          margin: .5rem auto;
+          margin: 0.5rem auto;
           border-radius: 50%;
           svg {
             font-size: 14px;
@@ -142,8 +143,21 @@ const SidebarWrapper = styled.div`
           font-size: 24px;
         }
         &.active {
-          background-color: #000;
-          color: #fff;
+          /* background-color: #000; */
+          /* color: #fff; */
+          background-color: rgba(255, 219, 226, 0.337);
+/* 
+          &::after {
+            position: absolute;
+            right: -6%;
+            content: "";
+            width: 4px;
+            height: 100%;
+            background-color: var(--red);
+            @media (max-width: 980px) {
+              display: none;
+            }
+          } */
           svg {
             color: rgb(249, 38, 77);
           }
