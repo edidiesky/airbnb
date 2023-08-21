@@ -29,6 +29,9 @@ const SidebarWrapper = styled.div`
   @media (max-width: 980px) {
     width: 100px;
   }
+  @media (max-width: 780px) {
+    width: 80px;
+  }
   @media (max-width: 480px) {
     display: inline-block;
     position: fixed;
@@ -114,6 +117,16 @@ const SidebarWrapper = styled.div`
         @media (max-width: 980px) {
           justify-content: center;
           /* border-radius: 50%; */
+          padding: 0;
+        /* padding: 13px 16px; */
+
+          width: 3rem;
+          height: 3rem;
+          margin: .5rem auto;
+          border-radius: 50%;
+          svg {
+            font-size: 14px;
+          }
           span {
             display: none;
           }
@@ -123,6 +136,9 @@ const SidebarWrapper = styled.div`
           color: rgb(249, 38, 77);
         }
         svg {
+          @media (max-width: 980px) {
+            font-size: 18px;
+          }
           font-size: 24px;
         }
         &.active {

@@ -21,9 +21,21 @@ const HeaderWrapper = styled.div`
   h3 {
     font-family: "Montserrat", sans-serif;
   }
+  .text {
+    @media (max-width: 580px) {
+      font-size: 13px;
+      span {
+        font-size: 10px;
+      }
+    }
+  }
   .avatar {
     width: 3rem !important;
     height: 3rem !important;
+    @media (max-width: 580px) {
+      width: 2.4rem !important;
+      height: 2.4rem !important;
+    }
   }
   .left {
     input {
@@ -98,7 +110,7 @@ export default function Header() {
         </div>
         <div className="right flex item-center" style={{ gap: ".5rem" }}>
           <img src="/images/user_3.jpg" alt="" className="avatar" />
-          <h5 className="fs-14 text-bold text-dark">
+          <h5 className="fs-14 text text-bold text-dark">
             Edidiong Essien
             <span className="block text-light fs-12">
               essienedidong@gmail.com

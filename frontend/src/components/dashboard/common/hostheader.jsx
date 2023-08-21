@@ -127,16 +127,7 @@ export default function Hostheader() {
                 onClick={() => setDrop2(!drop2)}
                 className="text-white fs-14"
               >
-                <img
-                  style={{
-                    width: "2rem",
-                    height: "2rem",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                  }}
-                  src={userInfo?.image}
-                  alt=""
-                />
+                <img src={userInfo?.image} alt="" className="image" />
               </div>
             ) : !userInfo?.username ? (
               <div
@@ -176,6 +167,16 @@ const HostheaderContainer = styled.div`
   z-index: 300;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  .image {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    @media (max-width: 580px) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
   .dropdown {
     position: absolute;
     right: 2%;
