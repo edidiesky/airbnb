@@ -36,7 +36,7 @@ export default function HostLsitingsIndex() {
                 <div className={"where_wrapper flex column"}>
                   <input type="text" placeholder="Search destinations" />
                 </div>
-                <div className="reserveBtn fs-14 text-center text-white flex justify-center item-center">
+                <div className="reserveBtn fs-12 text-center text-white flex justify-center item-center">
                   Add New Rooms
                 </div>
               </div>
@@ -58,9 +58,6 @@ export default function HostLsitingsIndex() {
                     {Gigs?.slice(0, 3)?.map((x) => {
                       return <TableCard x={x} key={x?._id} />;
                     })}
-                    {/* {userData?.slice(0,4).map((x) => {
-                  return <TableCard x={x} key={x?._id} type="users" />;
-                })} */}
                   </tbody>
                 </table>
               </div>
@@ -76,7 +73,7 @@ export default function HostLsitingsIndex() {
 const HostLsitingsIndexPlaceContainer = styled.div`
   width: 100%;
   font-family: "Montserrat", sans-serif;
-
+  overflow: hidden;
   .wrapper {
     display: grid;
     width: 100%;
@@ -91,7 +88,7 @@ const HostLsitingsIndexPlaceContainer = styled.div`
     padding: 0.8rem;
     padding-left: 2rem;
     .btn {
-      padding: 0.8rem 2rem;
+      padding: 0.6rem 2rem;
       background-image: linear-gradient(
         to right,
         #e61e4d 0%,

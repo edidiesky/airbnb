@@ -14,9 +14,11 @@ const SidebarWrapper = styled.div`
   width: 300px;
   background: #fafafa;
 
-  height: 100vh;
+  min-height: 100vh;
   top: 0%;
   position: sticky;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
   /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
 
   /* box-shadow: 0 20px 46px rgba(0, 0, 0, 0.09); */
@@ -24,7 +26,10 @@ const SidebarWrapper = styled.div`
   .fill {
     fill: #333;
   }
-  @media (max-width: 780px) {
+  @media (max-width: 980px) {
+    width: 100px;
+  }
+  @media (max-width: 480px) {
     display: inline-block;
     position: fixed;
     top: 0;
@@ -35,7 +40,6 @@ const SidebarWrapper = styled.div`
     fill: #333;
   }
   h3 {
-  
   }
 
   .sidebarContainer {
@@ -78,6 +82,9 @@ const SidebarWrapper = styled.div`
     .imageWrapper {
       width: 90%;
       margin: 1rem auto;
+      @media (max-width: 980px) {
+        display: none;
+      }
       .sidebarIcon {
         height: 5rem;
       }
@@ -102,8 +109,15 @@ const SidebarWrapper = styled.div`
         align-items: center;
         justify-content: flex-start;
         gap: 20px;
-        border-radius: 8px;
-
+        border-radius: 40px;
+        /* box-shadow: 0 2px 10px rgba(0,0,0,1); */
+        @media (max-width: 980px) {
+          justify-content: center;
+          /* border-radius: 50%; */
+          span {
+            display: none;
+          }
+        }
         &:hover {
           background-color: rgba(255, 219, 226, 0.337);
           color: rgb(249, 38, 77);
@@ -113,10 +127,10 @@ const SidebarWrapper = styled.div`
         }
         &.active {
           background-color: #000;
-         color:#fff;
+          color: #fff;
           svg {
             color: rgb(249, 38, 77);
-        }
+          }
         }
       }
     }
@@ -185,7 +199,7 @@ export default function Sidebar() {
                 key={x.id}
               >
                 {x.icon1}
-                {x.title}
+                <span className="span"> {x.title}</span>
               </NavLink>
             );
           })}

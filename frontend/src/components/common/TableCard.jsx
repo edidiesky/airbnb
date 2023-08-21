@@ -48,7 +48,7 @@ export default function TableCard({ x, type }) {
           <td>
             <div className="flex item-center gap-1">
               <div
-                style={{ width: "11rem", borderRadius: "10px" }}
+                style={{ width: "6rem", borderRadius: "10px" }}
                 className="flex"
               >
                 <img
@@ -58,7 +58,7 @@ export default function TableCard({ x, type }) {
                   alt=""
                 />
               </div>
-              <h4 className="fs-16 text-bold text-dark">
+              <h4 className="fs-14 text-bold text-dark">
                 {x?.listing_title}
                 <span className="block fs-12 text-grey">{x?._id}</span>
               </h4>
@@ -84,7 +84,7 @@ export default function TableCard({ x, type }) {
             </div>
           </td>
           <td>
-            <h4 className="fs-16 text-extra-bold">
+            <h4 className="fs-14 text-extra-bold">
               ${x?.listing_price}{" "}
               <span className="text-light fs-12">/night</span>
             </h4>
@@ -168,7 +168,7 @@ export default function TableCard({ x, type }) {
         <td>
           <div className="flex item-center gap-1">
             <div
-              style={{ width: "8rem", borderRadius: "10px" }}
+              style={{ width: "5rem", borderRadius: "10px" }}
               className="flex"
             >
               <img
@@ -178,7 +178,7 @@ export default function TableCard({ x, type }) {
                 alt=""
               />
             </div>
-            <h4 className="fs-16 text-bold text-dark">
+            <h4 className="fs-14 text-bold text-dark">
               {x?.listing_title}
               <span className="block fs-12 text-grey">{x?._id}</span>
             </h4>
@@ -188,7 +188,7 @@ export default function TableCard({ x, type }) {
         <td>{x?.listing_beds}</td>
         <td>
           <div
-            style={{ flexWrap: "wrap", gap: ".4rem" }}
+            style={{ flexWrap: "wrap", gap: ".2rem" }}
             className="flex item-center flex-wrap"
           >
             {facilitiesdata.map((x, index) => {
@@ -200,9 +200,10 @@ export default function TableCard({ x, type }) {
                     borderRadius: "20px",
                     background: "#fff",
                     padding: ".4rem",
+                    fontSize:"11px",
                     border: "1px solid rgba(0,0,0,.1)",
                   }}
-                  className="flex  justify-center fs-12 item-center text-extra-bold text-dark"
+                  className="flex  justify-center item-center text-extra-bold text-dark"
                 >
                   {x}
                 </h4>

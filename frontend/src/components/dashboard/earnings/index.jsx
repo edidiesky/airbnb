@@ -30,7 +30,42 @@ export default function HostEarningIndex() {
             <h3 className="fs-24 text-bold">Dashboard</h3>
           </div>
           <Widget />
-
+          {/* <Charts /> */}
+          {/* {Gigs?.length > 0 ? 
+          (
+            <Table>
+              <div className="TableContainer">
+                <table className="tableWrapper">
+                  <thead>
+                    <tr>
+                      <th>Rooms Name</th>
+                      <th>Bed Type</th>
+                      <th>Room Floor</th>
+                      <th>Facilities</th>
+                      <th>Rate</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {order?.map((x) => {
+                      return <TableCard type={"order"} x={x} key={x?._id} />;
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
+            {/* </Table>
+          ) : (
+            <h3 className="fs-24 w-100">
+              My Orders
+              <span
+                className=" w-100
+             block fs-16 w-90 text-light text-grey"
+              >
+                You have no orders
+              </span>
+            </h3>
+          )} */} 
           {/* booking history */}
           <div className="grid wrapper">
             <div className="transaction_wrapper flex column gap-4">
@@ -78,41 +113,7 @@ export default function HostEarningIndex() {
             </div>
           </div>
           {/* orders */}
-          {Gigs?.length > 0 ? 
-          (
-            <Table>
-              <div className="TableContainer">
-                <table className="tableWrapper">
-                  <thead>
-                    <tr>
-                      <th>Rooms Name</th>
-                      <th>Bed Type</th>
-                      <th>Room Floor</th>
-                      <th>Facilities</th>
-                      <th>Rate</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {order?.map((x) => {
-                      return <TableCard type={"order"} x={x} key={x?._id} />;
-                    })}
-                  </tbody>
-                </table>
-              </div>
-              {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
-            </Table>
-          ) : (
-            <h3 className="fs-24 w-100">
-              My Orders
-              <span
-                className=" w-100
-             block fs-16 w-90 text-light text-grey"
-              >
-                You have no orders
-              </span>
-            </h3>
-          )}
+         
         </div>
       </HostEarningIndexPlaceContainer>
     </>
@@ -121,6 +122,8 @@ export default function HostEarningIndex() {
 
 const HostEarningIndexPlaceContainer = styled.div`
   width: 100%;
+  overflow: hidden;
+
   .booking_card {
     display: flex;
     justify-content: space-between;
@@ -153,6 +156,7 @@ const HostEarningIndexPlaceContainer = styled.div`
     border-radius: 10px;
     transition: all 0.3s;
     background-color: #fafafa;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
   .wrapper_2 {
     display: grid;

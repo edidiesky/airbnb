@@ -11,13 +11,17 @@ export const Table = styled.div`
   /* gap: 10px; */
   transition: all 0.5s;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  /* background-color: #fafafa;
+  display: flex;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
 
   .listing_status {
     padding: 0.6rem 0.8rem;
-    color: #fff;
-    border-radius: 4px;
-    background: var(--red);
+    color: rgb(255, 56, 92);
+    border-radius: 40px;
+    background: rgba(240, 199, 207, 0.199);
     font-weight: 600;
+    font-size: 11px;
   }
 
   .TableContainer {
@@ -44,9 +48,9 @@ export const Table = styled.div`
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width: 1000px;
-      @media (min-width: 1209px) {
-        min-width: 1000px;
+      width: 1000px;
+      @media (max-width: 1080px) {
+        width: 900px;
       }
 
       thead {

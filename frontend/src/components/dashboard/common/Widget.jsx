@@ -35,6 +35,14 @@ export default function Widget() {
       back: "#1457ed",
       percent: "+1.06",
     },
+    {
+      id: 6,
+      title: "Total listings",
+      qty: `100`,
+      icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605883bbba1d7412377fefe7_truck.svg",
+      back: "#1457ed",
+      percent: "+1.06",
+    },
   ];
 
   return (
@@ -50,7 +58,7 @@ export default function Widget() {
             key={x.id}
             onClick={() => setWidgetTab(x.id)}
           >
-            <div style={{color:`var(--red)`}} className="Icons">
+            <div style={{ color: `var(--red)` }} className="Icons">
               <img src={x.icon} alt="" />
             </div>
             <h3 className="text-dark">
@@ -83,11 +91,12 @@ const WidgetWrapper = styled.div`
     padding: 40px 10px;
     background-color: #fafafa;
     display: flex;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     gap: 10px;
     width: 100%;
     border-radius: 10px;
     transition: all 0.3s;
-    
+
     h4 {
       font-size: 13px;
       color: var(--grey-2);
