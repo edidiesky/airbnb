@@ -28,7 +28,9 @@ export default function Message({
       }
     >
       <AiFillCheckCircle fontSize={"24px"} color="green" />
-      <div className="flex flex1 fs-10 text-extra-bold text-dark">{alertText}</div>
+      <div className="flex flex1 text-extra-bold text-dark">
+        {alertText}
+      </div>
       <div className="icon" onClick={handleClearAlert}>
         <RxCross1 />
       </div>
@@ -45,19 +47,19 @@ const MessageContent = styled.div`
   z-index: 10000;
   left: 2%;
   border-radius: 8px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--dark-1);
   transition: all 0.6s;
   top: 2%;
-  transform: translateY(-1000%);
+  left: 50%;
+  transform: translate(-50%, -1000%);
 
-
-  /* top: 5%; */
+  top: -5%;
 
   &.active {
-    top: -2%;
-    transform: translateY(100%);
+    top: 5%;
+    transform: translateX(-50%);
   }
   &.danger {
     background-color: var(--red);

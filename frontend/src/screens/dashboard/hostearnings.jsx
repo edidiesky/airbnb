@@ -6,7 +6,7 @@ export default function HostEarnings() {
   return (
     <>
       <HostEarningsPlaceContainer className="flex item-center justify-center">
-        <div className="w-90 auto flex column gap-1">
+        <div className="wrapper auto flex column gap-1">
           <HostEarningIndex />
         </div>
       </HostEarningsPlaceContainer>
@@ -16,6 +16,9 @@ export default function HostEarnings() {
 
 const HostEarningsPlaceContainer = styled.div`
   width: 100%;
+  .wrapper {
+    width: 90%;
+  }
   /* overflow: hidden; */
   /* min-height: 70vh; */
 `;

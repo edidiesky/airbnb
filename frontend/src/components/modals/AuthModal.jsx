@@ -179,7 +179,8 @@ export default function AuthModal({ type, click }) {
               ? inputData.map((input) => {
                   return (
                     <Input
-                      id={input.id}
+                      label={input.text}
+                      id={input.name}
                       onChange={onChange}
                       placeholder={input.placeholder}
                       type={input.type}

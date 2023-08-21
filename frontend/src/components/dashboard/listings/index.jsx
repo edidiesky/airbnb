@@ -21,7 +21,7 @@ export default function HostLsitingsIndex() {
   return (
     <>
       <HostLsitingsIndexPlaceContainer className="flex item-center justify-center">
-        <div className="w-90 auto">
+      <div className="wrapper auto flex column gap-1">
           <div className="w-100 auto flex column gap-2">
             <div
               style={{ flexWrap: "wrap" }}
@@ -76,7 +76,7 @@ const HostLsitingsIndexPlaceContainer = styled.div`
   overflow: hidden;
   .wrapper {
     display: grid;
-    width: 100%;
+    width: 90%;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-row-gap: 2rem;
     grid-column-gap: 1.4rem;

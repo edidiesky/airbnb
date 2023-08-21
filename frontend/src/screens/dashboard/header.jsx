@@ -18,6 +18,9 @@ const HeaderWrapper = styled.div`
   top: 0;
   z-index: 2000;
   color: #fff;
+  .wrapper {
+    width: 90%;
+  }
   h3 {
     font-family: "Montserrat", sans-serif;
   }
@@ -103,7 +106,7 @@ export const sidebarData = [
 export default function Header() {
   return (
     <HeaderWrapper>
-      <div className="sidebarContainer w-90 auto flex item-center justify-space">
+      <div className="sidebarContainer wrapper auto flex item-center justify-space">
         <div className="left justify-center text-dark fs-20 gap-1 flex item-center">
           <BiSearch />
           <input type="text" placeholder="Search destinations" />

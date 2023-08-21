@@ -7,7 +7,7 @@ export default function HostGuests() {
   return (
     <>
       <HostGuestsPlaceContainer className="flex item-center justify-center">
-        <div className="w-90 auto flex column gap-1">
+      <div className="wrapper auto flex column gap-1">
           <HostGuestsIndex/>
         </div>
       </HostGuestsPlaceContainer>
@@ -17,6 +17,9 @@ export default function HostGuests() {
 
 const HostGuestsPlaceContainer = styled.div`
   width: 100%;
+  .wrapper {
+    width: 90%;
+  }
   /* overflow: hidden; */
   /* min-height: 70vh; */
 `;
