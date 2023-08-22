@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useController, useForm } from "react-hook-form";
 import styled from "styled-components";
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
@@ -22,60 +23,23 @@ import Message from "../loaders/Message";
 import FomickInput from "../forms/formick";
 import useValidate from "../../hooks/useValidate";
 
-export default function AuthModal({ type, click }) {
+export default function AuthModal({ type, click }, props) {
   const [auth, setAuth] = useState(false);
 
-  const [formdata, setFormData] = useState({
-    email: "",
-    password: "",
-    username: "",
-  });
-  const { email, password, username } = formdata;
-  const errors = useValidate(formdata);
-  const formik = useFormik({
-    initialValues: formdata,
-    validateOnChange: false,
-    validate: useValidate, // Use the validate function for validation
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+  const {
+    control,
+    handleSubmit,
+    register,
+    field,
+    formState: { touchedFields, dirtyFields, errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+      username: "",
     },
   });
 
-  // console.log("formdata:", formdata);
-  // console.log("formik.values:", formik.values);
-  // console.log("formik.errors:", formik.errors);
-  // console.log("formik.touched:", formik.touched);
-
-  const inputData = [
-    {
-      id: 1,
-      name: "username",
-      placeholder: "Username",
-      type: "text",
-      text: "Choose a username",
-      errorMessage: "username cannot be left empty",
-      required: true,
-    },
-    {
-      id: 2,
-      name: "email",
-      placeholder: "Email",
-      type: "email",
-      text: "Email",
-      errorMessage: "It should be a valid email",
-      required: true,
-    },
-    {
-      id: 3,
-      name: "password",
-      placeholder: "Password",
-      type: "password",
-      text: "Password",
-      errorMessage:
-        "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
-      required: true,
-    },
-  ];
   // dispatch
   const dispatch = useDispatch();
   const {
@@ -87,14 +51,19 @@ export default function AuthModal({ type, click }) {
     showAlert,
     alertText,
   } = useSelector((store) => store.user);
-
-  useEffect(() => {
-    setFormData({
-      email: "",
-      password: "",
-      username: "",
-    });
-  }, [setFormData]);
+  const onSubmit = (data) => {
+    // e.preventDefault()
+    console.log(data);
+    e.preventDefault();
+    if (auth) {
+      // dispatch(loginCustomer(formdata));
+      dispatch(loginCustomer(data));
+      // console.log("login");
+    } else {
+      dispatch(registerCustomer(data));
+      // console.log("registration");
+    }
+  };
   useEffect(() => {
     if (usernamemodal) {
       setAuth(true);
@@ -116,21 +85,7 @@ export default function AuthModal({ type, click }) {
   }, [loginSuccess, dispatch]);
   // open modal if type  === users
 
-  const onChange = (e) => {
-    setFormData({ ...formdata, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (auth) {
-      // dispatch(loginCustomer(formdata));
-      dispatch(loginCustomer({ email, password }));
-      console.log("login");
-    } else {
-      dispatch(registerCustomer({ email, password, username }));
-      console.log("registration");
-    }
-  };
 
   useEffect(() => {
     if (showAlert) {
@@ -174,46 +129,70 @@ export default function AuthModal({ type, click }) {
         <div className="w-90 authBottom auto flex column">
           <h3 className="fs-24 py-1 text-dark text-bold">Welcome to Airbnb</h3>
 
-          <form style={{ gap: ".2rem" }} className="flex column">
-            {!auth
-              ? inputData.map((input) => {
-                  return (
-                    <Input
-                      label={input.text}
-                      id={input.name}
-                      onChange={onChange}
-                      placeholder={input.placeholder}
-                      type={input.type}
-                      name={input.name}
-                      value={formdata[input.name]}
-                      input={input}
-                      key={input.id}
-                      required={input.required}
-                      pattern={input.pattern}
-                      errorMessage={input.errorMessage}
-                      formdata={formik}
-                    />
-                  );
-                })
-              : inputData.slice(1, 3).map((input) => {
-                  return (
-                    <Input
-                      label={input.text}
-                      id={input.name}
-                      onChange={onChange}
-                      placeholder={input.placeholder}
-                      type={input.type}
-                      name={input.name}
-                      value={formdata[input.name]}
-                      input={input}
-                      key={input.id}
-                      required={input.required}
-                      pattern={input.pattern}
-                      errorMessage={input.errorMessage}
-                      formdata={formik}
-                    />
-                  );
-                })}
+          <form
+            
+            style={{ gap: ".2rem" }}
+            className="flex column"
+          >
+            {!auth ? (
+              <div className="flex column">
+                <Input
+                  label={"username"}
+                  // id={input.name}
+                  // onChange={onChange}
+                  placeholder={"username"}
+                  {...register("username", {
+                    required: "Username is required",
+                  })}
+                  type={"text"}
+                  error={errors}
+                />
+                <Input
+                  label={"email"}
+                  // id={input.name}
+                  // onChange={onChange}
+                  placeholder={"email"}
+                  {...register("email", { required: "Email is required" })}
+                  type={"text"}
+                  error={errors}
+                />
+                <Input
+                  label={"password"}
+                  // id={input.name}
+                  // onChange={onChange}
+                  placeholder={"password"}
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  type={"password"}
+                  error={errors}
+                />
+              </div>
+            ) : (
+              <div className="flex column">
+                <Input
+                  label={"email"}
+                  // id={input.name}
+                  // onChange={onChange}
+                  placeholder={"email"}
+                  {...register("email", { required: "Email is required" })}
+                  type={"text"}
+                  error={errors}
+                />
+                <Input
+                  label={"password"}
+                  // id={input.name}
+                  // onChange={onChange}
+                  placeholder={"password"}
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  type={"password"}
+                  error={errors}
+                />
+              </div>
+            )}
+
             <h5
               style={{ margin: ".4rem auto" }}
               className="fs-10 text-light text--grey"
@@ -224,13 +203,15 @@ export default function AuthModal({ type, click }) {
                 Privacy Policy
               </span>
             </h5>
-            <div
-              onClick={handleSubmit}
+            <button
+              // onClick={handleSubmits}
+              type="submit"
+              onClick={handleSubmit(onSubmit)}
               className="btn w-100 text-bold fs-14 text-white text-center"
             >
               {" "}
               {!auth ? "Sign Up" : "Sign In"}
-            </div>
+            </button>
           </form>
 
           <div className="flex column gap-1" style={{ marginTop: "1.5rem" }}>
@@ -277,6 +258,8 @@ const DeleteContainer = styled(motion.div)`
   justify-content: center;
   top: 0;
   .btn {
+    outline: none;
+    border: none;
     background-image: linear-gradient(
       to right,
       #e61e4d 0%,
@@ -348,7 +331,7 @@ const DeleteContainer = styled(motion.div)`
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   .deleteCard {
-    width: clamp(40%, 100px, 100%);
+    width: 520px;
     display: flex;
     align-items: center;
     justify-content: center;

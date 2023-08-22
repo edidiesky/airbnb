@@ -131,7 +131,7 @@ const CenterWrapper = styled.div`
   .listing_prop {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit,minmax(170px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
   }
   .center_left_top {
     @media (max-width:580px) {

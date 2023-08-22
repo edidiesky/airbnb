@@ -318,7 +318,10 @@ export default function Header({
                   className="flex item-center justify-center fs-12 text-dark text-bold"
                 >
                   {limit ? <span>{limit} Guests</span> : " Add guests"}
-                  <div onClick={handleSearch} className="icon flex item-center back-red justify-center">
+                  <div
+                    onClick={handleSearch}
+                    className="icon flex item-center back-red justify-center"
+                  >
                     <HiSearch color="#fff" fontSize={"18px"} />
                   </div>
                 </div>
@@ -403,7 +406,13 @@ export default function Header({
   };
   const HeaderBottom = () => {
     return (
-      <div className="w-100 HeaderBottom flex w-100 ">
+      <div
+        className={
+          loader
+            ? "w-100 HeaderBottom flex w-100 active"
+            : "w-100 HeaderBottom flex w-100 "
+        }
+      >
         <div className="w-90 auto  bottomWrapper item-center justify-space">
           <div className="w-100 hidden">
             <SliderIndex options={options2}>
@@ -650,8 +659,11 @@ const HeaderWrapper = styled.div`
     justify-content: flex-end;
   }
   .HeaderBottom {
-    padding: 0.8rem 0;
-    padding-top: 1rem;
+    padding: 0.2rem 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
+    &.active {
+      padding: 1.2rem 0;
+    }
   }
   .text {
     padding: 0.6rem 1rem;

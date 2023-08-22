@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { CgDanger } from "react-icons/cg";
 import { styled } from "@mui/material/styles";
 import useValidate from "../../hooks/useValidate";
 import { useFormik } from "formik";
@@ -60,9 +61,10 @@ const FormInput = ({
   id,
   label,
   formdata,
+  error,
   ...props
 }) => {
-  const { values, errors, touched } = formdata;
+  // const { values, errors, touched } = formdata;
   return (
     <div className="w-100 flex column">
       <InputTextField
@@ -73,10 +75,26 @@ const FormInput = ({
         {...props}
         value={value}
         onChange={onChange}
-        onBlur={formdata.handleBlur}
-        multiline={types === "textarea"}
         // error={!!errors[id] && touched[id]}
         // helperText={touched[id] && errors[id] ? errors[id] : ""}
+        error={!!error[label]}
+        helperText={
+          error && (
+            <div style={{ display: "flex", alignItems: "center",}}>
+              {/* <CgDanger color="var(--red)" fontSize={"15px"} /> */}
+              <div
+                style={{
+                  fontSize: "11px",
+                  fontWeight: "500",
+                  fontFamily: "Montserrat, sans-serif",
+                }}
+              >
+                {" "}
+                {error[label]?.message}
+              </div>
+            </div>
+          )
+        }
       />
     </div>
   );

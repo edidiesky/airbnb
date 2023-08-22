@@ -96,7 +96,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           style={{
             padding: "1.5rem 2rem",
             border: "1px solid rgba(0,0,0,.1)",
-            width: "200px",
+            width: "100%",
             borderRadius: "10px",
           }}
         >
@@ -111,7 +111,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           style={{
             padding: "1.5rem 2rem",
             border: "1px solid rgba(0,0,0,.1)",
-            width: "200px",
+            width: "100%",
             borderRadius: "10px",
           }}
         >
@@ -126,7 +126,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           style={{
             padding: "1.5rem 2rem",
             border: "1px solid rgba(0,0,0,.1)",
-            width: "200px",
+            width: "100%",
             borderRadius: "10px",
           }}
         >
