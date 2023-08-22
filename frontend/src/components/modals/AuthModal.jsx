@@ -22,26 +22,25 @@ import LoaderIndex from "../loaders";
 import Message from "../loaders/Message";
 import FomickInput from "../forms/formick";
 import useValidate from "../../hooks/useValidate";
+import { inputData } from "../../utils/formdata";
 
 export default function AuthModal({ type, click }, props) {
   const [auth, setAuth] = useState(false);
 
-  const {
-    control,
-    handleSubmit,
-    register,
-    field,
-    formState: { touchedFields, dirtyFields, errors },
-  } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-      username: "",
-    },
+  const [formdata, setFormData] = useState({
+    email: "",
+    password: "",
+    username: "",
   });
+  const { email, username, password } = formdata;
 
   // dispatch
   const dispatch = useDispatch();
+
+  const onChange = (e) => {
+    setFormData({ ...formdata, [e.target.name]: e.target.value });
+  };
+
   const {
     userAlert,
     loginSuccess,
@@ -57,10 +56,10 @@ export default function AuthModal({ type, click }, props) {
     e.preventDefault();
     if (auth) {
       // dispatch(loginCustomer(formdata));
-      dispatch(loginCustomer(data));
+      dispatch(loginCustomer({ username, password }));
       // console.log("login");
     } else {
-      dispatch(registerCustomer(data));
+      dispatch(registerCustomer({ email, username, password }));
       // console.log("registration");
     }
   };
@@ -84,8 +83,6 @@ export default function AuthModal({ type, click }, props) {
     }
   }, [loginSuccess, dispatch]);
   // open modal if type  === users
-
-
 
   useEffect(() => {
     if (showAlert) {
@@ -129,68 +126,47 @@ export default function AuthModal({ type, click }, props) {
         <div className="w-90 authBottom auto flex column">
           <h3 className="fs-24 py-1 text-dark text-bold">Welcome to Airbnb</h3>
 
-          <form
-            
-            style={{ gap: ".2rem" }}
-            className="flex column"
-          >
+          <form style={{ gap: ".2rem" }} className="flex column">
             {!auth ? (
-              <div className="flex column">
-                <Input
-                  label={"username"}
-                  // id={input.name}
-                  // onChange={onChange}
-                  placeholder={"username"}
-                  {...register("username", {
-                    required: "Username is required",
-                  })}
-                  type={"text"}
-                  error={errors}
-                />
-                <Input
-                  label={"email"}
-                  // id={input.name}
-                  // onChange={onChange}
-                  placeholder={"email"}
-                  {...register("email", { required: "Email is required" })}
-                  type={"text"}
-                  error={errors}
-                />
-                <Input
-                  label={"password"}
-                  // id={input.name}
-                  // onChange={onChange}
-                  placeholder={"password"}
-                  {...register("password", {
-                    required: "Password is required",
-                  })}
-                  type={"password"}
-                  error={errors}
-                />
-              </div>
+              <>
+                {inputData.map((input) => {
+                  return (
+                    <Input
+                      label={input.text}
+                      onChange={onChange}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      name={input.name}
+                      value={formdata[input.name]}
+                      input={input}
+                      key={input.id}
+                      required={input.required}
+                      pattern={input.pattern}
+                      errorMessage={input.errorMessage}
+                    />
+                  );
+                })}
+              </>
             ) : (
-              <div className="flex column">
-                <Input
-                  label={"email"}
-                  // id={input.name}
-                  // onChange={onChange}
-                  placeholder={"email"}
-                  {...register("email", { required: "Email is required" })}
-                  type={"text"}
-                  error={errors}
-                />
-                <Input
-                  label={"password"}
-                  // id={input.name}
-                  // onChange={onChange}
-                  placeholder={"password"}
-                  {...register("password", {
-                    required: "Password is required",
-                  })}
-                  type={"password"}
-                  error={errors}
-                />
-              </div>
+              <>
+                {inputData.slice(1,3)?.map((input) => {
+                  return (
+                    <Input
+                      label={input.text}
+                      onChange={onChange}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      name={input.name}
+                      value={formdata[input.name]}
+                      input={input}
+                      key={input.id}
+                      required={input.required}
+                      pattern={input.pattern}
+                      errorMessage={input.errorMessage}
+                    />
+                  );
+                })}
+              </>
             )}
 
             <h5
@@ -206,7 +182,7 @@ export default function AuthModal({ type, click }, props) {
             <button
               // onClick={handleSubmits}
               type="submit"
-              onClick={handleSubmit(onSubmit)}
+              // onClick={handleSubmit(onSubmit)}
               className="btn w-100 text-bold fs-14 text-white text-center"
             >
               {" "}

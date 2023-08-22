@@ -1,6 +1,8 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import passport from "passport";
+import cookiesession from "cookie-session";
 
 dotenv.config();
 
@@ -12,6 +14,17 @@ import mongoose from "mongoose";
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(
+  cookiesession({
+    name: "session",
+    keys: [
+      'Edidiong'
+    ],
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  })
+);
+app.use(passport.initialize())
+app.use(passport.session())
 
 // routes
 

@@ -77,24 +77,7 @@ const FormInput = ({
         onChange={onChange}
         // error={!!errors[id] && touched[id]}
         // helperText={touched[id] && errors[id] ? errors[id] : ""}
-        error={!!error[label]}
-        helperText={
-          error && (
-            <div style={{ display: "flex", alignItems: "center",}}>
-              {/* <CgDanger color="var(--red)" fontSize={"15px"} /> */}
-              <div
-                style={{
-                  fontSize: "11px",
-                  fontWeight: "500",
-                  fontFamily: "Montserrat, sans-serif",
-                }}
-              >
-                {" "}
-                {error[label]?.message}
-              </div>
-            </div>
-          )
-        }
+      
       />
     </div>
   );
