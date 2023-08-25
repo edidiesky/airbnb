@@ -20,11 +20,17 @@ export const getAllGigs = createAsyncThunk(
         location,
         listing_children,
         listing_adults,
+        sellerId,
       } = thunkAPI.getState().gigs;
       const limit = listing_children + listing_adults;
       let GigsUrl = `/api/v1/listing`;
       if (sort) {
         productUrl = productUrl + `?sort=${sort}`;
+      }
+      if (sellerId) {
+        GigsUrl = GigsUrl + `?listing_host_Id=${sellerId}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
       }
       if (type) {
         GigsUrl = GigsUrl + `?type=${type}`;

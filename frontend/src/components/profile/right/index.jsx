@@ -41,6 +41,7 @@ const listingReviews = [
 
 export default function ProfileRightIndex() {
   const { review } = useSelector((store) => store.review);
+  const { Gigs } = useSelector((store) => store.gigs);
   const { userDetails } = useSelector((store) => store.user);
 
   // console.log(review);
@@ -67,9 +68,7 @@ export default function ProfileRightIndex() {
         </div>{" "}
         {/* host reviews */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-20 text-bold">
-            {userDetails?.username}'s Reviews
-          </h3>
+          <h3 className="fs-24 text-bold">{userDetails?.username}'s Reviews</h3>
           {review?.length > 0 ? (
             <div className="w-100 w-100">
               <SliderIndex options={options3}>
@@ -101,10 +100,10 @@ export default function ProfileRightIndex() {
         </div>
         {/* host lisitng */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-20 text-bold">Liza’s listings</h3>
-          <div className="wrapper w-100">
-            {review?.length > 0 ? (
-              review?.map((x, index) => {
+          <h3 className="fs-24 text-bold">{userDetails?.username}'s listings</h3>
+          <SliderIndex options={options3}>
+            {Gigs?.length > 0 ? (
+              Gigs?.map((x, index) => {
                 return <Card x={x} type={"listing"} index={index} />;
               })
             ) : (
@@ -112,7 +111,7 @@ export default function ProfileRightIndex() {
                 No Listing (yet)
               </h4>
             )}
-          </div>
+          </SliderIndex>
         </div>
       </div>
     </ProfileRightIndexContent>

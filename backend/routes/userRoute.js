@@ -24,5 +24,5 @@ router
 router
   .route("/profile/:id")
   .put(authMiddleware, UpdateUser)
-  .get(authMiddleware, GetUsersProfile);
+  .get(GetUsersProfile);
 export default router;

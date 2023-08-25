@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Message from "../../loaders/Message";
 import LoaderIndex from "../../loaders";
 import Star from "../../common/svg/star";
+import { AiOutlineCheck } from "react-icons/ai";
 
 export default function ProfileLeftIndex({ id }) {
   const { review } = useSelector((store) => store.review);
@@ -29,21 +30,42 @@ export default function ProfileLeftIndex({ id }) {
             </h3>
           </div>{" "}
           <div className="authC_right flex column flex-1">
-            <div className="list1 fs-20 text-bold text-dark">
+            <div className="list1 fs-24 text-extra-bold text-dark">
               {review?.length || 0}{" "}
               <span className="block fs-12 text-light text-dark">Reviews</span>
             </div>
-            <div className="list1 fs-20 text-bold text-dark">
+            <div className="list1 fs-24 text-extra-bold text-dark">
               <div className="flex item-center gap-1 ">
                 {review?.length || 0} <Star />
               </div>{" "}
               <span className="block fs-12 text-light text-dark">Rating</span>
             </div>
-            <div className="list1 fs-20 text-bold text-dark">
+            <div className="list1 fs-24 text-extra-bold text-dark">
               1{" "}
               <span className="block fs-10 text-light text-dark">
                 Year hosting
               </span>
+            </div>
+          </div>
+        </div>
+        <div className="authBottom flex item-start gap-1 column w-90 auto">
+          <div className="authC_right flex gap-1 column flex-1">
+            <h3 className="fs-24 family1 text-start text-bold text-dark">
+              {userDetails?.username}'s confirmed information
+            </h3>
+          </div>{" "}
+          <div className="authC_right flex column w-100 gap-1 ">
+            <div className=" fs-24 flex item-center gap-1 text-light text-dark">
+              <AiOutlineCheck/>
+              <span className="fs-18">Identity</span>
+            </div>
+            <div className=" fs-24 flex item-center gap-1 text-light text-dark">
+              <AiOutlineCheck/>
+              <span className="fs-18">Email address</span>
+            </div>
+            <div className=" fs-24 flex item-center gap-1 text-light text-dark">
+              <AiOutlineCheck/>
+              <span className="fs-18">Phone number</span>
             </div>
           </div>
         </div>

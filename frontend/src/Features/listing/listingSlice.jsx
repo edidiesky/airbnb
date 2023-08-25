@@ -24,16 +24,17 @@ const initialState = {
   alertText: "",
   alertType: "",
   noOfPages: 0,
+  sellerId: null,
 
   // req queries
   category: "",
   search: "",
-  startDate:'',
-  endDate:'',
-  listing_adults:0,
-  listing_infants:0,
-  listing_children:0,
-  location:'',
+  startDate: "",
+  endDate: "",
+  listing_adults: 0,
+  listing_infants: 0,
+  listing_children: 0,
+  location: "",
   sort: "",
   limit: 10,
   user: "",
@@ -76,6 +77,9 @@ const GigsSlice = createSlice({
         structure: action.payload,
       };
     },
+    getUserId: (state, action) => {
+      state.sellerId = action.payload;
+    },
     setLocation: (state, action) => {
       state.authorGig = {
         location: action.payload,
@@ -90,8 +94,8 @@ const GigsSlice = createSlice({
     getLocation: (state, action) => {
       state.location = action.payload;
     },
-   
-     getChildren: (state, action) => {
+
+    getChildren: (state, action) => {
       state.listing_children = action.payload;
     },
     getInfants: (state, action) => {
@@ -385,6 +389,7 @@ export const {
   onCalendarModal,
   offCalendarModal,
   getLsitingType,
+  getUserId,
 
   handleListingType,
   handleListingLocation,
@@ -395,13 +400,12 @@ export const {
   handleListingPrice,
   handleListingDate,
 
-
   getStartDate,
   getEndDate,
   getLocation,
   getChildren,
   getAdults,
-  getInfants
+  getInfants,
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

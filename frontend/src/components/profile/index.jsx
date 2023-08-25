@@ -2,23 +2,33 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { BiChevronLeft } from "react-icons/bi";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProfileLeftIndex from "./left";
 import ProfileRightIndex from "./right";
 import { getSingleCustomer } from "../../Features/user/userReducer";
 import { getAllReviews } from "../../Features/reviews/reviewReducer";
-import { getHostListing } from "../../Features/listing/listingReducer";
-
+import {
+  getAllGigs,
+  getHostListing,
+} from "../../Features/listing/listingReducer";
+import { getUserId } from "../../Features/listing/listingSlice";
 
 export default function ProfileIndex() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const { sellerId } = useSelector((store) => store.gigs);
 
   useEffect(() => {
-    dispatch(getSingleCustomer(id));
-    dispatch(getAllReviews(id));
-    dispatch(getHostListing(id));
+    if (id) {
+      dispatch(getSingleCustomer(id));
+      dispatch(getAllReviews(id));
+      dispatch(getUserId(id));
+    }
   }, [id]);
+
+  useEffect(() => {
+    dispatch(getAllGigs());
+  }, [sellerId]);
 
   return (
     <ProfileIndexContent>
@@ -55,6 +65,20 @@ const ProfileIndexContent = styled.div`
   .profileleft {
     position: sticky;
     top: 10%;
+  }
+  .authBottom {
+    padding: 2rem;
+    width: 350px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin: 1.4rem auto;
+    @media (max-width: 780px) {
+      width: 70%;
+    }
+    @media (max-width: 450px) {
+      width: 90%;
+    }
   }
   .authCenter {
     padding: 3rem;

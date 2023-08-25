@@ -15,7 +15,6 @@ const GetUserById = asyncHandler(async (req, res) => {
 // single user
 //PRIVATE/ADMIN
 const GetUsersProfile = asyncHandler(async (req, res) => {
-  const { userId, username } = req.user;
   const user = await User.findOne({ _id: req.params.id });
   if (!user) {
     res.status(404);

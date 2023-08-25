@@ -18,7 +18,7 @@ const GetAllListing = asyncHandler(async (req, res) => {
   const listing_country = req.query.listing_country;
   const listing_city = req.query.listing_city;
   const sort = req.query.sort;
-  const listing_host_Id = req.query.user;
+  const listing_host_Id = req.query.listing_host_Id;
 
   if (type) {
     queryObject.listing_type = type;
