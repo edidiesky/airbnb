@@ -18,6 +18,8 @@ import { getAllGigs } from "../Features/listing/listingReducer";
 import HomeLoader from "../components/loaders/homeloader";
 import SearchModal from "../components/modals/search/SearchModal";
 import { useSearchParams } from "react-router-dom";
+import { BsMap } from "react-icons/bs";
+import Map from "../components/common/svg/map";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -25,7 +27,6 @@ export default function Home() {
   const [search, setSearch] = useState(false);
   const [tab, setTab] = useState(-1);
   let [searchParams, setSearchParams] = useSearchParams();
-
 
   const [dateRange, setDateRange] = useState({
     selection: {
@@ -135,8 +136,15 @@ export default function Home() {
           >
             {profilemodal && <ProfileModal />}
           </AnimatePresence>
-          <HomeContainer style={{minHeight:"100vh"}}>
+          <HomeContainer style={{ minHeight: "100vh" }}>
             <HomeIndex />
+            {/* <div
+              style={{ gap: ".6rem" }}
+              className="showmapBtn fs-14 flex item-center"
+            >
+              {" "}
+              Show Map <Map />
+            </div> */}
           </HomeContainer>
         </>
       )}
@@ -149,4 +157,20 @@ const HomeContainer = styled.div`
   overflow: hidden;
   padding-top: 10rem;
   padding-bottom: 6rem;
+  .showmapBtn {
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, -10%);
+    /* width:; */
+    padding: 14px 22px;
+    border-radius: 40px;
+    z-index: 2000;
+    background-color: #222;
+    color: #fff;
+    transition: all 0.5s;
+    &:hover {
+      transform: translate(-50%, -10%) scale(1.04);
+    }
+  }
 `;
