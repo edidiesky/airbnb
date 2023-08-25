@@ -347,27 +347,27 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-14 text-extra-bold text-dark">
+                <h4 className="fs-16 text-extra-bold text-dark">
                   {x?.listing_city}, {x?.listing_country}
                 </h4>
                 <div
                   style={{ gap: ".3rem" }}
-                  className="flex text-light fs-14 item-center"
+                  className="flex text-light fs-16 item-center"
                 >
                   <Star />
                   4.98
                 </div>
               </div>
               <div className="flex column">
-                <h4 className="fs-14 text-grey text-light">
+                <h4 style={{fontSize:"14px"}} className="text-grey text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
-                <h4 className="fs-12 text-grey text-light">
+                <h4 style={{fontSize:"13px"}} className=" text-grey text-light">
                   {startDate} - {endDate}
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
-              <h4 className="fs-16 text-dark">
+              <h4 style={{fontSize:"17px"}} className=" text-bold text-dark">
                 ${x?.listing_price}{" "}
                 <span className="text-light fs-12">night</span>
               </h4>
@@ -400,6 +400,9 @@ const CardContent = styled.div`
     &:hover {
       opacity: 0.6;
     }
+  }
+  .fs-16 {
+    font-size: 15px !important;
   }
   .listing {
     border-radius: 10px;
