@@ -300,10 +300,10 @@ export default function Header({
               className="flex item-center justify-end"
             >
               <div className="center flex item-center gap-1">
-                <div className="fs-12 text-dark text-bold">
+                <div className="fs-14  text-grey text-extra-bold">
                   {location ? location : "Location"}
                 </div>
-                <div className="left1 fs-12 text-dark text-bold">
+                <div className="left1 fs-14  text-grey text-extra-bold">
                   {startDate === "Invalid date" &&
                   endDate === "Invalid date" ? (
                     "Add Date"
@@ -315,7 +315,7 @@ export default function Header({
                 </div>
                 <div
                   style={{ gap: ".4rem" }}
-                  className="flex item-center justify-center fs-12 text-dark text-bold"
+                  className="flex item-center justify-center fs-14  text-grey text-extra-bold"
                 >
                   {limit ? <span>{limit} Guests</span> : " Add guests"}
                   <div
@@ -331,7 +331,7 @@ export default function Header({
           <div className="right flex item-center">
             <div
               onClick={handleCreateListingSteps}
-              className="fs-14 text text-grey"
+              className="fs-14 text text-extra-bold text-grey"
             >
               Airbnb your home
             </div>
@@ -436,8 +436,8 @@ export default function Header({
                     style={{
                       width: "5rem",
                       height: "5rem",
-                      gap: ".5rem",
-                      fontSize: "10px",
+                      gap: ".3rem",
+                      fontSize: "12px",
                       fontWeight: 500,
                     }}
                     key={index}
@@ -447,8 +447,8 @@ export default function Header({
                       alt=""
                       className="image"
                       style={{
-                        width: "1.7rem",
-                        height: "1.7rem",
+                        width: "1.4rem",
+                        height: "1.4rem",
                       }}
                     />
                     {x.text}
@@ -486,7 +486,8 @@ const HeaderWrapper = styled.div`
   .bottomWrapper {
     display: grid;
     grid-template-columns: 1fr 6vw;
-    grid-gap: 1rem;
+    grid-gap: 3rem;
+    padding-top: .6rem;
     @media (max-width: 1080px) {
       grid-template-columns: 1fr;
     }
@@ -504,8 +505,8 @@ const HeaderWrapper = styled.div`
     }
   }
   .icons {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     transition: all 0.4s;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -720,12 +721,12 @@ const HeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 18px;
+      font-size: 20px;
       color: #777;
       &.disabled {
         display: none;
@@ -733,6 +734,8 @@ const HeaderWrapper = styled.div`
       &:hover {
         background-color: #fff;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+
         color: #777;
       }
     }
@@ -744,19 +747,19 @@ const HeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
       color: #777;
-      font-size: 18px;
+      font-size: 20px;
       &.disabled {
         display: none;
       }
       &:hover {
         background-color: #fff;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
         color: #777;
       }
     }
@@ -764,7 +767,7 @@ const HeaderWrapper = styled.div`
       left: 0%;
     }
     button.owl-next {
-      right: 1%;
+      right: -0%;
     }
   }
 `;

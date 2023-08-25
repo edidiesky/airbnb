@@ -69,12 +69,6 @@ export default function Home() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(clearGigsAlert());
     dispatch(getAllGigs());
-  }, []);
-  useEffect(() => {
-    if (type) {
-      dispatch(clearGigsAlert());
-      dispatch(getAllGigs());
-    }
   }, [type]);
   // actions
   const { profilemodal } = useSelector((store) => store.user);
@@ -141,7 +135,7 @@ export default function Home() {
           >
             {profilemodal && <ProfileModal />}
           </AnimatePresence>
-          <HomeContainer>
+          <HomeContainer style={{minHeight:"100vh"}}>
             <HomeIndex />
           </HomeContainer>
         </>
@@ -153,6 +147,6 @@ export default function Home() {
 const HomeContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  padding-top: 12rem;
+  padding-top: 10rem;
   padding-bottom: 6rem;
 `;

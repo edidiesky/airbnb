@@ -65,6 +65,12 @@ const ProfileIndexContent = styled.div`
   .profileleft {
     position: sticky;
     top: 10%;
+    @media (max-width: 980px) {
+      flex-direction: row;
+    }
+    @media (max-width: 580px) {
+      flex-direction: column;
+    }
   }
   .authBottom {
     padding: 2rem;

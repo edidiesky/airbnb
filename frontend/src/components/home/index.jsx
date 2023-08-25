@@ -21,7 +21,7 @@ export default function HomeIndex({ loader }) {
         handleClearAlert={handleClearMessage}
       />
       <div className="w-90 auto flex item-center justify-center py-1">
-        <div className="feewrapper flex item-center gap-2 justify-space">
+        {/* <div className="feewrapper flex item-center gap-2 justify-space">
           <div className="flex item-center center_wrap gap-2">
             <h4 className="fs-16 text-dark text-bold">Display total price</h4>
             <div className="center fs-16 text-grey text-light">
@@ -31,7 +31,7 @@ export default function HomeIndex({ loader }) {
           <div className="right fs-16 text-grey text-light">
             <div className="icons"></div>
           </div>
-        </div>
+        </div> */}
       </div>
       <GigsIndex loader={loader} />
     </HomeIndexContainer>

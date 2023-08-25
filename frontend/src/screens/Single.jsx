@@ -22,7 +22,7 @@ export default function Single() {
     <>
       <Meta />
       <Header type={'type'} />
-      <SingleContainer>
+      <SingleContainer style={{minHeight:"100vh"}}>
         <SingleIndex />
       </SingleContainer>
     </>

@@ -347,7 +347,7 @@ export default function Card({ x, index, type }) {
               style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 className="fs-16 text-extra-bold text-dark">
+                <h4 style={{fontWeight:"bolder"}} className="fs-16 text-extra-bold text-dark">
                   {x?.listing_city}, {x?.listing_country}
                 </h4>
                 <div
@@ -359,17 +359,17 @@ export default function Card({ x, index, type }) {
                 </div>
               </div>
               <div className="flex column">
-                <h4 style={{fontSize:"14px"}} className="text-grey text-light">
+                <h4 style={{fontSize:"14.6px"}} className="text-grey text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
-                <h4 style={{fontSize:"13px"}} className=" text-grey text-light">
+                <h4 style={{fontSize:"14px"}} className=" text-grey text-light">
                   {startDate} - {endDate}
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
-              <h4 style={{fontSize:"17px"}} className=" text-bold text-dark">
+              <h4 style={{fontSize:"15.6px"}} className=" text-bold text-dark">
                 ${x?.listing_price}{" "}
-                <span className="text-light fs-12">night</span>
+                <span className="text-light fs-14">night</span>
               </h4>
             </Link>
           </div>
@@ -391,11 +391,11 @@ const CardContent = styled.div`
     );
     /* padding: 0.8rem 2rem; */
     min-height: 3rem;
-    border-radius: 10px;
+    border-radius: 7px;
     color: #fff !important;
     color: #fff;
     /* padding: 0.8rem 2rem; */
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     &:hover {
       opacity: 0.6;
@@ -405,7 +405,7 @@ const CardContent = styled.div`
     font-size: 15px !important;
   }
   .listing {
-    border-radius: 10px;
+    border-radius: 7px;
     height: 15rem;
     position: relative;
     .detailsImageWrapper {
@@ -421,7 +421,7 @@ const CardContent = styled.div`
         position: relative;
         transition: all 0.6s ease-in-out;
         /* height: 50rem; */
-        border-radius: 10px;
+        border-radius: 7px;
         margin: 0 1.5rem;
         @media (max-width: 780px) {
           min-height: 100%;
@@ -514,7 +514,7 @@ const CardContent = styled.div`
       width: 100%;
       height: 18rem;
       z-index: 10;
-      border-radius: 10px;
+      border-radius: 7px;
     }
 
     .detailsImageWrapper {
@@ -582,8 +582,8 @@ const CardContent = styled.div`
     z-index: 200;
     border-radius: 3px;
     background-color: #ebe7e7;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     img {
       width: 3.2rem;
@@ -705,7 +705,7 @@ const DashboardCard = styled.div`
     width: 100%;
     height: 100%;
     z-index: 10;
-    border-radius: 10px;
+    border-radius: 7px;
   }
   .card_header {
     position: absolute;
