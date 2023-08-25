@@ -331,6 +331,7 @@ export default function Header({
           <div className="right flex item-center">
             <div
               onClick={handleCreateListingSteps}
+              style={{fontSize:"15px"}}
               className="fs-14 text text-extra-bold text-grey"
             >
               Airbnb your home
