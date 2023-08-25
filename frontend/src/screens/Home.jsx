@@ -20,11 +20,13 @@ import SearchModal from "../components/modals/search/SearchModal";
 import { useSearchParams } from "react-router-dom";
 import { BsMap } from "react-icons/bs";
 import Map from "../components/common/svg/map";
+import Maps from "../components/process/Map";
 
 export default function Home() {
   const dispatch = useDispatch();
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState(false);
+  const [map, setMap] = useState(false);
   const [tab, setTab] = useState(-1);
   let [searchParams, setSearchParams] = useSearchParams();
 
@@ -137,13 +139,16 @@ export default function Home() {
             {profilemodal && <ProfileModal />}
           </AnimatePresence>
           <HomeContainer style={{ minHeight: "100vh" }}>
+            {/* {map ? <Maps /> : <HomeIndex />} */}
             <HomeIndex />
-            {/* <div
+            {/* 
+            <div
               style={{ gap: ".6rem" }}
+              onClick={() => setMap(!map)}
               className="showmapBtn fs-14 flex item-center"
             >
               {" "}
-              Show Map <Map />
+              {!map?'Show Map':"Hide Map"} <Map />
             </div> */}
           </HomeContainer>
         </>
@@ -164,6 +169,7 @@ const HomeContainer = styled.div`
     transform: translate(-50%, -10%);
     /* width:; */
     padding: 14px 22px;
+    cursor: pointer;
     border-radius: 40px;
     z-index: 2000;
     background-color: #222;
