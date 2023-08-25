@@ -5,9 +5,9 @@ import GeocoderControl from './geocoder-control';
 // import ControlPanel from './control-panel';
 
 // eslint-disable-next-line
-const TOKEN = process.env.MapboxAccessToken; // Set your mapbox token here
+const TOKEN = 'joiZWRkaWVza3kiLCJhIjoiY2xscWthMDI1MGR2bTNkcHBlcGh5N2Q2ZyJ9.5ryga9b8SemlI-m-g03N6w'; // Set your mapbox token here
 
-export default function App() {
+export default function Map() {
   return (
     <>
       <Map

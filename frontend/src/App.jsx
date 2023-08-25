@@ -53,6 +53,12 @@ export default function App() {
     });
   }, []);
 
+  // console.log(process.env.map_box_token)
+  const apiKey = import.meta.env.map_box_token;
+
+  console.log(apiKey)
+
+
   return (
     <div className="based" style={{ height }}>
       <Routes>
