@@ -26,7 +26,7 @@ export default function ListingHeader({ type }) {
         <ListingHeaderContainer className="type">
           <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
             <Logo2 />
-            <div className="flex w-100 justify-center item-center">
+            <div style={{gap:".1rem"}} className="flex list w-100 justify-center item-center">
               {sidebarData.map((x) => {
                 return (
                   <NavLink
@@ -93,45 +93,34 @@ const ListingHeaderContainer = styled.div`
   position: fixed;
   z-index: 300;
   background-color: #fff;
+  .list {
+    @media (max-width:780px) {
+      display: none;
+    }
+  }
 
   .nav-link {
-        padding: 7px 14px;
-        font-size: 14.5px;
-        font-weight: 600;
-        color: var(--dark-1);
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
-        border-radius: 40px;
-        position: relative;
-        @media (max-width: 980px) {
-          justify-content: center;
-          /* border-radius: 50%; */
-          padding: 0;
-          /* padding: 13px 16px; */
-
-          width: 3rem;
-          height: 3rem;
-          margin: 0.5rem auto;
-          border-radius: 50%;
-          svg {
-            font-size: 14px;
-          }
-          span {
-            display: none;
-          }
-        }
-        &:hover {
-          background-color: #f7f7f7;
-          color: var(--dark-1);
-          /* font-weight: 700; */
-        }
-        &.active {
-          /* background-color: #000; */
-          /* color: #fff; */
-          background-color: #f7f7f7;
-/* 
+    padding: 7px 14px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--dark-1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    border-radius: 40px;
+    position: relative;
+  
+    &:hover {
+      background-color: #f7f7f7;
+      color: var(--dark-1);
+      /* font-weight: 700; */
+    }
+    &.active {
+      /* background-color: #000; */
+      /* color: #fff; */
+      background-color: #f7f7f7;
+      /* 
           &::after {
             position: absolute;
             right: -6%;
@@ -143,9 +132,8 @@ const ListingHeaderContainer = styled.div`
               display: none;
             }
           } */
-
-        }
-      }
+    }
+  }
   &.type {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
@@ -156,16 +144,16 @@ const ListingHeaderContainer = styled.div`
     }
   }
   .top {
-    @media (max-width: 580px) {
+    @media (max-width: 780px) {
       justify-content: flex-start;
     }
   }
   .aboutCenter {
-    @media (max-width: 580px) {
-      flex-direction: column;
-      align-items: flex-start;
+    @media (max-width: 780px) {
+      /* flex-direction: column; */
+      /* align-items: flex-start; */
       gap: 1rem;
-      justify-content: flex-start;
+      justify-content: space-between;
     }
   }
 
