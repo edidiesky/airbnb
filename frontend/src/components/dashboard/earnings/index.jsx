@@ -10,7 +10,7 @@ import Widget from "../common/Widget";
 import { Table } from "../../common/styles";
 import TableCard from "../../common/TableCard";
 import Checks from "../../common/svg/checks";
-import { BiPlus } from "react-icons/bi";
+import { BiPlus, BiSearch } from "react-icons/bi";
 
 export default function HostEarningIndex() {
   const { Gigs } = useSelector((store) => store.gigs);
@@ -38,12 +38,25 @@ export default function HostEarningIndex() {
           </div>
           <div className="flex column" style={{ gap: ".8rem" }}>
             <div className="flex item-center justify-space w-100">
-              <h4
-                style={{ fontSize: "27px" }}
-                className="fs-30 text-dark text-bold"
-              >
-                Your reservations
-              </h4>
+              <div className="flex item-start column gap-1">
+                <h4
+                  style={{ fontSize: "27px" }}
+                  className="fs-30 text-dark text-bold"
+                >
+                  Your reservations
+                </h4>
+                <div className="w-100 flex item-center gap-2">
+                  {/* <label htmlFor="search"></label> */}
+                  <div className="flex item-center form">
+                    <BiSearch />
+                    <input
+                      type="text"
+                      placeholder="Search Listings"
+                      className="search_input"
+                    />
+                  </div>
+                </div>
+              </div>
               <div
                 style={{ gap: ".5rem" }}
                 className="headBtn flex item-center fs-14 text-dark text-bold"
@@ -154,6 +167,34 @@ const HostEarningIndexPlaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
   padding-top: 6rem;
+  .form {
+    width: 400px;
+    /* background-color: red; */
+    position: relative;
+    svg {
+      /* transform: translateX(170%); */
+      font-size: 20px;
+      position: absolute;
+      left: 4%;
+      color: var(--grey-1);
+
+    }
+    .search_input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: #f7f7f7;
+      padding: .4rem 3rem;
+      border: 2px solid rgba(0, 0, 0, .1);
+      border-radius: 40px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--dark-1);
+      &:hover {
+        border: 2px solid rgba(0, 0, 0, 1) ;
+      }
+    }
+  }
   .headBtn {
     border: 1px solid rgba(0, 0, 0, 1);
     padding: 0.6rem 1.7rem;
