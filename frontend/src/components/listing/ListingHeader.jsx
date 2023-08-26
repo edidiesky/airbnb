@@ -14,7 +14,7 @@ const sidebarData = [
     title: "Reviews",
     path: "Reviews",
   },
-  { id: 4, title: "Reservations", path: "orders" },
+  { id: 4, title: "Reservations", path: "reservations" },
 
   { id: 5, title: "Earnings", path: "guests" },
   { id: 6, title: "Inbox", path: "Profile" },

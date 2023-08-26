@@ -39,6 +39,7 @@ import {
   HostOrders,
   HostProfile,
   HostReviews,
+  HostReservations,
 } from "./screens/dashboard";
 const HomeWrapper = lazy(() => import("./screens/Home"));
 
@@ -54,8 +55,7 @@ export default function App() {
   // console.log(process.env.map_box_token)
   const apiKey = import.meta.env.map_box_token;
 
-  console.log(apiKey)
-
+  console.log(apiKey);
 
   return (
     <div className="based" style={{ height }}>
@@ -86,8 +86,7 @@ export default function App() {
           <Route path=":id/price" element={<PriceOfplace />} />
           <Route path=":id/reviews" element={<ReviewOfplace />} />
         </Route>
-
-        {/* host listing routes */}
+        {/* host dashboard routes */}
         <Route path={"/dashboard/hosting/"} element={<HostLayout />}>
           <Route exact index element={<HostEarnings />} />
           <Route exact path="profile" element={<HostProfile />} />
@@ -96,6 +95,7 @@ export default function App() {
           <Route exact path="guests" element={<HostGuests />} />
           <Route exact path="listings" element={<HostListings />} />
           <Route exact path="reviews" element={<HostReviews />} />
+          <Route exact path="reservations" element={<HostReservations />} />
           {/* <Route path="listings" element={<host />} /> */}
         </Route>
       </Routes>

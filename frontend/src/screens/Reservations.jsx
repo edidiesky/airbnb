@@ -4,6 +4,7 @@ import ReservationsIndex from "../components/reservations";
 import { Header, Meta } from "../components/common";
 import { useDispatch } from "react-redux";
 import { GetAllBuyerReservations } from "../Features/reservations/reservationsReducer";
+import Footer from "../components/common/Footer";
 const Reservations = () => {
   const dispatch = useDispatch();
   useEffect(() => {

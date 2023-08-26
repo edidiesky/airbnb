@@ -6,6 +6,7 @@ import HostProfile from "./hostprofile";
 import HostLayout from "./hostlayout";
 import HostGuests from "./hostguests";
 import HostReviews from './hostreviews'
+import HostReservations from './hostreservations'
 export {
     HostLayout,
     HostProfile,
@@ -14,5 +15,6 @@ export {
     HostInbox,
     HostEarnings,
     HostReviews,
-    HostGuests
+    HostGuests,
+    HostReservations
 }
