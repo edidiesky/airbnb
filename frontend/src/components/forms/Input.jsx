@@ -31,9 +31,9 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   },
   "& .MuiOutlinedInput-input": {
     padding: "14px 10px",
-    fontSize: "15px",
-    fontWeight: "400",
-    fontFamily: "CustomFont2_light, sans-serif",
+    fontSize: "16px",
+    fontWeight: "500",
+    fontFamily: "Nunito, sans-serif",
     color: "var(--dark-1)",
   },
   "& .MuiInputLabel-root": {
@@ -43,12 +43,12 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   },
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused
-    fontWeight: "normal",
+    fontWeight: "600",
     color: "var(--grey-1)",
   },
   "& .MuiInputLabel-shrink": {
     transform: "translate(12px, 3px) scale(0.75)",
-    fontWeight: "normal",
+    fontWeight: "600",
     color: "var(--grey-1)",
   },
 }));

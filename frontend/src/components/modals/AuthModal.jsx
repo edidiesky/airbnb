@@ -50,13 +50,11 @@ export default function AuthModal({ type, click }, props) {
     showAlert,
     alertText,
   } = useSelector((store) => store.user);
-  const onSubmit = (data) => {
-    // e.preventDefault()
-    console.log(data);
+  const onSubmit = (e) => {
     e.preventDefault();
     if (auth) {
       // dispatch(loginCustomer(formdata));
-      dispatch(loginCustomer({ username, password }));
+      dispatch(loginCustomer({ email, password }));
       // console.log("login");
     } else {
       dispatch(registerCustomer({ email, username, password }));
@@ -182,7 +180,7 @@ export default function AuthModal({ type, click }, props) {
             <button
               // onClick={handleSubmits}
               type="submit"
-              // onClick={handleSubmit(onSubmit)}
+              onClick={onSubmit}
               className="btn w-100 text-bold fs-14 text-white text-center"
             >
               {" "}

@@ -29,7 +29,7 @@ export default function HostEarningIndex() {
           <div className="flex column gap-1">
             <h3 className="fs-24 text-bold">Dashboard</h3>
           </div>
-          <Widget />
+
           {/* <Charts /> */}
           {/* {Gigs?.length > 0 ? 
           (
@@ -54,7 +54,7 @@ export default function HostEarningIndex() {
                 </table>
               </div>
               {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
-            {/* </Table>
+          {/* </Table>
           ) : (
             <h3 className="fs-24 w-100">
               My Orders
@@ -65,55 +65,59 @@ export default function HostEarningIndex() {
                 You have no orders
               </span>
             </h3>
-          )} */} 
+          )} */}
           {/* booking history */}
           <div className="grid wrapper">
-            <div className="transaction_wrapper flex column gap-4">
-              <h3 className="fs-20 text-extra-bold">Booking History</h3>
-              <div className="flex column w-100 gap-1 py-2">
-                {Gigs?.slice(0, 3)?.map((x) => {
-                  return (
-                    <div className="booking_card flex item-center gap-1 justify-space">
-                      <div className="flex item-center gap-1">
-                        <div
-                          style={{ width: "5rem", borderRadius: "10px" }}
-                          className="flex"
-                        >
-                          <img
-                            style={{ borderRadius: "10px" }}
-                            src={x?.listing_image[0]}
-                            className="w-100"
-                            alt=""
-                          />
-                        </div>
-                        <div className="flex column" style={{ gap: ".4rem" }}>
-                          <h4 className="text-bold fs-14">
-                            Tente Glamping du Desert 3
-                            <span className="block text-light fs-12">
-                              03 August - 5 August
-                            </span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="flex booking_card_right justify-end">
-                        <div className="listing_status text-bold fs-10 text-dark">
-                          pending
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+            <div className="flex w-100 column gap-1">
+              <div className="transaction_wrapper flex column gap-4">
+                <h3 className="fs-20 text-extra-bold">Analytics</h3>
+                <div className="flex column w-100 gap-1 py-2">
+                  <Charts />
+                </div>
               </div>
             </div>
-            <div className="transaction_wrapper flex column gap-4">
-              <h3 className="fs-20 text-extra-bold">Analytics</h3>
-              <div className="flex column w-100 gap-1 py-2">
-                <Charts />
+            <div className="flex w-100 column gap-2">
+              <Widget />
+              <div className="transaction_wrapper flex column gap-4">
+                <h3 className="fs-20 text-extra-bold">Booking History</h3>
+                <div className="flex column w-100 gap-1 py-2">
+                  {Gigs?.slice(0, 3)?.map((x) => {
+                    return (
+                      <div className="booking_card flex item-center gap-1 justify-space">
+                        <div className="flex item-center gap-1">
+                          <div
+                            style={{ width: "5rem", borderRadius: "10px" }}
+                            className="flex"
+                          >
+                            <img
+                              style={{ borderRadius: "10px" }}
+                              src={x?.listing_image[0]}
+                              className="w-100"
+                              alt=""
+                            />
+                          </div>
+                          <div className="flex column" style={{ gap: ".4rem" }}>
+                            <h4 className="text-bold fs-14">
+                              Tente Glamping du Desert 3
+                              <span className="block text-light fs-12">
+                                03 August - 5 August
+                              </span>
+                            </h4>
+                          </div>
+                        </div>
+                        <div className="flex booking_card_right justify-end">
+                          <div className="listing_status text-bold fs-10 text-dark">
+                            pending
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
           {/* orders */}
-         
         </div>
       </HostEarningIndexPlaceContainer>
     </>
@@ -155,7 +159,7 @@ const HostEarningIndexPlaceContainer = styled.div`
     width: 100%;
     border-radius: 10px;
     transition: all 0.3s;
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
   .wrapper_2 {
@@ -172,7 +176,7 @@ const HostEarningIndexPlaceContainer = styled.div`
   .wrapper {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns:30vw 1fr;
     grid-row-gap: 2rem;
     grid-column-gap: 1.4rem;
     place-items: start;

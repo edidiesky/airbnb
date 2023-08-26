@@ -14,7 +14,7 @@ const SidebarWrapper = styled.div`
   width: 300px;
   background: #fafafa;
 
-  min-height: 100vh;
+  min-height: 100vh;  
   top: 0%;
   position: sticky;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);

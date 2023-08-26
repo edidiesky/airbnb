@@ -13,7 +13,7 @@ import { BiSearch } from "react-icons/bi";
 
 const HeaderWrapper = styled.div`
   padding: 1rem 0;
-  background-color: #fff;
+  background-color: #fafafa;
   position: sticky;
   top: 0;
   z-index: 2000;

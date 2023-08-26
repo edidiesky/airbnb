@@ -74,11 +74,15 @@ export default function Widget() {
 
 const WidgetWrapper = styled.div`
   display: grid;
-
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   grid-gap: 10px;
-  /* transform: translateY(-50%); */
+  width: 100%;
+  border-radius: 10px;
+  transition: all 0.3s;
+  padding: 40px 10px;
 
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
   @media (max-width: 880px) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -88,14 +92,10 @@ const WidgetWrapper = styled.div`
   }
 
   .widgetCard {
-    padding: 40px 10px;
-    background-color: #fafafa;
+   
     display: flex;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 40px 10px;
     gap: 10px;
-    width: 100%;
-    border-radius: 10px;
-    transition: all 0.3s;
 
     h4 {
       font-size: 13px;
