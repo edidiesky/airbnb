@@ -93,3 +93,57 @@ export const slideUp = {
     },
   },
 };
+
+
+export const dropin1 = {
+  hidden: {
+    top: "40%",
+    opacity: 0,
+    transition: {
+      delay: 0.5,
+    },
+  },
+  visible: {
+    top: "40%",
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      damping: 26,
+      stiffness: 600,
+    },
+  },
+  exit: {
+    top: "0%",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+export const dropin2 = {
+  hidden: {
+    top: "80%",
+    opacity: 0,
+    transition: {
+      delay: 0.5,
+    },
+  },
+  visible: {
+    top: "80%",
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      damping: 26,
+      stiffness: 600,
+    },
+  },
+  exit: {
+    top: "0%",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};

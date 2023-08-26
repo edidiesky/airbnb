@@ -344,10 +344,10 @@ export default function Card({ x, index, type }) {
              
               to={`/rooms/${x?._id}`}
               className="flex column"
-              style={{ gap: ".2rem" }}
+              // style={{ gap: ".2rem" }}
             >
               <div className="w-100 flex item-center justify-space cardTop">
-                <h4 style={{fontWeight:"bolder"}} className="fs-16 text-extra-bold text-dark">
+                <h4 style={{fontWeight:"bolder", fontSize:"15.5px"}} className=" text-extra-bold text-dark">
                   {x?.listing_city}, {x?.listing_country}
                 </h4>
                 <div
@@ -367,9 +367,9 @@ export default function Card({ x, index, type }) {
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
-              <h4 style={{fontSize:"15.6px"}} className=" text-bold text-dark">
+              <h4 style={{fontSize:"17px", paddingTop:".4rem", fontWeight:"700"}} className="text-bold text-dark">
                 ${x?.listing_price}{" "}
-                <span className="text-light fs-14">night</span>
+                <span className="text-light fs-16">night</span>
               </h4>
             </Link>
           </div>
@@ -402,7 +402,7 @@ const CardContent = styled.div`
     }
   }
   .fs-16 {
-    font-size: 15px !important;
+    font-size: 10px !important;
   }
   .listing {
     border-radius: 7px;
@@ -512,7 +512,7 @@ const CardContent = styled.div`
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 18rem;
+      height: 17rem;
       z-index: 10;
       border-radius: 7px;
     }
@@ -611,9 +611,9 @@ const CardContent = styled.div`
     }
   }
   .card {
-    min-height: 18rem;
+    min-height: 17rem;
     position: relative;
-    border-radius: 15px;
+    border-radius: 10px;
     width: 100%;
     transition: all 0.4s;
     overflow: hidden;
@@ -674,7 +674,7 @@ const CardContent = styled.div`
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 18rem;
+      height: 17rem;
       border-radius: inherit;
     }
     img {

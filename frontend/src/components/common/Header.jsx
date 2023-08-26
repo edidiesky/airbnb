@@ -20,6 +20,7 @@ import Logo2 from "./svg/Logo12";
 import Filter from "./svg/filter";
 import { getLsitingType } from "../../Features/listing/listingSlice";
 import { getAllGigs } from "../../Features/listing/listingReducer";
+import Dropdown from "./Dropdown";
 
 export default function Header({
   type,
@@ -56,58 +57,7 @@ export default function Header({
       dispatch(getLsitingType(typevalue));
     }
   }, [typevalue]);
-  const dropin = {
-    hidden: {
-      top: "40%",
-      opacity: 0,
-      transition: {
-        delay: 0.5,
-      },
-    },
-    visible: {
-      top: "40%",
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        type: "spring",
-        damping: 26,
-        stiffness: 600,
-      },
-    },
-    exit: {
-      top: "0%",
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-  const dropin2 = {
-    hidden: {
-      top: "80%",
-      opacity: 0,
-      transition: {
-        delay: 0.5,
-      },
-    },
-    visible: {
-      top: "80%",
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        type: "spring",
-        damping: 26,
-        stiffness: 600,
-      },
-    },
-    exit: {
-      top: "0%",
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+
   const [drop, setDrop] = useState(false);
 
   const handleSearch = () => {
@@ -177,64 +127,6 @@ export default function Header({
     }
   };
 
-  // dropdown for
-  const Dropdown = () => {
-    return (
-      <motion.ul
-        variants={type ? dropin2 : dropin}
-        initial="hidden"
-        animate="visible"
-        exit={"exit"}
-        className="dropdown shadow flex column"
-        onClick={() => setDrop(!drop)}
-        // style={{ position: "absolute" }}
-      >
-        {userInfo ? (
-          <div className="">
-            <li className="fs-12 text-light text-dark">
-              <Link className="w-100" to={"/reservations"}>
-                Reservations
-              </Link>
-            </li>
-            <li className="fs-12 text-light text-dark">
-              {" "}
-              <Link className="w-100" to={"/wishlists"}>
-                Wishlists
-              </Link>
-            </li>
-            <li className="fs-12 text-light text-dark">
-              {" "}
-              <Link className="w-100" to={"/order"}>
-                Orders
-              </Link>
-            </li>
-            <li className="fs-12 text-light text-dark">
-              {" "}
-              <Link className="w-100" to={"/trips"}>
-                Trips
-              </Link>
-            </li>
-            <li className="fs-12 text-light text-dark">Logout</li>
-          </div>
-        ) : (
-          <div className="">
-            <li
-              onClick={() => dispatch(onAuthModal())}
-              className="fs-12 text-light"
-            >
-              Sign in
-            </li>
-            <li
-              onClick={() => dispatch(onAuthModal())}
-              className="fs-12 text-light text-dark"
-            >
-              Sign up
-            </li>
-          </div>
-        )}
-      </motion.ul>
-    );
-  };
   const handleCreateListingSteps = () => {
     if (userInfo) {
       navigate("/become-a-host/overview");
@@ -331,7 +223,7 @@ export default function Header({
           <div className="right flex item-center">
             <div
               onClick={handleCreateListingSteps}
-              style={{fontSize:"15px"}}
+              style={{ fontSize: "15px" }}
               className="fs-14 text text-extra-bold text-grey"
             >
               Airbnb your home
@@ -396,7 +288,7 @@ export default function Header({
                 exitBeforeEnter={true}
                 onExitComplete={() => null}
               >
-                {drop && <Dropdown />}
+                {drop && <Dropdown setDrop={setDrop} drop={drop} type={type} />}
               </AnimatePresence>
               {/* <Dropdown /> */}
             </div>
@@ -488,7 +380,7 @@ const HeaderWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 6vw;
     grid-gap: 3rem;
-    padding-top: .6rem;
+    padding-top: 0.6rem;
     @media (max-width: 1080px) {
       grid-template-columns: 1fr;
     }
@@ -582,17 +474,18 @@ const HeaderWrapper = styled.div`
   }
   .dropdown {
     position: absolute;
-    right: 2%;
+    right: 3%;
     background-color: #fff;
-    min-width: 230px;
+    min-width: 240px;
+    padding: 0.5rem 0;
     z-index: 200000;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     @media (min-width: 1807px) {
       right: 17%;
     }
     li {
-      padding: 0.7rem 2rem;
+      padding: 0.6rem 1.3rem;
       cursor: pointer;
       border-radius: inherit;
       &:hover {
