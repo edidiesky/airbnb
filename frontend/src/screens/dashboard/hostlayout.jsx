@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import './index.css'
-import Header from "./header";
+import ListingHeader from "../../components/listing/ListingHeader";
 const LayoutWrapper = styled.div`
   background: #fff;
   height: 100vh;
   overflow: auto;
   width: 100%;
   display: flex;
-  font-family: "Montserrat", sans-serif;
 
   .LayoutContainer {
     width: 100%;
@@ -36,11 +33,10 @@ const LayoutWrapper = styled.div`
 export default function HostLayout() {
   return (
     <LayoutWrapper>
-      <Sidebar />
       {/* <Header /> */}
       <div className="LayoutContainer">
+        <ListingHeader type={'dashboard'}/>
         <div className="OutletWrapper flex column">
-          <Header/>
           <Outlet />
         </div>
       </div>

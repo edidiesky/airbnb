@@ -14,6 +14,7 @@ import {
 } from "../../Features/wish/wishSlice";
 import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
 import CardSkeleton from "./cardskeleton";
+import { FaStar } from "react-icons/fa";
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
@@ -354,7 +355,7 @@ export default function Card({ x, index, type }) {
                   style={{ gap: ".3rem" }}
                   className="flex text-light fs-16 item-center"
                 >
-                  <Star />
+                  <FaStar />
                   4.98
                 </div>
               </div>
@@ -402,7 +403,7 @@ const CardContent = styled.div`
     }
   }
   .fs-16 {
-    font-size: 10px !important;
+    font-size: 15px !important;
   }
   .listing {
     border-radius: 7px;

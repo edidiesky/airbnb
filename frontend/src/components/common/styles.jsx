@@ -10,10 +10,19 @@ export const Table = styled.div`
   padding-top: 24px;
   /* gap: 10px; */
   transition: all 0.5s;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   /* background-color: #fafafa;
   display: flex;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
+
+  .headBtn {
+    border: 1px solid rgba(0, 0, 0, 1);
+    padding: 0.4rem 1rem !important;
+    border-radius: 40px !important;
+    cursor: pointer;
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
 
   .listing_status {
     padding: 0.6rem 0.8rem;
@@ -49,6 +58,8 @@ export const Table = styled.div`
       border-collapse: collapse;
       width: 100%;
       min-width: 1200px;
+      /* table-layout: fixed; */
+
       /* @media (max-width: 1080px) {
         min-width: 100%;
       } */
@@ -59,17 +70,21 @@ export const Table = styled.div`
           z-index: 200;
           text-align: start;
           th {
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 13.5px;
+            font-weight: 500;
             text-align: start;
-            font-family: "Montserrat", sans-serif;
+            color: #5c5c5c;
+            font-family: "Roboto", sans-serif;
 
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 0 10px;
             padding-bottom: 14px;
             text-transform: uppercase;
-
+            cursor: pointer;
             transition: all 0.3s var(--transition-2);
+            &:hover {
+              color: var(--dark-1);
+            }
           }
         }
       }
@@ -83,12 +98,15 @@ export const Table = styled.div`
             background: rgba(0, 0, 0, 0.02);
           }
           td {
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 400;
             text-align: start;
-            padding: 10px;
+            padding: 18px 10px;
             color: #222;
-            font-family: "Montserrat", sans-serif;
+            min-width: 0;
+            /* flex: 1; */
+            font-family: "Nunito", sans-serif;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
             .true {
               color: e72d2d;

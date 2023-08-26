@@ -2,6 +2,7 @@ import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { AiOutlineCheck } from "react-icons/ai";
+import { GiSandsOfTime } from "react-icons/gi";
 import moment from "moment";
 // import Delete from "./DeleteModal";
 import { FaTimes } from "react-icons/fa";
@@ -89,7 +90,6 @@ export default function TableCard({ x, type }) {
               <span className="text-light fs-12">/night</span>
             </h4>
           </td>
-         
         </tr>
       </>
     );
@@ -129,26 +129,20 @@ export default function TableCard({ x, type }) {
           <td>
             <div className="flex column">
               <h5 className="fs-10 text-light text-grey">Check In</h5>
-              <h4 className="fs-14 text-bold text-dark">
-                {x?.startDate}
-              </h4>
+              <h4 className="fs-14 text-bold text-dark">{x?.startDate}</h4>
             </div>
           </td>
           <td>
             <div className="flex column">
               <h5 className="fs-10 text-light text-grey">Check Out</h5>
-              <h4 className="fs-14 text-bold text-dark">
-              {x?.endDate}
-              </h4>
+              <h4 className="fs-14 text-bold text-dark">{x?.endDate}</h4>
             </div>
           </td>
           <td>
             <h4 className="fs-16 text-extra-bold">
-              ${x?.price}{" "}
-              <span className="text-light fs-12">/night</span>
+              ${x?.price} <span className="text-light fs-12">/night</span>
             </h4>
           </td>
-         
         </tr>
       </>
     );
@@ -168,7 +162,7 @@ export default function TableCard({ x, type }) {
         <td>
           <div className="flex item-center gap-1">
             <div
-              style={{ width: "5rem", borderRadius: "10px" }}
+              style={{ width: "4rem", borderRadius: "10px", height: "3rem" }}
               className="flex"
             >
               <img
@@ -178,44 +172,36 @@ export default function TableCard({ x, type }) {
                 alt=""
               />
             </div>
-            <h4 className="fs-14 text-bold text-dark">
-              {x?.listing_title}
-              <span className="block fs-12 text-grey">{x?._id}</span>
-            </h4>
+            {x?.listing_title}
           </div>
         </td>
-        <td>{x?.listing_type}</td>
-        <td>{x?.listing_beds}</td>
+        {/* todo */}
         <td>
-          <div
-            style={{ flexWrap: "wrap", gap: ".2rem" }}
-            className="flex item-center flex-wrap"
-          >
-            {facilitiesdata.map((x, index) => {
-              return (
-                <h4
-                  key={index}
-                  style={{
-                    gap: ".2rem",
-                    borderRadius: "20px",
-                    background: "#fff",
-                    padding: ".4rem",
-                    fontSize:"11px",
-                    border: "1px solid rgba(0,0,0,.1)",
-                  }}
-                  className="flex  justify-center item-center text-extra-bold text-dark"
-                >
-                  {x}
-                </h4>
-              );
-            })}
+          <div className="flex item-start">
+            <div className="headBtn text-dark">Finish</div>
           </div>
         </td>
+        {/* status */}
+        {/* bedroom */}
+        <td>
+          <h4
+            style={{ gap: ".5rem" }}
+            className="fs-16 flex item-center text-light"
+          >
+            <GiSandsOfTime /> In progress
+          </h4>
+        </td>
+        <td>{x?.listing_bedrooms}</td>
+        {/* baths */}
+        <td>{x?.listing_bathrooms}</td>
+        {/* beds */}
+        <td>{x?.listing_beds}</td>
+        {/* type */}
         <td>${x?.listing_price}</td>
         <td>
-          <div className="action">
-            <div className="listing_status">Booked</div>
-          </div>
+          <h4 className="text-light">
+            {x?.listing_location}, {x?.listing_region}
+          </h4>
         </td>
       </tr>
     </>

@@ -9,6 +9,8 @@ import { clearGigsAlert } from "../../../Features/listing/listingSlice";
 import Widget from "../common/Widget";
 import { Table } from "../../common/styles";
 import TableCard from "../../common/TableCard";
+import Checks from "../../common/svg/checks";
+import { BiPlus } from "react-icons/bi";
 
 export default function HostEarningIndex() {
   const { Gigs } = useSelector((store) => store.gigs);
@@ -25,49 +27,72 @@ export default function HostEarningIndex() {
   return (
     <>
       <HostEarningIndexPlaceContainer className="">
-        <div className="w-100 auto flex column gap-2">
+        <div className="w-100 auto flex column gap-4">
           <div className="flex column gap-1">
-            <h3 className="fs-24 text-bold">Dashboard</h3>
-          </div>
-
-          {/* <Charts /> */}
-          {/* {Gigs?.length > 0 ? 
-          (
-            <Table>
-              <div className="TableContainer">
-                <table className="tableWrapper">
-                  <thead>
-                    <tr>
-                      <th>Rooms Name</th>
-                      <th>Bed Type</th>
-                      <th>Room Floor</th>
-                      <th>Facilities</th>
-                      <th>Rate</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {order?.map((x) => {
-                      return <TableCard type={"order"} x={x} key={x?._id} />;
-                    })}
-                  </tbody>
-                </table>
-              </div>
-              {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
-          {/* </Table>
-          ) : (
-            <h3 className="fs-24 w-100">
-              My Orders
-              <span
-                className=" w-100
-             block fs-16 w-90 text-light text-grey"
-              >
-                You have no orders
-              </span>
+            <h3
+              style={{ fontSize: "35px" }}
+              className="fs-30 text-dark text-bold"
+            >
+              Welcome back, Edidiong
             </h3>
-          )} */}
-          {/* booking history */}
-          <div className="grid wrapper">
+          </div>
+          <div className="flex column" style={{ gap: ".8rem" }}>
+            <div className="flex item-center justify-space w-100">
+              <h4
+                style={{ fontSize: "27px" }}
+                className="fs-30 text-dark text-bold"
+              >
+                Your reservations
+              </h4>
+              <div
+                style={{ gap: ".5rem" }}
+                className="headBtn flex item-center fs-14 text-dark text-bold"
+              >
+                <BiPlus fontSize={"17px"} /> Create Listing
+              </div>
+            </div>
+            <div className="w-100">
+              {Gigs?.length > 0 && (
+                <Table>
+                  <div className="TableContainer">
+                    <table className="tableWrapper">
+                      <thead>
+                        <tr>
+                          <th>Rooms Name</th>
+                          <th>TODO</th>
+                          <th>STATUS</th>
+                          <th>bedroom</th>
+                          <th>baths</th>
+                          <th>beds</th>
+                          <th>Price</th>
+                          <th>Location</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Gigs?.slice(0, 2)?.map((x) => {
+                          return <TableCard x={x} key={x?._id} />;
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </Table>
+              )}
+            </div>
+            {/* {usernoOfpage > 0 && <Pagination type="users" />}
+            </div>
+            <div className="reservation_list">
+              <div className="w-100 flex item-center gap-1 justify-center column gap-1">
+                <Checks />
+                <h5 style={{width:"20%"}} className="fs-16 auto text-center text-light">
+                  You don’t have any guests checking out today or tomorrow.
+                </h5>
+              </div>
+            </div>
+          </div>
+          {/* <Charts /> */}
+
+            {/* booking history */}
+            {/* <div className="grid wrapper">
             <div className="flex w-100 column gap-1">
               <div className="transaction_wrapper flex column gap-4">
                 <h3 className="fs-20 text-extra-bold">Analytics</h3>
@@ -116,8 +141,9 @@ export default function HostEarningIndex() {
                 </div>
               </div>
             </div>
+          </div> */}
+            {/* orders */}
           </div>
-          {/* orders */}
         </div>
       </HostEarningIndexPlaceContainer>
     </>
@@ -127,6 +153,16 @@ export default function HostEarningIndex() {
 const HostEarningIndexPlaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
+  padding-top: 6rem;
+  .headBtn {
+    border: 1px solid rgba(0, 0, 0, 1);
+    padding: 0.6rem 1.7rem;
+    border-radius: 40px;
+    cursor: pointer;
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
 
   .booking_card {
     display: flex;
@@ -135,6 +171,11 @@ const HostEarningIndexPlaceContainer = styled.div`
       flex-direction: column;
       align-items: flex-start;
     }
+  }
+  .reservation_list {
+    padding: 3rem;
+    background-color: #f7f7f7;
+    border-radius: 5px;
   }
   .grid-auto {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -176,7 +217,7 @@ const HostEarningIndexPlaceContainer = styled.div`
   .wrapper {
     display: grid;
     width: 100%;
-    grid-template-columns:30vw 1fr;
+    grid-template-columns: 30vw 1fr;
     grid-row-gap: 2rem;
     grid-column-gap: 1.4rem;
     place-items: start;
@@ -184,6 +225,4 @@ const HostEarningIndexPlaceContainer = styled.div`
       grid-template-columns: 1fr;
     }
   }
-
-  padding: 2rem 0;
 `;

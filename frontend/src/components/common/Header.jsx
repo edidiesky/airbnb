@@ -22,7 +22,7 @@ import { getLsitingType } from "../../Features/listing/listingSlice";
 import { getAllGigs } from "../../Features/listing/listingReducer";
 import Dropdown from "./Dropdown";
 
-export default function Header({
+export default function ListingHeaderHeader({
   type,
   loader,
   setSearch,
@@ -233,11 +233,12 @@ export default function Header({
             </div>
             <div
               onClick={() => setDrop(!drop)}
-              className="center2 gap-1 flex item-center"
+              style={{gap:".5rem"}}
+              className="center2 flex item-center"
             >
               <Bar />
               {userInfo?.image ? (
-                <div className="text-white fs-14">
+                <div className="text-white flex fs-14">
                   <img
                     style={{
                       width: "2rem",
@@ -582,7 +583,8 @@ const HeaderWrapper = styled.div`
     border-radius: 40px;
     /* gap: 0.2rem; */
     border: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 0.3rem 0.8rem;
+    padding: 0.3rem 0.6rem;
+    flex: 1;
   }
   .center {
     padding: 0.6rem 1.4rem;

@@ -40,8 +40,6 @@ import {
   HostProfile,
   HostReviews,
 } from "./screens/dashboard";
-import HomeLoader from "./components/loaders/homeloader";
-
 const HomeWrapper = lazy(() => import("./screens/Home"));
 
 export default function App() {
