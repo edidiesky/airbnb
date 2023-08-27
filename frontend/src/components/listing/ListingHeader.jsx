@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Logo2 from "../common/svg/Logo12";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const sidebarData = [
   {
@@ -25,8 +25,13 @@ export default function ListingHeader({ type }) {
       <>
         <ListingHeaderContainer className="type">
           <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
-            <Logo2 />
-            <div style={{gap:".1rem"}} className="flex list w-100 justify-center item-center">
+            <Link to={"/"}>
+              <Logo2 />
+            </Link>
+            <div
+              style={{ gap: ".1rem" }}
+              className="flex list w-100 justify-center item-center"
+            >
               {sidebarData.map((x) => {
                 return (
                   <NavLink
@@ -94,7 +99,7 @@ const ListingHeaderContainer = styled.div`
   z-index: 300;
   background-color: #fff;
   .list {
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       display: none;
     }
   }
@@ -110,7 +115,7 @@ const ListingHeaderContainer = styled.div`
     gap: 20px;
     border-radius: 40px;
     position: relative;
-  
+
     &:hover {
       background-color: #f7f7f7;
       color: var(--dark-1);

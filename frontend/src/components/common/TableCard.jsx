@@ -172,7 +172,7 @@ export default function TableCard({ x, type }) {
                 alt=""
               />
             </div>
-            {x?.listing_title}
+            <h4 style={{fontWeight:"800"}}>{x?.listing_title}</h4>
           </div>
         </td>
         {/* todo */}

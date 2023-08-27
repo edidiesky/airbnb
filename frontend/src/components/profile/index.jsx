@@ -56,6 +56,10 @@ const ProfileIndexContent = styled.div`
   .list1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 1rem;
+    @media (max-width: 750px) {
+      padding-bottom: .5rem;
+
+    }
   }
   .avatar {
     width: 7rem !important;
@@ -98,7 +102,8 @@ const ProfileIndexContent = styled.div`
       width: 70%;
     }
     @media (max-width: 450px) {
-      width: 90%;
+      width: 100%;
+      gap:1rem;
     }
   }
   .grid-auto {

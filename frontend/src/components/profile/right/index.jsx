@@ -6,7 +6,7 @@ import Globe from "../../common/svg/globe";
 import { projectdata } from "../../../data";
 import { Card } from "../../common";
 import SliderIndex from "../../common/Slider";
-import { options3 } from "../../../utils/carousel";
+import { options1, options3 } from "../../../utils/carousel";
 
 const listingReviews = [
   {
@@ -101,10 +101,10 @@ export default function ProfileRightIndex() {
         {/* host lisitng */}
         <div className="flex column bottom gap-1">
           <h3 className="fs-24 text-bold">{userDetails?.username}'s listings</h3>
-          <SliderIndex options={options3}>
+          <SliderIndex options={options1}>
             {Gigs?.length > 0 ? (
               Gigs?.map((x, index) => {
-                return <Card x={x} type={"listing"} index={index} />;
+                return <Card x={x} type={"profile"} index={index} />;
               })
             ) : (
               <h4 className="fs-16 text-dark text-light  flex item-center gap-1">

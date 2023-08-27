@@ -18,7 +18,7 @@ export default function ProfileLeftIndex({ id }) {
         alertText={"Your reservation has been successfully updated"}
         handleClearAlert={dispatch(clearReservationsAlert())}
       /> */}
-      <div className="w-100 profileleft flex column gap-2">
+      <div className="w-100 profileleft flex column gap-1">
         <div className="authCenter flex item-start gap-3 justify-center w-90 auto shadow">
           <div className="authC_right flex gap-1 column flex-1">
             <img src={userDetails?.image} alt="" className="avatar" />

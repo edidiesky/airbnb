@@ -22,6 +22,31 @@ export const options2 = {
   },
 };
 
+
+export const options1 = {
+  items: 3,
+  nav: true,
+  dots: false,
+  margin: 20,
+  width: "100%",
+  slideBy: 3,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    460: {
+      items: 1,
+    },
+    760: {
+      items: 2,
+    },
+    1024: {
+      items: 3,
+    },
+  },
+};
+
+
 export const options3 = {
     items: 2,
     nav: true,
