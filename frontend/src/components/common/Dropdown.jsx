@@ -3,9 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { dropin1, dropin2 } from "../../utils/framer";
 import { motion } from "framer-motion";
+import { ClearUserInfo, onAuthModal } from "../../Features/user/userSlice";
 
 const Dropdown = ({ setDrop, drop, type }) => {
   const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(ClearUserInfo());
+    dispatch(onAuthModal());
+    window.location.reload();
+  };
 
   const { userInfo } = useSelector((store) => store.user);
 
@@ -66,7 +73,6 @@ const Dropdown = ({ setDrop, drop, type }) => {
             className=""
           >
             <li
-              onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "15px", fontWeight: "300" }}
               className="fs-14 text-light"
             >
@@ -75,7 +81,6 @@ const Dropdown = ({ setDrop, drop, type }) => {
               </Link>
             </li>
             <li
-              onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "15px", fontWeight: "300" }}
               className="fs-14 text-light text-dark"
             >
@@ -92,14 +97,13 @@ const Dropdown = ({ setDrop, drop, type }) => {
             className=""
           >
             <li
-              onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "15px", fontWeight: "300" }}
               className="fs-14 text-light"
             >
               Help Center
             </li>
             <li
-              onClick={() => dispatch(onAuthModal())}
+              onClick={handleLogOut}
               style={{ fontSize: "15px", fontWeight: "300" }}
               className="fs-14 text-light text-dark"
             >

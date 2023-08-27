@@ -43,6 +43,7 @@ import {
 } from "./screens/dashboard";
 import AccountIndex from "./screens/account/account";
 import LoaderIndex from "./components/loaders";
+import HomeLoader from "./components/loaders/homeloader";
 const HomeWrapper = lazy(() => import("./screens/Home"));
 const ProfileInfoIndex = lazy(() => import("./screens/account/profile_info"));
 const SecurityIndex = lazy(() => import("./screens/account/Security"));
@@ -66,7 +67,14 @@ export default function App() {
     <div className="based" style={{ height }}>
       <Routes>
         <Route path={"/"} element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route
+            index
+            element={
+              <Suspense fallback={<HomeLoader />}>
+                <HomeWrapper />
+              </Suspense>
+            }
+          />
           <Route path="/rooms/:id" element={<Single />} />
           <Route path="/users/show/:id" element={<Profile />} />
           <Route path="wishlists" element={<Wish />} />

@@ -4,7 +4,7 @@ const userData = [
   {
     firstname: "Jacquie",
     lastname: "Spencer",
-    phone: "512-346-8137",
+    phone: 512-346-8137,
     username: "Drempan58",
     image:
       "https://a0.muscache.com/im/pictures/user/45355f8f-7e35-4c96-8703-7548fe0c7754.jpg?im_w=240",
@@ -31,7 +31,7 @@ const userData = [
   {
     firstname: "Amelie",
     lastname: "Thorpe",
-    phone: "083 433 2741",
+    phone: 183-433-2741,
     username: "Blaccurity75",
     image:
       "https://a0.muscache.com/im/pictures/user/User-524053804/original/528ed7db-f1de-49b2-b7a7-a3c6f9fb8b45.jpeg?im_w=240",
@@ -58,7 +58,7 @@ const userData = [
   {
     firstname: "William",
     lastname: "Peele",
-    phone: "",
+    phone: 182-347-333-1,
     username: "Disently",
     image:
       "https://a0.muscache.com/im/pictures/user/2d8b5c11-11a1-4c18-b604-763e204949db.jpg?im_w=240",
@@ -87,7 +87,7 @@ const userData = [
   {
     firstname: "Abdul-Khaliq",
     lastname: "Harb",
-    phone: "845-895-2836",
+    phone: 845-895-2836,
     username: "Shoonce50",
     image:
       "https://a0.muscache.com/im/pictures/user/9f63574d-3b11-44c5-937b-5a2eeef401db.jpg?im_w=240",
@@ -115,7 +115,7 @@ const userData = [
   {
     firstname: "Chidinma",
     lastname: "Chibueze",
-    phone: " 203-202-9591",
+    phone:  203-202-9591,
     username: "Alludy40",
     image:
       "https://a0.muscache.com/im/pictures/user/9d5b43a4-0256-42ee-86a5-7407b661a190.jpg?im_w=240",

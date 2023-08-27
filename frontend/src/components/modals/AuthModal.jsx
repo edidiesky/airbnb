@@ -22,17 +22,20 @@ import LoaderIndex from "../loaders";
 import Message from "../loaders/Message";
 import FomickInput from "../forms/formick";
 import useValidate from "../../hooks/useValidate";
-import { inputData } from "../../utils/formdata";
+import { inputData, inputData2 } from "../../utils/formdata";
 
 export default function AuthModal({ type, click }, props) {
   const [auth, setAuth] = useState(false);
 
   const [formdata, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    phone: "",
     email: "",
     password: "",
     username: "",
   });
-  const { email, username, password } = formdata;
+  const { email, password, firstname, lastname } = formdata;
 
   // dispatch
   const dispatch = useDispatch();
@@ -57,15 +60,11 @@ export default function AuthModal({ type, click }, props) {
       dispatch(loginCustomer({ email, password }));
       // console.log("login");
     } else {
-      dispatch(registerCustomer({ email, username, password }));
+      dispatch(registerCustomer({ email, firstname, lastname, password }));
       // console.log("registration");
     }
   };
-  useEffect(() => {
-    if (usernamemodal) {
-      setAuth(true);
-    }
-  }, [usernamemodal, setAuth]);
+
   useEffect(() => {
     if (loginSuccess) {
       setTimeout(() => {
@@ -127,12 +126,11 @@ export default function AuthModal({ type, click }, props) {
           <form style={{ gap: ".2rem" }} className="flex column">
             {!auth ? (
               <>
-                {inputData.map((input) => {
+                {inputData2.slice(0, 3).map((input) => {
                   return (
                     <Input
                       label={input.text}
                       onChange={onChange}
-                      placeholder={input.placeholder}
                       type={input.type}
                       name={input.name}
                       value={formdata[input.name]}
@@ -144,15 +142,26 @@ export default function AuthModal({ type, click }, props) {
                     />
                   );
                 })}
+                <Input
+                  label={inputData2[4].text}
+                  onChange={onChange}
+                  type={inputData2[4].type}
+                  name={inputData2[4].name}
+                  value={formdata[inputData2[4].name]}
+                  input={inputData2}
+                  key={inputData2[4].id}
+                  required={inputData2[4].required}
+                  pattern={inputData2[4].pattern}
+                  errorMessage={inputData2[4].errorMessage}
+                />
               </>
             ) : (
               <>
-                {inputData.slice(1,3)?.map((input) => {
+                {inputData.slice(1, 3)?.map((input) => {
                   return (
                     <Input
                       label={input.text}
                       onChange={onChange}
-                      placeholder={input.placeholder}
                       type={input.type}
                       name={input.name}
                       value={formdata[input.name]}
@@ -195,11 +204,6 @@ export default function AuthModal({ type, click }, props) {
               <div className="authBtn flex fs-14 text-dark item-center justify-space">
                 <FcGoogle fontSize={"20px"} />{" "}
                 <div className="w-100 text-center">Continue with Google</div>{" "}
-              </div>
-
-              <div className="authBtn flex fs-14 text-dark item-center justify-center">
-                <FaGithub fontSize={"20px"} />{" "}
-                <div className="w-100 text-center">Continue with Github</div>{" "}
               </div>
             </div>
             <div className="w-100 fs-12 text-light text-grey text-center">

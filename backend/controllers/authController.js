@@ -6,9 +6,9 @@ import User from "../models/User.js";
 //register user
 // Not Private
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password, phone, country } = req.body;
+  const { firstname, lastname, email, password} = req.body;
   //
-  if (!email || !password) {
+  if (!email || !password || !firstname || !lastname) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -24,7 +24,9 @@ const registerUser = asyncHandler(async (req, res) => {
   const Tempuser = {
     email,
     password: hashedpassword,
-    ...req.body
+    firstname,
+    lastname,
+    ...req.body,
   };
   const user = await User.create(Tempuser);
   //
@@ -48,7 +50,7 @@ const LoginUser = asyncHandler(async (req, res) => {
   if (!email || !password) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
-  } 
+  }
   // Find the user in the database
 
   const user = await User.findOne({ email });
@@ -56,7 +58,7 @@ const LoginUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
-  const verifyPassword = await bcrypt.compare(password, user.password);
+  const verifyPassword =  bcrypt.compare(password, user.password);
   if (!verifyPassword) {
     res.status(404);
     throw new Error("Please provide a valid password");

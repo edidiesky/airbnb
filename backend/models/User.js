@@ -3,45 +3,34 @@ import mongoose from "mongoose";
 // a structure of the user
 const UserSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
+    address: {
+      country: { type: String },
+      street: { type: String },
+      city: { type: String },
+      state: { type: String },
+      zip: { type: String },
+      latitude: { type: Number },
+      longitude: { type: Number },
     },
-    firstname: {
-      type: String,
+    about: {
+      language: { type: Array },
+      description: { type: String },
     },
-    lastname: {
-      type: String,
-    },
-    username: {
-      type: String,
-    },
-    image: {
-      type: String,
-    },
-    phone: {
-      type: Number,
-    },
-    email: {
-      type: String,
-      required: [true, "PLease add an emailvalue"],
-    },
+    username: { type: String },
+    firstname: { type: String },
+    lastname: { type: String },
+    username: { type: String },
+    image: { type: String },
+    phone: { type: Number },
+    email: { type: String, required: [true, "PLease add an emailvalue"] },
     password: {
       type: String,
       required: [true, "PLease add a password value"],
-    },
-
-    country: {
-      type: String,
     },
     role: {
       type: String,
       enum: ["user", "admin"],
       default: "user",
-    },
-    level: {
-      type: String,
-      default: "level 1 seller",
-      enum: ["level 1 seller", "level 2 seller", "level 3 seller"],
     },
   },
   { timestamps: true }

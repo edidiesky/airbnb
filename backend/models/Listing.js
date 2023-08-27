@@ -6,6 +6,8 @@ const ListingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    latitude: { type: Number },
+    longitude: { type: Number },
     listing_image: {
       type: Array,
       // required: [true, 'PLease add the image value for the Listing']
@@ -21,9 +23,6 @@ const ListingSchema = new mongoose.Schema(
       type: String,
     },
     listing_location: {
-      type: String,
-    },
-    listing_region: {
       type: String,
     },
     listing_distance: {
