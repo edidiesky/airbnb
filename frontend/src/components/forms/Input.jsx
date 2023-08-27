@@ -49,7 +49,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     color: "var(--dark-1)",
   },
   "& .MuiInputLabel-shrink": {
-    transform: "translate(12px, 10px) scale(0.86)",
+    transform: "translate(12px, 10px) scale(0.8)",
     color: "var(--dark-1)",
     fontWeight: "300",
 
