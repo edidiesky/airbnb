@@ -92,29 +92,31 @@ export default function Card({ x, index, type }) {
         <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
           <div className=" listing">
             <div className="detailsImageWrapper">
-              {x?.listing_image?.map((x) => {
+              {x?.listing_Id?.listing_image?.map((x) => {
                 return (
-                  <div
+                  <Link
+                    to={`/${cardid}/payment`}
                     style={{ transform: `translateX(-${tabindex * 100}%)` }}
                     className="w-100 card"
                   >
                     <div
-                      onClick={() => dispatch(onWishDeleteModal(wishdetails))}
+                      onClick={() => dispatch(DeleteBuyerReservations(cardid))}
                       className="icon delete"
                     >
                       <RxCross2 />
                     </div>
                     <img src={x} alt="" className="w-100" />
                     <div className="backdrop"></div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
           </div>
           <h4 className="fs-18 text-dark">
-            Condo, <span className="fs-16 text-grey">2023</span>{" "}
+          {x?.listing_Id?.listing_title}, <span className="fs-16 text-grey">2023</span>{" "}
             <span className="block fs-14 text-grey text-light">
-              Large accomodation in a castle with pr...
+            {x?.listing_Id?.listing_startDate} <span>to</span>{" "}
+            <span> {x?.listing_Id?.listing_startDate}</span>
             </span>
           </h4>
         </div>
@@ -174,80 +176,6 @@ export default function Card({ x, index, type }) {
   //   );
   //   // console.log(found);
   // }, [wish, Gigs]);
-
-  // resrevation cards
-  if (type === "reservations") {
-    return (
-      <>
-        {ReservationsIsLoading ? (
-          <CardSkeleton />
-        ) : (
-          <CardContent>
-            <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
-              <div className="detailsImageContainer">
-                <div onClick={handleAddToWish} className="icon">
-                  <Heart wishsindex={wishidArray} index={cardid} />
-                </div>
-                <div className="detailsImageWrapper">
-                  {x?.listing_Id?.listing_image?.map((x) => {
-                    return (
-                      <Link
-                        to={`/${cardid}/payment`}
-                        style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                        className="w-100 card"
-                      >
-                        <img src={x} alt="" className="w-100" />
-                        <div className="backdrop"></div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <Link
-                to={`/${x?._id}/payment`}
-                className="flex column"
-                style={{ gap: ".2rem" }}
-              >
-                <div className="w-100 flex item-center justify-space cardTop">
-                  <h4 className="fs-18 text-dark">
-                    {x?.listing_city}, {x?.listing_country}
-                  </h4>
-                  <div
-                    style={{ gap: ".3rem" }}
-                    className="flex text-light fs-16 item-center"
-                  >
-                    <Star />
-                    4.98
-                  </div>
-                </div>
-                <div className="flex column">
-                  <h4 className="fs-16 text-grey text-light">
-                    {x?.listing_Id?.listing_distance} kilometers away
-                  </h4>
-                  <h4 className="fs-14 flex item-center gap-1 text-grey text-light">
-                    {x?.listing_Id?.listing_startDate} <span>to</span>{" "}
-                    <span> {x?.listing_Id?.listing_startDate}</span>
-                  </h4>
-                </div>
-                <h4 className="fs-16 text-dark">
-                  ${x?.listing_Id?.listing_price}{" "}
-                  <span className="text-light fs-16">night</span>
-                </h4>
-              </Link>
-              <div
-                onClick={() => dispatch(DeleteBuyerReservations(cardid))}
-                className="reserveBtn fs-16 flex item-center justify-center"
-              >
-                Cancel Reservations
-              </div>
-            </div>
-          </CardContent>
-        )}
-      </>
-    );
-  }
-
   return (
     <>
       {gigsIsLoading ? (
@@ -387,14 +315,14 @@ const CardContent = styled.div`
     transform: translate(-50%, -5%);
     z-index: 300;
     .cutom_nav {
-      height: 0.4rem;
-      width: 0.4rem;
+      height: 0.35rem;
+      width: 0.35rem;
       z-index: 200;
       border-radius: 50%;
       background-color: #cfcfcf;
-      @media (max-width:580px) {
+      @media (max-width: 580px) {
         height: 0.3rem;
-      width: 0.3rem;
+        width: 0.3rem;
       }
       &:nth-child(5) {
         transform: scale(0.7);

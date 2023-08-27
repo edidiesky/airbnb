@@ -6,7 +6,6 @@ export default function ProfileInfoIndex() {
   return (
     <>
       <ProfileInfoContainer>
-        <ListingHeader />
 
         <div style={{ minHeight: "100vh" }} className="w-100">
           <ProfileInfo />

@@ -35,7 +35,7 @@ const ReservationsIndex = () => {
       {Reservations.length > 0 ? (
         <ReservationsWrapper className="w-100 gap-2">
           {Reservations?.map((x) => {
-            return <Card x={x} type={"reservations"} />;
+            return <Card x={x} type={"listing"} />;
           })}
         </ReservationsWrapper>
       ) : (

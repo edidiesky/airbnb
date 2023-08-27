@@ -15,11 +15,6 @@ export default function SecurityInfo({ type }) {
 
 const SecurityInfoContainer = styled.div`
   width: 100%;
-  padding: 1rem 0;
-  top: 0;
-  position: fixed;
-  z-index: 300;
-  background-color: #fff;
 
   .headBtn {
     border: 1px solid rgba(0, 0, 0, 0.4);

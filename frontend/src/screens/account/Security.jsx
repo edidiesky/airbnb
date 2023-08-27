@@ -7,7 +7,6 @@ export default function SecurityIndex() {
   return (
     <>
       <SecurityContainer>
-        <ListingHeader/>
         <div style={{ minHeight: "100vh" }} className="w-100">
           <Security />
         </div>

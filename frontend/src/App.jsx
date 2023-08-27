@@ -42,6 +42,7 @@ import {
   HostReservations,
 } from "./screens/dashboard";
 import AccountIndex from "./screens/account/account";
+import LoaderIndex from "./components/loaders";
 const HomeWrapper = lazy(() => import("./screens/Home"));
 const ProfileInfoIndex = lazy(() => import("./screens/account/profile_info"));
 const SecurityIndex = lazy(() => import("./screens/account/Security"));
@@ -56,10 +57,10 @@ export default function App() {
     });
   }, []);
 
-  // console.log(process.env.map_box_token)
-  const apiKey = import.meta.env.map_box_token;
+  // // console.log(process.env.map_box_token)
+  // const apiKey = import.meta.env.map_box_token;
 
-  console.log(apiKey);
+  // console.log(apiKey);
 
   return (
     <div className="based" style={{ height }}>
@@ -103,9 +104,32 @@ export default function App() {
           {/* <Route path="listings" element={<host />} /> */}
         </Route>
         {/* account */}
-        <Route path={"/account-settings"} element={<LayoutSecurity />}>
-          <Route exact path="login-and-security" element={<SecurityIndex />} />
-          <Route exact path="personal-info" element={<ProfileInfoIndex />} />
+        <Route
+          path={"/account-settings/"}
+          element={
+            <Suspense fallback={<LoaderIndex />}>
+              <LayoutSecurity />
+            </Suspense>
+          }
+        >
+          <Route
+            exact
+            path="login-and-security"
+            element={
+              <Suspense fallback={<LoaderIndex />}>
+                <SecurityIndex />
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path="personal-info"
+            element={
+              <Suspense fallback={<LoaderIndex />}>
+                <ProfileInfoIndex />
+              </Suspense>
+            }
+          />
           <Route index element={<AccountIndex />} />
         </Route>
       </Routes>

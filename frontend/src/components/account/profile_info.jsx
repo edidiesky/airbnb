@@ -23,7 +23,9 @@ export default function ProfileInfo({ type }) {
   return (
     <>
       <ProfileInfoContainer>
-        <div className="aboutCenter flex item-center gap-3 justify-center w-85 auto"></div>
+        <div className="ProfileInfoCenter flex w-85 auto">
+          <h2 className="fs-35">Personal info</h2>
+        </div>
       </ProfileInfoContainer>
     </>
   );
@@ -32,11 +34,10 @@ export default function ProfileInfo({ type }) {
 const ProfileInfoContainer = styled.div`
   width: 100%;
   padding: 1rem 0;
-  top: 0;
-  position: fixed;
-  z-index: 300;
-  background-color: #fff;
-
+  padding-top: 7rem;
+  .ProfileInfoCenter {
+    width: 75%;
+  }
   .headBtn {
     border: 1px solid rgba(0, 0, 0, 0.4);
     padding: 0.6rem 1.7rem;
