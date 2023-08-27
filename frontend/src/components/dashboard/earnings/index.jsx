@@ -37,72 +37,7 @@ export default function HostEarningIndex() {
             </h3>
           </div>
           <div className="flex column" style={{ gap: ".8rem" }}>
-            <div className="flex item-center justify-space w-100">
-              <div className="flex item-start column gap-1">
-                <h4
-                  style={{ fontSize: "27px" }}
-                  className="fs-30 text-dark text-bold"
-                >
-                  Your reservations
-                </h4>
-                <div className="w-100 flex item-center gap-2">
-                  {/* <label htmlFor="search"></label> */}
-                  <div className="flex item-center form">
-                    <BiSearch />
-                    <input
-                      type="text"
-                      placeholder="Search Listings"
-                      className="search_input"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                style={{ gap: ".5rem" }}
-                className="headBtn flex item-center fs-14 text-dark text-bold"
-              >
-                <BiPlus fontSize={"17px"} /> Create Listing
-              </div>
-            </div>
-            <div className="w-100">
-              {Gigs?.length > 0 && (
-                <Table>
-                  <div className="TableContainer">
-                    <table className="tableWrapper">
-                      <thead>
-                        <tr>
-                          <th>Rooms Name</th>
-                          <th>TODO</th>
-                          <th>STATUS</th>
-                          <th>bedroom</th>
-                          <th>baths</th>
-                          <th>beds</th>
-                          <th>Price</th>
-                          <th>Location</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Gigs?.slice(0, 2)?.map((x) => {
-                          return <TableCard x={x} key={x?._id} />;
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                </Table>
-              )}
-            </div>
-            {/* {usernoOfpage > 0 && <Pagination type="users" />}
-            </div>
-            <div className="reservation_list">
-              <div className="w-100 flex item-center gap-1 justify-center column gap-1">
-                <Checks />
-                <h5 style={{width:"20%"}} className="fs-16 auto text-center text-light">
-                  You don’t have any guests checking out today or tomorrow.
-                </h5>
-              </div>
-            </div>
-          </div>
-          {/* <Charts /> */}
+            <Charts />
 
             {/* booking history */}
             {/* <div className="grid wrapper">
@@ -167,6 +102,7 @@ const HostEarningIndexPlaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
   padding-top: 6rem;
+  margin-bottom: 4rem;
   .form {
     width: 400px;
     /* background-color: red; */
@@ -177,21 +113,20 @@ const HostEarningIndexPlaceContainer = styled.div`
       position: absolute;
       left: 4%;
       color: var(--grey-1);
-
     }
     .search_input {
       width: 100%;
       border: none;
       outline: none;
       background-color: #f7f7f7;
-      padding: .4rem 3rem;
-      border: 2px solid rgba(0, 0, 0, .1);
+      padding: 0.4rem 3rem;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       border-radius: 40px;
       font-family: inherit;
       font-size: 14px;
       color: var(--dark-1);
       &:hover {
-        border: 2px solid rgba(0, 0, 0, 1) ;
+        border: 2px solid rgba(0, 0, 0, 1);
       }
     }
   }

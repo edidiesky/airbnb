@@ -88,12 +88,12 @@ export default function App() {
         </Route>
         {/* host dashboard routes */}
         <Route path={"/dashboard/hosting/"} element={<HostLayout />}>
-          <Route exact index element={<HostEarnings />} />
+          <Route exact path="earning" element={<HostEarnings />} />
           <Route exact path="profile" element={<HostProfile />} />
           <Route exact path="inbox" element={<HostInbox />} />
           <Route exact path="orders" element={<HostOrders />} />
           <Route exact path="guests" element={<HostGuests />} />
-          <Route exact path="listings" element={<HostListings />} />
+          <Route exact index element={<HostListings />} />
           <Route exact path="reviews" element={<HostReviews />} />
           <Route exact path="reservations" element={<HostReservations />} />
           {/* <Route path="listings" element={<host />} /> */}

@@ -16,7 +16,7 @@ const sidebarData = [
   },
   { id: 4, title: "Reservations", path: "reservations" },
 
-  { id: 5, title: "Earnings", path: "guests" },
+  { id: 5, title: "Earnings", path: "earning" },
   { id: 6, title: "Inbox", path: "Profile" },
 ];
 export default function ListingHeader({ type }) {

@@ -7,7 +7,7 @@ export default function Charts() {
     //   chart: {
     //     id: "apexchart-example",
     // background: "#f8f8f8",
-    // fontFamily: "Montserrat, sans-serif",
+    // fontFamily: "Nunito, sans-serif",
     //   },
     //   plotOptions: {
     //     line: {
@@ -66,11 +66,11 @@ export default function Charts() {
     options: {
       chart: {
         type: "bar",
-        height: 350,
-        background: "#f8f8f8",
-        fontFamily: "Montserrat, sans-serif",
+        height: 550,
+        background: "#e0e0e0",
+        fontFamily: "Nunito, sans-serif",
       },
-      colors:['#000',"var(--red)"],
+      colors:['#000',"#fff"],
       plotOptions: {
         bar: {
           horizontal: false,
@@ -109,7 +109,7 @@ export default function Charts() {
         series={chart.series}
         type="bar"
         width={"100%"}
-        height={400}
+        height={500}
       />
     </ChartsWrapper>
   );
@@ -117,6 +117,6 @@ export default function Charts() {
 
 const ChartsWrapper = styled.div`
   h3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Nunito", sans-serif;
   }
 `;

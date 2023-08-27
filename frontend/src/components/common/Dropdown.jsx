@@ -106,21 +106,45 @@ const Dropdown = ({ setDrop, drop, type }) => {
           </div>
         </div>
       ) : (
-        <div className="">
-          <li
-            onClick={() => dispatch(onAuthModal())}
-            style={{ fontSize: "14.5px", fontWeight: "600" }}
-            className="fs-14 text-light"
+        <div className="flex column">
+          <div className="">
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              style={{ fontSize: "14.5px", fontWeight: "600" }}
+              className="fs-14 text-light"
+            >
+              Sign in
+            </li>
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              style={{ fontSize: "14.5px", fontWeight: "600" }}
+              className="fs-14 text-light text-dark"
+            >
+              Sign up
+            </li>
+          </div>
+          <div
+            style={{
+              borderTop: "1px solid rgba(0,0,0,.1)",
+              padding: ".3rem 0",
+            }}
+            className=""
           >
-            Sign in
-          </li>
-          <li
-            onClick={() => dispatch(onAuthModal())}
-            style={{ fontSize: "14.5px", fontWeight: "600" }}
-            className="fs-14 text-light text-dark"
-          >
-            Sign up
-          </li>
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              style={{ fontSize: "15px", fontWeight: "300" }}
+              className="fs-14 text-light"
+            >
+              Airbnb Your Home
+            </li>
+            <li
+              onClick={() => dispatch(onAuthModal())}
+              style={{ fontSize: "15px", fontWeight: "300" }}
+              className="fs-14 text-light text-dark"
+            >
+              Help center
+            </li>
+          </div>
         </div>
       )}
     </motion.ul>
