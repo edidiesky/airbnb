@@ -22,6 +22,7 @@ export default function Card({ x, index, type }) {
   const { gigsIsLoading } = useSelector((store) => store.gigs);
   const { ReservationsIsLoading } = useSelector((store) => store.reservations);
   const { wishidArray } = useSelector((store) => store.wish);
+  const list = ["1", "2", "3", "4", "5"];
 
   const handleImagePosition = (position) => {
     if (position === "left") {
@@ -55,6 +56,7 @@ export default function Card({ x, index, type }) {
       <CardContent>
         <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
           <div className="detailsImageContainer">
+            <div className="backdrop"></div>
             <div className="detailsImageWrapper">
               {x?.listing_image?.map((x) => {
                 return (
@@ -254,6 +256,20 @@ export default function Card({ x, index, type }) {
         <CardContent>
           <div className="w-100 cards flex gap-1 column" key={x?.listing_id}>
             <div className="detailsImageContainer">
+              <div
+                style={{ gap: "5px" }}
+                className="custom_nav_wrapper flex item-center justify-center"
+              >
+                {list.map((x, index) => {
+                  const active = tabindex === index;
+                  return (
+                    <div
+                      key={index}
+                      className={active ? "cutom_nav active" : "cutom_nav"}
+                    ></div>
+                  );
+                })}
+              </div>
               <div onClick={handleAddToWish} className="icon">
                 <Heart wishsindex={wishidArray} index={cardid} />
               </div>
@@ -314,7 +330,7 @@ export default function Card({ x, index, type }) {
             >
               <div className="w-100 flex item-center justify-space cardTop">
                 <h4
-                  style={{ fontWeight: "bolder", fontSize: "15.5px" }}
+                  style={{ fontWeight: "bold", fontSize: "15.5px" }}
                   className=" text-extra-bold text-dark"
                 >
                   {x?.listing_city}, {x?.listing_country}
@@ -364,6 +380,40 @@ export default function Card({ x, index, type }) {
 const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
+  .custom_nav_wrapper {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    z-index: 300;
+    .cutom_nav {
+      height: 0.4rem;
+      width: 0.4rem;
+      z-index: 200;
+      border-radius: 50%;
+      background-color: #cfcfcf;
+      @media (max-width:580px) {
+        height: 0.3rem;
+      width: 0.3rem;
+      }
+      &:nth-child(5) {
+        transform: scale(0.7);
+      }
+      &:nth-child(4) {
+        transform: scale(0.8);
+      }
+
+      &.active {
+        background-color: #fff;
+        &:nth-child(5) {
+          transform: scale(1);
+        }
+        &:nth-child(4) {
+          transform: scale(1);
+        }
+      }
+    }
+  }
   .reserveBtn {
     background-image: linear-gradient(
       to right,
@@ -495,7 +545,7 @@ const CardContent = styled.div`
       font-weight: 400;
     }
     .backdrop {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.2);
       position: absolute;
       transition: all 0.4s;
       width: 100%;
@@ -649,20 +699,9 @@ const CardContent = styled.div`
       .desc {
         color: var(--yellow);
       }
-      .backdrop {
-        background-color: rgba(255, 255, 255, 0.05);
-      }
       img {
         transform: scale(1.1);
       }
-    }
-    .backdrop {
-      background-color: rgba(0, 0, 0, 0.2);
-      position: absolute;
-      transition: all 0.4s;
-      width: 100%;
-      height: 17rem;
-      border-radius: inherit;
     }
     img {
       position: absolute;
@@ -671,74 +710,6 @@ const CardContent = styled.div`
       height: 100%;
       border-radius: inherit;
       object-fit: cover;
-    }
-  }
-`;
-
-const DashboardCard = styled.div`
-  background-color: transparent;
-  cursor: pointer;
-  .dashboard_wrapper {
-    height: 15rem;
-    position: relative;
-    transition: all 0.3s ease;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .backdrop {
-    background-color: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    transition: all 0.4s;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    border-radius: 7px;
-  }
-  .card_header {
-    position: absolute;
-    z-index: 40;
-    bottom: 10%;
-    h4,
-    h5 {
-      color: #fff;
-    }
-  }
-
-  .listing_status {
-    padding: 0.2rem 0.8rem;
-    color: #fff;
-    border-radius: 40px;
-    background: var(--red);
-    font-weight: 400;
-  }
-
-  .detailsImageWrapper {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 100%);
-    overflow: hidden;
-    grid-gap: 0rem;
-    height: 100%;
-    position: absolute;
-    transition: all 0.4s;
-    width: 100%;
-    height: 100%;
-    .card {
-      width: 100%;
-      position: relative;
-      transition: all 0.6s ease-in-out;
-
-      img {
-        width: 100%;
-        object-fit: cover;
-        height: 100%;
-        /* position: absolute; */
-
-        @media (min-width: 1600px) {
-          height: 100%;
-          /* object-fit: cover; */
-        }
-      }
     }
   }
 `;

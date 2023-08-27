@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 import Logo2 from "../common/svg/Logo12";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "../common/svg/Logo";
+import Dropdown from "../common/Dropdown";
 
 const sidebarData = [
   {
@@ -20,6 +23,8 @@ const sidebarData = [
   { id: 6, title: "Inbox", path: "Profile" },
 ];
 export default function ListingHeader({ type }) {
+  const [drop, setDrop] = useState(false);
+
   if (type === "dashboard") {
     return (
       <>
@@ -76,6 +81,67 @@ export default function ListingHeader({ type }) {
       </>
     );
   }
+  if (type === "account") {
+    return (
+      <>
+        {drop && (
+          <div
+            onClick={() => setDrop(false)}
+            className="backdrop_dropdown absolute"
+            style={{
+              height: "100vh",
+              width: "100vw",
+              position: "absolute",
+              zIndex: "1",
+            }}
+          ></div>
+        )}
+        <ListingHeaderContainer className="type">
+          <div className="aboutCenter flex item-center gap-3 justify-space w-85 auto">
+            <Link to={"/"}>
+              <Logo />
+            </Link>
+            <div className="flex top item-center gap-1 justify-end">
+              <AnimatePresence
+                initial="false"
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {drop && (
+                  <Dropdown setDrop={setDrop} drop={drop} type={"type"} />
+                )}
+              </AnimatePresence>
+              <div
+                onClick={() => setDrop(!drop)}
+                style={{
+                  width: "2.7rem",
+                  height: "2.7rem",
+                  borderRadius: "50%",
+                  background: "rgba(0,0,0,.1)",
+                  color: "#Fff",
+                }}
+                className="profile_wrapper flex item-center justify-center"
+              >
+                <div
+                  style={{
+                    width: "2.4rem",
+                    height: "2.4rem",
+                    borderRadius: "50%",
+                    background: "#000",
+                    color: "#Fff",
+                    border: "2px solid #fff",
+                  }}
+                  className="fs-16 text-white flex item-center justify-center"
+                >
+                  E
+                </div>
+              </div>
+            </div>
+          </div>
+        </ListingHeaderContainer>
+      </>
+    );
+  }
   return (
     <>
       <ListingHeaderContainer>
@@ -101,6 +167,28 @@ const ListingHeaderContainer = styled.div`
   .list {
     @media (max-width: 780px) {
       display: none;
+    }
+  }
+  .dropdown {
+    position: absolute;
+    right: 3%;
+    background-color: #fff;
+    min-width: 240px;
+    padding: 0.5rem 0;
+    z-index: 200000;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    @media (min-width: 1807px) {
+      right: 17%;
+    }
+    li {
+      padding: 0.6rem 1.3rem;
+      cursor: pointer;
+      border-radius: inherit;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.07); */
     }
   }
 
@@ -149,6 +237,7 @@ const ListingHeaderContainer = styled.div`
     }
   }
   .top {
+    position: relative;
     @media (max-width: 780px) {
       justify-content: flex-start;
     }

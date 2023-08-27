@@ -94,7 +94,6 @@ export const slideUp = {
   },
 };
 
-
 export const dropin1 = {
   hidden: {
     top: "40%",
@@ -123,27 +122,17 @@ export const dropin1 = {
 };
 export const dropin2 = {
   hidden: {
-    top: "80%",
+    top: "100%",
     opacity: 0,
-    transition: {
-      delay: 0.5,
-    },
+    visibility: "hidden",
   },
   visible: {
-    top: "80%",
+    top: "100%",
     opacity: 1,
-    transition: {
-      duration: 0.3,
-      type: "spring",
-      damping: 26,
-      stiffness: 600,
-    },
+    visibility: "visible",
   },
   exit: {
-    top: "0%",
+    top: "100%",
     opacity: 0,
-    transition: {
-      duration: 0.5,
-    },
   },
 };

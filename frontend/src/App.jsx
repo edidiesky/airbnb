@@ -41,7 +41,11 @@ import {
   HostReviews,
   HostReservations,
 } from "./screens/dashboard";
+import AccountIndex from "./screens/account/account";
 const HomeWrapper = lazy(() => import("./screens/Home"));
+const ProfileInfoIndex = lazy(() => import("./screens/account/profile_info"));
+const SecurityIndex = lazy(() => import("./screens/account/Security"));
+const LayoutSecurity = lazy(() => import("./screens/account/Layout"));
 
 export default function App() {
   const [height, setHeight] = useState(0);
@@ -97,6 +101,12 @@ export default function App() {
           <Route exact path="reviews" element={<HostReviews />} />
           <Route exact path="reservations" element={<HostReservations />} />
           {/* <Route path="listings" element={<host />} /> */}
+        </Route>
+        {/* account */}
+        <Route path={"/account-settings"} element={<LayoutSecurity />}>
+          <Route exact path="login-and-security" element={<SecurityIndex />} />
+          <Route exact path="personal-info" element={<ProfileInfoIndex />} />
+          <Route index element={<AccountIndex />} />
         </Route>
       </Routes>
     </div>

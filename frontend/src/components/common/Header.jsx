@@ -377,6 +377,11 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #fff;
+  .backdrop_dropdown {
+    width:100%;
+    height: 100%;
+    position: absolute;
+  }
   .bottomWrapper {
     display: grid;
     grid-template-columns: 1fr 6vw;

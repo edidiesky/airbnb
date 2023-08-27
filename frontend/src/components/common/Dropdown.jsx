@@ -79,7 +79,9 @@ const Dropdown = ({ setDrop, drop, type }) => {
               style={{ fontSize: "15px", fontWeight: "300" }}
               className="fs-14 text-light text-dark"
             >
-              Account
+              <Link className="w-100" to={"/account-settings"}>
+                Account
+              </Link>
             </li>
           </div>
           <div
