@@ -3,15 +3,6 @@ import mongoose from "mongoose";
 // a structure of the user
 const UserSchema = new mongoose.Schema(
   {
-    address: {
-      country: { type: String },
-      street: { type: String },
-      city: { type: String },
-      state: { type: String },
-      zip: { type: String },
-      latitude: { type: Number },
-      longitude: { type: Number },
-    },
     about: {
       language: { type: Array },
       description: { type: String },
@@ -31,6 +22,15 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "admin"],
       default: "user",
+    },
+    address: {
+      country: { type: String },
+      street: { type: String },
+      city: { type: String },
+      state: { type: String },
+      zip: { type: String },
+      latitude: { type: Number },
+      longitude: { type: Number },
     },
   },
   { timestamps: true }

@@ -77,5 +77,34 @@ export const inputData2 = [
       "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
     required: true,
   },
+
+  {
+    id: 6,
+    name: "country",
+    placeholder: "Enter your Country",
+    type: "text",
+    text: "Country",
+  },
+  {
+    id: 7,
+    name: "street",
+    placeholder: "Enter your Street",
+    type: "text",
+    text: "Street Address",
+  },
+  {
+    id: 8,
+    name: "city",
+    placeholder: "Enter your City",
+    type: "text",
+    text: "City Address",
+  },
+  {
+    id: 9,
+    name: "state",
+    placeholder: "Enter your State",
+    type: "text",
+    text: "State / Province / Region",
+  },
 ];
 

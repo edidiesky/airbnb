@@ -255,7 +255,6 @@ const userSlice = createSlice({
       //
       state.isLoading = false;
       state.showAlert = true;
-      state.usernamemodal = false;
       state.authmodal = false;
       state.userInfo = action.payload.updatedUser;
       state.isSuccess = true;

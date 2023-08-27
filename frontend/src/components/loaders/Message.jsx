@@ -41,13 +41,14 @@ export default function Message({
 const MessageContent = styled.div`
   min-width: 200px;
   padding: 1rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12) !important;
   background-color: #fff;
   position: fixed;
   z-index: 10000;
   left: 2%;
-  border-radius: 8px;
-  font-size: 11px;
+  border-radius: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--dark-1);
   transition: all 0.6s;

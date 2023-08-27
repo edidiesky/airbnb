@@ -38,9 +38,9 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     color: "var(--dark-1)",
   },
   "& .MuiInputLabel-root": {
-    fontSize: "15px",
-    fontWeight: "400",
-    color: "var(--dark-1)",
+    fontSize: "16px",
+    fontWeight: "light",
+    color: "var(--grey-1)",
     textTransform:"capitalize"
   },
   "& .MuiInputLabel-root.Mui-focused": {
