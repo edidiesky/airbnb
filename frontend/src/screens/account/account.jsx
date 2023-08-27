@@ -69,7 +69,8 @@ export default function AccountIndex() {
 
 const AccountContainer = styled.div`
   width: 100%;
-  padding-top: 8rem;
+  margin: 8rem auto;
+  overflow: hidden;
   .top {
     width: 75%;
   }

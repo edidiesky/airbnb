@@ -76,7 +76,7 @@ const HostReviewsIndexPlaceContainer = styled.div`
     padding: 2rem;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 50%;
+    width: 100%;
     margin-bottom: 4rem;
     @media (max-width: 980px) {
       width: 80%;
@@ -87,7 +87,9 @@ const HostReviewsIndexPlaceContainer = styled.div`
     &.wrapper {
       display: grid;
       width: 100% !important;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      padding: 0;
+      border: none;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
       @media (max-width: 980px) {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
@@ -105,7 +107,7 @@ const HostReviewsIndexPlaceContainer = styled.div`
     margin: 0 !important;
   }
   .top {
-    width: 50%;
+    width: 95%;
     @media (max-width: 980px) {
       width: 80%;
     }

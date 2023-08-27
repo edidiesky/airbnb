@@ -51,6 +51,40 @@ export default function ListingHeader({ type }) {
               })}
             </div>
             <div className="flex top item-center gap-1 justify-end">
+              <AnimatePresence
+                initial="false"
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {drop && (
+                  <Dropdown setDrop={setDrop} drop={drop} type={"type"} />
+                )}
+              </AnimatePresence>
+              <div
+                onClick={() => setDrop(!drop)}
+                style={{
+                  width: "2.7rem",
+                  height: "2.7rem",
+                  borderRadius: "50%",
+                  background: "rgba(0,0,0,.1)",
+                  color: "#Fff",
+                }}
+                className="profile_wrapper flex item-center justify-center"
+              >
+                <div
+                  style={{
+                    width: "2.4rem",
+                    height: "2.4rem",
+                    borderRadius: "50%",
+                    background: "#000",
+                    color: "#Fff",
+                    border: "2px solid #fff",
+                  }}
+                  className="fs-16 text-white flex item-center justify-center"
+                >
+                  E
+                </div>
+              </div>
               <div
                 style={{
                   width: "2.7rem",
@@ -148,6 +182,7 @@ export default function ListingHeader({ type }) {
         <div className="aboutCenter flex item-center gap-3 justify-center w-85 auto">
           <Logo2 />
           <div className="flex top item-center gap-1 justify-end w-100">
+            
             <div className="headBtn fs-14 text-dark text-bold">Questions</div>
             <div className="headBtn fs-14 text-dark text-bold">Save & Exit</div>
           </div>

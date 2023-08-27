@@ -9,7 +9,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     borderRadius: "7px",
     backgroundColor: "#fff",
-    border: "1px solid rgba(0,0,0,.2)",
+    border: "1px solid rgba(0,0,0,.5)",
 
     "& fieldset": {
       borderColor: "transparent",
@@ -30,9 +30,10 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     },
   },
   "& .MuiOutlinedInput-input": {
-    padding: "14px 10px",
-    fontSize: "16px",
-    fontWeight: "500",
+    padding: "24px 10px",
+    paddingBottom: "12px",
+    fontSize: "18px",
+    fontWeight: "400",
     fontFamily: "Nunito, sans-serif",
     color: "var(--dark-1)",
   },
@@ -40,16 +41,18 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     fontSize: "15px",
     fontWeight: "400",
     color: "var(--dark-1)",
+    textTransform:"capitalize"
   },
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused
-    fontWeight: "600",
-    color: "var(--grey-1)",
+    fontWeight: "400",
+    color: "var(--dark-1)",
   },
   "& .MuiInputLabel-shrink": {
-    transform: "translate(12px, 3px) scale(0.75)",
-    fontWeight: "600",
-    color: "var(--grey-1)",
+    transform: "translate(12px, 10px) scale(0.86)",
+    color: "var(--dark-1)",
+    fontWeight: "300",
+
   },
 }));
 
@@ -77,7 +80,6 @@ const FormInput = ({
         onChange={onChange}
         // error={!!errors[id] && touched[id]}
         // helperText={touched[id] && errors[id] ? errors[id] : ""}
-      
       />
     </div>
   );

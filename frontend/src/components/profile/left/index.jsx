@@ -19,11 +19,11 @@ export default function ProfileLeftIndex({ id }) {
         handleClearAlert={dispatch(clearReservationsAlert())}
       /> */}
       <div className="w-100 profileleft flex column gap-1">
-        <div className="authCenter flex item-start gap-3 justify-center w-90 auto shadow">
+        <div className="authCenter flex item-start gap-1 justify-center w-90 auto shadow">
           <div className="authC_right flex gap-1 column flex-1">
             <img src={userDetails?.image} alt="" className="avatar" />
-            <h3 className="fs-20 family1 text-center text-extra-bold text-dark">
-              {userDetails?.username}
+            <h3 style={{fontWeight:"800"}} className="fs-20 family1 text-center text-extra-bold text-dark">
+              {userDetails?.name}
               <span className="block fs-14 text-light text-center family2">
                 Superhost
               </span>
@@ -34,12 +34,12 @@ export default function ProfileLeftIndex({ id }) {
               {review?.length || 0}{" "}
               <span className="block fs-12 text-light text-dark">Reviews</span>
             </div>
-            <div className="list1 fs-24 text-extra-bold text-dark">
+            {/* <div className="list1 fs-24 text-extra-bold text-dark">
               <div className="flex item-center gap-1 ">
                 {review?.length || 0} <Star />
               </div>{" "}
               <span className="block fs-12 text-light text-dark">Rating</span>
-            </div>
+            </div> */}
             <div className="list1 fs-24 text-extra-bold text-dark">
               1{" "}
               <span className="block fs-10 text-light text-dark">

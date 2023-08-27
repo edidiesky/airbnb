@@ -91,7 +91,7 @@ const ProfileIndexContent = styled.div`
     }
   }
   .authCenter {
-    padding: 3rem;
+    padding: 3rem 2rem;
     width: 350px;
     margin: 0 auto;
     box-shadow: 0 19px 39px rgba(0, 0, 0, 0.2);
