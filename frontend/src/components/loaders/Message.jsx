@@ -68,7 +68,7 @@ const MessageContent = styled.div`
     border-left: 4px solid var(--red);
   }
   @media (max-width: 780px) {
-    min-width: 300px;
+    min-width: 200px;
     justify-content: flex-start;
   }
   @media (max-width: 480px) {

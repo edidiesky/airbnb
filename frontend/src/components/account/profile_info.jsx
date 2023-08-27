@@ -13,12 +13,31 @@ import {
 import Message from "../loaders/Message";
 import { clearUserAlertError } from "../../Features/user/userSlice";
 import LoaderIndex from "../loaders";
+import Auth from "../common/svg/auth";
+import Cart from "../common/svg/cart";
 
 export default function ProfileInfo({ type }) {
   const dispatch = useDispatch();
   const { userInfo, showAlert, alertText, alertType, isLoading } = useSelector(
     (store) => store.user
   );
+  const rightlist = [
+    {
+      icon:<Auth/>,
+      text:"Why isn’t my info shown here?",
+      subtext:"We’re hiding some account details to protect your identity."
+    },
+    {
+      icon:<Cart/>,
+      text:"Which details can be edited?",
+      subtext:"Contact info and personal details can be edited. If this info was used to verify your identity, you’ll need to get verified again the next time you book—or to continue hosting."
+    },
+    {
+      icon:<Auth/>,
+      text:"What info is shared with others?",
+      subtext:"Airbnb only releases contact information for Hosts and guests after a reservation is confirmed."
+    }
+  ]
 
   const [formdata, setFormData] = useState({
     firstname: "",
@@ -96,6 +115,7 @@ export default function ProfileInfo({ type }) {
         <div className="ProfileInfoCenter column gap-2 flex w-85 auto">
           <h2 className="fs-35">Personal info</h2>
           <div className="wrapper">
+            {/* form data input */}
             <div className="flex column gap-1">
               {/* name lagal */}
               <div className="flex bottom column gap-1">
@@ -106,7 +126,7 @@ export default function ProfileInfo({ type }) {
                     license or a passport.
                   </span>
                 </span>
-                <div className="flex gap-1 item-center justify-space w-100">
+                <div className="grid wrap1 justify-space w-100">
                   {inputData2?.slice(0, 2).map((input) => {
                     return (
                       <FormInput
@@ -247,7 +267,18 @@ export default function ProfileInfo({ type }) {
                 </div>
               </div>
             </div>
-            <div className="flex column gap-1"></div>
+            <div className="flex wrap2 column gap-1">
+              {
+                rightlist.map(x=> {
+                  return <div className="flex column bottom gap-2">
+                    <span>{x.icon}</span>
+                    <h4 className="fs-24 text-bold">{x.text}
+                    <span style={{marginTop:"12px"}} className="fs-18 text-light block text-grey">{x.subtext}</span>
+                    </h4>
+                  </div>
+                })
+              }
+            </div>
           </div>
         </div>
       </ProfileInfoContainer>
@@ -263,7 +294,7 @@ const ProfileInfoContainer = styled.div`
     margin: 5rem auto;
   }
   .ProfileInfoCenter {
-    width: 75%;
+    width: 85%;
     @media (max-width: 780px) {
       width: 90%;
     }
@@ -272,7 +303,7 @@ const ProfileInfoContainer = styled.div`
     border: none !important;
   }
   .edit {
-    padding: 0.7rem 2rem;
+    padding: 1rem 2rem;
     border-radius: 10px;
     cursor: pointer;
     color: #fff !important;
@@ -285,21 +316,26 @@ const ProfileInfoContainer = styled.div`
     display: grid;
     width: 100% !important;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
   .wrapper {
     display: grid;
     width: 100% !important;
     padding: 0;
     border: none;
+    grid-gap: 6rem;
+    place-items: start;
     grid-template-columns: 1fr 30vw;
     @media (max-width: 980px) {
       grid-template-columns: 1fr;
     }
   }
-  .headBtn {
+  .wrap2 {
     border: 1px solid rgba(0, 0, 0, 0.4);
-    padding: 0.6rem 1.7rem;
-    border-radius: 40px;
+    padding: 2rem 1.7rem;
+    border-radius: 10px;
+    @media (max-width: 980px)  {
+      display: none;
+    }
   }
 `;
