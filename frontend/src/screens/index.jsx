@@ -21,6 +21,7 @@ import Profile from "./Profile";
 import DurationsOfplace from "./Duration";
 import Order from "./OrderList";
 import UserOrder from "./UserOrder";
+import Chat from "./Chat";
 export {
   DescriptionOfplace,
   Layout,
@@ -45,4 +46,5 @@ export {
   DurationsOfplace,
   Order,
   UserOrder,
+  Chat
 };

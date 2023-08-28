@@ -35,7 +35,7 @@ export const options1 = {
       items: 1,
     },
     460: {
-      items: 1,
+      items: 2,
     },
     760: {
       items: 2,
@@ -59,7 +59,7 @@ export const options3 = {
         items: 1,
       },
       460: {
-        items: 1,
+        items: 2,
       },
       760: {
         items: 2,

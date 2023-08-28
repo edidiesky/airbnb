@@ -29,6 +29,7 @@ import {
   Profile,
   DurationsOfplace,
   UserOrder,
+  Chat,
 } from "./screens";
 import {
   HostEarnings,
@@ -82,6 +83,11 @@ export default function App() {
           <Route path="/:id/payment" element={<Payment />} />
           <Route path="/:id/order" element={<UserOrder />} />
           <Route path="/order" element={<UserOrder />} />
+        </Route>
+        {/* message */}
+        <Route path={"/guest/inbox"} element={<Layout type={"hosting"} />}>
+        <Route index element={<Chat />} />
+
         </Route>
         {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>

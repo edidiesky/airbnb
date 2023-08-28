@@ -51,7 +51,7 @@ export default function ProfileRightIndex() {
       <div className="ProfileRight w-90 auto flex gap-2 column">
         {/* host details */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-30 family1">About {userDetails?.username}</h3>
+          <h3 className="fs-30 family1">About {userDetails?.firstname}</h3>
           <div className="flex item-center fs-16 text-light gap-1 flex-wrap">
             <div className="flex item-center gap-1">
               <Language />
@@ -68,7 +68,7 @@ export default function ProfileRightIndex() {
         </div>{" "}
         {/* host reviews */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-24 text-bold">{userDetails?.username}'s Reviews</h3>
+          <h3 className="fs-24 text-bold">{userDetails?.firstname}'s Reviews</h3>
           {review?.length > 0 ? (
             <div className="w-100 w-100">
               <SliderIndex options={options3}>
@@ -100,7 +100,7 @@ export default function ProfileRightIndex() {
         </div>
         {/* host lisitng */}
         <div className="flex column bottom gap-1">
-          <h3 className="fs-24 text-bold">{userDetails?.username}'s listings</h3>
+          <h3 className="fs-24 text-bold">{userDetails?.firstname}'s listings</h3>
           <SliderIndex options={options1}>
             {Gigs?.length > 0 ? (
               Gigs?.map((x, index) => {

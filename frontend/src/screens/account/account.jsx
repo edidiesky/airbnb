@@ -47,12 +47,12 @@ export default function AccountIndex() {
               {tabs.map((x) => {
                 return (
                   <Link to={`/account-settings${x.path}`} className="flex tabcard w-100 column">
-                    <span style={{marginBottom:"1rem"}}>
+                    <span style={{marginBottom:"1.6rem"}}>
                       {x.icon}
                     </span>
                     <h4 className="fs-18 text-bold">
                       {x.text}
-                      <span style={{fontWeight:"300"}} className="fs-16 block text-light tex-grey">
+                      <span style={{fontWeight:"300", fontSize:"15px", marginTop:"9px"}} className="block text-light tex-grey">
                         {x.desc}
                       </span>
                     </h4>

@@ -28,10 +28,10 @@ a {
 }
 .rdrMonth {
   width: 100% !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
 }
 .rdrMonthAndYearPickers select {
-  font-size: 16px !important;
+  font-size: 14px !important;
   color: var(--dark-1) !important;
 }
 .css-1flmtb5-MuiDataGrid-root .MuiDataGrid-row {
@@ -441,10 +441,10 @@ p {
 
 .w-85 {
   width: 90%;
-  max-width: 1396px;
+  max-width: 1496px;
 }
 .w-90 {
-  width: 96%;
+  width: 95%;
   max-width: 1496px;
 }
 .w-100 {
@@ -469,5 +469,14 @@ p {
   }
   .fs-45 {
     font-size: 30px;
+  }
+}
+
+@media (max-width:480px) {
+  .fs-24 {
+    font-size: 20px;
+  }
+  .fs-20 {
+    font-size: 18px;
   }
 }

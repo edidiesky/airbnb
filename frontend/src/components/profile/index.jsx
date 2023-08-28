@@ -102,7 +102,7 @@ const ProfileIndexContent = styled.div`
       width: 70%;
     }
     @media (max-width: 450px) {
-      width: 100%;
+      width: 90%;
       gap:1rem;
     }
   }
