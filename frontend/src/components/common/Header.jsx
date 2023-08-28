@@ -491,7 +491,7 @@ const HeaderWrapper = styled.div`
       right: 17%;
     }
     li {
-      padding: 0.6rem 1.3rem;
+      padding: 0.7rem 1.3rem;
       cursor: pointer;
       border-radius: inherit;
       &:hover {

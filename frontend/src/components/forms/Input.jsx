@@ -32,7 +32,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-input": {
     padding: "24px 10px",
     paddingBottom: "12px",
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: "400",
     fontFamily: "Nunito, sans-serif",
     color: "var(--dark-1)",

@@ -5,24 +5,31 @@ import Charts from "../common/charts";
 import { Card } from "../../common";
 import { getAllGigs } from "../../../Features/listing/listingReducer";
 import { useDispatch } from "react-redux";
-import { clearGigsAlert } from "../../../Features/listing/listingSlice";
+import { clearGigsAlert, getUserId } from "../../../Features/listing/listingSlice";
 import Widget from "../common/Widget";
 import { Table } from "../../common/styles";
 import TableCard from "../../common/TableCard";
 import Checks from "../../common/svg/checks";
 import { BiPlus, BiSearch } from "react-icons/bi";
-
 export default function HostLsitingsIndex() {
-  const { Gigs } = useSelector((store) => store.gigs);
+  const { Gigs, sellerId } = useSelector((store) => store.gigs);
   const { order, showAlert, alertText } = useSelector((store) => store.order);
-
+  const { userInfo } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
+  //
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    dispatch(clearGigsAlert());
+    
+    if (userInfo?._id) {
+      dispatch(getAllGigs());
+      dispatch(getUserId(userInfo?._id));
+    }
+  }, [userInfo]);
+  //
+  useEffect(() => {
     dispatch(getAllGigs());
-  }, []);
+  }, [sellerId]);
 
   return (
     <>
@@ -30,10 +37,10 @@ export default function HostLsitingsIndex() {
         <div className="w-90 auto flex column gap-4">
           <div className="flex column gap-1">
             <h3
-              style={{ fontSize: "35px" }}
+              style={{ fontSize: "30px" }}
               className="fs-30 text-dark text-bold"
             >
-              Welcome back, Edidiong
+              Welcome back, {userInfo?.firstname}
             </h3>
           </div>
           <div className="flex column" style={{ gap: ".8rem" }}>
@@ -82,7 +89,7 @@ export default function HostLsitingsIndex() {
                         </tr>
                       </thead>
                       <tbody>
-                        {Gigs?.slice(0, 2)?.map((x) => {
+                        {Gigs?.map((x) => {
                           return <TableCard x={x} key={x?._id} />;
                         })}
                       </tbody>
@@ -177,21 +184,20 @@ const HostLsitingsIndexPlaceContainer = styled.div`
       position: absolute;
       left: 4%;
       color: var(--grey-1);
-
     }
     .search_input {
       width: 100%;
       border: none;
       outline: none;
       background-color: #f7f7f7;
-      padding: .4rem 3rem;
-      border: 2px solid rgba(0, 0, 0, .1);
+      padding: 0.4rem 3rem;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       border-radius: 40px;
       font-family: inherit;
       font-size: 14px;
       color: var(--dark-1);
       &:hover {
-        border: 2px solid rgba(0, 0, 0, 1) ;
+        border: 2px solid rgba(0, 0, 0, 1);
       }
     }
   }

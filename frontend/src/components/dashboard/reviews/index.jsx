@@ -22,7 +22,7 @@ export default function HostReviewsIndex() {
 
             {listingReviews?.length > 0 ? (
               <div className="rating_content auto wrapper reviews flex item-center column gap-1 justify-center">
-                {listingReviews?.slice(0,3)?.map((x) => {
+                {listingReviews?.slice(0.3)?.map((x) => {
                   return (
                     <div className="reviewCard flex column gap-1">
                       <div className="flex item-center justify-start gap-1">
@@ -76,8 +76,7 @@ const HostReviewsIndexPlaceContainer = styled.div`
     padding: 2rem;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    margin-bottom: 4rem;
+    width: 50%;
     @media (max-width: 980px) {
       width: 80%;
     }
@@ -87,9 +86,9 @@ const HostReviewsIndexPlaceContainer = styled.div`
     &.wrapper {
       display: grid;
       width: 100% !important;
-      padding: 0;
-      border: none;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+      grid-gap: 1.5rem;
       @media (max-width: 980px) {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
@@ -107,7 +106,7 @@ const HostReviewsIndexPlaceContainer = styled.div`
     margin: 0 !important;
   }
   .top {
-    width: 95%;
+    width: 50%;
     @media (max-width: 980px) {
       width: 80%;
     }
