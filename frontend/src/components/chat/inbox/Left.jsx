@@ -66,12 +66,6 @@ export default function InboxLeft({ toggle }) {
               </span>
             </h4>
           </div>
-          {/* time */}
-          {/* <div className="flex column gap-1">
-            <div className="flex fs-16 text-light text-grey gap-1 item-center">
-              2 days <BiStar className="fs-18 text-grey" />
-            </div>
-          </div> */}
         </div>
       </div>
     </InboxLeftWrapper>

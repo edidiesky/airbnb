@@ -1,6 +1,7 @@
 import React from "react";
 import { BiLaugh } from "react-icons/bi";
 import styled from "styled-components";
+import Top from "./Top";
 
 const converstionData = [
   {
@@ -248,6 +249,7 @@ export default function Left() {
   };
   return (
     <LeftIndexWrapper>
+      <Top />
       <LeftTop />
       <LeftBottom />
     </LeftIndexWrapper>
@@ -256,6 +258,9 @@ export default function Left() {
 
 const LeftTopWrapper = styled.div`
   width: 100%;
+  height: 100%;
+  overflow: auto;
+
   background-color: #fff;
   z-index: 300;
   height: 42rem;

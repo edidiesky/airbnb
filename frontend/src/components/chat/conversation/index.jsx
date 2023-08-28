@@ -7,7 +7,6 @@ import Top from "./Top";
 export default function ConversationIndex() {
   return (
     <ConversationIndexWrapper>
-      <Top />
       <div className="wrapper">
         <Left />
         <Right />
@@ -20,13 +19,10 @@ const ConversationIndexWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  position: sticky;
+  top: 0;
   .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 18vw;
-    width: 100%;
+    display: flex;
     height: 100%;
-    @media (max-width:780px) {
-      grid-template-columns: 1fr;
-    }
   }
 `;
