@@ -27,13 +27,15 @@ export default function InboxLeft({ toggle }) {
       {search ? (
         <MessageSearch />
       ) : (
-        <div className="top fs-20 text-extra-bold flex item-center justify-space w-100">
-          Messages
-          <div className="icon flex item-center justify-center">
-            <GoFilter
-              className="fs-24 text-dark"
-              onClick={() => setSearch(true)}
-            />
+        <div className="top w-85 auto fs-20 text-extra-bold flex item-center justify-center w-100">
+          <div className="w-85 auto flex item-center justify-space ">
+            Messages
+            <div className="icon flex item-center justify-center">
+              <GoFilter
+                className="fs-24 text-dark"
+                onClick={() => setSearch(true)}
+              />
+            </div>
           </div>
         </div>
       )}
@@ -93,7 +95,7 @@ const InboxLeftWrapper = styled.div`
     background-color: #f7f7f7;
   }
   .top {
-    padding: 1.5rem;
+    min-height: 4.7rem;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
@@ -117,19 +119,5 @@ const InboxLeftWrapper = styled.div`
     width: 100%;
     max-height: 40rem;
     padding-bottom: 3rem;
-    &::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
-      background: #e8e6e6;
-      border-radius: 10px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--grey-1);
-      border-radius: 10px;
-      transition: all 0.5s;
-      &:hover {
-        background: #333;
-      }
-    }
   }
 `;

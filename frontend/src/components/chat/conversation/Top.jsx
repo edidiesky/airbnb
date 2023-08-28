@@ -38,7 +38,7 @@ const TopIndexWrapper = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: grid;
   place-items: center;
-  min-height: 5rem;
+  min-height: 4.7rem;
  
   z-index: 100;
   .headBtn {

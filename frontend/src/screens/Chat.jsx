@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import ChatIndex from "../components/chat/Chat";
 import { Meta } from "../components/common";
-import ListingHeaderHeader from "../components/common/Header";
+import ListingHeader from "../components/common/Header";
 
 export default function Chat() {
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Chat() {
     <>
       <Meta title={"Messages"} />
       <ChatContainer className="chatContainer w-100 column gap-3 flex item-start">
-        <ListingHeaderHeader type='chat' />
+        <ListingHeader type='chat' />
         <ChatIndex />
       </ChatContainer>
     </>

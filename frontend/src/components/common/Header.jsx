@@ -22,7 +22,7 @@ import { getLsitingType } from "../../Features/listing/listingSlice";
 import { getAllGigs } from "../../Features/listing/listingReducer";
 import Dropdown from "./Dropdown";
 
-export default function ListingHeaderHeader({
+export default function ListingHeader({
   type,
   loader,
   setSearch,
@@ -170,7 +170,7 @@ export default function ListingHeaderHeader({
         <div
           className={
             type
-              ? "headertop2 w-85 auto flex item-center justify-space gap-2 "
+              ? "headertop2 w-90 auto flex item-center justify-space gap-2 "
               : "w-90 auto  headertop2 flex item-center justify-space gap-2"
           }
         >
