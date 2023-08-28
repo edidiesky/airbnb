@@ -33,6 +33,17 @@ export default function Layout({ type }) {
     );
   }
 
+  if (type === "Message") {
+    return (
+      <LayoutContainer className="layout Message" style={{ height }}>
+        {/* <ListingHeader /> */}
+        <div className="outletWrapper">
+          <Outlet />
+        </div>
+      </LayoutContainer>
+    );
+  }
+
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
@@ -66,6 +77,10 @@ export default function Layout({ type }) {
 
 const LayoutContainer = styled.div`
   width: 100%;
+  /* &.layout.Message {
+    height: 100vh;
+    overflow: hidden;
+  } */
   .hostingbottom {
     position: fixed;
     bottom: 0;

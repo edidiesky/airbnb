@@ -85,9 +85,8 @@ export default function App() {
           <Route path="/order" element={<UserOrder />} />
         </Route>
         {/* message */}
-        <Route path={"/guest/inbox"} element={<Layout type={"hosting"} />}>
-        <Route index element={<Chat />} />
-
+        <Route path={"/guest/inbox/"} element={<Layout type={"Message"} />}>
+          <Route exact path="" element={<Chat />} />
         </Route>
         {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>
