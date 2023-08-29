@@ -30,6 +30,7 @@ import {
   DurationsOfplace,
   UserOrder,
   Chat,
+  Contact
 } from "./screens";
 import {
   HostEarnings,
@@ -87,6 +88,10 @@ export default function App() {
         {/* message */}
         <Route path={"/guest/inbox/"} element={<Layout type={"Message"} />}>
           <Route exact path="" element={<Chat />} />
+        </Route>
+         {/* Contact */}
+         <Route path={"/contact_host/:id"} element={<Layout type={"Message"} />}>
+          <Route exact path="" element={<Contact />} />
         </Route>
         {/* host listing routes */}
         <Route path={"/become-a-host"} element={<Layout type={"hosting"} />}>

@@ -22,6 +22,7 @@ import DurationsOfplace from "./Duration";
 import Order from "./OrderList";
 import UserOrder from "./UserOrder";
 import Chat from "./Chat";
+import Contact from './Contact'
 export {
   DescriptionOfplace,
   Layout,
@@ -46,5 +47,6 @@ export {
   DurationsOfplace,
   Order,
   UserOrder,
-  Chat
+  Chat,
+  Contact
 };
