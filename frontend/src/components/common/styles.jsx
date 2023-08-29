@@ -70,11 +70,11 @@ export const Table = styled.div`
           z-index: 200;
           text-align: start;
           th {
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 500;
             text-align: start;
             color: #5c5c5c;
-            font-family: "Roboto", sans-serif;
+            font-family: "Nunito", sans-serif;
 
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 0 10px;

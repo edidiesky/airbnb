@@ -31,15 +31,10 @@ const converstionData = [
 export default function Left() {
   const LeftBottom = () => {
     return (
-      <LeftBottomWrapper className="w-100">
-        <div className="flex w-90 auto column gap-1">
-          <textarea className="area"></textarea>
-          <div className="w-100 flex item-center justify-space">
-            <div className="icon">
-              <BiLaugh />
-            </div>
-            <button className="send">SEND</button>
-          </div>
+      <LeftBottomWrapper className="w-100 flex item-center justify-center">
+        <div className="flex w-90 auto item-center justify-center gap-1">
+          <textarea className="area flex item-center fs-16" placeholder="Type a message"></textarea>
+          
         </div>
       </LeftBottomWrapper>
     );
@@ -141,7 +136,7 @@ export default function Left() {
 
 const LeftTopWrapper = styled.div`
   width: 100%;
-  height: 80%;
+  height: 60%;
   overflow: auto;
   background-color: #fff;
   z-index: 300;
@@ -183,10 +178,21 @@ const LeftTopWrapper = styled.div`
 `;
 const LeftBottomWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 30%;
   background-color: #fff;
   z-index: 300;
-  padding: 1rem 0;
+  .area {
+    /* margin-bottom: 4rem; */
+    border: 1px solid rgba(0,0,0,.4);
+    border-radius: 10px;
+    padding:20px 30px;
+    resize: none;
+    /* padding-top: 4px; */
+    height: 100%;
+    width: 100%;
+    font-family: inherit;
+    height: 120px;
+  }
   .icon {
     width: 4rem;
     height: 4rem;
