@@ -42,24 +42,35 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
     <RigthWrapper className="w-100 h-100">
       <div className="RightCard">
         <div className="flex w-100 wrapper column gap-1 item-start">
-          <div className="top flex justify-space w-100">
-            <h4 className="fs-24 text-dark text-bold">
-              ${GigsDetails?.listing_price}{" "}
-              <span className="text-dark text-bold fs-12">/ night</span>
-            </h4>
-            {/* reviews */}
-            <h5
-              className="fs-14 flex item-center text-dark text-bold"
-              style={{ gap: ".5rem" }}
-            >
-              <Star /> <span className="fs-14">4.92</span>{" "}
-              <span
-                className="fs-12 text-grey text-light"
-                style={{ textDecoration: "underline" }}
+          <div className="top flex justify-space gap-2 w-100">
+            <div className="flex w-100 column gap-1">
+              <h4 className="fs-24 text-dark text-extra-bold">
+                ${GigsDetails?.listing_price || 500}{" "}
+                <span className="text-dark text-bold fs-16"> night</span>
+              </h4>
+              <h5 className="fs-14 text-light">Las Terrazas Villa 3</h5>
+              {/* reviews */}
+              <h5
+                className="fs-14 flex item-center text-dark text-bold"
+                style={{ gap: ".5rem" }}
               >
-                390 reviews
-              </span>
-            </h5>
+                <Star /> <span className="fs-14">4.92</span>{" "}
+                <span
+                  className="fs-12 text-grey text-light"
+                  style={{ textDecoration: "underline" }}
+                >
+                  390 reviews
+                </span>
+              </h5>
+            </div>
+            <div className="flex w-100">
+              <img
+                style={{ height: "8rem", borderRadius: "10px" }}
+                className="w-100"
+                src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-47935370/original/3cfda1b1-1e16-43af-b062-2f9b7652efa9.jpeg?im_w=240"
+                alt=""
+              />
+            </div>
           </div>
           <div className="flex column w-100">
             <div
@@ -77,7 +88,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                 className="fs-10 flex-1 text-extra-bold "
               >
                 <span className="uppercase">check-in</span>
-                
+
                 <div className="fs-12 block capitalize text-dark text-light">
                   {formatDate(dateRange.selection.startDate)}
                 </div>
@@ -90,7 +101,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                 }}
                 className=" fs-10 text-start flex-1 wrap family1 text-extra-bold "
               >
-               <span className="uppercase">check-out</span>
+                <span className="uppercase">check-out</span>
                 <div className="fs-12 block capitalize text-dark text-light">
                   {formatDate(dateRange.selection.endDate)}
                 </div>
@@ -164,8 +175,8 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
               </span>
             </h4>
           </div>
-          <h4 className="fs-18 text-bold text-dark family1 w-100 justify-space flex item-center">
-            <span>Total before taxes</span>
+          <h4 className="fs-18 text-extra-bold text-dark w-100 justify-space flex item-center">
+            <span className="text-dark">Total before taxes</span>
             <span className="text-dark">
               $
               {(
@@ -189,7 +200,7 @@ const RigthWrapper = styled.div`
     top: 10%;
     width: 370px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    @media (max-width:580px) {
+    @media (max-width: 580px) {
       width: 90%;
     }
   }

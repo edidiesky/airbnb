@@ -43,7 +43,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
       <div className="RightCard">
         <div className="flex w-100 wrapper column gap-1 item-start">
           <div className="top flex justify-space w-100">
-            <h4 className="fs-24 text-dark text-bold">
+            <h4 className="fs-24 text-dark text-extra-bold">
               ${GigsDetails?.listing_price}{" "}
               <span className="text-dark text-bold fs-12">/ night</span>
             </h4>

@@ -96,6 +96,11 @@ const ContactWrapper = styled.div`
     border-radius: 10px;
     background-color: #fff;
     font-weight: 700;
+    cursor: pointer;
+    transition: all .5s;
+    &:hover {
+      background-color: #f7f7f7;
+    }
   }
   .area {
     /* margin-bottom: 4rem; */
