@@ -28,7 +28,7 @@ const converstionData = [
   },
 ];
 
-export default function Left() {
+export default function Left({onsidebar,setOnSidebar}) {
   const LeftBottom = () => {
     return (
       <LeftBottomWrapper className="w-100 flex item-center justify-center">
@@ -127,7 +127,7 @@ export default function Left() {
   };
   return (
     <LeftIndexWrapper>
-      <Top />
+      <Top setOnSidebar={setOnSidebar} onsidebar={onsidebar}  />
       <LeftTop />
       <LeftBottom />
     </LeftIndexWrapper>

@@ -47,8 +47,8 @@ export default function Card({ x, index, type }) {
   let wishdetails = x;
 
   // start date and enddate
-  const startDate = moment(x?.listing_startDate).format("MMMM Do YYYY");
-  const endDate = moment(x?.listing_endDate).format("MMMM Do YYYY");
+  const startDate = moment(x?.listing_startDate).format("MMMM Do");
+  const endDate = moment(x?.listing_endDate).format("MMMM Do");
   // const endDate = startDate.add(x?.listing_duration, '')
   // if the type is wish
   if (type === "wish") {
@@ -254,9 +254,10 @@ export default function Card({ x, index, type }) {
             <Link
               to={`/rooms/${x?._id}`}
               className="flex column"
+              style={{gap:"6px"}}
               // style={{ gap: ".2rem" }}
             >
-              <div className="w-100 flex item-center justify-space cardTop">
+              <div style={{gap:"4px"}} className="w-100 flex item-center justify-space cardTop">
                 <h4
                   style={{ fontWeight: "bold", fontSize: "15.5px" }}
                   className=" text-extra-bold text-dark"
@@ -271,7 +272,7 @@ export default function Card({ x, index, type }) {
                   4.98
                 </div>
               </div>
-              <div className="flex column">
+              <div style={{gap:"6px"}} className="flex column">
                 <h4
                   style={{ fontSize: "14.6px" }}
                   className="text-grey text-light"
