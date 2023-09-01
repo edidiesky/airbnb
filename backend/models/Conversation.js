@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // a structure of the Chat
-const ChatUserSchema = new mongoose.Schema(
+const UserConversationSchema = new mongoose.Schema(
   {
     Id: {
       type: String,
@@ -30,4 +30,4 @@ const ChatUserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Chat", ChatUserSchema);
+export default mongoose.model("Conversation", UserConversationSchema);

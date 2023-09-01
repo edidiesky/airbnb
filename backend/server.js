@@ -35,7 +35,7 @@ import listingRoute from "./routes/listingRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
 import reservationRoute from "./routes/reservations.js";
 import orderRoute from "./routes/orderRoutes.js";
-import chatRoute from "./routes/chatRoutes.js";
+import conversationRoute from "./routes/conversationRoutes.js";
 
 // end points
 
@@ -46,7 +46,7 @@ app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/reservations", reservationRoute);
-app.use("/api/v1/chat", chatRoute);
+app.use("/api/v1/conversation", conversationRoute);
 // app.get('/payment_intents', getAllStripePaymentIntent)
 const __dirname = path.resolve();
 
