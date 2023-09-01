@@ -83,7 +83,7 @@ export default function Left({onsidebar,setOnSidebar}) {
                   })}
                   {x.recieverMessage.map((x) => {
                     return (
-                      <div className="SenderChat flex py-2 item-center family1 text-light">
+                      <div className="recieverChat flex py-2 item-center family1 text-light">
                         <div className="flex w-85 auto gap-1">
                           <img src={x.image} alt="" className="avatar" />
                           <div className="flex column" style={{ gap: "6px" }}>
