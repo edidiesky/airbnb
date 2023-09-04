@@ -48,7 +48,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                 ${GigsDetails?.listing_price || 500}{" "}
                 <span className="text-dark text-bold fs-16"> night</span>
               </h4>
-              <h5 className="fs-14 text-light">Las Terrazas Villa 3</h5>
+              <h5 className="fs-14 text-light">{GigsDetails?.listing_title}</h5>
               {/* reviews */}
               <h5
                 className="fs-14 flex item-center text-dark text-bold"
@@ -67,7 +67,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
               <img
                 style={{ height: "8rem", borderRadius: "10px" }}
                 className="w-100"
-                src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-47935370/original/3cfda1b1-1e16-43af-b062-2f9b7652efa9.jpeg?im_w=240"
+                src={GigsDetails?.listing_image[0]}
                 alt=""
               />
             </div>

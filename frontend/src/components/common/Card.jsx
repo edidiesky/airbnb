@@ -15,11 +15,12 @@ import {
 import { DeleteBuyerReservations } from "../../Features/reservations/reservationsReducer";
 import CardSkeleton from "./cardskeleton";
 import { FaStar } from "react-icons/fa";
+import { addTowWish } from "../../Features/listing/listingSlice";
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
   const dispatch = useDispatch();
-  const { gigsIsLoading } = useSelector((store) => store.gigs);
+  const { gigsIsLoading, wishlist } = useSelector((store) => store.gigs);
   const { ReservationsIsLoading } = useSelector((store) => store.reservations);
   const { wishidArray } = useSelector((store) => store.wish);
   const list = ["1", "2", "3", "4", "5"];
@@ -34,13 +35,7 @@ export default function Card({ x, index, type }) {
   };
 
   const handleAddToWish = () => {
-    dispatch(
-      addProductToWish({
-        listing_image: x?.listing_listing_image,
-        title: x?.listing_title,
-        _id: x?._id,
-      })
-    );
+    dispatch(addTowWish(x?._id));
   };
   let cardid = x?._id;
 
@@ -50,6 +45,8 @@ export default function Card({ x, index, type }) {
   const startDate = moment(x?.listing_startDate).format("MMMM Do");
   const endDate = moment(x?.listing_endDate).format("MMMM Do");
   // const endDate = startDate.add(x?.listing_duration, '')
+
+  const active = wishlist.includes(x?._id)
   // if the type is wish
   if (type === "wish") {
     return (
@@ -113,10 +110,11 @@ export default function Card({ x, index, type }) {
             </div>
           </div>
           <h4 className="fs-18 text-dark">
-          {x?.listing_Id?.listing_title}, <span className="fs-16 text-grey">2023</span>{" "}
+            {x?.listing_Id?.listing_title},{" "}
+            <span className="fs-16 text-grey">2023</span>{" "}
             <span className="block fs-14 text-grey text-light">
-            {x?.listing_Id?.listing_startDate} <span>to</span>{" "}
-            <span> {x?.listing_Id?.listing_startDate}</span>
+              {x?.listing_Id?.listing_startDate} <span>to</span>{" "}
+              <span> {x?.listing_Id?.listing_startDate}</span>
             </span>
           </h4>
         </div>
@@ -154,28 +152,6 @@ export default function Card({ x, index, type }) {
       </CardContent>
     );
   }
-  // useEffect(() => {
-  //   // const found = Gigs.some((gig) => {
-  //   //   wish.some((gigs) => gigs?._id === gig?._id);
-  //   // });
-
-  //   Gigs.some((obj1, index1) =>
-  //     wish.some((obj2, index2) => {
-  //       if (obj2?._id === obj1?._id) {
-  //         // if it includes in the wishidarray stop else proceed in adding it to the array
-  //         if (wishidArray.includes(obj2?._id)) {
-  //           return;
-  //         } else {
-  //           dispatch(handleWishId(obj1?._id));
-  //           return;
-  //         }
-  //         return;
-  //       }
-  //       return;
-  //     })
-  //   );
-  //   // console.log(found);
-  // }, [wish, Gigs]);
   return (
     <>
       {gigsIsLoading ? (
@@ -199,7 +175,7 @@ export default function Card({ x, index, type }) {
                 })}
               </div>
               <div onClick={handleAddToWish} className="icon">
-                <Heart wishsindex={wishidArray} index={cardid} />
+                <Heart active={active} />
               </div>
               {/* button  */}
               {x?.listing_image?.length >= 2 && (
@@ -254,10 +230,13 @@ export default function Card({ x, index, type }) {
             <Link
               to={`/rooms/${x?._id}`}
               className="flex column"
-              style={{gap:"6px"}}
+              style={{ gap: "6px" }}
               // style={{ gap: ".2rem" }}
             >
-              <div style={{gap:"4px"}} className="w-100 flex item-center justify-space cardTop">
+              <div
+                style={{ gap: "4px" }}
+                className="w-100 flex item-center justify-space cardTop"
+              >
                 <h4
                   style={{ fontWeight: "bold", fontSize: "15.5px" }}
                   className=" text-extra-bold text-dark"
@@ -272,7 +251,7 @@ export default function Card({ x, index, type }) {
                   4.98
                 </div>
               </div>
-              <div style={{gap:"6px"}} className="flex column">
+              <div style={{ gap: "6px" }} className="flex column">
                 <h4
                   style={{ fontSize: "14.6px" }}
                   className="text-grey text-light"

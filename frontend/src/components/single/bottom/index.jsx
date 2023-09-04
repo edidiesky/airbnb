@@ -74,7 +74,7 @@ const BottomIndex = () => {
             </div>
             <div className="flex item-start">
               <Link
-                to={`/contact_host/635437605163910390`}
+                to={`/contact_host/${GigsDetails?._id}`}
                 className="contactBtn fs-16 text-bold"
               >
                 Contact Host

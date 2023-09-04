@@ -8,6 +8,7 @@ import {
   getHostListing,
 } from "./listingReducer";
 
+const wishdata = JSON.parse(localStorage.getItem("wish"));
 const host_listings = JSON.parse(localStorage.getItem("host_listing"));
 
 const initialState = {
@@ -17,6 +18,8 @@ const initialState = {
   gigsIsLoading: false,
   totalGigs: 0,
   Gigs: [],
+  wish: [],
+  wishlist: wishdata ? wishdata : [],
   GigsDetails: null,
 
   // alert states
@@ -67,6 +70,26 @@ const GigsSlice = createSlice({
   name: "Gigs",
   initialState,
   reducers: {
+    addTowWish: (state, action) => {
+      if (!state.wishlist.includes(action.payload)) {
+        state.wishlist = [...state.wishlist, action.payload];
+        state.showAlert = true;
+        state.alertText = "Added to Wishlist";
+        localStorage.setItem("wish", JSON.stringify(state.wishlist));
+      } else {
+        state.wishlist = state.wishlist.filter(
+          (data) => data !== action.payload
+        );
+        state.showAlert = true;
+        state.alertText = "Remove from Wishlist";
+        localStorage.setItem("wish", JSON.stringify(state.wishlist));
+      }
+    },
+    GetAllWishList: (state, action) => {
+      state.wish = state.Gigs.filter(x=> {
+        
+      })
+    },
     clearAlert: (state, action) => {
       state.showAlert = false;
       state.alertText = "";
@@ -245,8 +268,6 @@ const GigsSlice = createSlice({
       state.Gigs = action.payload.gig;
       state.totalGigs = action.payload.totalGig;
       state.noOfPages = action.payload.noOfPages;
-      state.showAlert = true;
-      state.alertText = "All Gigs has been successfully fetched";
     },
     // gigs
     [getAllGigs.rejected]: (state, action) => {
@@ -407,6 +428,8 @@ export const {
   getChildren,
   getAdults,
   getInfants,
+
+  addTowWish,
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

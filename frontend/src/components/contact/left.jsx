@@ -65,8 +65,8 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
       {/* date picker  */}
       <div className="flex column w-100 gap-2">
         <div className="flex w-100 bottom justify-space item-center">
-          <h3 className="fs-30 text-bold">
-            Contact Bookiply
+          <h3 className="fs-24 text-extra-bold">
+            Contact {GigsDetails?.listing_host_Id?.username}
             <span
               style={{ marginTop: "10px" }}
               className="block fs-18 text-light text-grey"
@@ -76,7 +76,7 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
           </h3>
           <div className="flex justify-end">
             <img
-              src="https://a0.muscache.com/im/pictures/user/1d34d335-deef-4675-a246-e9a79380a351.jpg?im_w=240"
+              src={GigsDetails?.listing_host_Id?.image}
               alt=""
               className="avatar"
             />
@@ -109,7 +109,8 @@ const LeftCenter = ({ handleSelect, dateRange }) => {
             <h4 className="fs-18 text-extra-bold">Price and availability</h4>
             <ul className="w-85 fs-18 auto flex column">
               <li style={{ listStyleType: "disc", fontWeight: "300" }}>
-                Bookiply’s home is available from Dec 8 – 13. Book soon.
+                {GigsDetails?.listing_host_Id?.username}’s home is available
+                from Dec 8 – 13. Book soon.
               </li>
               <li style={{ listStyleType: "disc", fontWeight: "300" }}>
                 Cancel up to 5 days before check-in and get a full refund. After

@@ -21,6 +21,7 @@ import { useSearchParams } from "react-router-dom";
 import { BsMap } from "react-icons/bs";
 import Map from "../components/common/svg/map";
 import Maps from "../components/process/Map";
+import Message from "../components/loaders/Message";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ export default function Home() {
   );
   const endDate = moment(dateRange?.selection?.endDate).format("MMMM Do YYYY");
 
-  const { type } = useSelector((store) => store.gigs);
+  const { type, showAlert, alertText } = useSelector((store) => store.gigs);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -81,6 +82,15 @@ export default function Home() {
     }, 6000);
     return () => clearTimeout(timeout);
   }, [setLoader]);
+
+   useEffect(() => {
+     if (showAlert) {
+       const timeout = setTimeout(() => {
+         dispatch(clearGigsAlert())
+       }, 6000);
+       return () => clearTimeout(timeout);
+     }
+   }, [showAlert]);
 
   useEffect(() => {
     dispatch(getStartDate(startDate));
@@ -140,6 +150,7 @@ export default function Home() {
           </AnimatePresence>
           <HomeContainer style={{ minHeight: "100vh" }}>
             {/* {map ? <Maps /> : <HomeIndex />} */}
+            <Message showAlert={showAlert} alertText={alertText} />
             <HomeIndex />
             {/* 
             <div
