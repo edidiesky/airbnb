@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Star from "../../common/svg/star";
+import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Reviews from "./reviews";
 import { useSelector } from "react-redux";
@@ -21,7 +22,12 @@ const BottomIndex = () => {
             <img
               src={GigsDetails?.listing_host_Id?.image}
               alt=""
-              style={{ width: "5rem", height: "5rem", borderRadius: "50%",objectFit:"cover" }}
+              style={{
+                width: "5rem",
+                height: "5rem",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
             />
             <div className="flex column item-start gap-2">
               <h3 className="fs-24 text-dark text-bold">
@@ -67,7 +73,12 @@ const BottomIndex = () => {
               </h5>{" "}
             </div>
             <div className="flex item-start">
-              <div className="contactBtn fs-16 text-bold">Contact Host</div>
+              <Link
+                to={`/contact_host/635437605163910390`}
+                className="contactBtn fs-16 text-bold"
+              >
+                Contact Host
+              </Link>
             </div>
           </div>
         </div>
@@ -81,6 +92,9 @@ const BottomWrapper = styled.div`
     @media (max-width: 780px) {
       flex-direction: column;
     }
+  }
+  .contactBtn {
+    cursor: pointer;
   }
 `;
 export default BottomIndex;

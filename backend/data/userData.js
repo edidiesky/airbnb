@@ -92,7 +92,7 @@ const userData = [
     image:
       "https://a0.muscache.com/im/pictures/user/9f63574d-3b11-44c5-937b-5a2eeef401db.jpg?im_w=240",
     country: "Spain",
-    email: "  Abdul-KhaliqZainHarb@gmail.com",
+    email: "Abdul-KhaliqZainHarb@gmail.com",
     createdAt: "1/17/2020",
     password: bcrypt.hashSync("12345", 10),
     role: "admin",
