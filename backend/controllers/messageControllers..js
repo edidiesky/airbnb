@@ -5,6 +5,8 @@ import Conversation from "../models/Conversation.js";
 //  Public
 const createConversation = asyncHandler(async (req, res) => {
   const { userId } = req.user;
+  // get the seller id and userid
+  //  join both of them 
   const Conversation = await Conversation.create({
     Id: !userId ? userId + req.body.to : req.body.to + userId,
     sellerId: req.body.to,
