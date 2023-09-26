@@ -314,25 +314,24 @@ export default function ListingHeader({
                 return loader ? (
                   <div
                     style={{ margin: "0 10px" }}
-                    className=" flex-1 flex item-center justify-center column"
+                    className=" flex-1 gap-1 flex item-center justify-center column"
                   >
                     <Skeleton width={25} height={25} circle />
-                    <Skeleton width={80} height={15} />
+                    <Skeleton width={80} height={10} />
                   </div>
                 ) : (
                   <div
                     onClick={() => handleListingType(index, x.text)}
                     className={
                       tab === index
-                        ? "flex column text-bold imagewrapper item-center fs-10 text-dark active"
-                        : "flex column text-bold imagewrapper item-center fs-10 text-dark"
+                        ? "flex column text-light imagewrapper item-center fs-10 text-dark active"
+                        : "flex column text-light imagewrapper item-center fs-10 text-dark"
                     }
                     style={{
                       width: "5rem",
                       height: "5rem",
-                      gap: ".3rem",
+                      gap: ".8rem",
                       fontSize: "12px",
-                      fontWeight: 500,
                     }}
                     key={index}
                   >

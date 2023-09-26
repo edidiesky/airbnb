@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEye, FaMoneyCheck } from "react-icons/fa";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { AiFillCreditCard, AiFillPieChart } from "react-icons/ai";
+import { IoMdStats } from "react-icons/io";
 import { BiStats } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { BsCartPlus } from "react-icons/bs";
@@ -13,58 +14,54 @@ export default function Widget() {
   const WidgetData = [
     {
       id: 1,
-      title: "Total Earnings",
-      qty: "$10,357",
-      icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605882d03baf8a2d544bd28f_dollar-sign.svg",
-      back: "#fcdddd",
+      title: "Total Sales",
+      qty: "$100,357",
+      icon: <AiFillCreditCard />,
+      back: "#ff3333",
       percent: "2.6",
     },
     {
       id: 2,
       title: "Visitors",
       qty: `$100`,
-      icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/6058831adf921f01483b3167_tag.svg",
-      back: "#c9f8ce",
+      icon: <IoMdStats />,
+      back: "#50fc61",
       percent: "-0.06",
     },
     {
       id: 4,
-      title: "Total listings",
+      title: "Total Product",
       qty: `100`,
-      icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605883bbba1d7412377fefe7_truck.svg",
+      icon: <AiFillPieChart />,
       back: "#1457ed",
       percent: "+1.06",
     },
     {
-      id: 6,
-      title: "Total listings",
+      id: 4,
+      title: "Listed Merchant",
       qty: `100`,
-      icon: "https://assets.website-files.com/6057ab51530cb39d3fdac75d/605883bbba1d7412377fefe7_truck.svg",
+      icon: <BsCartPlus />,
       back: "#1457ed",
       percent: "+1.06",
     },
   ];
 
   return (
-    <WidgetWrapper>
+    <WidgetWrapper className="w-100">
       {WidgetData.map((x, index) => {
         return (
           <div
             className={
-              widgettab === x.id
-                ? "widgetCard active flex item-center family1"
-                : "widgetCard flex item-center family1"
+              widgettab === x.id ? "widgetCard family1" : "widgetCard family1"
             }
             key={x.id}
             onClick={() => setWidgetTab(x.id)}
           >
-            <div style={{ color: `var(--red)` }} className="Icons">
-              <img src={x.icon} alt="" />
-            </div>
-            <h3 className="text-dark">
+            <div className="Icons">{x.icon}</div>
+            <h2>
               {x.qty}
-              <span className="span1 text-dark">{x.title}</span>
-            </h3>
+              <span className="span1">{x.title}</span>
+            </h2>
           </div>
         );
       })}
@@ -73,32 +70,30 @@ export default function Widget() {
 }
 
 const WidgetWrapper = styled.div`
+  margin: 0 auto;
   display: grid;
-  background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  grid-gap: 10px;
-  width: 100%;
-  border-radius: 10px;
-  transition: all 0.3s;
-  padding: 40px 10px;
 
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 2rem;
+  /* transform: translateY(-50%); */
 
-  @media (max-width: 880px) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+  @media (max-width: 780px) {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 
   .widgetCard {
-   
+    padding: 2rem;
+    background: var(--white);
     display: flex;
-    padding: 40px 10px;
-    gap: 10px;
-
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.3s;
     h4 {
-      font-size: 13px;
+      font-size: 1.3rem;
       color: var(--grey-2);
       font-weight: 400;
       .span2 {
@@ -106,57 +101,34 @@ const WidgetWrapper = styled.div`
       }
     }
 
-    h3 {
-      font-family: "Montserrat", sans-serif;
-      color: var(--grey-1);
-      font-size: 35px;
-      color: var(--dark-1);
-      font-weight: 700;
+    h2 {
+      font-size: 3.5rem;
+      color: var(--text-color);
+      font-weight: 600;
       text-transform: uppercase;
       @media (max-width: 780px) {
-        font-size: 26px;
+        font-size: 2.5rem;
       }
       .span1 {
         display: block;
-        font-size: 13px;
+        font-size: 2rem;
+        color: var(--grey-1);
         font-weight: 400;
-        font-family: "Montserrat", sans-serif;
-        color: var(--dark-1);
         text-transform: capitalize;
       }
     }
 
     .Icons {
-      width: 60px;
-      height: 60px;
+      width: 5rem;
+      height: 5rem;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
-      background-color: #fafafa;
-
+      border-radius: 5px;
       svg {
-        font-size: 20px;
-        color: rgb(249, 38, 77);
-      }
-    }
-    &.active,
-    &:hover {
-      background-color: #fafafa;
-      .Icons {
-        background: #fafafa;
-        svg {
-          color: rgba(240, 49, 88, 0.969);
-        }
-      }
-
-      h3,
-      h4 {
-        color: var(--white);
-        .span2 {
-          color: var(--white);
-        }
+        font-size: 2.5rem;
+        color: var(--green);
       }
     }
   }

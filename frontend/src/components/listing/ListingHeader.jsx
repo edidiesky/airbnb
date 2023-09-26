@@ -40,7 +40,7 @@ export default function ListingHeader({ type }) {
               {sidebarData.map((x) => {
                 return (
                   <NavLink
-                    className="nav-link "
+                    className="nav-link text-bold"
                     activeClassName="active"
                     to={`/dashboard/hosting/${x.path}`}
                     key={x.id}
@@ -62,30 +62,6 @@ export default function ListingHeader({ type }) {
               </AnimatePresence>
               <div
                 onClick={() => setDrop(!drop)}
-                style={{
-                  width: "2.7rem",
-                  height: "2.7rem",
-                  borderRadius: "50%",
-                  background: "rgba(0,0,0,.1)",
-                  color: "#Fff",
-                }}
-                className="profile_wrapper flex item-center justify-center"
-              >
-                <div
-                  style={{
-                    width: "2.4rem",
-                    height: "2.4rem",
-                    borderRadius: "50%",
-                    background: "#000",
-                    color: "#Fff",
-                    border: "2px solid #fff",
-                  }}
-                  className="fs-16 text-white flex item-center justify-center"
-                >
-                  E
-                </div>
-              </div>
-              <div
                 style={{
                   width: "2.7rem",
                   height: "2.7rem",
@@ -230,7 +206,6 @@ const ListingHeaderContainer = styled.div`
   .nav-link {
     padding: 7px 14px;
     font-size: 14.5px;
-    font-weight: 600;
     color: var(--dark-1);
     display: flex;
     align-items: center;
