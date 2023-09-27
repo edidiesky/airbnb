@@ -4,13 +4,20 @@ import { Card } from "../common";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../loaders/Message";
 import { clearWishMessage } from "../../Features/wish/wishSlice";
+import { getUserListingWishlist } from "../../Features/listing/listingReducer";
+import { clearGigsAlert } from "../../Features/listing/listingSlice";
 
 const WishIndex = () => {
   const dispatch = useDispatch();
-  const { wish, showAlert, alertText } = useSelector((store) => store.wish);
+
   const handleClearMessage = () => {
-    dispatch(clearWishMessage());
+    dispatch(clearGigsAlert());
   };
+  React.useEffect(()=>{
+    dispatch(getUserListingWishlist());
+  },[])
+
+    const { wish, showAlert, alertText } = useSelector((store) => store.gigs);
   return (
     <div
       className="w-85 auto flex column gap-2"
@@ -18,12 +25,12 @@ const WishIndex = () => {
     >
       <Message
         showAlert={showAlert}
-        alertText={"Product has been succesfully deleted"}
-        handleClearAlert={handleClearMessage}
+        alertText={alertText}
+        handleClearAlert={() => handleClearMessage()}
       />
       <h2 className="fs-40">Wishlists</h2>
       {wish.length > 0 ? (
-        <WishWrapper className=" w-100 gap-2">
+        <WishWrapper className="w-100 gap-2">
           {wish.map((x) => {
             return <Card x={x} type={"wish"} />;
           })}
@@ -45,6 +52,12 @@ const WishWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.5rem;
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   /* padding: 2rem 0; */
 `;
 

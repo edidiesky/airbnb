@@ -148,7 +148,10 @@ const CreateListingWishlist = asyncHandler(async (req, res) => {
       },
       { new: true }
     );
-    res.status(200).json({ wishlists });
+    res.status(200).json({
+      msg: `${listing?.listing_title} has been removed from your wishlists`,
+      user: wishlists,
+    });
   } else {
     const wishlists = await User.findOneAndUpdate(
       { _id: userId },
@@ -157,7 +160,10 @@ const CreateListingWishlist = asyncHandler(async (req, res) => {
       },
       { new: true }
     );
-    res.status(200).json({ wishlists });
+    res.status(200).json({
+      msg: `${listing?.listing_title} has been added to your wishlists`,
+      user: wishlists,
+    });
   }
 });
 
@@ -171,7 +177,7 @@ const getUserListingWishlist = asyncHandler(async (req, res) => {
   // check for users wishlist in the listing
   const listing = await Listing.find({ _id: { $in: user?.wishlists } });
   res.status(200).json({ listing });
-})
+});
 //PRIVATE
 // ADMIN and seller
 const UpdateListing = asyncHandler(async (req, res) => {

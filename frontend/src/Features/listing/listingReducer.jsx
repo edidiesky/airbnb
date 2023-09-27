@@ -291,3 +291,58 @@ export const getGigsStats = createAsyncThunk(
     }
   }
 );
+
+// Get al toprated Gigs for the user
+export const addListToWish = createAsyncThunk(
+  "addListToWish",
+  async (name, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.put(
+        `/api/v1/listing/wish/${name}`,
+        null,
+        config
+      );
+      localStorage.setItem("customer", JSON.stringify(data.user));
+
+      return data.msg;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
+
+
+export const getUserListingWishlist = createAsyncThunk(
+  "getUserListingWishlist",
+  async (name, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.get(
+        `/api/v1/listing/wish`,
+        config
+      );
+      return data.listing;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);

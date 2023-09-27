@@ -16,10 +16,12 @@ import { DeleteBuyerReservations } from "../../Features/reservations/reservation
 import CardSkeleton from "./cardskeleton";
 import { FaStar } from "react-icons/fa";
 import { addTowWish } from "../../Features/listing/listingSlice";
+import { addListToWish } from "../../Features/listing/listingReducer";
 
 export default function Card({ x, index, type }) {
   const [tabindex, setTabIndex] = useState(0);
   const dispatch = useDispatch();
+  const { userInfo } = useSelector((store) => store.user);
   const { gigsIsLoading, wishlist } = useSelector((store) => store.gigs);
   const { ReservationsIsLoading } = useSelector((store) => store.reservations);
   const { wishidArray } = useSelector((store) => store.wish);
@@ -35,7 +37,7 @@ export default function Card({ x, index, type }) {
   };
 
   const handleAddToWish = () => {
-    dispatch(addTowWish(x?._id));
+    dispatch(addListToWish(x?._id));
   };
   let cardid = x?._id;
 
@@ -46,7 +48,10 @@ export default function Card({ x, index, type }) {
   const endDate = moment(x?.listing_endDate).format("MMMM Do");
   // const endDate = startDate.add(x?.listing_duration, '')
 
-  const active = wishlist.includes(x?._id)
+const customerData = JSON.parse(localStorage.getItem("customer"));
+
+  const active = customerData?.wishlists?.includes(x?._id);
+  console.log(active, customerData);
   // if the type is wish
   if (type === "wish") {
     return (
@@ -75,7 +80,7 @@ export default function Card({ x, index, type }) {
             </div>
           </div>
           <h4 className="fs-18 text-dark text-bold">
-            Amazing Views,{" "}
+            {x?.listing_title},{" "}
             <span className="fs-16 text-light text-grey">2023</span>{" "}
             <span className="block fs-14 text-grey text-light">1 saved</span>
           </h4>

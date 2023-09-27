@@ -6,6 +6,8 @@ import {
   DeleteGig,
   UpdateGig,
   getHostListing,
+  getUserListingWishlist,
+  addListToWish,
 } from "./listingReducer";
 
 const wishdata = JSON.parse(localStorage.getItem("wish"));
@@ -86,9 +88,7 @@ const GigsSlice = createSlice({
       }
     },
     GetAllWishList: (state, action) => {
-      state.wish = state.Gigs.filter(x=> {
-        
-      })
+      state.wish = state.Gigs.filter((x) => {});
     },
     clearAlert: (state, action) => {
       state.showAlert = false;
@@ -362,6 +362,42 @@ const GigsSlice = createSlice({
       state.alertText = `${state.GigsDetails.title} has been successfully deleted`;
     },
     [DeleteGig.rejected]: (state, action) => {
+      state.gigsIsLoading = false;
+      state.showAlert = true;
+      state.gigsIsError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+      state.showAlert = true;
+    },
+
+    // update the gig
+    [getUserListingWishlist.pending]: (state) => {
+      state.gigsIsLoading = true;
+    },
+    [getUserListingWishlist.fulfilled]: (state, action) => {
+      state.gigsIsLoading = false;
+      state.gigsIsSuccess = true;
+      state.wish = action.payload;
+      state.showAlert = true;
+      state.alertText = "Gigs has been successfully updated";
+    },
+    [getUserListingWishlist.rejected]: (state, action) => {
+      state.gigsIsLoading = false;
+      state.showAlert = true;
+      state.gigsIsError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+      state.showAlert = true;
+    },
+
+    // update the gig
+    [addListToWish.pending]: (state) => {
+    },
+    [addListToWish.fulfilled]: (state, action) => {
+      state.showAlert = true;
+      state.alertText = action.payload;
+    },
+    [addListToWish.rejected]: (state, action) => {
       state.gigsIsLoading = false;
       state.showAlert = true;
       state.gigsIsError = true;
