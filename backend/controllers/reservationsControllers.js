@@ -68,9 +68,12 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
   res.status(200).json({ updatedListing });
 });
 
+// check for availability
+
 // GET SINGLE Reservations
-// Private
+// PrivateP
 // Admin and seller
+
 const CreateBuyerReservations = asyncHandler(async (req, res) => {
   // idea
   // get the gig id

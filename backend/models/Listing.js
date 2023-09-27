@@ -6,6 +6,16 @@ const ListingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    reservations: [
+      {
+        reservation_id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Reservation",
+        },
+        startDate: { type: String },
+        endDate: { type: String },
+      },
+    ],
     latitude: { type: Number },
     longitude: { type: Number },
     listing_image: {

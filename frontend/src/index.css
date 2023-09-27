@@ -249,6 +249,7 @@ p {
     transition: all 0.5s;
   } */
 
+
 .a:hover {
   text-decoration: underline;
 }
@@ -491,10 +492,11 @@ p {
   }
 }
 
-@media (max-width:480px) {
+@media (max-width:580px) {
   .fs-24 {
     font-size: 20px;
   }
+
   .fs-20 {
     font-size: 18px;
   }
