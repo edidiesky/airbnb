@@ -69,6 +69,23 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
 });
 
 // check for availability
+const CheckForAvailability = async (listing_Id, startDate, endDate) => {
+  // listing_Id
+  // ge
+  // get the start, end date and the listing id
+  // check if there any reservations that matches the newly reserved stuff
+  // This is achieved by checking
+  const checkforavailability = await Reservations.find({
+    listing_Id: listing_Id,
+    $or: [
+      { startDate: { $lte: startDate }, endDate: { $gte: startDate } },
+      { startDate: { $lte: endDate }, endDate: { $gte: endDate } },
+    ],
+  });
+
+  // if it is equal to zero no reservation else a reservation exists
+  return checkforavailability?.length !== 0;
+};
 
 // GET SINGLE Reservations
 // PrivateP
@@ -94,34 +111,9 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     throw new Error("Listing not found");
   }
 
-  // find the buyer reservations based on its userid and the gig id
-  const alreadyinReservations = await Reservations.findOne({
-    listing_Id: id,
-    listing_host_Id: userId,
-  });
-  // if in Reservations update it
-  if (alreadyinReservations) {
-    let reservations = await Reservations.findOneAndUpdate(
-      {
-        listing_Id: id,
-        listing_host_Id: userId,
-      },
-      { gigQuantity: qty, adults, children, infants, startDate, endDate },
-      { new: true }
-    );
-    res.status(200).json({ reservations });
-  } else {
-    // "countInStock": 10,
-    // checking if the required quantity is greater that the gig countInStock
-    // console.log(qty);
-    // console.log(gig.countInStock);
-    // trying to update the sellers's Listing count in stock
-    await Listing.findByIdAndUpdate(
-      { _id: id },
-      { countInStock: 0 },
-      { new: true }
-    );
-
+  // check for availaiblity
+  const isAvailable = await CheckForAvailability(id, startDate, endDate);
+  if (!isAvailable) {
     const reservations = await Reservations.create({
       gigQuantity: qty,
       listing_host_Id: userId,
@@ -134,10 +126,10 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     });
 
     res.status(200).json({ reservations });
+  } else {
+     res.status(404);
+     throw new Error("A reservation exists please try again Later");
   }
-
-  // console.log(req.body);
-  // res.status(200).json({ alreadyinReservations });
 });
 
 //PRIVATE/

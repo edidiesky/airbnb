@@ -13,6 +13,8 @@ import {
   DeleteListing,
   CreateSingleListing,
   GetHostListing,
+  CreateListingWishlist,
+  getUserListingWishlist,
 } from "../controllers/listingControllers.js";
 
 router
@@ -21,6 +23,8 @@ router
   .post(authMiddleware, sellerAdminMiddleware, CreateSingleListing);
 
 router.route("/host/:id").get(GetHostListing);
+router.route("/wish/:id").put(authMiddleware, CreateListingWishlist);
+router.route("/wish").get(authMiddleware, getUserListingWishlist);
 router
   .route("/:id")
   .get(GetSingleListing)

@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import asyncHandler from "express-async-handler";
 import Listing from "../models/Listing.js";
 import cloudinaryModule from "../utlis/cloudinary.js";
+import User from "../models/User.js";
 // GET All Listing
 //  Public
 const GetAllListing = asyncHandler(async (req, res) => {
@@ -116,6 +117,61 @@ const CreateSingleListing = asyncHandler(async (req, res) => {
   res.status(200).json({ gig });
 });
 
+// POST
+// Create a wishlist for a user
+
+const CreateListingWishlist = asyncHandler(async (req, res) => {
+  // get the request body parameters
+  // check for existence of the listing
+  // if it exists remove it form the wishlist
+  // else add it to the user wishlists
+  const { userId } = req.user;
+
+  const { id } = req.params;
+  // find the Listing
+  const listing = await Listing.findOne({ _id: id });
+  if (!listing) {
+    res.status(404);
+    throw new Error("Listing not found");
+  }
+  // check if the listing exists in the user wishlist
+  const user = await User.findById(userId);
+  // console.log(listing);
+  // check for availability
+  const iswishListAvailable = user?.wishlists?.includes(listing?._id);
+  if (iswishListAvailable) {
+    // since it is available we remove it from the users wishlist
+    const wishlists = await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $pull: { wishlists: listing?._id },
+      },
+      { new: true }
+    );
+    res.status(200).json({ wishlists });
+  } else {
+    const wishlists = await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $push: { wishlists: listing?._id },
+      },
+      { new: true }
+    );
+    res.status(200).json({ wishlists });
+  }
+});
+
+// GET
+// get the user's wish listing
+const getUserListingWishlist = asyncHandler(async (req, res) => {
+  // get the request body parameters
+  const { userId } = req.user;
+
+  const user = await User.findById(userId);
+  // check for users wishlist in the listing
+  const listing = await Listing.find({ _id: { $in: user?.wishlists } });
+  res.status(200).json({ listing });
+})
 //PRIVATE
 // ADMIN and seller
 const UpdateListing = asyncHandler(async (req, res) => {
@@ -186,4 +242,6 @@ export {
   DeleteListing,
   CreateSingleListing,
   GetHostListing,
+  CreateListingWishlist,
+  getUserListingWishlist,
 };

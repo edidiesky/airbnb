@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema(
       language: { type: Array },
       description: { type: String },
     },
+    wishlists: [],
     username: { type: String },
     firstname: { type: String },
     lastname: { type: String },
