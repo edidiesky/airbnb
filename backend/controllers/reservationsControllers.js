@@ -128,7 +128,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
     res.status(200).json({ reservations });
   } else {
      res.status(404);
-     throw new Error("A reservation exists please try again Later");
+     throw new Error(`${gig?.listing_title} reservation has already been booked`);
   }
 });
 

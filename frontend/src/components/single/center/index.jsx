@@ -9,11 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 import { CreateBuyerReservations } from "../../../Features/reservations/reservationsReducer";
 import { onAuthModal } from "../../../Features/user/userSlice";
+import ErrorModal from "../../modals/ErorrModal";
 
 const CenterIndex = () => {
   const { GigsDetails } = useSelector((store) => store.gigs);
   const { userInfo } = useSelector((store) => store.user);
-  const { ReservationsIsLoading } = useSelector((store) => store.reservations);
+  const { ReservationsIsLoading, errorMessage, errorAlert } = useSelector(
+    (store) => store.reservations
+  );
   const dispatch = useDispatch();
   const { selectmodal, calendarmodal } = useSelector((store) => store.gigs);
   const [children, setChildren] = useState(1);
@@ -36,6 +39,7 @@ const CenterIndex = () => {
     endDate: moment(dateRange.selection.endDate).format("DD/MM/YYYY"),
     qty: 1,
   };
+  // console.log(data)
 
   useEffect(() => {
     const backendStartDate = moment(GigsDetails?.listing_startDate).toDate();
@@ -85,6 +89,15 @@ const CenterIndex = () => {
           />
         </div>
       </div>
+
+      {/* erorr Modal */}
+      <AnimatePresence
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {errorAlert && <ErrorModal errorMessage={errorMessage} />}
+      </AnimatePresence>
 
       <AnimatePresence
         initial="false"

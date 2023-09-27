@@ -21,6 +21,9 @@ const initialState = {
   showAlert: false,
   alertText: "",
   alertType: "",
+
+  errorMessage:"",
+  errorAlert: false,
 };
 
 const ReservationsSlice = createSlice({
@@ -38,6 +41,10 @@ const ReservationsSlice = createSlice({
     },
     clearReservations: (state, action) => {
       state.Reservations = null;
+    },
+    clearReservationsEroror: (state, action) => {
+      state.errorMessage = "";
+      state.errorAlert = false;
     },
   },
 
@@ -91,9 +98,9 @@ const ReservationsSlice = createSlice({
     },
     [CreateBuyerReservations.rejected]: (state, action) => {
       state.ReservationsIsLoading = false;
-      state.showAlert = true;
+      state.errorAlert = true;
       state.ReservationsIsError = true;
-      state.alertText = action.payload;
+      state.errorMessage = action.payload;
       state.alertType = "danger";
     },
 
@@ -139,9 +146,7 @@ const ReservationsSlice = createSlice({
   },
 });
 
-export const {
-  clearReservations,
-  clearReservationsAlert,
-} = ReservationsSlice.actions;
+export const { clearReservations, clearReservationsAlert, clearReservationsEroror } =
+  ReservationsSlice.actions;
 
 export default ReservationsSlice.reducer;
