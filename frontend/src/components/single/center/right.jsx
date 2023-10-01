@@ -131,10 +131,10 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
           <div className="flex w-100 column gap-1">
             <div
               onClick={handleCreateReservation}
-              className="reserveBtn w-100 fs-16 text-white flex justify-center item-center"
+              className="reserveBtn w-100 fs-16 text-bold text-white flex justify-center item-center"
             >
               {ReservationsIsLoading ? (
-                <span className="flex w-85 auto gap-2 item-center justify-space">
+                <span className="flex w-85 auto gap-2 item-center justify-center">
                   Processing <LoaderIndex color={"#Fff"} type={"dots"} />
                 </span>
               ) : (

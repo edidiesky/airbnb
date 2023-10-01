@@ -44,8 +44,8 @@ export default function RightIndex() {
               </span>
               <span className="text-dark">
                 $
-                {ReservationsDetails?.listing_Id?.listing_price *
-                  differenceInDays}
+                {(ReservationsDetails?.listing_Id?.listing_price *
+                  differenceInDays).toFixed(2)}
               </span>
             </h4>{" "}
             <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">

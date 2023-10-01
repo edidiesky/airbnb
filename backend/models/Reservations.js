@@ -12,6 +12,11 @@ const ReservationSchema = new mongoose.Schema(
       required: true,
       ref: "Listings",
     },
+    listing_Host: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     gigQuantity: {
       type: Number,
     },

@@ -118,7 +118,7 @@ export default function SingleLeftIndex({ id }) {
 
   const sessionorder = {
     orders,
-    sellerId: ReservationsDetails?.listing_host_Id,
+    sellerId: ReservationsDetails?.listing_Host,
     reservation_id: ReservationsDetails?._id,
     children,
     infants,

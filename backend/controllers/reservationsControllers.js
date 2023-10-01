@@ -100,7 +100,8 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
   // Be able to update the reservations if the gig is already in the resrevations
 
   // // get the request body parameters
-  const { qty, adults, children, infants, startDate, endDate } = req.body;
+  const { qty, adults, children, infants, startDate, endDate, listing_Host } =
+    req.body;
 
   // console.log(qty);
   const { id } = req.params;
@@ -123,6 +124,7 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
       infants,
       startDate,
       endDate,
+      listing_Host,
     });
 
     res.status(200).json({ reservations });

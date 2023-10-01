@@ -32,6 +32,7 @@ const CenterIndex = () => {
   });
 
   const data = {
+    listing_Host: GigsDetails?.listing_host_Id,
     children,
     infants,
     adults,
@@ -144,10 +145,10 @@ const CenterWrapper = styled.div`
   .listing_prop {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
   .center_left_top {
-    @media (max-width:580px) {
+    @media (max-width: 580px) {
       flex-direction: column;
       align-items: flex-start;
     }
