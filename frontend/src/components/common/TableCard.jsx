@@ -106,10 +106,11 @@ export default function TableCard({ x, type }) {
           {/* {userAlert && <Delete type={"users"} />} */}
         </AnimatePresence>
         <tr key={x?._id}>
+          {/* image */}
           <td>
             <div className="flex item-center gap-1">
               <div
-                style={{ width: "11rem", borderRadius: "10px" }}
+                style={{ width: "5rem", borderRadius: "10px" }}
                 className="flex"
               >
                 <img
@@ -119,27 +120,61 @@ export default function TableCard({ x, type }) {
                   alt=""
                 />
               </div>
-              <h4 className="fs-16 text-bold text-dark">
-                {x?.title}
-                <span className="block fs-12 text-grey">{x?._id}</span>
-              </h4>
             </div>
           </td>
-          <td>{x?.status}</td>
+          {/* title */}
+          <td>
+            <h4 className="fs-16 text-start text-bold text-dark">
+              {x?.title.substring(0,140)}
+            </h4>
+          </td>
+          {/* status */}
+          <td>
+            <div className="flex fs-14 item-center">
+              <div
+                className={x?.status === "Pending" ? "status active" : "status"}
+              >
+                {x?.status}
+              </div>
+            </div>
+          </td>
+          {/* paid */}
+          <td>
+            <div className="flex fs-14 item-center">
+              <div className={x?.isPaid === false ? "status active" : "status"}>
+                {x?.isPaid === true ? "Paid" : "Not paid"}
+              </div>
+            </div>
+          </td>
           <td>
             <div className="flex column">
-              <h5 className="fs-10 text-light text-grey">Check In</h5>
               <h4 className="fs-14 text-bold text-dark">{x?.startDate}</h4>
             </div>
           </td>
           <td>
             <div className="flex column">
-              <h5 className="fs-10 text-light text-grey">Check Out</h5>
               <h4 className="fs-14 text-bold text-dark">{x?.endDate}</h4>
             </div>
           </td>
+          {/* occupants */}
           <td>
-            <h4 className="fs-16 text-extra-bold">
+            <div className="flex column">
+              <h4 className="fs-14 text-bold text-dark">
+                <span className="text-light">Adults:</span>
+                {x?.adults}
+              </h4>
+              <h4 className="fs-14 text-bold text-dark">
+                <span className="text-light">Children:</span>
+                {x?.children}
+              </h4>
+              <h4 className="fs-14 text-bold text-dark">
+                <span className="text-light">Infants:</span>
+                {x?.infants}
+              </h4>
+            </div>
+          </td>
+          <td>
+            <h4 className="fs-18 text-extra-bold">
               ${x?.price} <span className="text-light fs-12">/night</span>
             </h4>
           </td>
@@ -160,7 +195,7 @@ export default function TableCard({ x, type }) {
       </AnimatePresence>
       <tr key={x?._id}>
         <td>
-          <div className="flex item-center gap-1">
+          <div className="flex item-start gap-1">
             <div
               style={{ width: "4rem", borderRadius: "10px", height: "3rem" }}
               className="flex"
@@ -172,7 +207,7 @@ export default function TableCard({ x, type }) {
                 alt=""
               />
             </div>
-            <h4 style={{fontWeight:"800"}}>{x?.listing_title}</h4>
+            <h4 style={{ fontWeight: "800" }}>{x?.listing_title}</h4>
           </div>
         </td>
         {/* todo */}

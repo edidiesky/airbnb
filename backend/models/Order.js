@@ -7,9 +7,14 @@ const orderSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+    sellerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     reservation_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Reservations",
+      ref: "Reservation",
     },
     isPaid: {
       type: Boolean,

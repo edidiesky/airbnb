@@ -313,11 +313,11 @@ export default function ListingHeader({
               {categorydata.map((x, index) => {
                 return loader ? (
                   <div
-                    style={{ margin: "0 10px" }}
-                    className=" flex-1 gap-1 flex item-center justify-center column"
+                    style={{ margin: "0 10px", gap: ".6rem" }}
+                    className=" flex-1 flex item-center justify-center column"
                   >
                     <Skeleton width={25} height={25} circle />
-                    <Skeleton width={80} height={10} />
+                    <Skeleton width={80} height={15} />
                   </div>
                 ) : (
                   <div

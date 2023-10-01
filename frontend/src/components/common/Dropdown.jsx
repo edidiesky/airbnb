@@ -30,16 +30,16 @@ const Dropdown = ({ setDrop, drop, type }) => {
         <div style={{ gap: ".2rem" }} className="flex column w-100">
           <div className="w-100">
             <li
-              style={{ fontSize: "14px", fontWeight: "600" }}
-              className="fs-14 text-light text-dark w-100"
+              style={{ fontSize: "14px",  }}
+              className="fs-14 text-extra-bold text-dark w-100"
             >
               <Link className="w-100" to={"/guest/inbox/"}>
                 Messages
               </Link>
             </li>
             <li
-              style={{ fontSize: "14px", fontWeight: "600" }}
-              className="fs-14 text-light text-dark w-100"
+              style={{ fontSize: "14px",  }}
+              className="fs-14 text-extra-bold text-dark w-100"
             >
               {" "}
               <Link className="w-100" to={"/wishlists"}>
@@ -47,8 +47,8 @@ const Dropdown = ({ setDrop, drop, type }) => {
               </Link>
             </li>
             <li
-              style={{ fontSize: "14px", fontWeight: "600" }}
-              className="fs-14 text-light text-dark w-100"
+              style={{ fontSize: "14px",  }}
+              className="fs-14 text-extra-bold text-dark w-100"
             >
               {" "}
               <Link className="w-100" to={"/order"}>
@@ -56,8 +56,8 @@ const Dropdown = ({ setDrop, drop, type }) => {
               </Link>
             </li>
             <li
-              style={{ fontSize: "14.5px", fontWeight: "600" }}
-              className="fs-14 text-light text-dark w-100"
+              style={{ fontSize: "14.5px",  }}
+              className="fs-14 text-light extra-bold-dark w-100"
             >
               {" "}
               <Link className="w-100" to={"/trips"}>
@@ -73,7 +73,7 @@ const Dropdown = ({ setDrop, drop, type }) => {
             className="w-100"
           >
             <li
-              style={{ fontSize: "15px", fontWeight: "300" }}
+              style={{ fontSize: "15px" }}
               className="fs-14 text-light w-100"
             >
               <Link className="w-100" to={"/dashboard/hosting"}>
@@ -81,7 +81,7 @@ const Dropdown = ({ setDrop, drop, type }) => {
               </Link>
             </li>
             <li
-              style={{ fontSize: "15px", fontWeight: "300" }}
+              style={{ fontSize: "15px"}}
               className="fs-14 text-light text-dark w-100"
             >
               <Link className="w-100" to={"/account-settings"}>
@@ -97,14 +97,14 @@ const Dropdown = ({ setDrop, drop, type }) => {
             className="w-100"
           >
             <li
-              style={{ fontSize: "15px", fontWeight: "300" }}
+              style={{ fontSize: "15px"}}
               className="fs-14 text-light w-100"
             >
               Help Center
             </li>
             <li
               onClick={handleLogOut}
-              style={{ fontSize: "15px", fontWeight: "300" }}
+              style={{ fontSize: "15px"}}
               className="fs-14 text-light text-dark w-100"
             >
               Logout
@@ -116,15 +116,15 @@ const Dropdown = ({ setDrop, drop, type }) => {
           <div className="w-100">
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "14.5px", fontWeight: "600" }}
-              className="fs-14 text-light w-100"
+              style={{ fontSize: "14.5px",  }}
+              className="fs-14 text-light extra-bold-100"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "14.5px", fontWeight: "600" }}
-              className="fs-14 text-light text-dark w-100"
+              style={{ fontSize: "14.5px",  }}
+              className="fs-14 text-light extra-bold-dark w-100"
             >
               Sign up
             </li>
@@ -138,14 +138,14 @@ const Dropdown = ({ setDrop, drop, type }) => {
           >
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "15px", fontWeight: "300" }}
+              style={{ fontSize: "15px" }}
               className="fs-14 text-light w-100"
             >
               Airbnb Your Home
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "15px", fontWeight: "300" }}
+              style={{ fontSize: "15px" }}
               className="fs-14 text-light text-dark w-100"
             >
               Help center

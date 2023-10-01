@@ -1,14 +1,15 @@
 import express from "express"
 const router = express.Router()
 import {
-    GetOrderById,
-    GetAllOrder,
-    UpdateOrderToPaid,
-    UpdateOrderToIsDelivered,
-    CreateOrder,
-    GetCustomerOrder,
-    AggregateUserOrderStats
-} from '../controllers/orderControllers.js'
+  GetOrderById,
+  GetAllOrder,
+  UpdateOrderToPaid,
+  UpdateOrderToIsDelivered,
+  CreateOrder,
+  GetCustomerOrder,
+  AggregateUserOrderStats,
+  GetSellerOrder,
+} from "../controllers/orderControllers.js";
 import {
     adminMiddleware,
     authMiddleware
@@ -16,6 +17,7 @@ import {
 
 
 router.route('/').post(authMiddleware, CreateOrder)
+router.get("/seller/order", authMiddleware, GetSellerOrder);
 router.route('/stats').get(authMiddleware, adminMiddleware, AggregateUserOrderStats)
 router.route('/').get(authMiddleware, adminMiddleware, GetAllOrder)
 router.get('/customer/order', authMiddleware, GetCustomerOrder)

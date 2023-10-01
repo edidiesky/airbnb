@@ -118,14 +118,17 @@ export default function SingleLeftIndex({ id }) {
 
   const sessionorder = {
     orders,
-    reservation_id:ReservationsDetails?._id,
+    sellerId: ReservationsDetails?.listing_host_Id,
+    reservation_id: ReservationsDetails?._id,
     children,
     infants,
     adults,
     price: parseFloat((orderPayment * 100).toFixed(0)),
     title: ReservationsDetails?.listing_Id?.listing_title,
     quantity: 1,
-    startDate: moment(daterange.selection.startDate).format("Do MMM YYYY, h:mm:ss a"),
+    startDate: moment(daterange.selection.startDate).format(
+      "Do MMM YYYY, h:mm:ss a"
+    ),
     endDate: moment(ReservationsDetails?.endDate).format(
       "MMMM Do YYYY, h:mm:ss a"
     ),
@@ -284,7 +287,9 @@ export default function SingleLeftIndex({ id }) {
         <div className="w-50 flex item-center">
           <div onClick={handleOrderCreation} className="btn fs-16 text-white">
             {orderisLoading ? (
-              <LoaderIndex type={"dots"} />
+              <span className="flex w-100 gap-2 item-center justify-space">
+                Processing <LoaderIndex color={'#Fff'} type={"dots"} />
+              </span>
             ) : (
               "Confirm and Pay"
             )}

@@ -7,7 +7,10 @@ import TableCard from "../common/TableCard";
 import { clearGigsAlert } from "../../Features/listing/listingSlice";
 import { getAllGigs } from "../../Features/listing/listingReducer";
 import { useParams } from "react-router-dom";
-import { updateCustomersOrderToPaid } from "../../Features/order/orderReducer";
+import {
+  getCustomerOrder,
+  updateCustomersOrderToPaid,
+} from "../../Features/order/orderReducer";
 
 const UsreOrderIndex = () => {
   const dispatch = useDispatch();
@@ -15,7 +18,11 @@ const UsreOrderIndex = () => {
   const { order, showAlert, alertText } = useSelector((store) => store.order);
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    dispatch(updateCustomersOrderToPaid(id));
+    if (id) {
+      dispatch(updateCustomersOrderToPaid(id));
+    } else {
+      dispatch(getCustomerOrder());
+    }
   }, [id]);
 
   return (
@@ -36,12 +43,14 @@ const UsreOrderIndex = () => {
             <table className="tableWrapper">
               <thead>
                 <tr>
-                  <th>Rooms Name</th>
-                  <th>Bed Type</th>
-                  <th>Room Floor</th>
-                  <th>Facilities</th>
-                  <th>Rate</th>
+                  <th>Rooms Image</th>
+                  <th>Rooms Title</th>
                   <th>Status</th>
+                  <th>Paid</th>
+                  <th>Check In</th>
+                  <th>Check Out</th>
+                  <th>Occupants</th>
+                  <th>Rate</th>
                 </tr>
               </thead>
               <tbody>

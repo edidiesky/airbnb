@@ -57,12 +57,15 @@ export const Table = styled.div`
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width: 1200px;
+      min-width: 1100px;
       /* table-layout: fixed; */
 
       /* @media (max-width: 1080px) {
         min-width: 100%;
       } */
+      h4 {
+        font-family: "Nunito", sans-serif;
+      }
 
       thead {
         tr {
@@ -70,8 +73,8 @@ export const Table = styled.div`
           z-index: 200;
           text-align: start;
           th {
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 12px;
+            font-weight: 700;
             text-align: start;
             color: #5c5c5c;
             font-family: "Nunito", sans-serif;
@@ -86,6 +89,16 @@ export const Table = styled.div`
               color: var(--dark-1);
             }
           }
+        }
+      }
+      .status {
+        padding: 0.6rem 1rem;
+        background-color: #82eec743;
+        color: #045235;
+        border-radius: 40px;
+        &.active {
+          background-color: #fbd8d857;
+          color: #e50b0b;
         }
       }
 
@@ -108,9 +121,6 @@ export const Table = styled.div`
             font-family: "Nunito", sans-serif;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-            .true {
-              color: e72d2d;
-            }
             .tablespan {
               display: block;
               padding: 2px;

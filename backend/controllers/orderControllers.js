@@ -21,7 +21,7 @@ const GetAllOrder = async (req, res) => {
   const totalOrder = await Order.countDocuments({});
 
   const order = await Order.find({})
-    .populate("createdBy", "firstname lastname email address")
+    .populate("buyerId", "firstname lastname email address")
     .skip(skip)
     .limit(limit);
 
@@ -38,9 +38,22 @@ const GetCustomerOrder = async (req, res) => {
   // instantiate the user id from the req.user
   const { userId } = req.user;
   // instantiate the Order variable
-  const order = await Order.find({ createdBy: userId })
-    .populate("createdBy", "firstname lastname email address")
-    .populate("cartId", "image title price countInStock deliveryDays");
+  const order = await Order.find({ buyerId: userId })
+    .populate("buyerId", "firstname lastname email address")
+    .populate("reservation_id", "image title price countInStock deliveryDays");
+  res.status(200).json({ order });
+};
+
+// GET
+// Get sellers order
+const GetSellerOrder = async (req, res) => {
+  // instantiate the user id from the req.user
+  const { userId } = req.user;
+  // instantiate the Order variable
+  const order = await Order.find({ sellerId: userId })
+    .populate("sellerId", "image username email address")
+    .populate("buyer_Id", "image username email address name")
+    .populate("reservation_id", "image title price countInStock deliveryDays");
   res.status(200).json({ order });
 };
 
@@ -50,7 +63,7 @@ const GetOrderById = async (req, res) => {
   const { id } = req.params;
   // instantiate the Order variable
   const order = await Order.findById({ _id: id }).populate(
-    "createdBy",
+    "buyerId",
     "firstname lastname email address"
   );
   res.status(200).json({ order });
@@ -73,10 +86,12 @@ const CreateOrder = expressAsyncHandler(async (req, res) => {
     endDate,
     orders,
     reservation_id,
+    sellerId,
   } = req.body;
 
   const order = await Order.create({
     buyerId: userId,
+    sellerId: sellerId,
     image: orders[0].image,
     title,
     price: parseInt(price),
@@ -227,4 +242,5 @@ export {
   GetCustomerOrder,
   UpdateOrderToIsDelivered,
   AggregateUserOrderStats,
+  GetSellerOrder,
 };

@@ -77,7 +77,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                 className="fs-10 flex-1 text-extra-bold "
               >
                 <span className="uppercase">check-in</span>
-                
+
                 <div className="fs-12 block capitalize text-dark text-light">
                   {formatDate(dateRange.selection.startDate)}
                 </div>
@@ -90,7 +90,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                 }}
                 className=" fs-10 text-start flex-1 wrap family1 text-extra-bold "
               >
-               <span className="uppercase">check-out</span>
+                <span className="uppercase">check-out</span>
                 <div className="fs-12 block capitalize text-dark text-light">
                   {formatDate(dateRange.selection.endDate)}
                 </div>
@@ -134,7 +134,9 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
               className="reserveBtn w-100 fs-16 text-white flex justify-center item-center"
             >
               {ReservationsIsLoading ? (
-                <LoaderIndex type={"dots"} color={"#fff"} />
+                <span className="flex w-85 auto gap-2 item-center justify-space">
+                  Processing <LoaderIndex color={"#Fff"} type={"dots"} />
+                </span>
               ) : (
                 "Reserve"
               )}
