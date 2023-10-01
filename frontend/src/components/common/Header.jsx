@@ -324,13 +324,13 @@ export default function ListingHeader({
                     onClick={() => handleListingType(index, x.text)}
                     className={
                       tab === index
-                        ? "flex column text-light imagewrapper item-center fs-10 text-dark active"
-                        : "flex column text-light imagewrapper item-center fs-10 text-dark"
+                        ? "flex column text-bold imagewrapper item-center fs-10 text-dark active"
+                        : "flex column text-bold imagewrapper item-center fs-10 text-dark"
                     }
                     style={{
                       width: "5rem",
                       height: "5rem",
-                      gap: ".8rem",
+                      gap: ".6rem",
                       fontSize: "12px",
                     }}
                     key={index}
@@ -377,7 +377,7 @@ const HeaderWrapper = styled.div`
   left: 0;
   background-color: #fff;
   .backdrop_dropdown {
-    width:100%;
+    width: 100%;
     height: 100%;
     position: absolute;
   }
@@ -559,10 +559,11 @@ const HeaderWrapper = styled.div`
     justify-content: flex-end;
   }
   .HeaderBottom {
-    padding: 0.2rem 0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
+    padding: 0.1rem 0;
+
     &.active {
       padding: 1.2rem 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
     }
   }
   .text {

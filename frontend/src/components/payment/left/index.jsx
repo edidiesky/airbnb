@@ -59,9 +59,13 @@ export default function SingleLeftIndex({ id }) {
       setInfants(ReservationsDetails?.infants);
     }
     const backendStartDate = moment(
-      ReservationsDetails?.listing_Id?.startDate
+      ReservationsDetails?.startDate,
+      "DD/MM/YYYY"
     ).toDate();
-    const backendEndDate = moment(ReservationsDetails?.endDate).toDate();
+    const backendEndDate = moment(
+      ReservationsDetails?.endDate,
+      "DD/MM/YYYY"
+    ).toDate();
     setDateRange({
       selection: {
         startDate: backendStartDate,

@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
 @font-face {
   font-family: "CustomFont_Bold";
@@ -13,12 +11,10 @@
   src: url("./assets/fonts/Book.ttf") format("truetype");
 }
 
-
 @font-face {
   font-family: "CustomFont_Medium";
   src: url("./assets/fonts/Medium.ttf") format("truetype");
 }
-
 
 * {
   margin: 0;
@@ -87,7 +83,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
-    font-family: 'Big Shoulders Text', cursive;
+  font-family: "CustomFont_Normal", sans-serif;
   line-height: 1.3;
   font-weight: 600;
 }
@@ -99,8 +95,7 @@ body {
 }
 
 .family1 {
-  font-family: 'Big Shoulders Text', cursive;
-
+  font-family: "Big Shoulders Text", cursive;
 }
 
 :root {
@@ -255,7 +250,6 @@ p {
     transition: all 0.5s;
   } */
 
-
 .a:hover {
   text-decoration: underline;
 }
@@ -263,18 +257,16 @@ p {
   padding: 0 4rem;
 }
 .text-extra-bold {
-  font-weight: 700;
-    font-family: 'Big Shoulders Text', cursive;
-
+  font-weight: bolder;
+  font-family: "CustomFont_Bold", sans-serif;
 }
 .text-bold {
-  font-weight: 600;
-    font-family: 'Big Shoulders Text', cursive;
-
+  font-weight: normal;
+  font-family: "CustomFont_Medium", sans-serif;
 }
 .text-light {
-  font-weight: 300;
-    font-family: 'Big Shoulders Text', cursive;
+  font-weight: normal;
+  font-family: "CustomFont_Normal", sans-serif;
 }
 .radius1 {
   border-radius: 10px;
@@ -360,19 +352,19 @@ p {
 }
 
 .fs-24 {
-  font-size: 27px;
+  font-size: 24px;
 }
 .fs-26 {
-  font-size: 30px;
+  font-size: 26px;
 }
 .fs-30 {
-  font-size: 34px;
+  font-size: 30px;
 }
 .fs-35 {
-  font-size:40px;
+  font-size: 35px;
 }
 .fs-40 {
-  font-size: 45px;
+  font-size: 40px;
 }
 .fs-50 {
   font-size: 55px;
@@ -385,19 +377,19 @@ p {
 }
 
 .fs-12 {
-  font-size: 16px;
+  font-size: 12px;
 }
 .fs-10 {
-  font-size: 14px;
+  font-size: 10px;
 }
 .fs-14 {
-  font-size: 17px;
+  font-size: 14px;
 }
 .fs-16 {
-  font-size: 20px;
+  font-size: 16px;
 }
 .fs-18 {
-  font-size: 23px;
+  font-size: 18px;
 }
 .avatar {
   width: 4rem;
@@ -498,7 +490,7 @@ p {
   }
 }
 
-@media (max-width:580px) {
+@media (max-width: 580px) {
   .fs-24 {
     font-size: 20px;
   }

@@ -235,11 +235,11 @@ const customerData = JSON.parse(localStorage.getItem("customer"));
             <Link
               to={`/rooms/${x?._id}`}
               className="flex column"
-              style={{ gap: "6px" }}
+              style={{ gap: "4px" }}
               // style={{ gap: ".2rem" }}
             >
               <div
-                style={{ gap: "4px" }}
+                style={{ gap: "2px" }}
                 className="w-100 flex item-center justify-space cardTop"
               >
                 <h4
@@ -256,7 +256,7 @@ const customerData = JSON.parse(localStorage.getItem("customer"));
                   4.98
                 </div>
               </div>
-              <div style={{ gap: "6px" }} className="flex column">
+              <div style={{ gap: "3px" }} className="flex column">
                 <h4
                   style={{ fontSize: "14.6px" }}
                   className="text-grey text-light"
@@ -274,8 +274,6 @@ const customerData = JSON.parse(localStorage.getItem("customer"));
               <h4
                 style={{
                   fontSize: "17px",
-                  paddingTop: ".4rem",
-                  fontWeight: "700",
                 }}
                 className="text-bold text-dark"
               >
