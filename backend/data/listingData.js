@@ -1,4 +1,86 @@
 const listingData = [
+  // cities
+  {
+    listing_title: "Villa Borghese Luxury One BR apartment",
+    listing_description:
+      "On a magnificent street in Rome, this 1-bedroom apartment feels like a slice of serenity tucked away from the chatter of the city. Enormous arched windows offer spectacular views as well as allow sunlight to stream inside, illuminating the decorator's magnificent décor.  Spend an afternoon meandering the historic streets before stopping for a midday espresso. There are plenty of mouth-watering restaurants around the corner.  ",
+    listing_type: "cities",
+    listing_price: 44.8,
+    listing_location: "3776 Bingamon Branch Rome",
+    listing_city: "Rome",
+    listing_country: "Italy",
+    listing_host_Id: "64eb2adc634a3fec2d49c12d",
+    listing_beds: 6,
+    listing_bathrooms: 10,
+    listing_bedrooms: 4,
+    listing_duration: 3,
+    listing_endDate: "8/24/2023",
+    listing_startDate: "8/24/2023",
+    listing_distance: 6798,
+    latitude: "41.9028",
+    longitude: "12.4964",
+
+    listing_image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-919391066738299347/original/42fad312-c1f9-49d0-a3c7-d489720a6d84.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-919391066738299347/original/3c04ef93-8992-4f38-a34f-2c837bc937d2.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-919391066738299347/original/3c04ef93-8992-4f38-a34f-2c837bc937d2.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-919391066738299347/original/3c04ef93-8992-4f38-a34f-2c837bc937d2.jpeg?im_w=720",
+    ],
+  },
+  {
+    listing_title: "Silkhaus Near South Ridge Park | Unique Vibes",
+    listing_description:
+      "Welcome to Silkhaus! This large and modern one bedroom is located at the edge of Downtown and Business Bay. It offers exclusive access to the building's resort-style amenities and is perfect for couples, business travelers, and even solo tourists. Enjoy privacy, complimentary WiFi, close proximity to popular attractions, and experience Dubai like a local.",
+    listing_type: "cities",
+    listing_price: 44.8,
+    listing_location: "3776 Bingamon Branch Rome",
+    listing_city: "Dubai",
+    listing_country: "UAE",
+    listing_host_Id: "64eb2adc634a3fec2d49c12d",
+    listing_beds: 6,
+    listing_bathrooms: 10,
+    listing_bedrooms: 4,
+    listing_duration: 3,
+    listing_endDate: "8/24/2023",
+    listing_startDate: "8/24/2023",
+    listing_distance: 6798,
+    latitude: "41.9028",
+    longitude: "12.4964",
+
+    listing_image: [
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-873668322317691081/original/41cf1a1b-5789-45fb-a232-fa2bb5d24b99.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-873668322317691081/original/41cf1a1b-5789-45fb-a232-fa2bb5d24b99.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-873668322317691081/original/41cf1a1b-5789-45fb-a232-fa2bb5d24b99.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-873668322317691081/original/41cf1a1b-5789-45fb-a232-fa2bb5d24b99.jpeg?im_w=720",
+    ],
+  },
+  {
+    listing_title: "Luttrellstown Castles",
+    listing_description:
+      "Welcome to Silkhaus! This large and modern one bedroom is located at the edge of Downtown and Business Bay. It offers exclusive access to the building's resort-style amenities and is perfect for couples, business travelers, and even solo tourists. Enjoy privacy, complimentary WiFi, close proximity to popular attractions, and experience Dubai like a local.",
+    listing_type: "cities",
+    listing_price: 44.8,
+    listing_location: "3776 Bingamon Branch Rome",
+    listing_city: "Dublin",
+    listing_country: "Ireland",
+    listing_host_Id: "64eb2adc634a3fec2d49c12c",
+    listing_beds: 6,
+    listing_bathrooms: 10,
+    listing_bedrooms: 4,
+    listing_duration: 3,
+    listing_endDate: "8/24/2023",
+    listing_startDate: "8/24/2023",
+    listing_distance: 6798,
+    latitude: "41.9028",
+    longitude: "12.4964",
+
+    listing_image: [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-892636584500492829/original/c45bf8cf-2ad6-4930-8c9f-f6f3c992aedd.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-892636584500492829/original/54a1e182-36d1-4746-9ace-805d2c6eeb69.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-892636584500492829/original/d4ec1d8d-6198-48ec-b901-29d1cb20c458.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-892636584500492829/original/d4ec1d8d-6198-48ec-b901-29d1cb20c458.jpeg?im_w=720",
+    ],
+  },
   // desert
   {
     listing_title: "Tente Glamping du Desert 3",
@@ -308,7 +390,7 @@ const listingData = [
     listing_location: "3776 Bingamon Branch Road",
     latitude: 41.535582,
     longitude: -74.200534,
-    listing_country: "United States States",
+    listing_country: "Lagos",
     listing_host_Id: "64eb2adc634a3fec2d49c12c",
     listing_beds: 6,
     listing_bathrooms: 10,
@@ -559,7 +641,6 @@ const listingData = [
       "https://a0.muscache.com/im/pictures/miso/Hosting-577553665717773242/original/50591ab1-2e70-4873-af32-9afc80150bf9.jpeg?im_w=720",
     ],
   },
-
 
   {
     listing_title: "Charming Urban Loft",

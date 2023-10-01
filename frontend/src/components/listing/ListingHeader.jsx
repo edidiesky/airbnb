@@ -21,6 +21,7 @@ const sidebarData = [
 
   { id: 5, title: "Earnings", path: "earning" },
   { id: 6, title: "Inbox", path: "Profile" },
+  { id: 6, title: "Order", path: "orders" },
 ];
 export default function ListingHeader({ type }) {
   const [drop, setDrop] = useState(false);
