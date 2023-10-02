@@ -90,7 +90,7 @@ export default function TableCard({ x, type }) {
           <td>
             <h4 className="fs-14 text-extra-bold">
               ${x?.listing_price}{" "}
-              <span className="text-light fs-12">/night</span>
+            
             </h4>
           </td>
         </tr>
@@ -178,7 +178,7 @@ export default function TableCard({ x, type }) {
           </td>
           <td>
             <h4 className="fs-18 text-extra-bold">
-              ${x?.price} <span className="text-light fs-12">/night</span>
+              ${x?.price}
             </h4>
           </td>
         </tr>
@@ -208,7 +208,7 @@ export default function TableCard({ x, type }) {
                <h4 className="fs-16 text-start text-extra-bold">
                  {x?.buyerId?.username}
                  <span className="block text-bold fs-12 text-grey family2">
-                   {x?.buyerId?.email.substring(0, 24)} ....
+                   {x?.buyerId?.email.substring(0, 24)}
                  </span>
                </h4>
              </div>
@@ -277,7 +277,7 @@ export default function TableCard({ x, type }) {
            </td>
            <td>
              <h4 className="fs-18 text-extra-bold">
-               ${x?.price} <span className="text-light fs-12">/night</span>
+               ${x?.price}
              </h4>
            </td>
          </tr>
