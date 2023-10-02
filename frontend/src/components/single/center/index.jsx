@@ -32,7 +32,8 @@ const CenterIndex = () => {
   });
 
   const data = {
-    listing_Host: GigsDetails?.listing_host_Id,
+    listing_Host: GigsDetails?.listing_host_Id?._id,
+    id: GigsDetails?._id,
     children,
     infants,
     adults,
@@ -40,7 +41,7 @@ const CenterIndex = () => {
     endDate: moment(dateRange.selection.endDate).format("DD/MM/YYYY"),
     qty: 1,
   };
-  // console.log(data)
+  console.log(data)
 
   useEffect(() => {
     const backendStartDate = moment(GigsDetails?.listing_startDate).toDate();

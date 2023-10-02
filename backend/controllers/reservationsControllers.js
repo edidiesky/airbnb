@@ -31,7 +31,7 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
   // find the Listing
   const reservations = await Reservations.findOne({
-    listing_host_Id: req.user.userId,
+    _id: req.params.id,
   }).populate(
     "listing_Id",
     "listing_image listing_price listing_title listing_location listing_adults listing_children listing_infants"

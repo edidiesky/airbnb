@@ -349,7 +349,7 @@ const CardContent = styled.div`
   }
   .listing {
     border-radius: 10px;
-    height: 15rem;
+    height: 18rem;
     position: relative;
     .detailsImageWrapper {
       width: 100%;
@@ -460,7 +460,7 @@ const CardContent = styled.div`
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 17rem;
+      height: 18rem;
       z-index: 10;
       border-radius: 7px;
     }
@@ -476,9 +476,7 @@ const CardContent = styled.div`
       .imagesWrapper {
         width: 100%;
         position: relative;
-        transition: all 0.6s ease-in-out;
         height: 50rem;
-        margin: 0 1.5rem;
         @media (max-width: 780px) {
           min-height: 100%;
         }
@@ -544,7 +542,7 @@ const CardContent = styled.div`
   }
   .icon {
     position: absolute;
-    top: 7% !important;
+    top: 3% !important;
     cursor: pointer;
     right: 3%;
     border-radius: 50%;
@@ -559,7 +557,7 @@ const CardContent = styled.div`
     }
   }
   .card {
-    min-height: 17rem;
+    min-height: 18rem;
     position: relative;
     border-radius: 10px;
     width: 100%;

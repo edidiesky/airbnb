@@ -14,7 +14,7 @@ import {
   GetSingleBuyerReservations,
 } from "../controllers/reservationsControllers.js";
 
-router.route("/buyer").get(authMiddleware, GetSingleBuyerReservations);
+router.route("/buyer/:id").get(authMiddleware, GetSingleBuyerReservations);
 router.route("/").get(authMiddleware, GetAllBuyerReservations);
 router
   .route("/:id")

@@ -36,7 +36,7 @@ export const GetSingleBuyerReservations = createAsyncThunk(
       },
     };
     try {
-      let ReservationsUrl = `/api/v1/reservations/buyer`;
+      let ReservationsUrl = `/api/v1/reservations/buyer/${name}`;
       const { data } = await axios.get(ReservationsUrl, config);
       return data.reservations;
     } catch (error) {
