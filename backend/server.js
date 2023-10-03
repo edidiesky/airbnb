@@ -42,10 +42,6 @@ import reservationRoute from "./routes/reservations.js";
 import orderRoute from "./routes/orderRoutes.js";
 import conversationRoute from "./routes/conversationRoutes.js";
 
-// end points
-app.get("/", (req, res) => {
-  res.json("hello");
-});
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
@@ -58,7 +54,6 @@ app.use("/api/v1/conversation", conversationRoute);
 // app.get('/payment_intents', getAllStripePaymentIntent)
 const __dirname = path.resolve();
 
-// console.log((path.join(__dirname, '/public/uploads')))
 
 mongoose.connect(
   process.env.MONGO_URl,
@@ -73,17 +68,17 @@ mongoose.connect(
 
 // production mode process
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
-//   );
-// } else {
-//   app.get("/", (req, res) => {
-//     res.send("API is running....");
-//   });
-// }
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
 
 // Middlewares
 app.use(NotFound);
