@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import cors from "cors";
 import passport from "passport";
 import cookiesession from "cookie-session";
 
@@ -10,21 +11,25 @@ const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
 
 import mongoose from "mongoose";
-
+app.use(
+  cors({
+    origin: ["https://airbnb-api-mocha.vercel.app/"],
+    methods: ["POST", "GET", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cookiesession({
     name: "session",
-    keys: [
-      'Edidiong'
-    ],
+    keys: ["Edidiong"],
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
 
 // routes
 
@@ -38,6 +43,9 @@ import orderRoute from "./routes/orderRoutes.js";
 import conversationRoute from "./routes/conversationRoutes.js";
 
 // end points
+app.get("/", (req, res) => {
+  res.json("hello");
+});
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
