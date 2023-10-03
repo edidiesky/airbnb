@@ -26,6 +26,27 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   }
 });
 
+const GetAllHostReservations = asyncHandler(async (req, res) => {
+  // instantiate the request queries
+  const queryObject = { listing_Host: req.user.userId };
+
+  let result = Reservations.find(queryObject)
+    .populate("listing_host_Id", "image username email")
+    .populate(
+      "listing_Id",
+      "listing_image listing_price listing_startDate listing_title listing_distance listing_location listing_endDate listing_adults listing_children listing_infants"
+    );
+
+  const totalReservations = await Reservations.countDocuments({});
+
+  const reservations = await result;
+  if (!reservations) {
+    res.status(404);
+    throw new Error("You have no reservations");
+  } else {
+    res.status(200).json({ reservations, totalReservations });
+  }
+});
 // GET SINGLE Listing
 // Not Private
 const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
@@ -164,4 +185,5 @@ export {
   UpdateBuyerReservations,
   GetAllBuyerReservations,
   GetSingleBuyerReservations,
+  GetAllHostReservations,
 };

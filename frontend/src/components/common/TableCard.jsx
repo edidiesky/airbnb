@@ -1,42 +1,22 @@
 import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
-import { AiOutlineCheck } from "react-icons/ai";
 import { GiSandsOfTime } from "react-icons/gi";
 import moment from "moment";
-// import Delete from "./DeleteModal";
-import { FaTimes } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import { MdEdit } from "react-icons/md";
-import { BsTrash } from "react-icons/bs";
 export default function TableCard({ x, type }) {
-  const { userAlert } = useSelector((store) => store.user);
   let startdate = moment(x?.startDate);
   startdate = startdate.format("MMMM Do YYYY");
 
-    let enddate = moment(x?.endDate);
-    enddate = enddate.format("MMMM Do YYYY");
+  let enddate = moment(x?.endDate);
+  enddate = enddate.format("MMMM Do YYYY");
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  // delete user function
-  const handleDeleteUser = () => {
-    // dispatch(getUser(x));
-  };
+  let reservationstartdate = moment(x?.startDate);
+  reservationstartdate = reservationstartdate.format("MMMM Do YYYY");
 
-  // edit user function
-  const handleEditUser = () => {
-    navigate(`/dashboard/users/${x?._id}`);
-  };
+  let reservationenddate = moment(x?.endDate);
+  reservationenddate = reservationenddate.format("MMMM Do YYYY");
 
-  const facilitiesdata = [
-    "Air Conditioner",
-    "Fan",
-    "Electricity",
-    "LED TV",
-    "Shower",
-    "Bath Tub",
-  ];
   if (type === "guests") {
     return (
       <>
@@ -88,10 +68,7 @@ export default function TableCard({ x, type }) {
             </div>
           </td>
           <td>
-            <h4 className="fs-14 text-extra-bold">
-              ${x?.listing_price}{" "}
-            
-            </h4>
+            <h4 className="fs-14 text-extra-bold">${x?.listing_price} </h4>
           </td>
         </tr>
       </>
@@ -177,113 +154,183 @@ export default function TableCard({ x, type }) {
             </div>
           </td>
           <td>
-            <h4 className="fs-18 text-extra-bold">
-              ${x?.price}
-            </h4>
+            <h4 className="fs-18 text-extra-bold">${x?.price}</h4>
           </td>
         </tr>
       </>
     );
   }
   // seller Order
-   if (type === "sellerorder") {
-     return (
-       <>
-         <tr key={x?._id}>
-           <td>
-             <div style={{ gap: "7px" }} className="flex item-center">
-               <div
-                 style={{ width: "2.5rem", height: "2.5rem", borderRadius: "50%" }}
-                 className="flex relative detailsImageWrapper justify-center "
-               >
-                 <div className="image h-100 w-100 absolute">
-                   <img
-                     src={x?.buyerId?.image}
-                     alt=""
-                     className="radius1 absolute w-100 h-100"
-                     style={{ borderRadius: "50%", objectFit: "cover" }}
-                   />
-                 </div>
-               </div>
-               <h4 className="fs-16 text-start text-extra-bold">
-                 {x?.buyerId?.username}
-                 <span className="block text-bold fs-12 text-grey family2">
-                   {x?.buyerId?.email.substring(0, 24)}
-                 </span>
-               </h4>
-             </div>
-           </td>
-           {/* location */}
-           <td>
-             <div style={{ gap: "7px" }} className="flex item-center">
-               <h4 className="fs-14 flex item-center text-start text-extra-bold">
-                 {x?.buyerId?.address?.country}
-               </h4>
-             </div>
-           </td>
-           {/* image */}
-           <td>
-             <div className="flex item-center gap-1">
-               <div
-                 style={{ width: "4rem", borderRadius: "10px", height: "3rem" }}
-                 className="flex"
-               >
-                 <img
-                   style={{ borderRadius: "10px" }}
-                   src={x?.image[0]}
-                   className="w-100"
-                   alt=""
-                 />
-               </div>
-             </div>
-           </td>
-           {/* title */}
-           <td>
-             <h4 className="fs-14 text-start text-extra-bold text-dark">
-               {x?.title.substring(0, 140)}
-             </h4>
-           </td>
-           {/* status */}
-           <td>
-             <div className="flex fs-12 text-bold item-center">
-               <div
-                 className={
-                   x?.status === "Pending" ? "status active" : "status"
-                 }
-               >
-                 {x?.status}
-               </div>
-             </div>
-           </td>
-           {/* paid */}
-           <td>
-             <div className="flex fs-12 text-bold item-center">
-               <div
-                 className={x?.isPaid === false ? "status active" : "status"}
-               >
-                 {x?.isPaid === true ? "Paid" : "Not paid"}
-               </div>
-             </div>
-           </td>
-           <td>
-             <div className="flex column">
-               <h4 className="fs-14 text-bold text-dark">{startdate}</h4>
-             </div>
-           </td>
-           <td>
-             <div className="flex column">
-               <h4 className="fs-14 text-bold text-dark">{enddate}</h4>
-             </div>
-           </td>
-           <td>
-             <h4 className="fs-18 text-extra-bold">
-               ${x?.price}
-             </h4>
-           </td>
-         </tr>
-       </>
-     );
-   }
+  if (type === "sellerorder") {
+    return (
+      <>
+        <tr key={x?._id}>
+          <td>
+            <div style={{ gap: "7px" }} className="flex item-center">
+              <div
+                style={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  borderRadius: "50%",
+                }}
+                className="flex relative detailsImageWrapper justify-center "
+              >
+                <div className="image h-100 w-100 absolute">
+                  <img
+                    src={x?.buyerId?.image}
+                    alt=""
+                    className="radius1 absolute w-100 h-100"
+                    style={{ borderRadius: "50%", objectFit: "cover" }}
+                  />
+                </div>
+              </div>
+              <h4 className="fs-16 text-start text-extra-bold">
+                {x?.buyerId?.username}
+                <span className="block text-bold fs-12 text-grey family2">
+                  {x?.buyerId?.email.substring(0, 24)}
+                </span>
+              </h4>
+            </div>
+          </td>
+          {/* location */}
+          <td>
+            <div style={{ gap: "7px" }} className="flex item-center">
+              <h4 className="fs-14 flex item-center text-start text-extra-bold">
+                {x?.buyerId?.address?.country}
+              </h4>
+            </div>
+          </td>
+          {/* image */}
+          <td>
+            <div className="flex item-center gap-1">
+              <div
+                style={{ width: "4rem", borderRadius: "10px", height: "3rem" }}
+                className="flex"
+              >
+                <img
+                  style={{ borderRadius: "10px" }}
+                  src={x?.image[0]}
+                  className="w-100"
+                  alt=""
+                />
+              </div>
+            </div>
+          </td>
+          {/* title */}
+          <td>
+            <h4 className="fs-14 text-start text-extra-bold text-dark">
+              {x?.title.substring(0, 140)}
+            </h4>
+          </td>
+          {/* status */}
+          <td>
+            <div className="flex fs-12 text-bold item-center">
+              <div
+                className={x?.status === "Pending" ? "status active" : "status"}
+              >
+                {x?.status}
+              </div>
+            </div>
+          </td>
+          {/* paid */}
+          <td>
+            <div className="flex fs-12 text-bold item-center">
+              <div className={x?.isPaid === false ? "status active" : "status"}>
+                {x?.isPaid === true ? "Paid" : "Not paid"}
+              </div>
+            </div>
+          </td>
+          <td>
+            <div className="flex column">
+              <h4 className="fs-14 text-bold text-dark">{startdate}</h4>
+            </div>
+          </td>
+          <td>
+            <div className="flex column">
+              <h4 className="fs-14 text-bold text-dark">{enddate}</h4>
+            </div>
+          </td>
+          <td>
+            <h4 className="fs-18 text-extra-bold">${x?.price}</h4>
+          </td>
+        </tr>
+      </>
+    );
+  }
+
+  if (type === "reservations") {
+    return (
+      <>
+        <tr key={x?._id}>
+          <td>
+            <div className="flex item-center gap-1">
+              <div
+                style={{ width: "4rem", borderRadius: "10px", height: "3rem" }}
+                className="flex"
+              >
+                <img
+                  style={{ borderRadius: "10px" }}
+                  src={x?.listing_Id?.listing_image[0]}
+                  className="w-100"
+                  alt=""
+                />
+              </div>
+              <h4 className="text-extra-bold">
+                {x?.listing_Id?.listing_title.substring(0, 50)}
+              </h4>
+            </div>
+          </td>
+          <td>
+            <div style={{ gap: "7px" }} className="flex item-center">
+              <div
+                style={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  borderRadius: "50%",
+                }}
+                className="flex relative detailsImageWrapper justify-center "
+              >
+                <div className="image h-100 w-100 absolute">
+                  <img
+                    src={x?.listing_host_Id?.image}
+                    alt=""
+                    className="radius1 absolute w-100 h-100"
+                    style={{ borderRadius: "50%", objectFit: "cover" }}
+                  />
+                </div>
+              </div>
+              <h4 className="fs-16 text-start text-bold">
+                {x?.listing_host_Id?.username}
+                <span className="block text-bold fs-12 text-grey family2">
+                  {x?.listing_host_Id?.email}
+                </span>
+              </h4>
+            </div>
+          </td>
+          {/* status */}
+          {/* bedroom */}
+          <td>
+            <h4
+              style={{ gap: ".1rem" }}
+              className="fs-14 flex item-center text-light"
+            >
+              <GiSandsOfTime /> In progress
+            </h4>
+          </td>
+          <td>{reservationstartdate}</td>
+          {/* baths */}
+          <td>{reservationenddate}</td>
+          {/* type */}
+          <td>${x?.listing_Id?.listing_price}</td>
+          <td>
+            <h4 className="text-light">
+              {x?.listing_Id?.listing_location}, {x?.listing_Id?.listing_region}
+            </h4>
+          </td>
+        </tr>
+      </>
+    );
+  }
 
   return (
     <>

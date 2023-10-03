@@ -25,6 +25,31 @@ export const GetAllBuyerReservations = createAsyncThunk(
   }
 );
 
+// fetching all host resrevation
+export const GetAllHostReservations = createAsyncThunk(
+  "reservations/GetAllHostReservations",
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      let ReservationsUrl = `/api/v1/reservations/host`;
+      const { data } = await axios.get(ReservationsUrl, config);
+      return data.reservations;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
+
+
 // fetching all reservations for the buyer
 export const GetSingleBuyerReservations = createAsyncThunk(
   "reservations/singleBuyerReservations",

@@ -12,10 +12,12 @@ import {
   UpdateBuyerReservations,
   GetAllBuyerReservations,
   GetSingleBuyerReservations,
+  GetAllHostReservations,
 } from "../controllers/reservationsControllers.js";
 
 router.route("/buyer/:id").get(authMiddleware, GetSingleBuyerReservations);
 router.route("/").get(authMiddleware, GetAllBuyerReservations);
+router.route("/host").get(authMiddleware, GetAllHostReservations);
 router
   .route("/:id")
   .post(authMiddleware, CreateBuyerReservations)

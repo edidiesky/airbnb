@@ -5,6 +5,7 @@ import {
   DeleteBuyerReservations,
   UpdateBuyerReservations,
   GetSingleBuyerReservations,
+  GetAllHostReservations,
 } from "./reservationsReducer";
 const initialState = {
   // states
@@ -61,6 +62,25 @@ const ReservationsSlice = createSlice({
     },
     // Reservations
     [GetAllBuyerReservations.rejected]: (state, action) => {
+      state.ReservationsIsLoading = false;
+      state.showAlert = true;
+      state.ReservationsIsError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
+
+    // Get all host reservations
+    [GetAllHostReservations.pending]: (state) => {
+      state.ReservationsIsLoading = true;
+    },
+    [GetAllHostReservations.fulfilled]: (state, action) => {
+      state.ReservationsIsLoading = false;
+      state.Reservations = action.payload;
+      state.showAlert = true;
+      state.alertText = "All Reservations has been successfully fetched";
+    },
+    // Reservations
+    [GetAllHostReservations.rejected]: (state, action) => {
       state.ReservationsIsLoading = false;
       state.showAlert = true;
       state.ReservationsIsError = true;
