@@ -11,13 +11,13 @@ const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
 
 import mongoose from "mongoose";
-app.use(
-  cors({
-    origin: ["https://airbnb-api-mocha.vercel.app/"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["https://airbnb-api-mocha.vercel.app/"],
+//     methods: ["POST", "GET", "DELETE", "PUT"],
+//     credentials: true,
+//   })
+// );
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
