@@ -48,7 +48,7 @@ export default function Card({ x, index, type }) {
   const endDate = moment(x?.listing_endDate).format("MMMM Do");
   // const endDate = startDate.add(x?.listing_duration, '')
 
-const customerData = JSON.parse(localStorage.getItem("customer"));
+  const customerData = JSON.parse(localStorage.getItem("customer"));
 
   const active = customerData?.wishlists?.includes(x?._id);
   console.log(active, customerData);
@@ -243,8 +243,7 @@ const customerData = JSON.parse(localStorage.getItem("customer"));
                 className="w-100 flex item-center justify-space cardTop"
               >
                 <h4
-                  style={{ fontWeight: "bold", fontSize: "15.5px" }}
-                  className=" text-extra-bold text-dark"
+                  className="fs-14 text-extra-bold text-dark"
                 >
                   {x?.listing_city}, {x?.listing_country}
                 </h4>
@@ -257,28 +256,17 @@ const customerData = JSON.parse(localStorage.getItem("customer"));
                 </div>
               </div>
               <div style={{ gap: "3px" }} className="flex column">
-                <h4
-                  style={{ fontSize: "14.6px" }}
-                  className="text-grey text-light"
-                >
+                <h4 className="text-grey fs-14 text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
-                <h4
-                  style={{ fontSize: "14px" }}
-                  className=" text-grey text-light"
-                >
+                <h4 className=" text-grey fs-14 text-light">
                   {startDate} - {endDate}
                 </h4>
                 {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
               </div>
-              <h4
-                style={{
-                  fontSize: "17px",
-                }}
-                className="text-bold text-dark"
-              >
+              <h4 className="text-bold fs-15 text-dark">
                 ${x?.listing_price}{" "}
-                <span className="text-light fs-16">night</span>
+                <span className="text-light fs-14 text-grey">night</span>
               </h4>
             </Link>
           </div>

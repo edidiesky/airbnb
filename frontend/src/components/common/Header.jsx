@@ -149,7 +149,7 @@ export default function ListingHeader({
           <div className="center justify-space w-100 flex item-center gap-1">
             <div className="flex item-center gap-2 ">
               <HiSearch color="#000" fontSize={"20px"} />
-              <div className="fs-14 text-dark text-bold">
+              <div className="fs-13 text-dark text-bold">
                 Anywhere
                 <span
                   style={{ gap: ".3rem" }}
@@ -192,10 +192,10 @@ export default function ListingHeader({
               className="flex item-center justify-end"
             >
               <div className="center flex item-center gap-1">
-                <div className="fs-14  text-grey text-extra-bold">
+                <div className="fs-13  text-grey text-extra-bold">
                   {location ? location : "Location"}
                 </div>
-                <div className="left1 fs-14  text-grey text-extra-bold">
+                <div className="left1 fs-13  text-grey text-extra-bold">
                   {startDate === "Invalid date" &&
                   endDate === "Invalid date" ? (
                     "Add Date"
@@ -207,7 +207,7 @@ export default function ListingHeader({
                 </div>
                 <div
                   style={{ gap: ".4rem" }}
-                  className="flex item-center justify-center fs-14  text-grey text-extra-bold"
+                  className="flex item-center justify-center fs-13  text-grey text-extra-bold"
                 >
                   {limit ? <span>{limit} Guests</span> : " Add guests"}
                   <div
@@ -223,8 +223,7 @@ export default function ListingHeader({
           <div className="right flex item-center">
             <div
               onClick={handleCreateListingSteps}
-              style={{ fontSize: "15px" }}
-              className="fs-14 text text-extra-bold text-grey"
+              className="fs-14 text text-bold text-grey"
             >
               Airbnb your home
             </div>
@@ -238,7 +237,7 @@ export default function ListingHeader({
             >
               <Bar />
               {userInfo?.image ? (
-                <div className="text-white flex fs-14">
+                <div className="text-white flex fs-13">
                   <img
                     style={{
                       width: "2rem",
@@ -259,7 +258,7 @@ export default function ListingHeader({
                     background: "var(--dark-1)",
                     color: "#fff",
                   }}
-                  className="text-white fs-14 flex item-center justify-center uppercase"
+                  className="text-white fs-13 flex item-center justify-center uppercase"
                 >
                   {userInfo?.username.charAt(0)}
                 </div>
