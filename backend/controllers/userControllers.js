@@ -8,6 +8,9 @@ const GetUserById = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ user });
 });
 
@@ -20,6 +23,9 @@ const GetUsersProfile = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ user });
 });
 
@@ -62,6 +68,9 @@ const UpdateUser = asyncHandler(async (req, res) => {
     req.body,
     { new: true }
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ updatedUser });
 });
 
@@ -78,6 +87,9 @@ const AdminUpdateUser = asyncHandler(async (req, res) => {
     req.body,
     { new: true }
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ updatedUser });
 });
 //PRIVATE/ADMIN
@@ -89,6 +101,9 @@ const DeleteUser = asyncHandler(async (req, res) => {
     throw new Error("The user does not exist");
   }
   await User.findByIdAndDelete({ _id: req.params.id });
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ msg: "The user has been successfully deleted" });
 });
 
@@ -103,6 +118,9 @@ const GetAllUser = asyncHandler(async (req, res) => {
   const user = await User.find({}).skip(skip).limit(limit);
 
   const noOfPages = Math.ceil(totalUser / limit);
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ user, noOfPages, totalUser });
 });
 

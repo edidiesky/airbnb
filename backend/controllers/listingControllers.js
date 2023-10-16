@@ -69,6 +69,9 @@ const GetAllListing = asyncHandler(async (req, res) => {
   const noOfPages = Math.ceil(totalListing / limit);
 
   const gig = await result;
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ gig, totalListing, noOfPages });
 });
 //
@@ -85,6 +88,9 @@ const GetSingleListing = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Listing not found");
   }
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ gig });
 });
 
@@ -101,6 +107,9 @@ const GetHostListing = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Listing not found");
   }
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ gig });
 });
 
@@ -114,6 +123,9 @@ const CreateSingleListing = asyncHandler(async (req, res) => {
     listing_host_Id: userId,
     ...req.body,
   });
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ gig });
 });
 
@@ -148,6 +160,9 @@ const CreateListingWishlist = asyncHandler(async (req, res) => {
       },
       { new: true }
     );
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
     res.status(200).json({
       msg: `${listing?.listing_title} has been removed from your wishlists`,
       user: wishlists,
@@ -160,6 +175,9 @@ const CreateListingWishlist = asyncHandler(async (req, res) => {
       },
       { new: true }
     );
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
     res.status(200).json({
       msg: `${listing?.listing_title} has been added to your wishlists`,
       user: wishlists,
@@ -176,6 +194,9 @@ const getUserListingWishlist = asyncHandler(async (req, res) => {
   const user = await User.findById(userId);
   // check for users wishlist in the listing
   const listing = await Listing.find({ _id: { $in: user?.wishlists } });
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ listing });
 });
 //PRIVATE
@@ -204,6 +225,9 @@ const UpdateListing = asyncHandler(async (req, res) => {
       { ...data },
       { new: true }
     );
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
     res.status(200).json({ updatedListing });
   } else {
     res.status(404);
@@ -236,7 +260,10 @@ const DeleteListing = asyncHandler(async (req, res) => {
     throw new Error("You are not authorized to perform this action");
   }
   // console.log(gig);
-  // res.status(200).json({ gig});
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ // 
+  res.status(200).json({ gig});
 
   // console.log('Helolo world');
 });

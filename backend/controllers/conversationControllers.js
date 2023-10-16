@@ -13,6 +13,9 @@ const createConversation = asyncHandler(async (req, res) => {
     readByBuyer: userId === req.body.to,
   });
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ Conversation });
 });
 
@@ -26,6 +29,9 @@ const getSingleConversation = asyncHandler(async (req, res) => {
   const Conversation = await Conversation.findById(
     role === "user" ? { sellerId: userId } : { buyerId: userId }
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ Conversation });
 });
 
@@ -43,6 +49,9 @@ const getAllConversation = asyncHandler(async (req, res) => {
     throw new Error("Gig not found");
   }
 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ Conversation });
 });
 
@@ -51,6 +60,9 @@ const getAllConversation = asyncHandler(async (req, res) => {
 // GET All Gig
 //  Public
 const DeleteConversation = asyncHandler(async (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ msg: "delete review controller" });
 });
 
@@ -61,6 +73,9 @@ const UpdateConversation = asyncHandler(async (req, res) => {
     { readByBuyer: false, readBySeller: true },
     { new: true }
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ updatedConversation });
 });
 

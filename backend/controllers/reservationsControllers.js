@@ -22,6 +22,9 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("You have no reservations");
   } else {
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
     res.status(200).json({ reservations, totalReservations });
   }
 });
@@ -44,6 +47,9 @@ const GetAllHostReservations = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("You have no reservations");
   } else {
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
     res.status(200).json({ reservations, totalReservations });
   }
 });
@@ -62,6 +68,9 @@ const GetSingleBuyerReservations = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Reservations Item not found");
   }
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ reservations });
 });
 
@@ -86,6 +95,9 @@ const UpdateBuyerReservations = asyncHandler(async (req, res) => {
     { ...data },
     { new: true }
   );
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ updatedListing });
 });
 
@@ -148,6 +160,9 @@ const CreateBuyerReservations = asyncHandler(async (req, res) => {
       listing_Host,
     });
 
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
     res.status(200).json({ reservations });
   } else {
      res.status(404);
@@ -175,6 +190,9 @@ const DeleteBuyerReservations = asyncHandler(async (req, res) => {
 const GetTopRatedBuyerReservations = asyncHandler(async (req, res) => {
   // get the Reservations but based on the rating and then send 4 Reservations
   const toprated = await Reservations.find({}).sort({ rating: -1 }).limit(3);
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+ 
   res.status(200).json({ toprated });
 });
 
