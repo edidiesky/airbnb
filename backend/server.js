@@ -14,7 +14,7 @@ import { errorHandler, NotFound } from "./middleware/error-handler.js";
 import mongoose from "mongoose";
 app.use(
   cors({
-    origin: ["https://airbnb-api.vercel.app/"],
+    origin: ["https://airbnb-client.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
@@ -145,20 +145,6 @@ mongoose.connect(
     console.log("mongo has been connected");
   }
 );
-
-// production mode process
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running....");
-  });
-}
 
 // Middlewares
 app.use(NotFound);
