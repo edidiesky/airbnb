@@ -40,6 +40,10 @@
       "dest": "server.js"
     },
     {
+      "src": "/api/v1/conversation/(.*)",
+      "dest": "server.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }
