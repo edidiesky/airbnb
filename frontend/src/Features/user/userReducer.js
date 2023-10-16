@@ -20,6 +20,23 @@ export const registerCustomer = createAsyncThunk(
   }
 );
 
+export const registerByGoogle = createAsyncThunk(
+  "auth/google/login",
+  async (registerData, thunkAPI) => {
+    try {
+      const { data } = await axios.get("/auth/google/login");
+      console.log(data);
+      // return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
+
 export const loginCustomer = createAsyncThunk(
   "loginCustomer",
   async (loginData, thunkAPI) => {

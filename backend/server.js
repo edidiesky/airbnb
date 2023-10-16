@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import passport from "passport";
 import cookiesession from "cookie-session";
-
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+import User from "./models/User.js";
 dotenv.config();
 
 const app = express();
@@ -32,6 +33,83 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Oauth
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.google_client_id,
+      clientSecret: process.env.google_client_secret,
+      callbackURL: "http://www.example.com/auth/google/callback",
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      User.findOne({ email: profile.email[0].value }, function (err, user) {
+        if (err) return done(err);
+        if (user) return done(null, user);
+        const newUser = new User({
+          email: profile.email[0].value,
+        });
+        newUser.save((err) => {
+          if (err) return done(err);
+          return done(null, newUser);
+        });
+      });
+    }
+  )
+);
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+app.get(
+  "/auth/google/login",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/profile", // Redirect to the user's profile page on success
+    failureRedirect: "/login", // Redirect to the login page on failure
+  })
+);
+
+app.get(
+  "/auth/google/register",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+app.get("/auth/google/register/callback", (req, res) => {
+  // This route is reached after Google authentication
+  // Here, you can check if the user already exists in your database
+  // If the user exists, you can associate their Google account with the existing account
+  // If the user doesn't exist, you can create a new account for them
+  res.redirect("/profile"); // Redirect to the user's profile page
+});
+
+app.get("/login", (req, res) => {
+  // You can still render a login page here if you want to allow traditional login.
+  // If you only want to support Google OAuth, you can redirect users to the Google OAuth login route.
+  res.redirect("/auth/google/login");
+});
+
+app.get("/profile", (req, res) => {
+  // Ensure user is authenticated, and render the user's profile
+  if (req.isAuthenticated()) {
+    // Render the user's profile
+    res.send("Welcome to your profile!");
+  } else {
+    // Redirect to the login page if not authenticated
+    res.redirect("/http://localhost:5173//auth/google/callback");
+  }
+});
+
 
 // routes
 
@@ -71,10 +149,10 @@ mongoose.connect(
 // production mode process
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
+    res.sendFile(path.join(__dirname, "/frontend/dist/index.html"))
   );
 } else {
   app.get("/", (req, res) => {

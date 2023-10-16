@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useController, useForm } from "react-hook-form";
 import styled from "styled-components";
+import {useNavigate} from 'react-router-dom'
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +17,7 @@ import { slideUp } from "../../utils/framer";
 import {
   UpdateProfile,
   loginCustomer,
+  registerByGoogle,
   registerCustomer,
 } from "../../Features/user/userReducer";
 import LoaderIndex from "../loaders";
@@ -26,6 +28,7 @@ import { inputData, inputData2 } from "../../utils/formdata";
 
 export default function AuthModal({ type, click }, props) {
   const [auth, setAuth] = useState(false);
+  const navigate = useNavigate()
 
   const [formdata, setFormData] = useState({
     firstname: "",
@@ -89,6 +92,10 @@ export default function AuthModal({ type, click }, props) {
       return () => clearTimeout(dispatch(clearUserAlertError()), 4000);
     }
   }, [showAlert]);
+
+  const handleOauth = ()=> {
+    window.location.href = "http://localhost:5000/auth/google/login";
+  }
 
   return (
     <DeleteContainer
@@ -201,7 +208,10 @@ export default function AuthModal({ type, click }, props) {
             <div className="option">or</div>
 
             <div className="flex column gap-1">
-              <div className="authBtn flex fs-14 text-dark item-center justify-space">
+              <div
+                onClick={handleOauth}
+                className="authBtn flex fs-14 text-dark item-center justify-space"
+              >
                 <FcGoogle fontSize={"20px"} />{" "}
                 <div className="w-100 text-center">Continue with Google</div>{" "}
               </div>
