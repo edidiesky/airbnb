@@ -117,20 +117,20 @@ import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
 import reviewRoute from "./routes/reviewRoutes.js";
 import listingRoute from "./routes/listingRoutes.js";
-import uploadRoute from "./routes/uploadRoute.js";
-import reservationRoute from "./routes/reservations.js";
-import orderRoute from "./routes/orderRoutes.js";
-import conversationRoute from "./routes/conversationRoutes.js";
+// import uploadRoute from "./routes/uploadRoute.js";
+// import reservationRoute from "./routes/reservations.js";
+// import orderRoute from "./routes/orderRoutes.js";
+// import conversationRoute from "./routes/conversationRoutes.js";
 
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/listing", listingRoute);
 app.use("/api/v1/review", reviewRoute);
-app.use("/api/v1/order", orderRoute);
-app.use("/api/v1/upload", uploadRoute);
-app.use("/api/v1/reservations", reservationRoute);
-app.use("/api/v1/conversation", conversationRoute);
+// app.use("/api/v1/order", orderRoute);
+// app.use("/api/v1/upload", uploadRoute);
+// app.use("/api/v1/reservations", reservationRoute);
+// app.use("/api/v1/conversation", conversationRoute);
 const __dirname = path.resolve();
 
 
