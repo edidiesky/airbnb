@@ -12,16 +12,21 @@ const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
 
 import mongoose from "mongoose";
+// app.use(
+//   cors({
+//     origin: ["https://airbnb-client.vercel.app/"],
+//     methods: ["POST", "GET", "DELETE", "PUT"],
+//     credentials: true,
+//   })
+// );
 app.use(
   cors({
-    origin: ["https://airbnb-client.vercel.app/"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
+    origin: process.env.WEB_ORIGIN,
+    methods: ["POST", "PUT", "DELETE", "GET"],
     credentials: true,
   })
 );
 // middlewares
-
-app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
