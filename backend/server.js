@@ -133,7 +133,7 @@ app.use("/api/v1/user", userRoute);
 app.use("/api/v1/listing", listingRoute);
 app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/order", orderRoute);
-app.use("/api/v1/upload", uploadRoute);
+// app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/reservations", reservationRoute);
 // app.use("/api/v1/conversation", conversationRoute);
 const __dirname = path.resolve();
