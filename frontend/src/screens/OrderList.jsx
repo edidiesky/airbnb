@@ -8,7 +8,7 @@ export default function Order() {
 
   return (
     <OrderListContainer>
-      <Header type={"type"} />
+      <Header type={""} />
       <OrderList />
     </OrderListContainer>
   );

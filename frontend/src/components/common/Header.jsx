@@ -30,6 +30,7 @@ export default function ListingHeader({
   adults,
   infants,
   children,
+  path,
 }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -147,9 +148,40 @@ export default function ListingHeader({
         }
       >
         <div className="flex w-90 auto headertop1 flex-1 item-center justify-end">
-          <Link to={'/'} className="fs-16 text-light w-85 auto flex item-center">
-          <BiChevronLeft/>  Homes
-          </Link>
+          {type !== "Home" && (
+            <Link
+              to={`/${path}`}
+              className="fs-16 text-bold gap-1 w-85 auto flex item-center"
+            >
+              <BiChevronLeft fontSize={"20px"} /> {type}
+            </Link>
+          )}
+
+          {type === "Home" && (
+            <div className="w-100">
+              <div className="center justify-space w-100 flex item-center gap-1">
+                <div className="flex item-center gap-2 ">
+                  <HiSearch color="#000" fontSize={"20px"} />
+                  <div className="fs-14 text-dark text-extra-bold">
+                    Anywhere
+                    <span
+                      style={{ gap: ".2rem" }}
+                      className="text-light fs-12 text-grey flex item-center"
+                    >
+                      {/* {startDate !== undefined
+                    ? startDate - endDate
+                    : startDate - endDate}{" "} */}
+                      <span>Add week</span> <span> . </span>{" "}
+                      <span>Add guests</span>
+                    </span>
+                  </div>
+                </div>
+                <div className="icons flex item-center justify-center">
+                  <Filter />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div
           className={
@@ -170,7 +202,7 @@ export default function ListingHeader({
               <h4 className="fs-18 text-light text-center">Stays</h4>
             </div>
           )} */}
-          {!type && (
+          {type === "Home" && (
             <div
               onClick={() => setSearch(true)}
               className="flex item-center justify-end"
@@ -216,7 +248,7 @@ export default function ListingHeader({
             </div>
             <div
               onClick={() => setDrop(!drop)}
-              style={{gap:".5rem"}}
+              style={{ gap: ".5rem" }}
               className="center2 flex item-center"
             >
               <Bar />
@@ -347,7 +379,7 @@ export default function ListingHeader({
   return (
     <HeaderWrapper>
       <HeaderTop />
-      {!type && <HeaderBottom />}
+      {type === "Home" && <HeaderBottom />}
     </HeaderWrapper>
   );
 }
@@ -407,21 +439,27 @@ const HeaderWrapper = styled.div`
   }
   .headertop1 {
     display: none;
-    padding: .7rem 0;
-
+    padding: 0.7rem 0;
+    @media (max-width: 580px) {
+      padding: 0.4rem 0;
+    }
     .center {
       padding: 0.6rem 1.3rem !important;
       width: 90% !important;
       margin: 0 auto !important;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
       border: 0.5px solid rgba(0, 0, 0, 0.08) !important;
+      @media (max-width: 580px) {
+        padding: 0.4rem 2rem !important ;
+        border: none;
+      }
     }
-    @media (max-width: 780px) {
+    @media (max-width: 580px) {
       display: flex;
     }
   }
   .headertop2 {
-    @media (max-width: 780px) {
+    @media (max-width: 480px) {
       display: none;
     }
   }
@@ -527,7 +565,7 @@ const HeaderWrapper = styled.div`
   }
   .left,
   .right {
-    @media (max-width: 780px) {
+    @media (max-width: 480px) {
       display: none;
     }
   }

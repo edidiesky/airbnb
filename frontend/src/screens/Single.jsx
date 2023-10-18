@@ -21,7 +21,7 @@ export default function Single() {
   return (
     <>
       <Meta />
-      <Header type={'type'} />
+      <Header type={'Home'} path={''} />
       <SingleContainer style={{minHeight:"100vh"}}>
         <SingleIndex />
       </SingleContainer>
@@ -30,6 +30,7 @@ export default function Single() {
 }
 
 const SingleContainer = styled.div`
+  min-height: 100vh;
   width: 100%;
   /* overflow: hidden; */
   padding-top: 8rem;
