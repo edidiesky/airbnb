@@ -122,7 +122,7 @@ import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
 import reviewRoute from "./routes/reviewRoutes.js";
 import listingRoute from "./routes/listingRoutes.js";
-// import uploadRoute from "./routes/uploadRoute.js";
+import uploadRoute from "./routes/uploadRoute.js";
 import reservationRoute from "./routes/reservations.js";
 import orderRoute from "./routes/orderRoutes.js";
 // import conversationRoute from "./routes/conversationRoutes.js";

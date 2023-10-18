@@ -35,6 +35,8 @@ router.post("/", upload.array("files", 4), async (req, res) => {
     res.json({ success: true, message: "Images uploaded successfully", urls });
   } catch (error) {
     console.error("Error uploading images:", error);
+         res.setHeader("Content-Type", "text/html");
+         res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     res
       .status(500)
       .json({ success: false, message: "Failed to upload images" });
