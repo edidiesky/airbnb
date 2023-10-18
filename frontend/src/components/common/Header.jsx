@@ -21,6 +21,7 @@ import Filter from "./svg/filter";
 import { getLsitingType } from "../../Features/listing/listingSlice";
 import { getAllGigs } from "../../Features/listing/listingReducer";
 import Dropdown from "./Dropdown";
+import { BiChevronLeft } from "react-icons/bi";
 
 export default function ListingHeader({
   type,
@@ -146,26 +147,9 @@ export default function ListingHeader({
         }
       >
         <div className="flex w-90 auto headertop1 flex-1 item-center justify-end">
-          <div className="center justify-space w-100 flex item-center gap-1">
-            <div className="flex item-center gap-2 ">
-              <HiSearch color="#000" fontSize={"20px"} />
-              <div className="fs-13 text-dark text-bold">
-                Anywhere
-                <span
-                  style={{ gap: ".3rem" }}
-                  className="text-light fs-12 text-grey flex item-center"
-                >
-                  {/* {startDate !== undefined
-                    ? startDate - endDate
-                    : startDate - endDate}{" "} */}
-                  <span> . </span> <span>Add guests</span>
-                </span>
-              </div>
-            </div>
-            <div className="icons flex item-center justify-center">
-              <Filter />
-            </div>
-          </div>
+          <Link to={'/'} className="fs-16 text-light w-85 auto flex item-center">
+          <BiChevronLeft/>  Homes
+          </Link>
         </div>
         <div
           className={
@@ -423,6 +407,7 @@ const HeaderWrapper = styled.div`
   }
   .headertop1 {
     display: none;
+    padding: .7rem 0;
 
     .center {
       padding: 0.6rem 1.3rem !important;
