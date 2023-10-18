@@ -89,7 +89,7 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 6px;
   min-height: 20rem;
-  @media (max-width: 780px) {
+  @media (max-width: 480px) {
     min-height: 14rem;
   }
   .images {
@@ -127,7 +127,15 @@ export const Wrapper = styled.div`
         border-top-right-radius: 10px;
       }
     }
-    @media (max-width: 780px) {
+    min-height: 100%;
+    @media (max-width: 980px) {
+      min-height: 14rem;
+      img {
+        border-radius: none;
+      }
+    }
+
+    @media (max-width: 580px) {
       min-height: 11rem;
       img {
         border-radius: none;

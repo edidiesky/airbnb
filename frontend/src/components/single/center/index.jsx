@@ -142,6 +142,9 @@ const CenterWrapper = styled.div`
       display: flex;
       flex-direction: column-reverse;
     }
+    @media (max-width: 780px) {
+      min-height: 0vh;
+    }
   }
   .listing_prop {
     display: grid;

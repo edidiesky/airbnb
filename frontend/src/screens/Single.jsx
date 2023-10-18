@@ -21,7 +21,7 @@ export default function Single() {
   return (
     <>
       <Meta />
-      <Header type={'Home'} path={''} />
+      <Header type={''} path={''} />
       <SingleContainer style={{minHeight:"100vh"}}>
         <SingleIndex />
       </SingleContainer>
