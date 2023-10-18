@@ -46,13 +46,13 @@ const DateContainer = styled.div`
   width: 100%;
   .container1 {
     display: none;
-    @media (max-width: 480px) {
+    @media (max-width: 780px) {
       display: block;
     }
   }
   .container {
     display: block;
-    @media (max-width: 480px) {
+    @media (max-width: 780px) {
       display: none;
     }
   }

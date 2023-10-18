@@ -323,7 +323,7 @@ export default function ListingHeader({
         }
       >
         <div className="w-90 auto  bottomWrapper item-center justify-space">
-          <div className="w-100 hidden">
+          <div className="w-100 listing_icons hidden">
             <SliderIndex options={options2}>
               {categorydata.map((x, index) => {
                 return loader ? (
@@ -366,9 +366,17 @@ export default function ListingHeader({
             </SliderIndex>
           </div>
           <div className="fiterWrapper flex item-center justify-end">
-            <div className="fs-12 fiterIcon gap-1 text-dark flex item-center justify-center">
+            <div className="fs-12 text-bold fiterIcon gap-1 text-dark flex item-center justify-center">
               <Filter />
               Fiters
+            </div>
+          </div>
+          <div className="fiterWrapper flex item-center justify-end">
+            <div className="fs-12 text-bold fiterIcon gap-1 text-dark flex item-center justify-center">
+              Display before total taxes
+              <div className="rightIcons">
+                <div className="icons"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -398,19 +406,42 @@ const HeaderWrapper = styled.div`
   }
   .bottomWrapper {
     display: grid;
-    grid-template-columns: 1fr 6vw;
-    grid-gap: 3rem;
+    grid-template-columns: 1fr 50px 270px;
+    grid-gap: 1.5rem;
     padding-top: 0.6rem;
     @media (max-width: 1080px) {
       grid-template-columns: 1fr;
     }
   }
+  .rightIcons {
+    padding-left: 1.6rem;
+    .icons {
+      width: 3rem;
+      height: 1.6rem;
+      border-radius: 40px;
+      background-color: #bfbdbddb;
+      position: relative;
+      &::after {
+        width: 50%;
+        height: 80%;
+        content: "";
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #fff;
+        border-radius: inherit;
+      }
+    }
+  }
   .fiterIcon {
-    padding: 0.9rem 1rem;
+    padding: 0.8rem 1rem;
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     border-radius: 15px;
   }
-  .fiterWrapper {
+  .listing_icons{
+    margin-right: 10rem;
+  } .fiterWrapper {
     /* width: 300px; */
     /* background-color: red; */
     @media (max-width: 1080px) {
@@ -690,7 +721,7 @@ const HeaderWrapper = styled.div`
       left: 0%;
     }
     button.owl-next {
-      right: -0%;
+      right: 3%;
     }
   }
 `;
