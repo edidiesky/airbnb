@@ -51,7 +51,7 @@ export default function Card({ x, index, type }) {
   const customerData = JSON.parse(localStorage.getItem("customer"));
 
   const active = customerData?.wishlists?.includes(x?._id);
-  console.log(active, customerData);
+  // console.log(active, customerData);
   // if the type is wish
   if (type === "wish") {
     return (
