@@ -12,13 +12,6 @@ const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
 
 import mongoose from "mongoose";
-// app.use(
-//   cors({
-//     origin: ["https://airbnb-client.vercel.app/"],
-//     methods: ["POST", "GET", "DELETE", "PUT"],
-//     credentials: true,
-//   })
-// );
 app.use(
   cors({
     origin: process.env.WEB_ORIGIN,

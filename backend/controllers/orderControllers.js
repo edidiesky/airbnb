@@ -131,8 +131,8 @@ const CreateOrder = expressAsyncHandler(async (req, res) => {
     }),
     mode: "payment",
     payment_method_types: ["card"],
-    success_url: `http://localhost:5173/${order?._id}/order`,
-    cancel_url: `http://localhost:5173/reservations`,
+    success_url: `${process.env.WEB_ORIGIN}/${order?._id}/order`,
+    cancel_url: `${process.env.WEB_ORIGIN}/reservations`,
   });
 
   res.setHeader("Content-Type", "text/html");
