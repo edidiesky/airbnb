@@ -307,7 +307,7 @@ export default function ListingHeader({
                     alt=""
                   />
                 </div>
-              ) : userInfo?.username ? (
+              ) : userInfo?.firstname ? (
                 <div
                   style={{
                     width: "2rem",
@@ -318,7 +318,7 @@ export default function ListingHeader({
                   }}
                   className="text-white fs-13 flex item-center justify-center uppercase"
                 >
-                  {userInfo?.username.charAt(0)}
+                  {userInfo?.firstname.charAt(0)}
                 </div>
               ) : (
                 <div className="" style={{ width: "2rem", height: "2rem" }}>
@@ -340,14 +340,15 @@ export default function ListingHeader({
                   }}
                 ></div>
               )}
-
+              <Dropdown setDrop={setDrop} drop={drop} type={type} />
+              {/* 
               <AnimatePresence
                 initial="false"
                 exitBeforeEnter={true}
                 onExitComplete={() => null}
               >
                 {drop && <Dropdown setDrop={setDrop} drop={drop} type={type} />}
-              </AnimatePresence>
+              </AnimatePresence> */}
               {/* <Dropdown /> */}
             </div>
           </div>
