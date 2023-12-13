@@ -76,12 +76,16 @@ const MessageContent = styled.div`
   top: 2%;
   left: 50%;
   transform: translate(-50%, -1000%);
+  opacity:0;
+  visibility:hidden;
 
   top: -5%;
 
   &.active {
     top: 5%;
     transform: translateX(-50%);
+      opacity:1;
+  visibility:visible;
   }
   &.danger {
     background-color: var(--red);

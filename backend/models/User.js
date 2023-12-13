@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema(
     },
     wishlists: [],
     username: { type: String },
+    googleId: { type: String },
     firstname: { type: String },
     lastname: { type: String },
     username: { type: String },
