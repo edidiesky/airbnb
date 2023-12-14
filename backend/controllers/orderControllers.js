@@ -124,7 +124,7 @@ const CreateOrder = expressAsyncHandler(async (req, res) => {
             name: items.title,
             images: items.image,
           },
-          unit_amount: items.price,
+          unit_amount: price * 100,
         },
         quantity: items.quantity,
       };
