@@ -20,7 +20,7 @@ const Dropdown = ({ setDrop, drop, type }) => {
     <motion.ul
       variants={type ? dropin2 : dropin1}
       initial="hidden"
-      animate={drop ?"visible":"exit"}
+      animate={drop ? "visible" : "exit"}
       exit={"exit"}
       className="dropdown shadow flex column"
       onClick={() => setDrop(!drop)}
@@ -28,84 +28,67 @@ const Dropdown = ({ setDrop, drop, type }) => {
     >
       {userInfo ? (
         <div style={{ gap: ".2rem" }} className="flex column w-100">
-          <div className="w-100">
-            <li
-              style={{ fontSize: "14px",  }}
-              className="fs-14 text-extra-bold text-dark w-100"
+          <div className="w-100 flex column">
+            <Link
+              className="w-100 li fs-14 text-extra-bold text-dark"
+              to={"/guest/inbox/"}
             >
-              <Link className="w-100" to={"/guest/inbox/"}>
-                Messages
-              </Link>
-            </li>
-            <li
-              style={{ fontSize: "14px",  }}
-              className="fs-14 text-extra-bold text-dark w-100"
+              Messages
+            </Link>{" "}
+            <Link
+              className="w-100 li fs-14 text-extra-bold text-dark"
+              to={"/wishlists"}
             >
-              {" "}
-              <Link className="w-100" to={"/wishlists"}>
-                Wishlists
-              </Link>
-            </li>
-            <li
-              style={{ fontSize: "14px",  }}
-              className="fs-14 text-extra-bold text-dark w-100"
+              Wishlists
+            </Link>{" "}
+            <Link
+              className="w-100 li fs-14 text-extra-bold text-dark"
+              to={"/order"}
             >
-              {" "}
-              <Link className="w-100" to={"/order"}>
-                Orders
-              </Link>
-            </li>
-            <li
-              style={{ fontSize: "14.5px",  }}
-              className="fs-14 text-light extra-bold-dark w-100"
+              Orders
+            </Link>{" "}
+            <Link
+              className="w-100 li fs-14 text-extra-bold text-dark"
+              to={"/trips"}
             >
-              {" "}
-              <Link className="w-100" to={"/trips"}>
-                Trips
-              </Link>
-            </li>
+              Trips
+            </Link>
           </div>
           <div
             style={{
               borderTop: "1px solid rgba(0,0,0,.1)",
               padding: ".3rem 0",
             }}
-            className="w-100"
+            className="w-100 flex column"
           >
-            <li
-              style={{ fontSize: "15px" }}
-              className="fs-14 text-light w-100"
+            <Link
+              className="w-100 li fs-14 text-extra-bold text-dark"
+              to={"/dashboard/hosting"}
             >
-              <Link className="w-100" to={"/dashboard/hosting"}>
-                Manage Listings
-              </Link>
-            </li>
-            <li
-              style={{ fontSize: "15px"}}
-              className="fs-14 text-light text-dark w-100"
+              Manage Listings
+            </Link>
+
+            <Link
+              className="w-100 li fs-14 text-extra-bold text-dark"
+              to={"/account-settings"}
             >
-              <Link className="w-100" to={"/account-settings"}>
-                Account
-              </Link>
-            </li>
+              Account
+            </Link>
           </div>
           <div
             style={{
               borderTop: "1px solid rgba(0,0,0,.1)",
               padding: ".3rem 0",
             }}
-            className="w-100"
+            className="w-100 li"
           >
-            <li
-              style={{ fontSize: "15px"}}
-              className="fs-14 text-light w-100"
-            >
+            <li style={{ fontSize: "15px" }} className="fs-14 text-light w-100 li">
               Help Center
             </li>
             <li
               onClick={handleLogOut}
-              style={{ fontSize: "15px"}}
-              className="fs-14 text-light text-dark w-100"
+              style={{ fontSize: "15px" }}
+              className="fs-14 text-light text-dark w-100 li"
             >
               Logout
             </li>
@@ -116,14 +99,14 @@ const Dropdown = ({ setDrop, drop, type }) => {
           <div className="w-100">
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "14.5px",  }}
+              style={{ fontSize: "14.5px" }}
               className="fs-14 text-light extra-bold-100"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "14.5px",  }}
+              style={{ fontSize: "14.5px" }}
               className="fs-14 text-light extra-bold-dark w-100"
             >
               Sign up

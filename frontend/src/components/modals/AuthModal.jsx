@@ -38,6 +38,11 @@ export default function AuthModal({ type, click }, props) {
     password: "",
     username: "",
   });
+
+   const [loginformdata, setLoginFormData] = useState({
+     email: "Abdul-KhaliqZainHarb@gmail.com",
+     password: "12345",
+   });
   const { email, password, firstname, lastname } = formdata;
 
   // dispatch
@@ -61,7 +66,9 @@ export default function AuthModal({ type, click }, props) {
     e.preventDefault();
     if (auth) {
       // dispatch(loginCustomer(formdata));
-      dispatch(loginCustomer({ email, password }));
+      dispatch(
+        loginCustomer({ email: loginformdata.email, password: loginformdata?.password })
+      );
       // console.log("login");
     } else {
       dispatch(registerCustomer({ email, firstname, lastname, password }));
@@ -182,7 +189,7 @@ export default function AuthModal({ type, click }, props) {
                       onChange={onChange}
                       type={input.type}
                       name={input.name}
-                      value={formdata[input.name]}
+                      value={loginformdata[input.name]}
                       input={input}
                       key={input.id}
                       required={true}
@@ -214,7 +221,7 @@ export default function AuthModal({ type, click }, props) {
           </form>
 
           <div className="flex column gap-1" style={{ marginTop: "1rem" }}>
-            <div className="option">or</div>
+            {/* <div className="option">or</div>
 
             <div className="flex column gap-1">
               <div
@@ -226,13 +233,13 @@ export default function AuthModal({ type, click }, props) {
                   Continue with Google
                 </div>{" "}
               </div>
-            </div>
-            <div className="w-100 fs-12 text-light text-grey text-center">
+            </div> */}
+            <div className="w-100 fs-14 text-light text-grey text-center">
               {!auth ? "Already a member?" : "Not a member?"}{" "}
               <span
                 style={{ textDecoration: "underline", cursor: "pointer" }}
                 onClick={() => setAuth(!auth)}
-                className="text-red fs-12 text-bold"
+                className="text-red fs-14 text-bold"
               >
                 {auth ? "Sign Up" : "Sign In"}
               </span>

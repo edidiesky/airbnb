@@ -578,7 +578,7 @@ const HeaderWrapper = styled.div`
     @media (min-width: 1807px) {
       right: 17%;
     }
-    li {
+    .li {
       padding: 0.7rem 1.3rem;
       cursor: pointer;
       border-radius: inherit;
