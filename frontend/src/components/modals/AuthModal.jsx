@@ -202,7 +202,7 @@ export default function AuthModal({ type, click }, props) {
             )}
 
             <h5
-              style={{ margin: ".4rem auto", lineHeight: "1" }}
+              style={{ margin: ".4rem auto", lineHeight: "1.2" }}
               className="fs-10 text-light text--grey"
             >
               We’ll call or text you to confirm your number. Standard message
@@ -213,7 +213,7 @@ export default function AuthModal({ type, click }, props) {
             </h5>
             <button
               type="submit"
-              className="btn w-100 text-bold fs-14 text-white text-center"
+              className="btn w-100 text-bold fs-13 text-white text-center"
             >
               {" "}
               {!auth ? "Sign Up" : "Sign In"}
@@ -234,12 +234,12 @@ export default function AuthModal({ type, click }, props) {
                 </div>{" "}
               </div>
             </div> */}
-            <div className="w-100 fs-14 text-light text-grey text-center">
+            <div className="w-100 fs-13 text-light text-grey text-center">
               {!auth ? "Already a member?" : "Not a member?"}{" "}
               <span
                 style={{ textDecoration: "underline", cursor: "pointer" }}
                 onClick={() => setAuth(!auth)}
-                className="text-red fs-14 text-bold"
+                className="text-red fs-13 text-bold"
               >
                 {auth ? "Sign Up" : "Sign In"}
               </span>

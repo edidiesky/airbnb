@@ -18,23 +18,23 @@ const listdata = [
 const Footer = () => {
   return (
     // reviews
-    <FooterWrapper className="w-100 bottom flex column gap-2 py-2">
+    <FooterWrapper className="w-100 bottom flex column gap-1 py-2">
       <div className="w-85 auto flex column gap-3">
-        <h3 className="fs-20 text-bold">
+        <h3 className="fs-18 text-bold">
           Explore other options in and around Ubud
         </h3>
         <div className="grid w-100">
           {listdata.map((x) => {
-            return <div className="fs-14 text-dark text-light">{x}</div>;
+            return <div className="fs-13 text-dark text-light">{x}</div>;
           })}
         </div>
-        <div className="flex column gap-2">
-          <h3 className="fs-18 text-light">
+        <div className="flex column gap-1">
+          <h3 className="fs-16 text-light">
             Explore other options in and around Ubud
           </h3>
           <div className="grid w-100">
             {listdata.map((x) => {
-              return <div className="fs-14 text-dark text-light">{x}</div>;
+              return <div className="fs-13 text-dark text-light">{x}</div>;
             })}
           </div>
         </div>

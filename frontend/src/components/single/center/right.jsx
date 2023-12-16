@@ -43,7 +43,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
       <div className="RightCard">
         <div className="flex w-100 wrapper column gap-1 item-start">
           <div className="top flex justify-space w-100">
-            <h4 className="fs-24 text-dark text-extra-bold">
+            <h4 className="fs-20 text-dark text-extra-bold">
               ${GigsDetails?.listing_price}{" "}
               <span className="text-dark text-bold fs-12">/ night</span>
             </h4>
@@ -89,7 +89,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
                   height: "100%",
                   lineHeight:"20px"
                 }}
-                className=" fs-10 text-start flex-1 wrap family1 text-extra-bold "
+                className=" fs-10 text-start flex-1 wrap text-extra-bold "
               >
                 <div className="fs-12 block capitalize text-dark text-light">
                   <span className="uppercase fs-10 block">check-out</span>
@@ -109,7 +109,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
             >
               <div
                 style={{ padding: ".7rem" }}
-                className=" fs-10 flex-1 family1 text-extra-bold text-bold"
+                className=" fs-10 flex-1 text-extra-bold text-bold"
               >
                 GUESTS
                 <div className="fs-14 block text-dark text-light">
@@ -182,7 +182,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
       <div className="smallRCard flex item-center justify-space">
         <div className="w-90 auto flex item-center justify-space">
           <div className="flex column">
-            <h4 className="fs-24 text-dark text-extra-bold">
+            <h4 className="fs-20 text-dark text-extra-bold">
               ${GigsDetails?.listing_price}{" "}
               <span className="text-dark text-bold fs-12"> night</span>
             </h4>

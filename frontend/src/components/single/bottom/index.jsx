@@ -30,7 +30,7 @@ const BottomIndex = () => {
               }}
             />
             <div className="flex column item-start gap-2">
-              <h3 className="fs-24 text-dark text-bold">
+              <h3 className="fs-20 text-dark text-bold">
                 Hosted by {GigsDetails?.listing_host_Id?.username}
                 <span className="block fs-14 text-grey text-light">
                   Joined in August 2015
@@ -42,7 +42,7 @@ const BottomIndex = () => {
         <div className="flex column item-start gap-1 w-100">
           <div className="left flex flex-1 column gap-2">
             <div className="flex item-center gap-1">
-              <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+              <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
                 <Star /> 2,884 Reviews
               </h5>{" "}
             </div>
@@ -53,7 +53,7 @@ const BottomIndex = () => {
               {GigsDetails?.listing_host_Id?.username} is a Superhost
               <span
                 style={{ width: "100%" }}
-                className="block w-50 fs-16 text-dark text-light"
+                className="block w-50 fs-14 text-dark text-light"
               >
                 Superhosts are experienced, highly rated hosts who are committed
                 to providing great stays for guests.
@@ -62,20 +62,20 @@ const BottomIndex = () => {
           </div>
           <div className="right flex flex-1 column gap-2">
             <div className="flex column" style={{ gap: "1rem" }}>
-              <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+              <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
                 Language: English
               </h5>{" "}
-              <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+              <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
                 Response Time: 100%
               </h5>{" "}
-              <h5 className="fs-16 flex item-center gap-1 text-dark text-light">
+              <h5 className="fs-14 flex item-center gap-1 text-dark text-light">
                 Response Time: 100%
               </h5>{" "}
             </div>
             <div className="flex item-start">
               <Link
                 to={`/contact_host/${GigsDetails?._id}`}
-                className="contactBtn fs-16 text-bold"
+                className="contactBtn fs-14 text-bold"
               >
                 Contact Host
               </Link>

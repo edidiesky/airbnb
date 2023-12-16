@@ -245,7 +245,7 @@ export default function Card({ x, index, type }) {
                 className="w-100 flex item-center justify-space cardTop"
               >
                 <h4
-                  className="fs-16 text-extra-bold text-dark"
+                  className="fs-14 text-extra-bold text-dark"
                 >
                   {x?.listing_city}, {x?.listing_country}
                 </h4>
@@ -257,18 +257,18 @@ export default function Card({ x, index, type }) {
                   4.98
                 </div>
               </div>
-              <div className="flex column">
-                <h4 className="text-grey fs-14 text-light">
+              <div className="flex family1 column">
+                <h4 className="text-grey family1 fs-16 text-light">
                   {x?.listing_distance} kilometers away
                 </h4>
-                <h4 className=" text-grey fs-14 text-light">
+                <h4 className=" text-grey family1 fs-16 text-light">
                   {startDate} - {endDate}
                 </h4>
-                {/* <h4 className="fs-14 text-grey text-light">{x?.listing_date}</h4> */}
+                {/* <h4 className="fs-16 text-grey family1 text-light">{x?.listing_date}</h4> */}
               </div>
               <h4 className="text-bold fs-15 text-dark">
                 ${x?.listing_price}{" "}
-                <span className="text-light fs-14 text-grey">night</span>
+                <span className="text-light fs-16 text-grey family1">night</span>
               </h4>
             </Link>
           </div>

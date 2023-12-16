@@ -34,7 +34,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     paddingBottom: "12px",
     fontSize: "16px",
     fontWeight: "400",
-    fontFamily: "Nunito, sans-serif",
+    fontFamily: "Barlow, sans-serif",
     color: "var(--dark-1)",
   },
   "& .MuiInputLabel-root": {

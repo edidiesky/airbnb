@@ -11,21 +11,21 @@ const TopIndex = () => {
   return (
     <div className="w-100 flex column gap-2">
       <div className="flex w-100 column" style={{ gap: ".4rem" }}>
-        <h2 className="fs-25 text-bold">{GigsDetails?.listing_title}</h2>
+        <h2 className="fs-24 text-extra-bold">{GigsDetails?.listing_title}</h2>
         <div style={{ flexWrap: "wrap" }} className="w-100 flex item-center">
           <h5
-            className="fs-16 flex item-center text-dark text-bold"
+            className="fs-14 flex item-center text-dark text-bold"
             style={{ gap: ".3rem", flexWrap: "wrap" }}
           >
-            <Star /> <span className="fs-16">4.92</span>{" "}
+            <Star /> <span className="fs-14">4.92</span>{" "}
             <span
-              className="fs-16 text-dark flex item-center"
+              className="fs-14 text-dark flex item-center"
               style={{ textDecoration: "underline", gap: ".5rem" }}
             >
               <Person /> Superhost
             </span>{" "}
             <span
-              className="fs-16 text-dark"
+              className="fs-14 text-dark"
               style={{ textDecoration: "underline" }}
             >
               {GigsDetails?.listing_city},{" "} {GigsDetails?.listing_country}

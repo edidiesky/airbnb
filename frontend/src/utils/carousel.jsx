@@ -1,5 +1,5 @@
 export const options2 = {
-  items: 9,
+  items: 11,
   nav: true,
   dots: false,
   loop: true,
@@ -15,7 +15,7 @@ export const options2 = {
       items: 6,
     },
     1024: {
-      items: 9,
+      items: 11,
     },
   },
 };

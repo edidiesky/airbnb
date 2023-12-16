@@ -34,50 +34,50 @@ const listsdata4 = [
 const Footer = () => {
   return (
     // reviews
-    <FooterWrapper className="w-100 bottom flex column gap-2 py-2">
+    <FooterWrapper className="w-100 bottom flex column gap-1 py-2">
       <div className="w-85 auto grid column gap-3">
-        <div className="flex column gap-2 w-100">
+        <div className="flex column gap-1 w-100">
           <h4 className="fs-16 text-bold">Support</h4>
           <div className="flex column gap-1">
             {listdata1.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-13 text-dark text-light">
                   {x}
                 </Link>
               );
             })}
           </div>
         </div>
-        <div className="flex column gap-2 w-100">
+        <div className="flex column gap-1 w-100">
           <h4 className="fs-16 text-bold">Community</h4>
           <div className="flex column gap-1">
             {listdata2.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-13 text-dark text-light">
                   {x}
                 </Link>
               );
             })}
           </div>
         </div>{" "}
-        <div className="flex column gap-2 w-100">
+        <div className="flex column gap-1 w-100">
           <h4 className="fs-16 text-bold">Hosting</h4>
           <div className="flex column gap-1">
             {listdata3.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-13 text-dark text-light">
                   {x}
                 </Link>
               );
             })}
           </div>
         </div>{" "}
-        <div className="flex column gap-2 w-100">
+        <div className="flex column gap-1 w-100">
           <h4 className="fs-16 text-bold">Airbnb</h4>
           <div className="flex column gap-1">
             {listsdata4.map((x) => {
               return (
-                <Link to={"/"} className="fs-14 text-dark text-light">
+                <Link to={"/"} className="fs-13 text-dark text-light">
                   {x}
                 </Link>
               );

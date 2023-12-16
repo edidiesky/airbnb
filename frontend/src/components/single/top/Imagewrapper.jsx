@@ -88,7 +88,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 6px;
-  min-height: 20rem;
+  height: 20rem;
   @media (max-width: 480px) {
     min-height: 14rem;
   }

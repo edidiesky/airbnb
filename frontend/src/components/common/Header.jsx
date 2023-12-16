@@ -160,20 +160,6 @@ export default function ListingHeader({
                })}
              </SliderIndex>
            </div>
-           <div className="fiterWrapper flex item-center justify-end">
-             <div className="fs-12 text-bold fiterIcon gap-1 text-dark flex item-center justify-center">
-               <Filter />
-               Fiters
-             </div>
-           </div>
-           <div className="fiterWrapper flex item-center justify-end">
-             <div className="fs-12 text-bold fiterIcon gap-1 text-dark flex item-center justify-center">
-               Display before total taxes
-               <div className="rightIcons">
-                 <div className="icons"></div>
-               </div>
-             </div>
-           </div>
          </div>
        </div>
      );
@@ -378,8 +364,8 @@ export default function ListingHeader({
                     style={{
                       width: "5rem",
                       height: "5rem",
-                      gap: ".6rem",
-                      fontSize: "12px",
+                      gap: ".4rem",
+                      fontSize: "11px",
                     }}
                     key={index}
                   >
@@ -398,7 +384,7 @@ export default function ListingHeader({
               })}
             </SliderIndex>
           </div>
-          <div className="fiterWrapper flex item-center justify-end">
+          {/* <div className="fiterWrapper flex item-center justify-end">
             <div className="fs-12 text-bold fiterIcon gap-1 text-dark flex item-center justify-center">
               <Filter />
               Fiters
@@ -411,7 +397,7 @@ export default function ListingHeader({
                 <div className="icons"></div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -441,8 +427,7 @@ const HeaderWrapper = styled.div`
     position: absolute;
   }
   .bottomWrapper {
-    display: grid;
-    grid-template-columns: 1fr 50px 270px;
+    /* grid-template-columns: 1fr 50px 270px; */
     grid-gap:2rem;
     padding-top: 0.6rem;
     @media (max-width: 1080px) {
