@@ -1,28 +1,28 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
-// import cloudinary from "cloudinary";
-// import multer from "multer";
-// import cloudinaryStorage from "multer-storage-cloudinary";
+import cloudinary from "cloudinary";
+import multer from "multer";
+import cloudinaryStorage from "multer-storage-cloudinary";
 
-// const cloudinaryModule = cloudinary.v2;
-// // console.log(process.env.cloud_name);
+const cloudinaryModule = cloudinary.v2;
+// console.log(process.env.cloud_name);
 
-// cloudinaryModule.config({
-//   cloud_name: process.env.cloud_name,
-//   api_key: process.env.cloud_key,
-//   api_secret: process.env.cloud_secret,
-// });
+cloudinaryModule.config({
+  cloud_name: process.env.cloud_name,
+  api_key: process.env.cloud_key,
+  api_secret: process.env.cloud_secret,
+});
 
 const router = express.Router();
 // Configure Multer
-// const storage = cloudinaryStorage({
-//   cloudinary: cloudinaryModule,
-//   destination: "airbnb", // Specify the folder in Cloudinary
-//   allowedFormats: ["jpg", "jpeg", "png"],
-//   transformation: [{ width: 500, height: 500, crop: "limit" }],
-// });
-// const upload = multer({ storage });
+const storage = cloudinaryStorage({
+  cloudinary: cloudinaryModule,
+  destination: "airbnb", // Specify the folder in Cloudinary
+  allowedFormats: ["jpg", "jpeg", "png"],
+  transformation: [{ width: 500, height: 500, crop: "limit" }],
+});
+const upload = multer({ storage });
 
 // router.post("/", upload.array("files", 4), async (req, res) => {
 //   try {
