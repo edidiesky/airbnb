@@ -42,9 +42,9 @@ export default function PaymentIndex() {
 
 const PaymentIndexContent = styled.div`
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 4rem;
   @media (max-width: 780px) {
-    padding-top: 0rem;
+    padding-top: 2rem;
   }
   .path {
     @media (max-width: 780px) {

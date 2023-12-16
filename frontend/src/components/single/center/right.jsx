@@ -198,7 +198,7 @@ const RightCenter = ({ limit, dateRange, handleCreateReservation }) => {
           </div>
           <div
             onClick={handleCreateReservation}
-            className="reserveBtn fs-16 text-bold text-white flex justify-center item-center"
+            className="reserveBtn fs-14 text-bold text-white flex justify-center item-center"
           >
             {ReservationsIsLoading ? (
               <span className="flex w-85 auto gap-2 item-center justify-center">

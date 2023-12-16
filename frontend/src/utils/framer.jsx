@@ -97,19 +97,19 @@ export const slideUp = {
 export const dropin1 = {
   hidden: {
     scale: 0,
-    top: "35%",
+    top: "70%",
     opacity: 0,
     visibility: "hidden",
   },
   visible: {
     scale: 1,
-    top: "35%",
+    top: "70%",
     opacity: 1,
     visibility: "visible",
   },
   exit: {
     scale: 0,
-    top: "35%",
+    top: "70%",
     opacity: 0,
   },
 };

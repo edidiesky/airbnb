@@ -24,7 +24,7 @@ export default function RightIndex() {
                   }
                 )}
               </div>
-              <h4 className="fs-18 w-100 text-dark text-light">
+              <h4 className="fs-14 w-100 text-dark text-light">
                 <span className="block fs-12 text-dark text-light">
                   Room in bed and breakfast
                 </span>
@@ -34,10 +34,10 @@ export default function RightIndex() {
             </div>
           </div>
           <div className="top flex justify-space w-100">
-            <h4 className="fs-20 text-dark text-bold">Price Details</h4>
+            <h4 className="fs-18 text-dark text-bold">Price Details</h4>
           </div>
           <div className="flex bottom w-100 column gap-1">
-            <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
+            <h4 className="fs-14 text-light text-dark w-100 justify-space flex item-center">
               <span style={{ textDecoration: "underline" }}>
                 ${ReservationsDetails?.listing_Id?.listing_price} x{" "}
                 {differenceInDays} nights
@@ -48,11 +48,11 @@ export default function RightIndex() {
                   differenceInDays).toFixed(2)}
               </span>
             </h4>{" "}
-            <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
+            <h4 className="fs-14 text-light text-dark w-100 justify-space flex item-center">
               <span style={{ textDecoration: "underline" }}>Cleaning fee</span>
               <span className="text-dark">$50</span>
             </h4>
-            <h4 className="fs-16 text-light text-dark w-100 justify-space flex item-center">
+            <h4 className="fs-14 text-light text-dark w-100 justify-space flex item-center">
               <span style={{ textDecoration: "underline" }}>
                 Airbnb service fee
               </span>
@@ -66,7 +66,7 @@ export default function RightIndex() {
               </span>
             </h4>
           </div>
-          <h4 className="fs-16 text-extra-bold family1 text-dark w-100 justify-space flex item-center">
+          <h4 className="fs-14 text-extra-bold text-dark w-100 justify-space flex item-center">
             <span style={{ textDecoration: "underline" }}>Total (USD)</span>
             <span className="text-dark">
               $

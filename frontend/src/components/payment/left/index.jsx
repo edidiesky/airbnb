@@ -193,17 +193,17 @@ export default function SingleLeftIndex({ id }) {
           className="flex w-100 column gap-1 bottom"
           style={{ paddingBottom: "1.6rem" }}
         >
-          <h3 className="fs-20 text-extra-bold">Your trip</h3>
+          <h3 className="fs-18 text-extra-bold">Your trip</h3>
           <div className="w-100 flex column gap-1">
             <div className="w-100 flex item-center justify-space">
-              <h4 className="fs-18 text-bold">
+              <h4 className="fs-14 text-bold">
                 Dates
-                <span className="block fs-16 text-grey text-light">
+                <span className="block fs-14 text-grey text-light">
                   <span>{startDate}</span> – <span>{endDate}</span>
                 </span>
               </h4>
               <div
-                className="fs-18 edit text-extra-bold"
+                className="fs-14 edit text-extra-bold"
                 style={{ textDecoration: "underline" }}
                 onClick={() => dispatch(onCalendarModal())}
               >
@@ -211,14 +211,14 @@ export default function SingleLeftIndex({ id }) {
               </div>
             </div>{" "}
             <div className="w-100 flex item-center justify-space">
-              <h4 className="fs-18 text-bold">
+              <h4 className="fs-14 text-bold">
                 Guests
-                <span className="block fs-16 text-grey text-light">
+                <span className="block fs-14 text-grey text-light">
                   {children + infants + adults} guests
                 </span>
               </h4>
               <div
-                className="fs-18 edit text-extra-bold"
+                className="fs-14 edit text-extra-bold"
                 onClick={() => dispatch(onSelectModal())}
                 style={{ textDecoration: "underline" }}
               >
@@ -230,14 +230,14 @@ export default function SingleLeftIndex({ id }) {
         <div className="border flex column w-100">
           <h4 className="fs-16 text-dark">
             This is a rare find.
-            <span className="text-dark py-1 block text-light fs-18">
+            <span className="text-dark py-1 block text-light fs-16">
               Alyson's place is usually booked.
             </span>
           </h4>
         </div>
         {/* policy */}
         <div className="flex column gap-1 bottom">
-          <h3 className="fs-20 text-extra-bold">Cancellation policy</h3>
+          <h3 className="fs-18 text-extra-bold">Cancellation policy</h3>
           <h4 className="fs-14 family1 text-light">
             <span className="text-bold" style={{ textDecoration: "underline" }}>
               Free cancellation before Nov 9.
@@ -250,8 +250,8 @@ export default function SingleLeftIndex({ id }) {
         </div>
         {/* rules */}
         <div className="flex column bottom">
-          <h3 className="fs-20 text-extra-bold">Ground rules</h3>
-          <h4 className="fs-16 text-light">
+          <h3 className="fs-18 text-extra-bold">Ground rules</h3>
+          <h4 className="fs-14 text-light">
             We ask every guest to remember a few simple things about what makes
             a great guest.
           </h4>
@@ -285,7 +285,7 @@ export default function SingleLeftIndex({ id }) {
           damage.
         </h5>
         <div className="w-50 flex item-center">
-          <div onClick={handleOrderCreation} className="btn text-bold fs-16 text-white">
+          <div onClick={handleOrderCreation} className="btn text-bold fs-14 text-white">
             {orderisLoading ? (
               <span className="flex w-100 gap-2 item-center justify-space">
                 Processing <LoaderIndex color={'#Fff'} type={"dots"} />
