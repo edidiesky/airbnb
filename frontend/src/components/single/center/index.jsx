@@ -137,7 +137,7 @@ const CenterWrapper = styled.div`
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 1fr auto;
-    min-height: 70vh;
+    /* min-height: 70vh; */
     @media (max-width: 1080px) {
       display: flex;
       flex-direction: column-reverse;

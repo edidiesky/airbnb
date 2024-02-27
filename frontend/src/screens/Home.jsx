@@ -22,6 +22,7 @@ import { BsMap } from "react-icons/bs";
 import Map from "../components/common/svg/map";
 import Maps from "../components/process/Map";
 import Message from "../components/loaders/Message";
+import MapBox from "../components/home/map";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -152,16 +153,17 @@ export default function Home() {
           <HomeContainer style={{ minHeight: "100vh" }}>
             {/* {map ? <Maps /> : <HomeIndex />} */}
             <Message showAlert={showAlert} alertText={alertText} />
-            <HomeIndex />
-            {/* 
+
+            {map ? <MapBox /> : <HomeIndex />}
+
             <div
               style={{ gap: ".6rem" }}
               onClick={() => setMap(!map)}
               className="showmapBtn fs-14 flex item-center"
             >
               {" "}
-              {!map?'Show Map':"Hide Map"} <Map />
-            </div> */}
+              {!map ? "Show Map" : "Hide Map"} <Map />
+            </div>
           </HomeContainer>
         </>
       )}
