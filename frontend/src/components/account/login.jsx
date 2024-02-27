@@ -9,8 +9,7 @@ export default function SecurityInfo({ type }) {
         <div className="aboutCenter flex item-center gap-3 justify-center w-85 auto"></div>
       </SecurityInfoContainer>
     </>
-  )
-  
+  );
 }
 
 const SecurityInfoContainer = styled.div`

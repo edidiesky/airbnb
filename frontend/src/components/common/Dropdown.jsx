@@ -93,14 +93,14 @@ const Dropdown = ({ setDrop, drop, type }) => {
             <li
               onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "14.5px" }}
-              className="fs-14 text-light li text-bold-100"
+              className=" li fs-14 text-light li text-bold-100"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "14.5px" }}
-              className="fs-14 text-light li text-bold dark w-100"
+              className="li fs-14 text-light li text-bold dark w-100"
             >
               Sign up
             </li>
@@ -115,7 +115,7 @@ const Dropdown = ({ setDrop, drop, type }) => {
             <li
               onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "12px" }}
-              className="fs-14 text-light li w-100"
+              className="li fs-14 text-light li w-100"
             >
               Airbnb Your Home
             </li>

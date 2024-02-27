@@ -14,12 +14,11 @@ export default function LayoutSecurity({ type }) {
     setHeight(height);
   }, []);
 
-
   return (
     <LayoutContainer className="layout" style={{ height }}>
-      <ListingHeader type={'account'} />
-      <div style={{minHeight:"100vh"}} className="">
-      <Outlet />
+      <ListingHeader type={"account"} />
+      <div style={{ minHeight: "100vh" }} className="">
+        <Outlet />
       </div>
       <Footer />
     </LayoutContainer>
