@@ -30,22 +30,22 @@ const Dropdown = ({ setDrop, drop, type }) => {
         <div style={{ gap: ".2rem" }} className="flex column w-100">
           <div className="w-100 flex column">
             {/* <Link
-              className="w-100 li fs-12 text-bold text-dark"
+              className="w-100 li fs-14 text-bold text-dark"
               to={"/guest/inbox/"}
             >
               Messages
             </Link>{" "} */}
             <Link
-              className="w-100 li fs-12 text-bold text-dark"
+              className="w-100 li fs-14 text-bold text-dark"
               to={"/wishlists"}
             >
               Wishlists
             </Link>{" "}
-            <Link className="w-100 li fs-12 text-bold text-dark" to={"/order"}>
+            <Link className="w-100 li fs-14 text-bold text-dark" to={"/order"}>
               Orders
             </Link>{" "}
             <Link
-              className="w-100 li fs-12 text-bold text-dark"
+              className="w-100 li fs-14 text-bold text-dark"
               to={"/reservations"}
             >
               Reservations
@@ -59,14 +59,14 @@ const Dropdown = ({ setDrop, drop, type }) => {
             className="w-100 flex column"
           >
             <Link
-              className="w-100 li fs-12 text-bold text-dark"
+              className="w-100 li fs-14 text-bold text-dark"
               to={"/dashboard/hosting"}
             >
               Manage Listings
             </Link>
 
             <Link
-              className="w-100 li fs-12 text-bold text-dark"
+              className="w-100 li fs-14 text-bold text-dark"
               to={"/account-settings"}
             >
               Account
@@ -81,7 +81,7 @@ const Dropdown = ({ setDrop, drop, type }) => {
           >
             <li
               onClick={handleLogOut}
-              className="fs-12 text-light text-dark w-100 li"
+              className="fs-14 text-light text-dark w-100 li"
             >
               Logout
             </li>
@@ -92,15 +92,15 @@ const Dropdown = ({ setDrop, drop, type }) => {
           <div className="w-100">
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "12.5px" }}
-              className="fs-12 text-light li text-bold-100"
+              style={{ fontSize: "14.5px" }}
+              className="fs-14 text-light li text-bold-100"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "12.5px" }}
-              className="fs-12 text-light li text-bold dark w-100"
+              style={{ fontSize: "14.5px" }}
+              className="fs-14 text-light li text-bold dark w-100"
             >
               Sign up
             </li>
@@ -115,7 +115,7 @@ const Dropdown = ({ setDrop, drop, type }) => {
             <li
               onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "12px" }}
-              className="fs-12 text-light li w-100"
+              className="fs-14 text-light li w-100"
             >
               Airbnb Your Home
             </li>

@@ -358,14 +358,14 @@ export default function ListingHeader({
                     onClick={() => handleListingType(index, x.text)}
                     className={
                       tab === index
-                        ? "flex column text-bold imagewrapper item-center fs-10 text-dark active"
-                        : "flex column text-bold imagewrapper item-center fs-10 text-dark"
+                        ? "flex column text-bold imagewrapper item-center fs-13 text-dark active"
+                        : "flex column text-bold imagewrapper item-center fs-13 text-dark"
                     }
                     style={{
                       width: "5rem",
                       height: "5rem",
                       gap: ".4rem",
-                      fontSize: "11px",
+                      fontSize: "13px",
                     }}
                     key={index}
                   >
@@ -374,8 +374,8 @@ export default function ListingHeader({
                       alt=""
                       className="image"
                       style={{
-                        width: "1.4rem",
-                        height: "1.4rem",
+                        width: "1.5rem",
+                        height: "1.5rem",
                       }}
                     />
                     {x.text}
@@ -664,6 +664,10 @@ const HeaderWrapper = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.3);
     padding: 0.3rem 0.6rem;
     flex: 1;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
   }
   .center {
     padding: 0.6rem 1.4rem;
