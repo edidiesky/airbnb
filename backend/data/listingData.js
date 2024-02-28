@@ -14,8 +14,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-    listing_startDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
+    listing_startDate: "4/24/2024",
     listing_distance: 6798,
     latitude: "41.9028",
     longitude: "12.4964",
@@ -41,8 +41,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-    listing_startDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
+    listing_startDate: "4/24/2024",
     listing_distance: 6798,
     latitude: "41.9028",
     longitude: "12.4964",
@@ -68,8 +68,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-    listing_startDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
+    listing_startDate: "4/24/2024",
     listing_distance: 6798,
     latitude: "41.9028",
     longitude: "12.4964",
@@ -96,9 +96,11 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-    listing_startDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
+    listing_startDate: "4/24/2024",
     listing_distance: 6798,
+    latitude: "40.9028",
+    longitude: "12.4964",
 
     listing_image: [
       "https://a0.muscache.com/im/pictures/247f5ad6-0f3b-4f19-802d-87894bb47dad.jpg?im_w=960",
@@ -121,9 +123,10 @@ const listingData = [
     listing_bathrooms: 2,
     listing_bedrooms: 12,
     listing_duration: 6,
-    listing_endDate: "8/24/2023",
-
-    listing_startDate: "7/28/2023",
+    listing_endDate: "8/24/2024",
+    latitude: "41.9028",
+    longitude: "12.4964",
+    listing_startDate: "7/28/2024",
     listing_distance: 3888,
     listing_image: [
       "https://a0.muscache.com/im/pictures/44206f8b-3025-45d2-a8a4-31906521b6d6.jpg?im_w=720",
@@ -146,10 +149,11 @@ const listingData = [
     listing_bathrooms: 7,
     listing_bedrooms: 3,
     listing_duration: 7,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/31/2023",
+    listing_startDate: "7/31/2024",
     listing_distance: 7317,
+
     listing_image: [
       "https://a0.muscache.com/im/pictures/86021025/5f1ce3a7_original.jpg?im_w=720",
       "https://a0.muscache.com/im/pictures/86021025/5f1ce3a7_original.jpg?im_w=720",
@@ -172,9 +176,9 @@ const listingData = [
     listing_bathrooms: 9,
     listing_bedrooms: 6,
     listing_duration: 5,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/21/2023",
+    listing_startDate: "7/21/2024",
     listing_distance: 7459,
     listing_image: [
       "https://a0.muscache.com/im/pictures/92fbb217-a460-4f5b-b604-3f08c72a23ac.jpg?im_w=720",
@@ -199,9 +203,9 @@ const listingData = [
     listing_bathrooms: 1,
     listing_bedrooms: 8,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/23/2023",
+    listing_startDate: "7/23/2024",
     listing_distance: 7966,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52313793/original/6005df3e-de4c-4020-b1c9-c12b46a46991.jpeg?im_w=720",
@@ -223,9 +227,9 @@ const listingData = [
     listing_bathrooms: 2,
     listing_bedrooms: 11,
     listing_duration: 11,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/22/2023",
+    listing_startDate: "7/22/2024",
     listing_distance: 5622,
     listing_image: [
       "https://a0.muscache.com/im/pictures/e285c86c-8954-40f5-94fe-b93abf90af93.jpg?im_w=720",
@@ -248,10 +252,13 @@ const listingData = [
     listing_bathrooms: 11,
     listing_bedrooms: 5,
     listing_duration: 4,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/26/2023",
+    listing_startDate: "7/26/2024",
     listing_distance: 5144,
+
+    latitude: "41.9028",
+    longitude: "12.4964",
     listing_image: [
       "https://a0.muscache.com/im/pictures/025cf9ec-2242-49a2-a0b0-24877e3f0cac.jpg?im_w=720",
       "https://a0.muscache.com/im/pictures/025cf9ec-2242-49a2-a0b0-24877e3f0cac.jpg?im_w=720",
@@ -272,9 +279,9 @@ const listingData = [
     listing_bathrooms: 12,
     listing_bedrooms: 11,
     listing_duration: 4,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/27/2023",
+    listing_startDate: "7/27/2024",
     listing_distance: 3855,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-49041850/original/7f0a5418-cfb6-4ed5-8339-0464a82b024d.jpeg?im_w=720",
@@ -296,9 +303,9 @@ const listingData = [
     listing_bathrooms: 12,
     listing_bedrooms: 2,
     listing_duration: 12,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/29/2023",
+    listing_startDate: "7/29/2024",
     listing_distance: 1186,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-558399875078673037/original/18304c4d-b6b1-46fc-b032-413bfa1f2779.jpeg?im_w=720",
@@ -321,9 +328,9 @@ const listingData = [
     listing_bathrooms: 6,
     listing_bedrooms: 2,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "8/1/2023",
+    listing_startDate: "8/1/2024",
     listing_distance: 7990,
     listing_image: [
       "https://a0.muscache.com/im/pictures/e22f475d-3328-4070-88d2-5a5478dbcefd.jpg?im_w=720",
@@ -345,9 +352,9 @@ const listingData = [
     listing_bathrooms: 8,
     listing_bedrooms: 2,
     listing_duration: 1,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/30/2023",
+    listing_startDate: "7/30/2024",
     listing_distance: 2630,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-715865637234539328/original/a85f325e-b1c0-41d6-b0e0-5b6d2ae81359.jpeg?im_w=720",
@@ -371,8 +378,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-    listing_startDate: "8/14/2023",
+    listing_endDate: "8/24/2024",
+    listing_startDate: "8/14/2024",
     listing_distance: 6798,
 
     listing_image: [
@@ -396,8 +403,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/27/2023",
-    listing_startDate: "8/10/2023",
+    listing_endDate: "8/27/2024",
+    listing_startDate: "8/10/2024",
     listing_distance: 61098,
 
     listing_image: [
@@ -423,8 +430,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/27/2023",
-    listing_startDate: "8/10/2023",
+    listing_endDate: "8/27/2024",
+    listing_startDate: "8/10/2024",
     listing_distance: 61098,
     listing_region: "I am flexible",
     listing_image: [
@@ -450,8 +457,8 @@ const listingData = [
     listing_bathrooms: 6,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/27/2023",
-    listing_startDate: "8/10/2023",
+    listing_endDate: "8/27/2024",
+    listing_startDate: "8/10/2024",
     listing_distance: 61098,
     listing_region: "I am flexible",
     listing_image: [
@@ -476,8 +483,8 @@ const listingData = [
     listing_bathrooms: 10,
     listing_bedrooms: 4,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-    listing_startDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
+    listing_startDate: "4/24/2024",
     listing_distance: 6798,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-432044/original/f2d20695-680c-4637-b72c-80238c0dd384.jpeg?im_w=720",
@@ -502,9 +509,9 @@ const listingData = [
     listing_bathrooms: 12,
     listing_bedrooms: 7,
     listing_duration: 8,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/30/2023",
+    listing_startDate: "7/30/2024",
     listing_distance: 4338,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-635437605163910390/original/eaf8887f-410f-41e4-be1b-88c2a74fbfcf.jpeg?im_w=720",
@@ -528,9 +535,9 @@ const listingData = [
     listing_bathrooms: 8,
     listing_bedrooms: 10,
     listing_duration: 7,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/26/2023",
+    listing_startDate: "7/26/2024",
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/a1cf4c19-a156-439d-bb5c-8d0e13544ed0.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
@@ -554,9 +561,9 @@ const listingData = [
     listing_bathrooms: 1,
     listing_bedrooms: 6,
     listing_duration: 7,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/21/2023",
+    listing_startDate: "7/21/2024",
     listing_distance: 1424,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720",
@@ -580,9 +587,9 @@ const listingData = [
     listing_bathrooms: 6,
     listing_bedrooms: 6,
     listing_duration: 11,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/23/2023",
+    listing_startDate: "7/23/2024",
     listing_distance: 6011,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52313793/original/6005df3e-de4c-4020-b1c9-c12b46a46991.jpeg?im_w=720",
@@ -606,9 +613,9 @@ const listingData = [
     listing_bathrooms: 2,
     listing_bedrooms: 6,
     listing_duration: 9,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/18/2023",
+    listing_startDate: "7/18/2024",
     listing_distance: 1833,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-31508919/original/f5cd57a3-b42d-4211-a73c-047c6cc2fc13.jpeg?im_w=720",
@@ -630,9 +637,10 @@ const listingData = [
     listing_bathrooms: 1,
     listing_bedrooms: 11,
     listing_duration: 3,
-    listing_endDate: "8/24/2023",
-
-    listing_startDate: "7/31/2023",
+    listing_endDate: "8/24/2024",
+    latitude: "41.9028",
+    longitude: "12.4964",
+    listing_startDate: "7/31/2024",
     listing_distance: 2368,
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-331330/original/629cfe98-225b-46e2-b36c-4fa2c49dc7d7.jpeg?im_w=720",
@@ -657,9 +665,9 @@ const listingData = [
     listing_bathrooms: 8,
     listing_bedrooms: 4,
     listing_duration: 4,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/22/2023",
+    listing_startDate: "7/22/2024",
     listing_distance: 4475,
     listing_image: [
       "https://a0.muscache.com/im/pictures/86021002/22f844ab_original.jpg?im_w=720",
@@ -684,9 +692,9 @@ const listingData = [
     listing_bathrooms: 3,
     listing_bedrooms: 6,
     listing_duration: 1,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/23/2023",
+    listing_startDate: "7/23/2024",
     listing_distance: 239,
     listing_image: [
       "https://a0.muscache.com/im/pictures/6c2745b4-2155-44d6-abca-24e80e248d26.jpg?im_w=720",
@@ -709,10 +717,13 @@ const listingData = [
     listing_bathrooms: 8,
     listing_bedrooms: 6,
     listing_duration: 7,
-    listing_endDate: "8/24/2023",
+    listing_endDate: "8/24/2024",
 
-    listing_startDate: "7/28/2023",
+    listing_startDate: "7/28/2024",
     listing_distance: 6922,
+
+    latitude: "41.9028",
+    longitude: "12.4964",
     listing_image: [
       "https://a0.muscache.com/im/pictures/miso/Hosting-52689018/original/80443289-6c3b-49ad-974f-b16b3b0dec4f.jpeg?im_w=720",
       "https://a0.muscache.com/im/pictures/miso/Hosting-52689018/original/80443289-6c3b-49ad-974f-b16b3b0dec4f.jpeg?im_w=720",

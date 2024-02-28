@@ -31,7 +31,7 @@ export default function GigsIndex({ loader }) {
                 </span>
                 <h4 className="fs-24 text-center text-bold">
                   Sorry no listings found for this category
-                  <span className="block text-light text-center fs-14 text-grey">
+                  <span className="block py-1 text-light text-center fs-14 text-grey">
                     Please check for any other category.. or you can create your
                     own listing
                   </span>
