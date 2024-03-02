@@ -80,8 +80,8 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 10px 30px;
-        font-size: 1.45rem;
-        min-height: 6rem;
+        font-size: 15px;
+        min-height: 60px;
         font-weight: 500;
         margin: 0 auto;
         width: 100%;

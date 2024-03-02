@@ -85,10 +85,10 @@ body {
   --light-grey: rgb(113, 113, 113);
   --grey-2: #f7f7f7;
 }
-
+/* 
 html {
   font-size: 62.5%;
-}
+} */
 
 .family1 {
   font-family: "Barlow", sans-serif;

@@ -144,7 +144,7 @@ export const Table = styled.div`
             background: rgb(0 0 0 / 13%);
           }
           th {
-            font-size: 1.3rem;
+            font-size: 13px;
             color: var(--blue-3);
             font-weight: 600;
             text-align: start;
@@ -170,7 +170,7 @@ export const Table = styled.div`
             }
           }
           td {
-            font-size: 1.2rem;
+            font-size: 13px;
             font-weight: 500;
             text-align: start;
             padding: 1.5rem;
