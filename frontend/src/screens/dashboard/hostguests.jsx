@@ -20,6 +20,4 @@ const HostGuestsPlaceContainer = styled.div`
   .wrapper {
     width: 90%;
   }
-  /* overflow: hidden; */
-  /* min-height: 70vh; */
 `;
