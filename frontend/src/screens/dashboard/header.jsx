@@ -19,7 +19,7 @@ const HeaderWrapper = styled.div`
   z-index: 2000;
   color: #fff;
   .wrapper {
-    width: 90%;
+    width: 91%;
   }
   h3 {
     font-family: "Montserrat", sans-serif;
