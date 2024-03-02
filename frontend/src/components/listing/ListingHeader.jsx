@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../common/svg/Logo";
 import Dropdown from "../common/Dropdown";
 import { useSelector } from "react-redux";
+import { BiSearch } from "react-icons/bi";
 
 const sidebarData = [
   {
@@ -31,30 +32,22 @@ export default function ListingHeader({ type }) {
   if (type === "dashboard") {
     return (
       <>
-        <ListingHeaderContainer className="type">
-          {/* <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
-            <Link to={"/"}>
-              <Logo2 />
-            </Link>
-            <div
-              style={{ gap: ".1rem" }}
-              className="flex list w-100 justify-center item-center"
-            >
-              {sidebarData.map((x) => {
-                return (
-                  <NavLink
-                    className="nav-link text-bold"
-                    activeClassName="active"
-                    to={`/dashboard/hosting/${x.path}`}
-                    key={x.id}
-                  >
-                    <span className="span"> {x.title}</span>
-                  </NavLink>
-                );
-              })}
+        <ListingHeaderContainer className="type w-100">
+          <div className="aboutCenter flex item-center gap-3 justify-space auto">
+            {/* <div className="flex-1"></div> */}
+            <div className="flex">
+              <form className="flex item-center form">
+                <BiSearch />
+                <input
+                  type="text"
+                  placeholder="Search Listings"
+                  className="search_input"
+                />
+              </form>
             </div>
-            <div className="flex top item-center gap-1 justify-end">
-              <AnimatePresence
+            <div className="w-100 flex-1 relative flex item-center justify-end">
+              <div className="flex top item-center gap-1 justify-end">
+                {/* <AnimatePresence
                 initial="false"
                 exitBeforeEnter={true}
                 onExitComplete={() => null}
@@ -62,34 +55,35 @@ export default function ListingHeader({ type }) {
                 {drop && (
                   <Dropdown setDrop={setDrop} drop={drop} type={"type"} />
                 )}
-              </AnimatePresence>
-              <div
-                onClick={() => setDrop(!drop)}
-                style={{
-                  width: "2.7rem",
-                  height: "2.7rem",
-                  borderRadius: "50%",
-                  background: "rgba(0,0,0,.1)",
-                  color: "#Fff",
-                }}
-                className="profile_wrapper flex item-center justify-center"
-              >
+              </AnimatePresence> */}
                 <div
+                  onClick={() => setDrop(!drop)}
                   style={{
-                    width: "2.4rem",
-                    height: "2.4rem",
+                    width: "2.7rem",
+                    height: "2.7rem",
                     borderRadius: "50%",
-                    background: "#000",
+                    background: "rgba(0,0,0,.1)",
                     color: "#Fff",
-                    border: "2px solid #fff",
                   }}
-                  className="fs-16 text-white flex item-center justify-center"
+                  className="profile_wrapper flex item-center justify-center"
                 >
-                  {userInfo?.firstname.charAt(0)}
+                  <div
+                    style={{
+                      width: "2.4rem",
+                      height: "2.4rem",
+                      borderRadius: "50%",
+                      background: "#000",
+                      color: "#Fff",
+                      border: "2px solid #fff",
+                    }}
+                    className="fs-16 text-white flex item-center justify-center"
+                  >
+                    {userInfo?.firstname.charAt(0)}
+                  </div>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </ListingHeaderContainer>
       </>
     );
@@ -166,9 +160,36 @@ const ListingHeaderContainer = styled.div`
   width: 100%;
   padding: 1rem 0;
   top: 0;
-  position: fixed;
+  position: sticky;
   z-index: 300;
   background-color: #fff;
+  .form {
+    width: 400px;
+    /* background-color: red; */
+    position: relative;
+    svg {
+      /* transform: translateX(170%); */
+      font-size: 20px;
+      position: absolute;
+      left: 4%;
+      color: var(--grey-1);
+    }
+    .search_input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: #f7f7f7;
+      padding: 16px 40px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 40px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--dark-1);
+      &:hover {
+        border: 1px solid rgba(0, 0, 0, 1);
+      }
+    }
+  }
   .list {
     @media (max-width: 780px) {
       display: none;
@@ -197,40 +218,6 @@ const ListingHeaderContainer = styled.div`
     }
   }
 
-  .nav-link {
-    padding: 7px 14px;
-    font-size: 14.5px;
-    color: var(--dark-1);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    border-radius: 40px;
-    position: relative;
-
-    &:hover {
-      background-color: #f7f7f7;
-      color: var(--dark-1);
-      /* font-weight: 700; */
-    }
-    &.active {
-      /* background-color: #000; */
-      /* color: #fff; */
-      background-color: #f7f7f7;
-      /* 
-          &::after {
-            position: absolute;
-            right: -6%;
-            content: "";
-            width: 4px;
-            height: 100%;
-            background-color: var(--red);
-            @media (max-width: 980px) {
-              display: none;
-            }
-          } */
-    }
-  }
   &.type {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
@@ -247,6 +234,8 @@ const ListingHeaderContainer = styled.div`
     }
   }
   .aboutCenter {
+    width: 90%;
+    justify-content: space-between;
     @media (max-width: 780px) {
       /* flex-direction: column; */
       /* align-items: flex-start; */

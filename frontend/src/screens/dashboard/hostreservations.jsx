@@ -9,7 +9,7 @@ export default function HostReservations() {
       <HostListingsPlaceContainer className="flex column item-center justify-center">
         <div
           className="w-100"
-          style={{ minHeight: "100vh", paddingTop: "8rem" }}
+          style={{ minHeight: "100vh", paddingTop: "2rem" }}
         >
           <HostReservationsIndex />
         </div>
@@ -21,7 +21,4 @@ export default function HostReservations() {
 
 const HostListingsPlaceContainer = styled.div`
   width: 100%;
-  /* overflow: hidden; */
-  /* min-height: 70vh; */
-  /* padding-top: 3rem; */
 `;

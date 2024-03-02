@@ -5,7 +5,10 @@ import Charts from "../common/charts";
 import { Card } from "../../common";
 import { getAllGigs } from "../../../Features/listing/listingReducer";
 import { useDispatch } from "react-redux";
-import { clearGigsAlert, getUserId } from "../../../Features/listing/listingSlice";
+import {
+  clearGigsAlert,
+  getUserId,
+} from "../../../Features/listing/listingSlice";
 import Widget from "../common/Widget";
 import { Table } from "../../common/styles";
 import TableCard from "../../common/TableCard";
@@ -20,7 +23,7 @@ export default function HostLsitingsIndex() {
   //
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    
+
     if (userInfo?._id) {
       dispatch(getAllGigs());
       dispatch(getUserId(userInfo?._id));
@@ -33,23 +36,19 @@ export default function HostLsitingsIndex() {
 
   return (
     <>
-      <HostLsitingsIndexPlaceContainer className="">
-        <div className="w-90 auto flex column gap-4">
+      <HostListingsIndexPlaceContainer className="w-100">
+        <div className="listingwrapper auto flex column gap-4">
           <div className="flex column gap-1">
-            <h3
-              className="fs-24 family2 text-dark text-bold"
-            >
+            <h3 className="fs-30 family2 text-dark text-extra-bold">
               Welcome back, {userInfo?.firstname}
+
+              <span className="block fs-16 text-light family1 py-1 text-grey">Welcome to your Dashboard, modify your listings and perform crud operation on them</span>
             </h3>
           </div>
-          <div className="flex column" style={{ gap: ".8rem" }}>
+          <div className="flex column w-100" style={{ gap: ".8rem" }}>
             <div className="flex item-center justify-space w-100">
               <div className="flex item-start column gap-1">
-                <h4
-                  className="fs-20 text-dark text-bold"
-                >
-                  Your reservations
-                </h4>
+                <h4 className="fs-20 text-dark text-bold">Your reservations</h4>
                 <div className="w-100 flex item-center gap-2">
                   {/* <label htmlFor="search"></label> */}
                   <div className="flex item-center form">
@@ -77,7 +76,7 @@ export default function HostLsitingsIndex() {
                       <thead>
                         <tr>
                           <th>Rooms Name</th>
-                          <th>TODO</th>
+                          {/* <th>TODO</th> */}
                           <th>STATUS</th>
                           <th>bedroom</th>
                           <th>baths</th>
@@ -163,15 +162,19 @@ export default function HostLsitingsIndex() {
             {/* orders */}
           </div>
         </div>
-      </HostLsitingsIndexPlaceContainer>
+      </HostListingsIndexPlaceContainer>
     </>
   );
 }
 
-const HostLsitingsIndexPlaceContainer = styled.div`
+const HostListingsIndexPlaceContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  padding-top: 6rem;
+  padding: 4rem 0;
+  padding-top: 2rem;
+  .listingwrapper {
+    width: 95%;
+  }
   .form {
     width: 400px;
     /* background-color: red; */
@@ -188,20 +191,20 @@ const HostLsitingsIndexPlaceContainer = styled.div`
       border: none;
       outline: none;
       background-color: #f7f7f7;
-      padding: 0.4rem 3rem;
-      border: 2px solid rgba(0, 0, 0, 0.1);
+      padding: 16px 40px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 40px;
       font-family: inherit;
       font-size: 14px;
       color: var(--dark-1);
       &:hover {
-        border: 2px solid rgba(0, 0, 0, 1);
+        border: 1px solid rgba(0, 0, 0, 1);
       }
     }
   }
   .headBtn {
-    border: 1px solid rgba(0, 0, 0, 1);
-    padding: 0.6rem 1.7rem;
+    border: 1px solid rgba(0, 0, 0, .5);
+    padding: 14px 24px;
     border-radius: 40px;
     cursor: pointer;
     &:hover {

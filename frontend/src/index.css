@@ -489,9 +489,9 @@ p {
   .w-90 {
     width: 95%;
   }
-  html {
+  /* html {
   font-size: 50%;
-}
+} */
 }
 
 @media (max-width: 580px) {

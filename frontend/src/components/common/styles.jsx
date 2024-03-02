@@ -151,7 +151,7 @@ export const Table = styled.div`
             text-transform: uppercase;
 
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 2rem 1.8rem;
+            padding: 25px 18px;
             font-family: "Barlow", sans-serif;
             transition: all 0.3s var(--transition-2);
           }
@@ -173,7 +173,7 @@ export const Table = styled.div`
             font-size: 13px;
             font-weight: 500;
             text-align: start;
-            padding: 1.5rem;
+            padding: 15px;
             color: var(--dark-1);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             .true {

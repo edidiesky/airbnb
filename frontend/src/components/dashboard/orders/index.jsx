@@ -16,54 +16,58 @@ export default function HostOrderIndex() {
   return (
     <>
       <HostOrderIndexPlaceContainer className="flex item-start column gap-2 justify-center">
-        <h3 className="fs-30 w-85 auto text-bold">My Orders</h3>
-        <div className="w-85 auto">
-          {order?.length > 0 ? (
-            <Table>
-              <div className="TableContainer">
-                <table className="tableWrapper">
-                  <thead>
-                    <tr>
-                      <th>Guest Info</th>
-                      <th>Guest Location</th>
-                      <th>Rooms Image</th>
-                      <th>Rooms Title</th>
-                      <th>Status</th>
-                      <th>Paid</th>
-                      <th>Check In</th>
-                      <th>Check Out</th>
-                      <th>Rate</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {order?.map((x) => {
-                      return (
-                        <TableCard type={"sellerorder"} x={x} key={x?._id} />
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-              {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
-            </Table>
-          ) : (
-            <h3 className="fs-24 w-100">
-              My Orders
-              <span
-                className=" w-100
+        <div className="wrapper auto flex column gap-3">
+          <h3 className="fs-30 w-100 family2 text-extra-bold">My Orders</h3>
+          <div className="w-100">
+            {order?.length > 0 ? (
+              <Table>
+                <div className="TableContainer">
+                  <table className="tableWrapper">
+                    <thead>
+                      <tr>
+                        <th>Guest Info</th>
+                        <th>Rooms Info</th>
+                        <th>Status</th>
+                        <th>Paid</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {order?.map((x) => {
+                        return (
+                          <TableCard type={"sellerorder"} x={x} key={x?._id} />
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
+              </Table>
+            ) : (
+              <h3 className="fs-24 w-100">
+                My Orders
+                <span
+                  className=" w-100
              block fs-16 w-90 text-light text-grey"
-              >
-                You have no orders
-              </span>
-            </h3>
-          )}
+                >
+                  You have no orders
+                </span>
+              </h3>
+            )}
+          </div>
         </div>
       </HostOrderIndexPlaceContainer>
+      {/* <Footer/> */}
     </>
   );
 }
 
 const HostOrderIndexPlaceContainer = styled.div`
   width: 100%;
-  padding: 7rem 0;
+  padding: 4rem 0;
+  .wrapper{
+    width: 90%;
+  }
 `;

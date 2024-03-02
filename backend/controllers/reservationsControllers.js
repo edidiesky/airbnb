@@ -9,7 +9,7 @@ const GetAllBuyerReservations = asyncHandler(async (req, res) => {
   const queryObject = { listing_host_Id: req.user.userId };
 
   let result = Reservations.find(queryObject)
-    .populate("listing_host_Id", "image username")
+    .populate("listing_host_Id", "image username email")
     .populate(
       "listing_Id",
       "listing_image listing_price listing_startDate listing_title listing_distance listing_location listing_endDate listing_adults listing_children listing_infants"

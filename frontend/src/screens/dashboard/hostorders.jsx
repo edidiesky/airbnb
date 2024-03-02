@@ -14,7 +14,4 @@ export default function HostOrders() {
 
 const HostOrdersPlaceContainer = styled.div`
   width: 100%;
-  /* overflow: hidden; */
-  /* min-height: 70vh; */
-  padding-top: 4rem;
 `;

@@ -49,7 +49,7 @@ export default function HostLayout() {
           <div className="sidebar_wrapper">
             <Sidebar />
           </div>
-          <div className="w-100 flex column gap-2">
+          <div className="w-100 flex column">
             <ListingHeader type={"dashboard"} />
             <Outlet />
           </div>

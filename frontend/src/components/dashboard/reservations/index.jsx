@@ -22,10 +22,10 @@ export default function HostReservationsIndex() {
   return (
     <>
       <HostReservationsIndexPlaceContainer className="flex item-center justify-center">
-        <div className="w-90 auto top item-start justify-center flex column">
+        <div className="wrapper auto top item-start justify-center flex column">
           {Reservations?.length > 0 ? (
             <div className="w-100 flex column gap-2">
-              <h3 className="fs-30 text-extra-bold">Reservations</h3>
+              <h3 className="fs-30 text-extra-bold family2">Reservations</h3>
 
               <Table>
                 <div className="TableContainer">
@@ -39,7 +39,7 @@ export default function HostReservationsIndex() {
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Price</th>
-                        <th>Location</th>
+                        {/* <th>Location</th> */}
                       </tr>
                     </thead>
                     <tbody>
@@ -85,8 +85,9 @@ export default function HostReservationsIndex() {
 
 const HostReservationsIndexPlaceContainer = styled.div`
   width: 100%;
-  padding-top: 2rem;
-  h2 {
+  .wrapper{
+    width:90%;
+  } h2 {
     @media (max-width: 980px) {
       font-size: 30px;
     }

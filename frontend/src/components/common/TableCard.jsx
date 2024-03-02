@@ -42,33 +42,33 @@ export default function TableCard({ x, type }) {
                   alt=""
                 />
               </div>
-              <h4 className="fs-14 text-bold text-dark">
+              <span className="fs-14 text-dark">
                 {x?.listing_title}
                 <span className="block fs-12 text-grey">{x?._id}</span>
-              </h4>
+              </span>
             </div>
           </td>
           <td>{x?.listing_type}</td>
           <td>
             <div className="flex column">
               <h5 className="fs-10 text-light text-grey">Check In</h5>
-              <h4 className="fs-14 text-bold text-dark">
+              <span className="fs-14 text-dark">
                 November 2023, 15th
                 <span className="fs-10 block text-bold">9:00 pm</span>
-              </h4>
+              </span>
             </div>
           </td>
           <td>
             <div className="flex column">
               <h5 className="fs-10 text-light text-grey">Check Out</h5>
-              <h4 className="fs-14 text-bold text-dark">
+              <span className="fs-14 text-dark">
                 November 2023, 15th
                 <span className="fs-10 block text-bold">9:00 pm</span>
-              </h4>
+              </span>
             </div>
           </td>
           <td>
-            <h4 className="fs-14 text-extra-bold">${x?.listing_price} </h4>
+            <span className="fs-14 text-light">${x?.listing_price} </span>
           </td>
         </tr>
       </>
@@ -103,11 +103,11 @@ export default function TableCard({ x, type }) {
             </div>
           </td>
           {/* title */}
-          <td>
-            <h4 className="fs-16 text-start text-bold text-dark">
+          {/* <td>
+            <span className="fs-16 text-start text-dark">
               {x?.title.substring(0, 140)}
-            </h4>
-          </td>
+            </span>
+          </td> */}
           {/* status */}
           <td>
             <div className="flex fs-14 item-center">
@@ -128,33 +128,33 @@ export default function TableCard({ x, type }) {
           </td>
           <td>
             <div className="flex column">
-              <h4 className="fs-14 text-bold text-dark">{startdate}</h4>
+              <span className="fs-14 text-dark">{startdate}</span>
             </div>
           </td>
           <td>
             <div className="flex column">
-              <h4 className="fs-14 text-bold text-dark">{enddate}</h4>
+              <span className="fs-14 text-dark">{enddate}</span>
             </div>
           </td>
           {/* occupants */}
           <td>
             <div className="flex column">
-              <h4 className="fs-14 text-bold text-dark">
+              <span className="fs-14 text-bold text-dark">
                 <span className="text-light">Adults:</span>
                 {x?.adults}
-              </h4>
-              <h4 className="fs-14 text-bold text-dark">
+              </span>
+              <span className="fs-14 text-bold text-dark">
                 <span className="text-light">Children:</span>
                 {x?.children}
-              </h4>
-              <h4 className="fs-14 text-bold text-dark">
+              </span>
+              <span className="fs-14 text-bold text-dark">
                 <span className="text-light">Infants:</span>
                 {x?.infants}
-              </h4>
+              </span>
             </div>
           </td>
           <td>
-            <h4 className="fs-18 text-extra-bold">${x?.price}</h4>
+            <span className="fs-16 text-light">${x?.price}</span>
           </td>
         </tr>
       </>
@@ -184,24 +184,24 @@ export default function TableCard({ x, type }) {
                   />
                 </div>
               </div>
-              <h4 className="fs-16 text-start text-extra-bold">
+              <span className="fs-16 text-start text-bold">
                 {x?.buyerId?.username}
-                <span className="block text-bold fs-12 text-grey family2">
+                <span className="block fs-12 text-light text-grey">
                   {x?.buyerId?.email.substring(0, 24)}
                 </span>
-              </h4>
+              </span>
             </div>
           </td>
           {/* location */}
-          <td>
+          {/* <td>
             <div style={{ gap: "7px" }} className="flex item-center">
-              <h4 className="fs-14 flex item-center text-start text-extra-bold">
+              <span className="fs-14 flex item-center text-start text-light">
                 {x?.buyerId?.address?.country}
-              </h4>
+              </span>
             </div>
-          </td>
+          </td> */}
           {/* image */}
-          <td>
+          {/* <td>
             <div className="flex item-center gap-1">
               <div
                 style={{ width: "4rem", borderRadius: "10px", height: "3rem" }}
@@ -215,12 +215,12 @@ export default function TableCard({ x, type }) {
                 />
               </div>
             </div>
-          </td>
+          </td> */}
           {/* title */}
           <td>
-            <h4 className="fs-14 text-start text-extra-bold text-dark">
+            <span className="fs-14 text-start text-light text-dark">
               {x?.title.substring(0, 140)}
-            </h4>
+            </span>
           </td>
           {/* status */}
           <td>
@@ -242,16 +242,16 @@ export default function TableCard({ x, type }) {
           </td>
           <td>
             <div className="flex column">
-              <h4 className="fs-14 text-bold text-dark">{startdate}</h4>
+              <span className="fs-14 text-bold text-dark">{startdate}</span>
             </div>
           </td>
           <td>
             <div className="flex column">
-              <h4 className="fs-14 text-bold text-dark">{enddate}</h4>
+              <span className="fs-14 text-bold text-dark">{enddate}</span>
             </div>
           </td>
           <td>
-            <h4 className="fs-18 text-extra-bold">${x?.price}</h4>
+            <span className="fs-18 text-light">${x?.price}</span>
           </td>
         </tr>
       </>
@@ -275,9 +275,9 @@ export default function TableCard({ x, type }) {
                   alt=""
                 />
               </div>
-              <h4 className="text-extra-bold">
+              <span className="fs-14">
                 {x?.listing_Id?.listing_title.substring(0, 50)}
-              </h4>
+              </span>
             </div>
           </td>
           <td>
@@ -299,34 +299,34 @@ export default function TableCard({ x, type }) {
                   />
                 </div>
               </div>
-              <h4 className="fs-16 text-start text-bold">
+              <span className="fs-14 text-start text-bold">
                 {x?.listing_host_Id?.username}
-                <span className="block text-bold fs-12 text-grey family2">
+                <span className="block fs-12 text-grey">
                   {x?.listing_host_Id?.email}
                 </span>
-              </h4>
+              </span>
             </div>
           </td>
           {/* status */}
           {/* bedroom */}
           <td>
-            <h4
+            <span
               style={{ gap: ".1rem" }}
               className="fs-14 flex item-center text-light"
             >
-              <GiSandsOfTime /> In progress
-            </h4>
+              Progress
+            </span>
           </td>
           <td>{reservationstartdate}</td>
           {/* baths */}
           <td>{reservationenddate}</td>
           {/* type */}
           <td>${x?.listing_Id?.listing_price}</td>
-          <td>
-            <h4 className="text-light">
+          {/* <td>
+            <span className="text-light">
               {x?.listing_Id?.listing_location}, {x?.listing_Id?.listing_region}
-            </h4>
-          </td>
+            </span>
+          </td> */}
         </tr>
       </>
     );
@@ -356,24 +356,24 @@ export default function TableCard({ x, type }) {
                 alt=""
               />
             </div>
-            <h4 className="text-extra-bold">{x?.listing_title}</h4>
+            <span className="fs-14 family1">{x?.listing_title}</span>
           </div>
         </td>
         {/* todo */}
-        <td>
+        {/* <td>
           <div className="flex item-start">
             <div className="headBtn text-dark">Finish</div>
           </div>
-        </td>
+        </td> */}
         {/* status */}
         {/* bedroom */}
         <td>
-          <h4
+          <span
             style={{ gap: ".5rem" }}
-            className="fs-16 flex item-center text-light"
+            className="fs-14 flex item-center text-light"
           >
-            <GiSandsOfTime /> In progress
-          </h4>
+            Progress
+          </span>
         </td>
         <td>{x?.listing_bedrooms}</td>
         {/* baths */}
@@ -383,9 +383,9 @@ export default function TableCard({ x, type }) {
         {/* type */}
         <td>${x?.listing_price}</td>
         <td>
-          <h4 className="text-light">
+          <span className="text-light">
             {x?.listing_location}, {x?.listing_region}
-          </h4>
+          </span>
         </td>
       </tr>
     </>

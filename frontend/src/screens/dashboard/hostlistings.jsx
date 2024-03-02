@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import HostListingsIndex from "../../components/dashboard/listings";
+import Footer from "../../components/common/Footer";
 
 export default function HostListings() {
   return (
@@ -12,6 +13,7 @@ export default function HostListings() {
         >
           <HostListingsIndex />
         </div>
+        <Footer />
       </HostListingsPlaceContainer>
     </>
   );
