@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import HostLsitingsIndex from "../../components/dashboard/listings";
+import HostListingsIndex from "../../components/dashboard/listings";
 
 export default function HostListings() {
   return (
@@ -10,7 +10,7 @@ export default function HostListings() {
           style={{ minHeight: "100vh" }}
           className="wrapper w-90 auto flex column gap-1"
         >
-          <HostLsitingsIndex />
+          <HostListingsIndex />
         </div>
       </HostListingsPlaceContainer>
     </>

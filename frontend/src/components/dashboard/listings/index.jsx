@@ -37,8 +37,7 @@ export default function HostLsitingsIndex() {
         <div className="w-90 auto flex column gap-4">
           <div className="flex column gap-1">
             <h3
-              style={{ fontSize: "30px" }}
-              className="fs-30 text-dark text-bold"
+              className="fs-24 family2 text-dark text-bold"
             >
               Welcome back, {userInfo?.firstname}
             </h3>
@@ -47,8 +46,7 @@ export default function HostLsitingsIndex() {
             <div className="flex item-center justify-space w-100">
               <div className="flex item-start column gap-1">
                 <h4
-                  style={{ fontSize: "27px" }}
-                  className="fs-30 text-dark text-bold"
+                  className="fs-20 text-dark text-bold"
                 >
                   Your reservations
                 </h4>

@@ -80,7 +80,7 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 10px 30px;
-        font-size: 15px;
+        font-size: 16px;
         min-height: 60px;
         font-weight: 500;
         margin: 0 auto;
@@ -98,17 +98,11 @@ const SidebarWrapper = styled.div`
           gap:1rem;
         }
 
-        span {
-          /* @media (max-width: 1180px) {
-            display: none;
-          } */
-        }
-
         &:hover {
           background: #f9f9f9;
         }
         svg {
-          font-size: 2rem;
+          font-size: 22px;
         }
         &.active {
           /* position: absolute; */
