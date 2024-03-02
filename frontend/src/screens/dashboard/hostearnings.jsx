@@ -19,8 +19,6 @@ export default function HostEarnings() {
 const HostEarningsPlaceContainer = styled.div`
   width: 100%;
   .wrapper {
-    /* width: 90%; */
+    width: 90%;
   }
-  /* overflow: hidden; */
-  /* min-height: 70vh; */
 `;

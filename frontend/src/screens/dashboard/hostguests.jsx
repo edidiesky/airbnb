@@ -18,6 +18,6 @@ export default function HostGuests() {
 const HostGuestsPlaceContainer = styled.div`
   width: 100%;
   .wrapper {
-    width: 90%;
+    width: 91%;
   }
 `;
