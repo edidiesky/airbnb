@@ -492,7 +492,7 @@ const HeaderWrapper = styled.div`
   }
   .headertop1 {
     display: none;
-    padding: 0.7rem 0;
+    padding: 1rem 0;
     @media (max-width: 780px) {
       padding: 0.4rem 0;
     }
