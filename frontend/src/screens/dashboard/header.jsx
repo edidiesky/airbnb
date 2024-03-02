@@ -3,12 +3,9 @@ import "./index.css";
 import styled from "styled-components";
 import { FiKey } from "react-icons/fi";
 import { HiUsers } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
 import { BsCalendar3 } from "react-icons/bs";
 import { MdDashboard, MdAddBusiness, MdSettings } from "react-icons/md";
 import { FaPen, FaUsers } from "react-icons/fa";
-import Heart from "../../components/common/svg/heart";
-import Logo from "../../components/common/svg/Logo";
 import { BiSearch } from "react-icons/bi";
 
 const HeaderWrapper = styled.div`
