@@ -86,9 +86,9 @@ body {
   --grey-2: #f7f7f7;
 }
 
-/* html {
+html {
   font-size: 62.5%;
-} */
+}
 
 .family1 {
   font-family: "Barlow", sans-serif;
@@ -485,6 +485,9 @@ p {
   .w-90 {
     width: 95%;
   }
+  html {
+  font-size: 50%;
+}
 }
 
 @media (max-width: 580px) {

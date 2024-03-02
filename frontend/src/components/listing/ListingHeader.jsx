@@ -32,7 +32,7 @@ export default function ListingHeader({ type }) {
     return (
       <>
         <ListingHeaderContainer className="type">
-          <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
+          {/* <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
             <Link to={"/"}>
               <Logo2 />
             </Link>
@@ -89,7 +89,7 @@ export default function ListingHeader({ type }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </ListingHeaderContainer>
       </>
     );

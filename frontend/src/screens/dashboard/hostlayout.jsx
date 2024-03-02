@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import ListingHeader from "../../components/listing/ListingHeader";
+import Sidebar from "../../components/dashboard/common/Sidebar";
 const LayoutWrapper = styled.div`
   background: #fff;
   height: 100vh;
@@ -11,12 +12,21 @@ const LayoutWrapper = styled.div`
 
   .LayoutContainer {
     width: 100%;
-    font-family: inherit;
     .OutletWrapper {
-      width: 100%;
-      @media (max-width: 980px) {
-        transform: translateY(0);
-        z-index: 9000;
+      overflow: auto;
+      height: 100vh;
+      align-items: flex-start;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      width: auto;
+      @media (max-width: 580px) {
+        height: 100vh;
+      }
+      .sidebar_wrapper {
+        top: 0%;
+        height: 100%;
+        position: sticky;
+        overflow: auto;
+        width: 320px;
       }
     }
   }
@@ -35,9 +45,14 @@ export default function HostLayout() {
     <LayoutWrapper>
       {/* <Header /> */}
       <div className="LayoutContainer">
-        <ListingHeader type={'dashboard'}/>
-        <div className="OutletWrapper flex column">
-          <Outlet />
+        <div className="OutletWrapper flex">
+          <div className="sidebar_wrapper">
+            <Sidebar />
+          </div>
+          <div className="w-100 flex column gap-2">
+            <ListingHeader type={"dashboard"} />
+            <Outlet />
+          </div>
         </div>
       </div>
     </LayoutWrapper>
