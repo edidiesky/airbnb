@@ -57,11 +57,11 @@ export default function HostReservationsIndex() {
             <div className="top_center flex column gap-3 item-start">
               <h2
                 style={{ fontWeight: "700" }}
-                className="fs-35 text-start text-extra-bold"
+                className="fs-35 family2 text-start text-extra-bold"
               >
                 Reservations
                 <span
-                  className="fs-18 flex item-center"
+                  className="fs-18 family1 py-1 text-light flex item-center"
                   style={{ gap: ".2rem" }}
                 >
                   All listings <IoMdArrowDropdown fontSize={"20px"} />
@@ -72,7 +72,9 @@ export default function HostReservationsIndex() {
                   className="w-85 auto flex item-center column justify-center"
                   style={{ gap: ".3rem" }}
                 >
-                  <h4 className="fs-20">You have no upcoming reservations</h4>
+                  <h4 className="fs-20 family1 text-bold">
+                    You have no upcoming reservations
+                  </h4>
                 </div>
               </div>
             </div>
