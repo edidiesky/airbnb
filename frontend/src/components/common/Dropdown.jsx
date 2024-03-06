@@ -58,12 +58,12 @@ const Dropdown = ({ setDrop, drop, type }) => {
             }}
             className="w-100 flex column"
           >
-            <Link
+            {/* <Link
               className="w-100 li fs-14 text-bold text-dark"
               to={"/dashboard/hosting"}
             >
               Manage Listings
-            </Link>
+            </Link> */}
 
             <Link
               className="w-100 li fs-14 text-bold text-dark"
@@ -93,31 +93,16 @@ const Dropdown = ({ setDrop, drop, type }) => {
             <li
               onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "14.5px" }}
-              className=" li fs-14 text-light li text-bold-100"
+              className=" li fs-14 text-bold li text-bold-100"
             >
               Sign in
             </li>
             <li
               onClick={() => dispatch(onAuthModal())}
               style={{ fontSize: "14.5px" }}
-              className="li fs-14 text-light li text-bold dark w-100"
+              className="li fs-14 text-bold li text-bold dark w-100"
             >
               Sign up
-            </li>
-          </div>
-          <div
-            style={{
-              borderTop: "1px solid rgba(0,0,0,.1)",
-              padding: ".3rem 0",
-            }}
-            className="w-100"
-          >
-            <li
-              onClick={() => dispatch(onAuthModal())}
-              style={{ fontSize: "12px" }}
-              className="li fs-14 text-light li w-100"
-            >
-              Airbnb Your Home
             </li>
           </div>
         </div>

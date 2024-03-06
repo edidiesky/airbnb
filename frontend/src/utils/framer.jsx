@@ -103,32 +103,32 @@ export const dropin1 = {
   },
   visible: {
     scale: 1,
-    top: "70%",
+    top: "100%",
     opacity: 1,
     visibility: "visible",
   },
   exit: {
     scale: 0,
-    top: "70%",
+    top: "100%",
     opacity: 0,
   },
 };
 export const dropin2 = {
   hidden: {
    scale:0,
-   top:"45%",
+   top:"75%",
     opacity: 0,
     visibility: "hidden",
   },
   visible: {
    scale:1,
-   top:"45%",
+   top:"75%",
     opacity: 1,
     visibility: "visible",
   },
   exit: {
    scale:0,
-   top:"45%",
+   top:"75%",
     opacity: 0,
   },
 };

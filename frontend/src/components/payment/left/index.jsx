@@ -126,10 +126,10 @@ export default function SingleLeftIndex({ id }) {
     price: parseFloat((orderPayment * 100).toFixed(0)),
     title: ReservationsDetails?.listing_Id?.listing_title,
     quantity: 1,
-    startDate: moment(daterange.selection.startDate).format(
+    startDate: moment(daterange.selection.startDate, "DD/MM/YYYY").format(
       "Do MMM YYYY, h:mm:ss a"
     ),
-    endDate: moment(ReservationsDetails?.endDate).format(
+    endDate: moment(ReservationsDetails?.endDate, "DD/MM/YYYY").format(
       "MMMM Do YYYY, h:mm:ss a"
     ),
   };

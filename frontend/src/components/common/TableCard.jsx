@@ -11,10 +11,10 @@ export default function TableCard({ x, type }) {
   let enddate = moment(x?.endDate);
   enddate = enddate.format("MMMM Do YYYY");
 
-  let reservationstartdate = moment(x?.startDate);
+  let reservationstartdate = moment(x?.startDate, "DD/MM/YYYY");
   reservationstartdate = reservationstartdate.format("MMMM Do YYYY");
 
-  let reservationenddate = moment(x?.endDate);
+  let reservationenddate = moment(x?.endDate, "DD/MM/YYYY");
   reservationenddate = reservationenddate.format("MMMM Do YYYY");
 
   if (type === "guests") {
@@ -100,6 +100,9 @@ export default function TableCard({ x, type }) {
                   alt=""
                 />
               </div>
+              <span className="fs-16 text-start text-dark">
+                {x?.title.substring(0, 140)}
+              </span>
             </div>
           </td>
           {/* title */}
@@ -128,12 +131,12 @@ export default function TableCard({ x, type }) {
           </td>
           <td>
             <div className="flex column">
-              <span className="fs-14 text-dark">{startdate}</span>
+              <span className="fs-14 text-dark">{x?.startDate}</span>
             </div>
           </td>
           <td>
             <div className="flex column">
-              <span className="fs-14 text-dark">{enddate}</span>
+              <span className="fs-14 text-dark">{x?.endDate}</span>
             </div>
           </td>
           {/* occupants */}

@@ -43,8 +43,8 @@ const UsreOrderIndex = () => {
             <table className="tableWrapper">
               <thead>
                 <tr>
-                  <th>Rooms Image</th>
-                  <th>Rooms Title</th>
+                  <th>Rooms Info</th>
+                  {/* <th>Rooms Title</th> */}
                   <th>Status</th>
                   <th>Paid</th>
                   <th>Check In</th>
