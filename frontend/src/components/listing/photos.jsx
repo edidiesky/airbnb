@@ -5,7 +5,7 @@ import styled from "styled-components";
 import FooterHosting from "./footer";
 import { categorydata } from "../../data/category";
 import Upload from "../common/svg/upload";
-import UploadImageCard from "./uploadimagecard";
+  import UploadImageCard from "./uploadimagecard";
 import LoaderIndex from "../loaders";
 import { useDispatch } from "react-redux";
 import { handleListingImage } from "../../Features/listing/listingSlice";
@@ -34,7 +34,11 @@ export default function PhotosofPlace() {
           "Content-Type": "multipart/form-data",
         },
       };
-      const { data } = await axios.post("/api/v1/upload", formData, config);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/upload`,
+        formData,
+        config
+      );
 
       setUploadImage(data.urls);
       dispatch(handleListingImage(data.urls));
