@@ -8,8 +8,6 @@ import {
   Layout,
   Home,
   Single,
-  // Login,
-  // Register,
   ProtectRoute,
   Wish,
   Overview,
